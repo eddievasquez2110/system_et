@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Equipo extends Model
 {
     use HasFactory;
-    public function tipo_equipo() {
-        return $this->belongsTo(Tipo_Equipo::class);
+    public function tipo_equipos() {
+        return $this->hasOne(Tipo_Equipo::class);
     }
 }
