@@ -9,6 +9,9 @@ class Equipo extends Model
 {
     use HasFactory;
     public function tipo_equipo() {
-        return $this->belongsTo(Tipo_Equipo::class);
+        return $this->HasOne(Tipo_Equipo::class);
+    }
+    public function especificacion() {
+        return $this->HasOne(Especificacion::class);
     }
 }
