@@ -7,9 +7,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-____________________________________________________________________________________________________________________________-
+____________________________________________________________________________________________________________________________
 
 <h1 align="center"> SISTEMA DE ESPECIFICACIONES TECNICAS </h1>
-____________________________________________________________________________________________________________________________-
 
-    Este sistema será implementado en la Oficina de Informacion y Comunicaciones de la Universidad Nacional del Centro del Perú
+____________________________________________________________________________________________________________________________
+
+ 
+ >Este sistema será implementado en la Oficina de Informacion y Comunicaciones de la Universidad Nacional del Centro del Perú
