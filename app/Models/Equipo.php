@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tipo_Equipo extends Model
+class Equipo extends Model
 {
     use HasFactory;
-    public function equipo() {
-        return $this->belongsTo(Equipo::class);
+    public function tipo_equipo() {
+        return $this->belongsTo(Tipo_Equipo::class);
     }
 }
