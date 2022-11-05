@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('solicitud__detalles', function (Blueprint $table) {
             $table->id('ID_SolicitudDetalle');
-            //$table->foreignId('ID_Solicitud')->constrained()->cascadeOnDelete();
-            //$table->foreignId('ID_Equipo')->constrained()->cascadeOnDelete();
-            //$table->foreignId('ID_Software')->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger('ID_Solicitud');
+            $table->foreign('ID_Solicitud')->references('ID_Solicitud')->on('Solicituds');
+            $table->unsignedBigInteger('ID_Equipo');
+            $table->foreign('ID_Equipo')->references('ID_Equipo')->on('Equipos');
             $table->String('Descripcion_SolicitudDetalle', 45);
             $table->timestamps();
             //$table->engine = 'InnoDB';
