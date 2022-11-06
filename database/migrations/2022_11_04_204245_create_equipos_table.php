@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreign('ID_Tipo_Equipo')->references('ID_Tipo_Equipo')->on('tipo__equipos');
             $table->unsignedBigInteger('ID_Especificacion');
             $table->foreign('ID_Especificacion')->references('ID_Especificacion')->on('especificacions');
-            $table->string('Nombre_equipo');
-            $table->string('Uso_Equipo');
+            $table->string('Nombre_Equipo',50);
+            $table->string('Uso_Equipo',30);
             $table->timestamps();
         });
     }
