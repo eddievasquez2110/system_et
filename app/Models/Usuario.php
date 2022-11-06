@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Especificacion extends Model
+class Usuario extends Model
 {
     use HasFactory;
 
-    public function Equipo() {
-        return $this->belongsTo(Equipo::class);
+    public function roles() {
+        return $this->hasOne(Rol::class);
     }
 }
