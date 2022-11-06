@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('software', function (Blueprint $table) {
             $table->id('ID_Software');
-            // $table->foreignId('ID_Version')->constrained('ID_Version')->cascadeOnDelete('ID_Version');
+            
             $table->unsignedBigInteger('ID_Version');
             $table->foreign('ID_Version')->references('ID_Version')->on('versions');
             $table->unsignedBigInteger('ID_Especificacion');
