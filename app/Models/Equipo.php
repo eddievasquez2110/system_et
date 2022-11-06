@@ -14,4 +14,7 @@ class Equipo extends Model
     public function especificacion() {
         return $this->HasOne(Especificacion::class);
     }
+    public function solicitud_detalle() {
+        return $this->belongsTo(Solicitud_Detalle::class);
+    }
 }
