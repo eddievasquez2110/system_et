@@ -9,11 +9,11 @@ class Solicitud extends Model
 {
     use HasFactory;
 
-    public function SolicitudDetalle() {
-        return $this->belongsTo(Solicitud_Detalle::class);
+    public function usuario() {
+        return $this->hasone(Usuario::class);
     }
 
-    public function usuario() {
-        return $this->hasOne(Usuario::class);
+    public function solicitud_detalle() {
+        return $this->belongsTo(Solicitud_Detalle::class);
     }
 }

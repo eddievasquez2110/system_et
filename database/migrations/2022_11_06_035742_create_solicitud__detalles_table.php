@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('solicitud__detalles', function (Blueprint $table) {
             $table->id('ID_SolicitudDetalle');
-           /* $table->unsignedBigInteger('ID_Solicitud');
+           $table->unsignedBigInteger('ID_Solicitud');
             $table->foreign('ID_Solicitud')->references('ID_Solicitud')->on('Solicituds');
             $table->unsignedBigInteger('ID_Equipo');
-            $table->foreign('ID_Equipo')->references('ID_Equipo')->on('Equipos');*/
+            $table->foreign('ID_Equipo')->references('ID_Equipo')->on('Equipos');
             $table->String('Descripcion_SolicitudDetalle', 45);
             $table->timestamps();
-            //$table->engine = 'InnoDB';
+            $table->engine = 'InnoDB';
         });
     }
 
