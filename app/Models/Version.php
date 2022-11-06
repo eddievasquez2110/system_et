@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Version extends Model
 {
     use HasFactory;
+
+    public function Software() {
+        return $this->belongsTo(Software::class);
+    }
 }

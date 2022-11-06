@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('software', function (Blueprint $table) {
+        Schema::create('softwares', function (Blueprint $table) {
             $table->id('ID_Software');
             
             $table->unsignedBigInteger('ID_Version');
             $table->foreign('ID_Version')->references('ID_Version')->on('versions');
             $table->unsignedBigInteger('ID_Especificacion');
             $table->foreign('ID_Especificacion')->references('ID_Especificacion')->on('especificacions');
-            $table->string('Name_Software');
-            $table->string('Descripcion_Software');
+            $table->string('Nombre_Software',45);
+            $table->string('Descripcion_Software',45);
             $table->timestamps();
         });
     }

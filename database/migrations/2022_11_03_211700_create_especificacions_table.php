@@ -15,24 +15,25 @@ return new class extends Migration
     {
         Schema::create('especificacions', function (Blueprint $table) {
             $table->id('ID_Especificacion');
-            $table->string('Procesador_Esp');
-            $table->string('MemoriaRAM_Esp');
-            $table->string('DiscDuro_Esp');
-            $table->string('TVideo_Esp');
-            $table->string('SistemaOp_Esp');
-            $table->string('VelocidadProc_Esp');
-            $table->string('TamañoPantalla_Esp');
-            $table->string('ResolucionPantalla_Esp');
-            $table->string('CamaraWeb_Microfono_Esp');
-            $table->integer('LectorTMemoria_Esp');
-            $table->integer('PuertoRJ45_Esp');
-            $table->integer('PuertoHDMI_Esp');
-            $table->integer('PuertoUSB_Esp');
-            $table->integer('Wifi_Esp');
-            $table->integer('ConectBluetooth_Esp');
-            $table->integer('PuertoC_Esp');
-            $table->integer('SuiteInformatica_Esp');
-            $table->integer('TecladoMouse_Esp');
+            $table->string('Procesador_Esp',45);
+            $table->string('MemoriaRAM_Esp',45);
+            $table->string('DiscDuro_Esp',45);
+            $table->string('TVideo_Esp',45);
+            $table->string('SistemaOp_Esp',45);
+            $table->string('VelocidadProc_Esp',45);
+            $table->string('TamañoPantalla_Esp',45);
+            $table->string('ResolucionPantalla_Esp',45);
+            $table->string('CamaraWeb_Microfono_Esp',45);
+            $table->tinyInteger('LectorTMemoria_Esp');
+            $table->tinyInteger('PuertoRJ45_Esp');
+            $table->tinyInteger('PuertoHDMI_Esp');
+            $table->tinyInteger('PuertoUSB_Esp');
+            $table->tinyInteger('Wifi_Esp');
+            $table->tinyInteger('ConectBluetooth_Esp');
+            $table->tinyInteger('PuertoC_Esp');
+            $table->tinyInteger('SuiteInformatica_Esp');
+            $table->tinyInteger('TecladoMouse_Esp');
+            $table->String('Estado_Esp',30);
             $table->timestamps();
         });
     }

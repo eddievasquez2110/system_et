@@ -9,7 +9,13 @@ class Usuario extends Model
 {
     use HasFactory;
 
-    public function roles() {
+    public function Rol() {
         return $this->hasOne(Rol::class);
+    }
+    public function Oficina() {
+        return $this->hasOne(Oficina::class);
+    }
+    public function Solicitud(){
+        return $this->belongsTo(Solicitud::class);
     }
 }

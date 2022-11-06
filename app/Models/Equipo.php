@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Equipo extends Model
 {
     use HasFactory;
-    public function tipo_equipo() {
+    public function Tipo_equipo() {
         return $this->HasOne(Tipo_Equipo::class);
     }
-    public function especificacion() {
+    public function Especificacion() {
         return $this->HasOne(Especificacion::class);
     }
-    public function solicitud_detalle() {
+    public function Solicitud_Detalle() {
         return $this->belongsTo(Solicitud_Detalle::class);
     }
 }

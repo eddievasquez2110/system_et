@@ -9,7 +9,10 @@ class Software extends Model
 {
     use HasFactory;
 
-    // public function version(){
-    //     return $this->hasMany(Version::class);
-    // }
+    public function Version(){
+         return $this->hasOne(Version::class);
+    }
+    public function Especificacion(){
+        return $this->hasMany(Especificacion::class);
+   }
 }

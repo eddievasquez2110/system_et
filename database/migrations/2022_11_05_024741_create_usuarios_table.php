@@ -19,9 +19,9 @@ return new class extends Migration
             $table->foreign('ID_Rol')->references('ID_Rol')->on('rols');
             $table->unsignedBigInteger('ID_Oficina');
             $table->foreign('ID_Oficina')->references('ID_Oficina')->on('oficinas');
-            $table->string('Correo_Usuario');
-            $table->string('Contrasenia_Usuario');
-            $table->string('Estado_Usuario');
+            $table->string('Correo_Usuario',50);
+            $table->string('Contrasenia_Usuario',50);
+            $table->string('Estado_Usuario',30);
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('versions', function (Blueprint $table) {
             $table->id('ID_Version');
             $table->string('Nombre_Version');
-            $table->date('Anio_Version');
+            $table->dateTime('Anio_Version');
             $table->timestamps();
         });
     }

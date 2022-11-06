@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id('ID_Solicitud');
             $table->unsignedBigInteger('ID_Usuario');
             $table->foreign('ID_Usuario')->references('ID_Usuario')->on('usuarios');
-            $table->date('Fecha_Solicitud');
-            $table->string('Estado_Solicitud');
+            $table->dateTime('Fecha_Solicitud');
+            $table->string('Estado_Solicitud',30);
+            $table->timestamps();
         });
     }
 

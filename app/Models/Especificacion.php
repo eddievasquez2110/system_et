@@ -12,4 +12,5 @@ class Especificacion extends Model
     public function Equipo() {
         return $this->belongsTo(Equipo::class);
     }
+    
 }

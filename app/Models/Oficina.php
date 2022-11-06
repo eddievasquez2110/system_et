@@ -9,7 +9,7 @@ class Oficina extends Model
 {
     use HasFactory;
     
-    public function usuario() {
+    public function Usuario() {
         return $this->belongsTo(Usuario::class);
     }
 }
