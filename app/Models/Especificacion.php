@@ -8,9 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Especificacion extends Model
 {
     use HasFactory;
-
-    public function Equipo() {
-        return $this->belongsTo(Equipo::class);
-    }
-    
 }

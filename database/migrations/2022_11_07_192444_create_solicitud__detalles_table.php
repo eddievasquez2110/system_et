@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreign('ID_Solicitud')->references('ID_Solicitud')->on('solicituds');
             $table->unsignedBigInteger('ID_Equipo');
             $table->foreign('ID_Equipo')->references('ID_Equipo')->on('equipos');
+            $table->unsignedBigInteger('ID_Software');
+            $table->foreign('ID_Software')->references('ID_Software')->on('softwares');
             $table->String('Descripcion_SolicitudDetalle', 45);
             $table->timestamps();
         });
