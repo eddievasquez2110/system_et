@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Especificacion_Software extends Model
 {
     use HasFactory;
+    protected $table = "especificacion__softwares";
 }
