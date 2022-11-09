@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('especificacions', function (Blueprint $table) {
             $table->id('ID_Especificacion');
-            $table->foreign('ID_Uso_Equipo')->references('ID_Uso_Equipo')->on('uso__equipos');
+            $table->foreign('ID_Uso_Equipo')->references('ID_Uso_Equipo')->on('uso__equipos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('ID_Uso_Equipo');
             $table->string('Ord_Procesador',45)->nullable();
             $table->string('Ord_MemoriaRAM',45)->nullable();

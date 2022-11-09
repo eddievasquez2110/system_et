@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('equipos', function (Blueprint $table) {
             $table->id('ID_Equipo');
             $table->unsignedBigInteger('ID_Tipo_Equipo');
-            $table->foreign('ID_Tipo_Equipo')->references('ID_Tipo_Equipo')->on('tipo__equipos');
+            $table->foreign('ID_Tipo_Equipo')->references('ID_Tipo_Equipo')->on('tipo__equipos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('ID_Especificacion');
-            $table->foreign('ID_Especificacion')->references('ID_Especificacion')->on('especificacions');
+            $table->foreign('ID_Especificacion')->references('ID_Especificacion')->on('especificacions')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('Nombre_Equipo',50);
             $table->timestamps();
         });

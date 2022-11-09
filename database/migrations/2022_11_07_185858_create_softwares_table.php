@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('softwares', function (Blueprint $table) {
             $table->id('ID_Software');
             $table->unsignedBigInteger('ID_Version');
-            $table->foreign('ID_Version')->references('ID_Version')->on('versions');
+            $table->foreign('ID_Version')->references('ID_Version')->on('versions')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('ID_Especificacion_Software');
-            $table->foreign('ID_Especificacion_Software')->references('ID_Especificacion_Software')->on('especificacion__softwares');
+            $table->foreign('ID_Especificacion_Software')->references('ID_ESpecificacion_Software')->on('especificacion__softwares')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('Nombre_Software',45);
             $table->string('Descripcion_Software',45);
             $table->timestamps();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('software');
+        Schema::dropIfExists('softwares');
     }
 };

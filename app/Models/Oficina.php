@@ -8,8 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Oficina extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'Nombre_Oficina',
+        'Cargo_Oficina',
+    ];
+
+    protected $hidden = [
+        'Nombre_Oficina',
+    ];
     
     public function Usuario() {
         return $this->belongsTo(Usuario::class);
     }
+
+    public $timestamps = true;
+
+
 }
