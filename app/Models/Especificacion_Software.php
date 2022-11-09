@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Especificacion_Software extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+
+        'Procesador',
+        'SistemaOperativo',
+        'TamañoAlmacenamiento',
+        'MemoriaRAM',
+        'TarjetaVideo',
+    ];
 }
