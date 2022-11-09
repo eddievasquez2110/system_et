@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id('ID_Usuario');
             $table->unsignedBigInteger('ID_Rol');
-            $table->foreign('ID_Rol')->references('ID_Rol')->on('rols');
+            $table->foreign('ID_Rol')->references('ID_Rol')->on('rols')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('ID_Oficina');
-            $table->foreign('ID_Oficina')->references('ID_Oficina')->on('oficinas');
+            $table->foreign('ID_Oficina')->references('ID_Oficina')->on('oficinas')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('Correo_Usuario',50);
             $table->string('Contrasenia_Usuario',50);
             $table->string('Estado_Usuario',30);
