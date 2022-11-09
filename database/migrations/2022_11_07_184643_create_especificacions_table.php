@@ -91,7 +91,7 @@ return new class extends Migration
             $table->string('PantInter_RelacionContraste')->nullable();
             $table->integer('PantInter_EntradaHDMI_VGA')->nullable();
             $table->Integer('PantInter_EntradaUSB')->nullable();
-            $table->tinyInteger('PantInter_SalidaAudio')->nullable();
+            $table->Integer('PantInter_SalidaAudio')->nullable();
             $table->tinyInteger('PantInter_EntradaRS232')->nullable();
             $table->tinyInteger('PantInter_EntradaRJ45')->nullable();
             $table->tinyInteger('PantInter_Wifi')->nullable();
@@ -113,7 +113,7 @@ return new class extends Migration
             $table->string('Tablet_CamaraPrincipal')->nullable();
             $table->string('Tablet_CamaraFrontal')->nullable();
 
-            $table->string('Estado_Especificacion',20);
+            $table->string('Estado_Especificacion',20)->nullable();
             $table->timestamps();
         });
     }
