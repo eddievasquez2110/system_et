@@ -91,7 +91,8 @@ return new class extends Migration
             $table->string('PantInter_RelacionContraste')->nullable();
             $table->integer('PantInter_EntradaHDMI_VGA')->nullable();
             $table->Integer('PantInter_EntradaUSB')->nullable();
-            $table->Integer('PantInter_SalidaAudio')->nullable();
+            $table->string('PantInter_SalidaAudio')->nullable();
+            $table->tinyInteger('PantInter_SalidaVideo')->nullable();
             $table->tinyInteger('PantInter_EntradaRS232')->nullable();
             $table->tinyInteger('PantInter_EntradaRJ45')->nullable();
             $table->tinyInteger('PantInter_Wifi')->nullable();
