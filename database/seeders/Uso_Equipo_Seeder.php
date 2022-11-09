@@ -25,5 +25,9 @@ class Uso_Equipo_Seeder extends Seeder
         $uso_equipo2 = new Uso_Equipo();
         $uso_equipo2->Nombre_Uso_Equipo="Uso de Procesamiento Grafico";
         $uso_equipo2->save();
+
+        $uso_equipo3 = new Uso_Equipo();
+        $uso_equipo3->Nombre_Uso_Equipo="Uso General ";
+        $uso_equipo3->save();
     }
 }
