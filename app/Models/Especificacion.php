@@ -10,6 +10,7 @@ class Especificacion extends Model
     use HasFactory;
 
     protected $fillable = [
+        'ID_Uso_Equipo',
         'Ord_Procesador',
         'Ord_MemoriaRAM',
         'Ord_DiscDuro',
@@ -18,14 +19,14 @@ class Especificacion extends Model
         'Ord_VelocidadProc',
         'Ord_TamañoPantalla',
         'Ord_CamaraWebMicrofono',
-        'Ord_LectorTMemoria',//
-        'ord_PuertoRJ45',//
-        'Ord_PuertoHDMI',//
-        'Ord_PuertoUSB',//
-        'Ord_Wifi',//
-        'Ord_ConectBluetooth',//
-        'Ord_PuertoTipoC',//
-        'Ord_SuiteInformatica',//
+        'Ord_LectorTMemoria',
+        'ord_PuertoRJ45',
+        'Ord_PuertoHDMI',
+        'Ord_PuertoUSB',
+        'Ord_Wifi',
+        'Ord_ConectBluetooth',
+        'Ord_PuertoTipoC',
+        'Ord_SuiteInformatica',
         //ADD CPU
         'Ord_PuertoHDMIyVGA_PuertoHDMIyDP',
         'Ord_ConectBluetoothOpc',
