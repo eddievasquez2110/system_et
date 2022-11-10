@@ -9,4 +9,10 @@ class Equipo extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'ID_Tipo_Equipo',
+        'ID_Especificacion',
+        'Nombre_Equipo',
+    ];
+
 }

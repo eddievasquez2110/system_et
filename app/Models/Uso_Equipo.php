@@ -13,7 +13,4 @@ class Uso_Equipo extends Model
         'Nombre_Uso_Equipo',
     ];
 
-    public function Esp_Ordenador() {
-        return $this->belongsTo(Esp_Ordenador::class);
-    }
 }
