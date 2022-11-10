@@ -12,8 +12,4 @@ class Tipo_Equipo extends Model
     protected $fillable = [
         'Nombre_Tipo_Equipo',
     ];
-
-    public function Equipo() {
-        return $this->belongsTo(Equipo::class);
-    }
 }
