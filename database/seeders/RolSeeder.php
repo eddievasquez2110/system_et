@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Rol;
 
+
 class RolSeeder extends Seeder
 
 {
@@ -27,6 +28,8 @@ class RolSeeder extends Seeder
         $rol = Rol::create([
             'Nombre_Rol' => 'Usuario',
         ]);
-       
+
+
+
     }
 }

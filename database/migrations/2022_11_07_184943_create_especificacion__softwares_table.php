@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('especificacion__softwares', function (Blueprint $table) {
-            $table->id('ID_ESpecilmacenamiento')->nullable();
-            $table->String('Memoriaficacion_Software');
+            $table->id('ID_Especificacion_Software');
+            $table->String('Memoriaficacion_Software')->nullable();
             $table->String('Procesador')->nullable();
             $table->String('SistemaOperativo')->nullable();
             $table->String('TamañoARAM')->nullable();

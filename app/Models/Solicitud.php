@@ -10,15 +10,8 @@ class Solicitud extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'Fecha_Solicitud',
         'Estado_Solicitud',
     ];
-
-    public function Usuario() {
-        return $this->hasone(Usuario::class);
-    }
-
-    public function Solicitud_Detalle() {
-        return $this->belongsTo(Solicitud_Detalle::class);
-    }
 }
