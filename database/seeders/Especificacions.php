@@ -2,21 +2,22 @@
 
 namespace Database\Seeders;
 
+use App\Models\Especificacion;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\DB;
 
 class Especificacions extends Seeder
 {
 
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
-        DB::table('especificacions')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
+        // DB::table('especificacions')->truncate();
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
         
         //laptop
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '1',
             'Ord_Procesador' => 'Intel Core i5 - 10va generación',
             'Ord_MemoriaRam' => '8 GB DDR4',
@@ -36,7 +37,7 @@ class Especificacions extends Seeder
             'Ord_SuiteInformatica' => '0',
         ]);
 
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '2',
             'Ord_Procesador' => 'Intel Core i7 - 10va generación',
             'Ord_MemoriaRam' => '8 GB DDR4',
@@ -56,7 +57,7 @@ class Especificacions extends Seeder
             'Ord_SuiteInformatica' => '0',
         ]);
 
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '3',
             'Ord_Procesador' => 'Intel Core i7 - 10va generación',
             'Ord_MemoriaRam' => '16 GB DDR4',
@@ -77,7 +78,7 @@ class Especificacions extends Seeder
         ]);
 
         // cpu
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '1',
             'Ord_Procesador' => 'Intel Core i5 - 10va generación',
             'Ord_MemoriaRam' => '8 GB DDR4',
@@ -95,7 +96,7 @@ class Especificacions extends Seeder
             'Ord_TecladoMouse' => '1',
         ]);
 
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '2',
             'Ord_Procesador' => 'Intel Core i7 - 10va generación',
             'Ord_MemoriaRam' => '8 GB DDR4',
@@ -113,7 +114,7 @@ class Especificacions extends Seeder
             'Ord_TecladoMouse' => '1',
         ]);
 
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '3',
             'Ord_Procesador' => 'Intel Core i7 - 10va generación',
             'Ord_MemoriaRam' => '16 GB DDR4',
@@ -132,7 +133,7 @@ class Especificacions extends Seeder
         ]);
 
         //Monitor
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'Mon_TamañoPantalla' => '23"-25"',
             'Mon_CamaraWebPantalla' => 'Integrado',
@@ -145,7 +146,7 @@ class Especificacions extends Seeder
 	    ]);
 
         //Impresora byn
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'ImpBn_Funciones' => 'Impresión, copia, escaneado, fax',
             'ImpBn_VelocidadImpresion' => '22 – 32ppm',
@@ -160,7 +161,7 @@ class Especificacions extends Seeder
         ]);
 
         //IMPRESORA A COLOR
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'ImpColor_TecnologiaImpresion' => 'Sistema Continuo',
             'ImpColor_InyeccionTinta' => '4 Colores (CMYK)',
@@ -174,7 +175,7 @@ class Especificacions extends Seeder
             ]);
 
         //PROYECTOR
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'Proyec_Resolucion' => 'Nativa Wuxga 1920 X 1200',
             'Proyec_Tipo' => '(Según necesidad)',
@@ -188,7 +189,7 @@ class Especificacions extends Seeder
         ]);
 
         //Pantalla interactiva
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'PantInter_TamañoDiagonal' => '65"-80"',
             'PantInter_Tipo' => 'Touch Tactil',
@@ -207,7 +208,7 @@ class Especificacions extends Seeder
         ]);
 
         //Disco duro
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'DiscDuro_CapacidadAlmacenamiento' => '1tb-2tb',
             'DiscDuro_Tipo' => 'HDD',
@@ -217,7 +218,7 @@ class Especificacions extends Seeder
         ]);
 
         //Tablet
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'Tablet_Pantalla' => '7" - 12"',
             'Tablet_Procesador' => 'Octacore Velocidad entre 1.4 Ghz y 2.8Ghz',
@@ -232,7 +233,7 @@ class Especificacions extends Seeder
         //Otros registros
 
         //Monitor
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'Mon_TamañoPantalla' => '23" - 25"',
             'Mon_CamaraWebPantalla' => 'No Integrado',
@@ -244,7 +245,7 @@ class Especificacions extends Seeder
             'Mon_DisplayPort' => 'Opcional',
         ]);
         
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'Mon_TamañoPantalla' => '23"-25"',
             'Mon_CamaraWebPantalla' => 'Integrado',
@@ -257,7 +258,7 @@ class Especificacions extends Seeder
         ]);
 
         // Impresora byn
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'ImpBn_Funciones' => 'Impresión, copia, escaneado, fax',
             'ImpBn_VelocidadImpresion' => '22 – 32ppm',
@@ -271,7 +272,7 @@ class Especificacions extends Seeder
             'ImpBn_TipoEscaner' => 'Cama plana, alimentador automático de documentos (ADF)',
         ]);
 
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'ImpBn_Funciones' => 'Impresión, copia, escaneado, fax',
             'ImpBn_VelocidadImpresion' => '22 – 32ppm',
@@ -286,7 +287,7 @@ class Especificacions extends Seeder
         ]);
 
         //Impresora color
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'ImpColor_TecnologiaImpresion' => 'Chorro de Tinta',
             'ImpColor_InyeccionTinta' => 'De color (CMY), Tintes de color negro(kd), Pigmentos negros(kp)',
@@ -300,7 +301,7 @@ class Especificacions extends Seeder
         ]);
 
         //Proyector
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'Proyec_Resolucion' => 'PowerLite S17:800 × 600 píxeles (SVGA)',
             'Proyec_Tipo' => '(Según necesidad)',
@@ -313,7 +314,7 @@ class Especificacions extends Seeder
             'Proyec_VidaUtilLampara' => 'Minimo 10000 hrs.'
         ]);
 
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'Proyec_Resolucion' => 'PowerLite W17:1280 × 800 píxeles (WXGA)',
             'Proyec_Tipo' => '(Según necesidad)',
@@ -327,7 +328,7 @@ class Especificacions extends Seeder
         ]);
 
         //tablet
-        DB::table('especificacions')->insert([
+        $especificacions = Especificacion::create([
             'ID_Uso_Equipo' => '4',
             'Tablet_Pantalla' => '7" - 12"',
             'Tablet_Procesador' => 'Octacore Velocidad 1.4Ghz y 2.8Ghz',

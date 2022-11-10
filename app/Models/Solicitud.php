@@ -9,6 +9,11 @@ class Solicitud extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'Fecha_Solicitud',
+        'Estado_Solicitud',
+    ];
+
     public function Usuario() {
         return $this->hasone(Usuario::class);
     }

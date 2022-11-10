@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('solicitud__detalles', function (Blueprint $table) {
             $table->id('ID_SolicitudDetalle');
             $table->unsignedBigInteger('ID_Solicitud');
-            $table->foreign('ID_Solicitud')->references('ID_Solicitud')->on('solicituds');
+            $table->foreign('ID_Solicitud')->references('ID_Solicitud')->on('solicituds')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('ID_Equipo');
-            $table->foreign('ID_Equipo')->references('ID_Equipo')->on('equipos');
+            $table->foreign('ID_Equipo')->references('ID_Equipo')->on('equipos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('ID_Software');
-            $table->foreign('ID_Software')->references('ID_Software')->on('softwares');
+            $table->foreign('ID_Software')->references('ID_Software')->on('softwares')->cascadeOnDelete()->cascadeOnUpdate();
             $table->String('Descripcion_SolicitudDetalle', 45);
             $table->timestamps();
         });
