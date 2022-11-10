@@ -10,17 +10,18 @@ class DatabaseSeeder extends Seeder
     
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
-        $this->call(Especificacions::class);
-        
-        // $this->call(RolSeeder::class);
-        // $this->call(OficinaSeeder::class);
-
+        $this->call(RolSeeder::class);
+        $this->call(OficinaSeeder::class);
+        $this->call(VersionSeeder::class);
+        $this->call(Especificacion_SoftwareSeeder::class);
+        $this->call(EspecificacionSeeder::class);
+        $this->call(Tipo_EquipoSeeder::class);
+        //uso equipo
+        $this->call(Uso_EquipoSeeder::class);
+        $this->call(EquipoSeeder::class);
+        $this->call(SoftwareSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(SolicitudSeeder::class);
+        $this->call(Solicitud_DetalleSeeder::class);
     }
 }
