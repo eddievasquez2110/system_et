@@ -10,6 +10,8 @@ class Software extends Model
     use HasFactory;
 
     protected $fillable = [
+        'ID_Version',
+        'ID_Especificacion_Software',
         'Nombre_Software',
         'Descripcion_Software',
     ];
