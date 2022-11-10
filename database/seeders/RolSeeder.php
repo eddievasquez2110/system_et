@@ -10,11 +10,6 @@ use App\Models\Rol;
 class RolSeeder extends Seeder
 
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $rol = Rol::create([
