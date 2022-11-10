@@ -18,10 +18,6 @@ class Oficina extends Model
         'Nombre_Oficina',
     ];
     
-    public function Usuario() {
-        return $this->belongsTo(Usuario::class);
-    }
-
     public $timestamps = true;
 
 
