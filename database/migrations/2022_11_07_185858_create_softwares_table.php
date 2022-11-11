@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('softwares', function (Blueprint $table) {
+        Schema::create('software', function (Blueprint $table) {
             $table->id('ID_Software');
             $table->unsignedBigInteger('ID_Version');
             $table->foreign('ID_Version')->references('ID_Version')->on('versions')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('ID_Especificacion_Software');
-            $table->foreign('ID_Especificacion_Software')->references('ID_ESpecificacion_Software')->on('especificacion__softwares')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('ID_Especificacion_Software')->references('ID_ESpecificacion_Software')->on('especificacion__software')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('Nombre_Software',45);
-            $table->string('Descripcion_Software',45);
+            $table->string('Descripcion_Software',250);
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('softwares');
+        Schema::dropIfExists('software');
     }
 };

@@ -14,10 +14,11 @@ class DatabaseSeeder extends Seeder
         $this->call(OficinaSeeder::class);
         $this->call(VersionSeeder::class);
         $this->call(Especificacion_SoftwareSeeder::class);
+        $this->call(Uso_EquipoSeeder::class);
         $this->call(EspecificacionSeeder::class);
         $this->call(Tipo_EquipoSeeder::class);
         //uso equipo
-        $this->call(Uso_EquipoSeeder::class);
+        
         $this->call(EquipoSeeder::class);
         $this->call(SoftwareSeeder::class);
         $this->call(UserSeeder::class);
