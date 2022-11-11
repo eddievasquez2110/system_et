@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('especificacion__softwares', function (Blueprint $table) {
+        Schema::create('especificacion__software', function (Blueprint $table) {
             $table->id('ID_Especificacion_Software');
-            $table->String('Memoriaficacion_Software')->nullable();
             $table->String('Procesador')->nullable();
+            $table->String('EspacioDisco')->nullable();
             $table->String('SistemaOperativo')->nullable();
             $table->String('TamañoARAM')->nullable();
             $table->String('TarjetaVideo')->nullable();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('especificacion__softwares');
+        Schema::dropIfExists('especificacion__software');
     }
 };

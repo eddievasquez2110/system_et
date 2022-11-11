@@ -10,10 +10,9 @@ class Especificacion_Software extends Model
     use HasFactory;
 
     protected $fillable = [
-
         'Procesador',
+        'EspacioDisco',
         'SistemaOperativo',
-        'TamañoAlmacenamiento',
         'MemoriaRAM',
         'TarjetaVideo',
     ];

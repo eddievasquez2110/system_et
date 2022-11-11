@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('ID_Equipo');
             $table->foreign('ID_Equipo')->references('ID_Equipo')->on('equipos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('ID_Software');
-            $table->foreign('ID_Software')->references('ID_Software')->on('softwares')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('ID_Software')->references('ID_Software')->on('software')->cascadeOnDelete()->cascadeOnUpdate();
             $table->String('Descripcion_SolicitudDetalle', 45);
             $table->timestamps();
         });
