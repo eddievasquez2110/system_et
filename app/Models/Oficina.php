@@ -20,5 +20,8 @@ class Oficina extends Model
     
     public $timestamps = true;
 
-
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

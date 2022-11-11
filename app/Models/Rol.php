@@ -13,4 +13,9 @@ class Rol extends Model
         'Nombre_Rol',
     ];
 
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

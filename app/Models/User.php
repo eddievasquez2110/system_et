@@ -44,6 +44,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    
+    public function Rol()
+    {
+        return $this->HasOne(Rol::class);
+    }
+
+    public function Oficina()
+    {
+        return $this->HasOne(Oficina::class);
+    }
+
+    public function Solicitud()
+    {
+        return $this->belongsTo(Solicitud::class);
+    }
 
 }

@@ -14,4 +14,15 @@ class Solicitud extends Model
         'Fecha_Solicitud',
         'Estado_Solicitud',
     ];
+
+    public function User()
+    {
+        return $this->HasOne(User::class);
+    }
+
+    public function SolicitudDetalle()
+    {
+        return $this->belongsTo(Solicitud_Detalle::class);
+    }
+
 }

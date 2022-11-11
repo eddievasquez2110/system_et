@@ -109,4 +109,14 @@ class Especificacion extends Model
 
         'Estado_Especificacion',
     ];
+
+    public function Uso_Equipo()
+    {
+        return $this->HasOne(Uso_Equipo::class);
+    }
+
+    public function Equipo()
+    {
+        return $this->belongsTo(Equipo::class);
+    }
 }

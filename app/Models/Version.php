@@ -13,4 +13,9 @@ class Version extends Model
         'Nombre_Version',
         'Anio_Version',
     ];
+
+    public function Software()
+    {
+        return $this->belongsTo(Software::class);
+    }
 }

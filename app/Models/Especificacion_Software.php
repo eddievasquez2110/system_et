@@ -17,4 +17,9 @@ class Especificacion_Software extends Model
         'MemoriaRAM',
         'TarjetaVideo',
     ];
+
+    public function Software()
+    {
+        return $this->belongsTo(Software::class);
+    }
 }

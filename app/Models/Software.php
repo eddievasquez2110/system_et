@@ -15,4 +15,19 @@ class Software extends Model
         'Nombre_Software',
         'Descripcion_Software',
     ];
+
+    public function Version()
+    {
+        return $this->HasOne(Version::class);
+    }
+
+    public function Especificacion_Software()
+    {
+        return $this->HasOne(Especificacion_Software::class);
+    }
+
+    public function Solicitud_Detalle()
+    {
+        return $this->belongsTo(Solicitud_Detalle::class);
+    }
 }

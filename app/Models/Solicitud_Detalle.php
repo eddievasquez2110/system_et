@@ -15,4 +15,19 @@ class Solicitud_Detalle extends Model
         'ID_Software',
         'Descripcion_SolicitudDetalle',
     ];
+
+    public function Solicitud()
+    {
+        return $this->HasOne(Solicitud::class);
+    }
+
+    public function Equipo()
+    {
+        return $this->HasOne(Equipo::class);
+    }
+
+    public function Software()
+    {
+        return $this->HasOne(Software::class);
+    }
 }
