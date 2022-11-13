@@ -68,6 +68,7 @@ export default function Login({ status, canResetPassword }) {
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
+                
                 <div className="block mt-4">
                     <label className="flex items-center">
                         <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
