@@ -96,7 +96,7 @@ export default function Register() {
                         name="email"
                         value={data.email}
                         className="mt-1 block w-full"
-                        autoComplete="username"
+                        autoComplete="email"
                         handleChange={onHandleChange}
                         required
                     />
