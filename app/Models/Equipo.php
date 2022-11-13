@@ -9,6 +9,12 @@ class Equipo extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'ID_Tipo_Equipo',
+        'ID_Especificacion',
+        'Nombre_Equipo',
+    ];
+
     public function Especificacion()
     {
         return $this->HasOne(Especificacion::class);
@@ -23,5 +29,5 @@ class Equipo extends Model
     {
         return $this->belongsTo(Solicitud_Detalle::class);
     }
-    
+
 }
