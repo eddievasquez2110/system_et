@@ -12,23 +12,23 @@ class UserSeeder extends Seeder
 
     public function run()
     {
-        $user = User::create([
+        $user1 = User::create([
             'ID_Rol'=>1,
             'ID_Oficina'=>1,
-            'name'=>'Superadmin',
+            'name'=>'Super Admin',
             'email'=>'s_admin@gmail.com',
             'password'=>Hash::make('s_admin'),
         ]);
 
-        $user = User::create([
+        $user2 = User::create([
             'ID_Rol'=>2,
             'ID_Oficina'=>1,
-            'name'=>'admin',
+            'name'=>'Admin',
             'email'=>'admin@gmail.com',
             'password'=>Hash::make('admin'),
         ]);
 
-        $user = User::create([
+        $user3 = User::create([
             'ID_Rol'=>3,
             'ID_Oficina'=>2,
             'name'=>'user1',
