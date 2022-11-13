@@ -5,9 +5,12 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import Dropdown from '@/Components/Dropdown';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
+        ID_Rol: '',
+        ID_Oficina: '',
         name: '',
         email: '',
         password: '',
@@ -32,9 +35,42 @@ export default function Register() {
 
     return (
         <GuestLayout>
-            <Head title="Register" />
+            <Head title="register" />
 
             <form onSubmit={submit}>
+
+                <div className="mt-4">
+                    <InputLabel forInput="rol" value="Rol" />
+
+                    <TextInput
+                        type="text"
+                        name="ID_Rol"
+                        value={data.ID_Rol}
+                        className="mt-1 block w-full"
+                        autoComplete="ID_Rol"
+                        handleChange={onHandleChange}
+                        required
+                    />
+
+                    <InputError message={errors.ID_Rol} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel forInput="oficina" value="Oficina" />
+
+                    <TextInput
+                        type="text"
+                        name="ID_Oficina"
+                        value={data.ID_Oficina}
+                        className="mt-1 block w-full"
+                        autoComplete="ID_OFicina"
+                        handleChange={onHandleChange}
+                        required
+                    />
+
+                    <InputError message={errors.ID_Oficina} className="mt-2" />
+                </div>
+
                 <div>
                     <InputLabel forInput="name" value="Name" />
 
@@ -51,7 +87,7 @@ export default function Register() {
 
                     <InputError message={errors.name} className="mt-2" />
                 </div>
-
+                
                 <div className="mt-4">
                     <InputLabel forInput="email" value="Email" />
 
