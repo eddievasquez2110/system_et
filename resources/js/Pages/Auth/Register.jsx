@@ -61,7 +61,7 @@ export default function Register() {
                         <option value={data.ID_Oficina=3}>RR_HH</option>
                         <option value={data.ID_Oficina=4}>Contabilidad</option>
                         <option value={data.ID_Oficina=5}>Vicerrectorado</option>
-                        <option value={data.ID_Oficina=2}>Rectorado</option>
+                        <option value={data.ID_Oficina=6}>Rectorado</option>
                     </select>
 
                     <InputError message={errors.ID_Oficina} className="mt-2" />
