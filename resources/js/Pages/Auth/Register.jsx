@@ -39,21 +39,18 @@ export default function Register() {
 
             <form onSubmit={submit}>
 
-                <div className="mt-4">
-                    <InputLabel forInput="rol" value="Rol" />
+                <div className=" mt-4 block w-full">
 
-                    <TextInput
-                        type="text"
-                        name="ID_Rol"
-                        value={data.ID_Rol}
-                        className="mt-1 block w-full"
-                        autoComplete="ID_Rol"
-                        handleChange={onHandleChange}
-                        required
-                    />
+                    <InputLabel forInput="rol" value="Rol" />
+                    <select id ='rol' name='rol'  className='block w-full bg-white border border-gray-300 rounded-md h-10 text-gray-500 py'>
+                        <option value={data.ID_Rol=2}>Administrador</option>
+                        <option value={data.ID_Rol=3}>Usuario</option>
+                    </select>
 
                     <InputError message={errors.ID_Rol} className="mt-2" />
+
                 </div>
+                
 
                 <div className="mt-4">
                     <InputLabel forInput="oficina" value="Oficina" />

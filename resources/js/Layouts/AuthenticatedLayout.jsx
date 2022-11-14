@@ -61,7 +61,7 @@ export default function Authenticated({ auth, header, children }) {
                                     </Dropdown.Content>
                                 </Dropdown>
                             </div>
-                        </div>
+                        </div>                        
 
                         <div className="-mr-2 flex items-center sm:hidden">
                             <button

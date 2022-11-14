@@ -22,10 +22,6 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified','solosuperadmin'])->name('dashboard'); 
 
-
-/*Route::resource('admin', AdminController::class)
-    ->middleware(['soloadmin']);*/
-
 Route::get('/admin', function () {
     return Inertia::render('Admin');
 })->middleware(['auth', 'verified','soloadmin'])->name('admin'); 
