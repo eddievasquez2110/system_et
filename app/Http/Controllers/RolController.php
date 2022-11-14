@@ -4,21 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Rol;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class RolController extends Controller
 {
     
     public function index()
     {
-        
+        return Inertia::render('Auth/Register', [
+            'rols' => Rol::latest()->get()
+        ]);
     }
-
     
     public function create()
     {
         
     }
-
     
     public function store(Request $request)
     {
@@ -28,7 +29,9 @@ class RolController extends Controller
     
     public function show(Rol $rol)
     {
-        
+        return view('rols.profile', [
+            'rols' => Rol::findOrFail($rol)
+        ]);
     }
 
     

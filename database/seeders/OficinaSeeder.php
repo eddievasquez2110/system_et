@@ -14,6 +14,11 @@ class OficinaSeeder extends Seeder
     {
 
         $ofi = Oficina::create([
+            'Nombre_Oficina' => 'Informacion y comunicaciones',
+            'Cargo_Oficina' => 'Jefe',
+        ]);
+
+        $ofi = Oficina::create([
             'Nombre_Oficina' => 'Logistica',
             'Cargo_Oficina' => 'Jefe',
         ]);
