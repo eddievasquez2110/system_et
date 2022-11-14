@@ -5,7 +5,6 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
-import Dropdown from '@/Components/Dropdown';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -138,14 +137,14 @@ export default function Register() {
                     <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
-                
+
                 <div className="flex items-center justify-end mt-4">
                     <Link href={route('login')} className="underline text-sm text-gray-600 hover:text-gray-900">
-                        Already registered?
+                        ¿ya registrado?
                     </Link>
 
                     <PrimaryButton className="ml-4" processing={processing}>
-                        Register
+                        Registrar
                     </PrimaryButton>
                 </div>
             </form>

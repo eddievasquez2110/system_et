@@ -5,7 +5,7 @@ export default function PrimaryButton({ type = 'submit', className = '', process
         <button
             type={type}
             className={
-                `inline-flex items-center px-4 py-2 bg-gray-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest active:bg-gray-900 transition ease-in-out duration-150 ${
+                `inline-flex items-center px-10 py-2 bg-green-700 border border-transparent rounded-md font-bold text-xs text-white tracking-widest active:bg-green-700 hover:bg-green-600 transition ease-in-out duration-150 ${
                     processing && 'opacity-25'
                 } ` + className
             }
