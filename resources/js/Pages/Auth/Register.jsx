@@ -68,7 +68,7 @@ export default function Register() {
                 </div>
 
                 {/*input name*/}
-                <div>
+                <div className="mt-4">
                     <InputLabel forInput="name" value="Name" />
 
                     <TextInput
