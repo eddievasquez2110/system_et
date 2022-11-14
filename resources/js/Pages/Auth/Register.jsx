@@ -55,15 +55,14 @@ export default function Register() {
                 <div className="mt-4">
                     <InputLabel forInput="oficina" value="Oficina" />
 
-                    <TextInput
-                        type="text"
-                        name="ID_Oficina"
-                        value={data.ID_Oficina}
-                        className="mt-1 block w-full"
-                        autoComplete="ID_OFicina"
-                        handleChange={onHandleChange}
-                        required
-                    />
+                    <select id ='oficina' name='oficina'  className='block w-full bg-white border border-gray-300 rounded-md h-10 text-gray-500 py'>
+                        <option value={data.ID_Oficina=1}>Informacion y comunicaciones</option>
+                        <option value={data.ID_Oficina=2}>Logistica</option>
+                        <option value={data.ID_Oficina=3}>RR_HH</option>
+                        <option value={data.ID_Oficina=4}>Contabilidad</option>
+                        <option value={data.ID_Oficina=5}>Vicerrectorado</option>
+                        <option value={data.ID_Oficina=6}>Rectorado</option>
+                    </select>
 
                     <InputError message={errors.ID_Oficina} className="mt-2" />
                 </div>
