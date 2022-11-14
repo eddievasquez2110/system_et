@@ -39,6 +39,7 @@ export default function Register() {
 
             <form onSubmit={submit}>
 
+                {/*comboBox Rol*/}
                 <div className=" mt-4 block w-full">
 
                     <InputLabel forInput="rol" value="Rol" />
@@ -51,7 +52,7 @@ export default function Register() {
 
                 </div>
                 
-
+                {/*ComboBox Oficina*/}
                 <div className="mt-4">
                     <InputLabel forInput="oficina" value="Oficina" />
 
@@ -68,6 +69,7 @@ export default function Register() {
                     <InputError message={errors.ID_Oficina} className="mt-2" />
                 </div>
 
+                {/*input name*/}
                 <div>
                     <InputLabel forInput="name" value="Name" />
 
@@ -85,6 +87,7 @@ export default function Register() {
                     <InputError message={errors.name} className="mt-2" />
                 </div>
                 
+                {/*input email*/}
                 <div className="mt-4">
                     <InputLabel forInput="email" value="Email" />
 
@@ -101,6 +104,7 @@ export default function Register() {
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
+                {/*input password*/}
                 <div className="mt-4">
                     <InputLabel forInput="password" value="Password" />
 
@@ -117,6 +121,8 @@ export default function Register() {
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
+
+                {/*input confirmacion password*/}
                 <div className="mt-4">
                     <InputLabel forInput="password_confirmation" value="Confirm Password" />
 
@@ -132,6 +138,7 @@ export default function Register() {
                     <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
+                
                 <div className="flex items-center justify-end mt-4">
                     <Link href={route('login')} className="underline text-sm text-gray-600 hover:text-gray-900">
                         Already registered?
