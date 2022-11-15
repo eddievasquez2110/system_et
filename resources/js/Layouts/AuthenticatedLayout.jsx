@@ -20,7 +20,7 @@ export default function Authenticated({ auth, header, children }) {
                                 </Link>
                             </div>
 
-                            <div className="text-white space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Inicio
                                 </NavLink>
@@ -33,6 +33,7 @@ export default function Authenticated({ auth, header, children }) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')} >
                                     Software
                                 </NavLink>
+                                
                             </div>
                         </div>
 
@@ -101,14 +102,23 @@ export default function Authenticated({ auth, header, children }) {
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            Home
+                            Inicio
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                            Solicitud
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                            Equipos
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                            Software
                         </ResponsiveNavLink>
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">
-                            <div className="font-medium text-base text-gray-800">{auth.user.name}</div>
-                            <div className="font-medium text-sm text-gray-500">{auth.user.email}</div>
+                            <div className="font-medium text-base text-green-300">{auth.user.name}</div>
+                            <div className="font-medium text-sm text-green-300">{auth.user.email}</div>
                         </div>
 
                         <div className="mt-3 space-y-1">
