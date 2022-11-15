@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
-import ReactApexChart  from 'react-apexcharts';
-import DashColumna from '@/Components/DashColumna';
-import DashDona from '@/Components/DashDona';
 import DashCircle from '@/Components/DashCircle';
 import DashBar from '@/Components/DashBar';
 import PrimaryButton from '@/Components/PrimaryButton';
