@@ -10,7 +10,7 @@ export default function Authenticated({ auth, header, children }) {
 
     return (
         <div className="min-h-screen bg-gray-100">
-            <nav className="bg-green-300 border-b border-gray-100">
+            <nav className="bg-green-900 border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
@@ -20,9 +20,18 @@ export default function Authenticated({ auth, header, children }) {
                                 </Link>
                             </div>
 
-                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <div className="text-white space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Home
+                                    Inicio
+                                </NavLink>
+                                <NavLink href={route('dashboard')} active={route().current('dashboard')} >
+                                    Solicitud
+                                </NavLink>
+                                <NavLink href={route('dashboard')} active={route().current('dashboard')} >
+                                    Equipos
+                                </NavLink>
+                                <NavLink href={route('dashboard')} active={route().current('dashboard')} >
+                                    Software
                                 </NavLink>
                             </div>
                         </div>
