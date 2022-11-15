@@ -15,8 +15,8 @@ export default function Authenticated({ auth, header, children }) {
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
-                                <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto text-gray-500" />
+                                <Link href={route('dashboard')} >
+                                    <ApplicationLogo className="block text-gray-500"/>
                                 </Link>
                             </div>
 
