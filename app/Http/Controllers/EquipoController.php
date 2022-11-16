@@ -15,9 +15,16 @@ class EquipoController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Equipo/Index', [
-            'equipos' => Equipo::with('Especificacion:ID_Especificacion,ID_Uso_Equipo')->latest()->get()
+        // return response()->json([
+        //     'message' => 'Probando controlador y ruta equipos'
+        // ]);
+        return Inertia::render('User',[
+
         ]);
+        // return Inertia::render('Equipo/Index', [
+        //     'equipos' => Equipo::with('Especificacion:ID_Especificacion,ID_Uso_Equipo')->latest()->get()
+        // ]);
+
     }
 
     public function create()

@@ -7,9 +7,9 @@ export default function Admin(props) {
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard {props.auth.user.name}</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Hola {props.auth.user.name}</h2>}
         >
-            <Head title="Dashboard" />
+            <Head title="Admin" />
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">

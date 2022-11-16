@@ -14,6 +14,8 @@ export default function Authenticated({ auth, header, children }) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
+
+                            {/* Logo UNCP */}
                             <div className="shrink-0 flex items-center">
                                 <Link href={route('dashboard')} >
                                     <ApplicationLogo className="block text-gray-500"/>
@@ -111,6 +113,7 @@ export default function Authenticated({ auth, header, children }) {
                 </div>
             </nav>
 
+            {/* Puede incluirce varios tipos de heder o crear otros archivos AuthenticatedLayout */}
             {header && (
                 <header className="bg-white shadow">
                     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>

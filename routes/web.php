@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EquipoController;
 use App\Http\Middleware\SoloSuperAdmin;
 use App\Models\Rol;
 use Illuminate\Foundation\Application;
@@ -30,5 +31,10 @@ Route::get('/admin', function () {
 Route::get('/user', function () {
     return Inertia::render('User');
 })->middleware(['auth', 'verified','solouser'])->name('user'); 
+
+// ---------------------
+
+Route::resource('equipos', EquipoController::class)
+    ->only(['index', 'store', 'update', 'destroy']);
 
 require __DIR__.'/auth.php';
