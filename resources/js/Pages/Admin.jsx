@@ -16,10 +16,7 @@ export default function Admin(props) {
         >
 
         <Head title="Dashboard" />
-            <div className='grid grid-cols-4 divide-x'>
-                <div className='w-4/5 h-screen bg-green-400'>
-                <PrimaryButton>Gestión de Usuario</PrimaryButton>
-                </div>
+              
                 <div>
                     <DashCircle></DashCircle>
                     <DashBar></DashBar>
@@ -30,8 +27,6 @@ export default function Admin(props) {
                 <div>
                     <DashCircle></DashCircle>
                 </div>
-            </div> 
-            
 
         </AuthenticatedLayout>
     );
