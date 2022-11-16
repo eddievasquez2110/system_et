@@ -37,14 +37,14 @@ export default function Authenticated({ auth, header, children }) {
                             </div>
                         </div>
 
-                        <div className="hidden sm:flex sm:items-center sm:ml-6 h-12 w-38 justify-center flex m-2 border-white rounded-lg bg-amber-400">
+                        <div className="hidden sm:flex sm:items-center sm:ml-6 h-10 w-38 justify-center flex m-3 border-white rounded-lg bg-amber-400">
                             <div className="ml-3 relative ">
                                 <Dropdown>
                                     <Dropdown.Trigger>
                                         <span className="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                className="inline-flex px-2 py-2 border border-transparent leading-4 font-medium rounded-md text-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                className="inline-flex px-2 py-2 border border-transparent leading-4 font-medium rounded-md text-black hover:text-gray-700 focus:outline-none transition ease-in-out duration-150 text-xs"
                                             >
                                                 {auth.user.name}
 
