@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('especificacions', function (Blueprint $table) {
             $table->id('ID_Especificacion');
-            $table->foreign('ID_Uso_Equipo')->references('ID_Uso_Equipo')->on('uso__equipos');
+            $table->foreign('ID_Uso_Equipo')->references('ID_Uso_Equipo')->on('uso__equipos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('ID_Uso_Equipo');
             $table->string('Ord_Procesador',45)->nullable();
             $table->string('Ord_MemoriaRAM',45)->nullable();
@@ -91,7 +91,8 @@ return new class extends Migration
             $table->string('PantInter_RelacionContraste')->nullable();
             $table->integer('PantInter_EntradaHDMI_VGA')->nullable();
             $table->Integer('PantInter_EntradaUSB')->nullable();
-            $table->tinyInteger('PantInter_SalidaAudio')->nullable();
+            $table->string('PantInter_SalidaAudio')->nullable();
+            $table->tinyInteger('PantInter_SalidaVideo')->nullable();
             $table->tinyInteger('PantInter_EntradaRS232')->nullable();
             $table->tinyInteger('PantInter_EntradaRJ45')->nullable();
             $table->tinyInteger('PantInter_Wifi')->nullable();
@@ -113,7 +114,7 @@ return new class extends Migration
             $table->string('Tablet_CamaraPrincipal')->nullable();
             $table->string('Tablet_CamaraFrontal')->nullable();
 
-            $table->string('Estado_Especificacion',20);
+            $table->string('Estado_Especificacion',20)->nullable();
             $table->timestamps();
         });
     }

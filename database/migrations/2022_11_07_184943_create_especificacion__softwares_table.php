@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('especificacion__softwares', function (Blueprint $table) {
-            $table->id('ID_ESpecificacion_Software');
+        Schema::create('especificacion__software', function (Blueprint $table) {
+            $table->id('ID_Especificacion_Software');
             $table->String('Procesador')->nullable();
+            $table->String('EspacioDisco')->nullable();
             $table->String('SistemaOperativo')->nullable();
-            $table->String('TamañoAlmacenamiento')->nullable();
-            $table->String('MemoriaRAM')->nullable();
+            $table->String('TamañoARAM')->nullable();
             $table->String('TarjetaVideo')->nullable();
             $table->timestamps();
         });

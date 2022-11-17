@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('solicituds', function (Blueprint $table) {
             $table->id('ID_Solicitud');
-            $table->unsignedBigInteger('ID_Usuario');
-            $table->foreign('ID_Usuario')->references('ID_Usuario')->on('usuarios');
+            $table->unsignedBigInteger('id');
+            $table->foreign('id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->dateTime('Fecha_Solicitud');
             $table->string('Estado_Solicitud',30);
             $table->timestamps();

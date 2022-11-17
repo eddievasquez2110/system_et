@@ -14,20 +14,20 @@ class Uso_Equipo_Seeder extends Seeder
      */
     public function run()
     {
-        $uso_equipo = new Uso_Equipo();
-        $uso_equipo->Nombre_Uso_Equipo="Uso Escritorio";
-        $uso_equipo->save();
+        $usoEquipo = Uso_Equipo::create([
+            'Nombre_Uso_Equipo' => 'Uso de escritorio',
+        ]);
 
-        $uso_equipo1 = new Uso_Equipo();
-        $uso_equipo1->Nombre_Uso_Equipo="Uso de Direccion";
-        $uso_equipo1->save();
+        $usoEquipo = Uso_Equipo::create([
+            'Nombre_Uso_Equipo' => 'Uso de dirección',
+        ]);
 
-        $uso_equipo2 = new Uso_Equipo();
-        $uso_equipo2->Nombre_Uso_Equipo="Uso de Procesamiento Grafico";
-        $uso_equipo2->save();
+        $usoEquipo = Uso_Equipo::create([
+            'Nombre_Uso_Equipo' => 'Uso de procesamiento gráfico',
+        ]);
 
-        $uso_equipo3 = new Uso_Equipo();
-        $uso_equipo3->Nombre_Uso_Equipo="Uso General ";
-        $uso_equipo3->save();
+        $usoEquipo = Uso_Equipo::create([
+            'Nombre_Uso_Equipo' => 'Uso de general',
+        ]);
     }
 }

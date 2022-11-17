@@ -9,7 +9,13 @@ class Version extends Model
 {
     use HasFactory;
 
-    public function Software() {
+    protected $fillable = [
+        'Nombre_Version',
+        'Anio_Version',
+    ];
+
+    public function Software()
+    {
         return $this->belongsTo(Software::class);
     }
 }

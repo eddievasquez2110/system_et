@@ -1,21 +1,15 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Middleware\SoloSuperAdmin;
+use App\Models\Rol;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-//haaa
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
-Route::get('/', function () {
+
+Route::get('/', function() {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -25,7 +19,16 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return Inertia::render('SuperAdmin');
+})->middleware(['auth', 'verified','solosuperadmin'])->name('superadmin'); 
+
+Route::get('/admin', function () {
+    return Inertia::render('Admin');
+})->middleware(['auth', 'verified','soloadmin'])->name('admin'); 
+
+
+Route::get('/user', function () {
+    return Inertia::render('User');
+})->middleware(['auth', 'verified','solouser'])->name('user'); 
 
 require __DIR__.'/auth.php';
