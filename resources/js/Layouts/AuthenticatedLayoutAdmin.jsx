@@ -122,8 +122,12 @@ export default function AuthenticatedAdmin({ auth, header, children }) {
             
             <main>
             <div className='grid grid-cols-3 h-screen flex'>
-                <div className='max-w-sm h-full bg-green-400 justify-items-center'>
-                        <PrimaryButton>Gestión de Usuario</PrimaryButton>
+                <div className='w-4/5 h-screen bg-green-400 px-10 py-10 space-y-5'>
+                    <PrimaryButton>Gestión de Usuarios</PrimaryButton>
+                    <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
+                    <PrimaryButton>Gestión de Software</PrimaryButton>
+                    <PrimaryButton>Gestión de Equipos</PrimaryButton>
+                    <PrimaryButton>Reporte</PrimaryButton>
                 </div>
                 {children}
             </div>
