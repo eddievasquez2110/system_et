@@ -39,7 +39,7 @@ export default function DashBar(props) {
             <Bar 
             data={data} 
             type="Bar" 
-            className='mt-10'
+            className='mt-4'
             />
         </div>
     );

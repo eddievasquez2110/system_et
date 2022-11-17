@@ -4,32 +4,34 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
+import PrimaryButton from '@/Components/PrimaryButton';
 
-export default function Authenticated({ auth, header, children }) {
+export default function AuthenticatedSuperAdmin({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
-        
         <div className="min-h-screen bg-gray-100">
             <nav className="bg-green-900 border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
-                                <Link href={route('user')} >
+                                <Link href={route('superadmin')} >
                                     <ApplicationLogo className="block text-gray-500"/>
                                 </Link>
                             </div>
-                            
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('user')} active={route().current('user')}>
+                                <NavLink href={route('superadmin')} active={route().current('superadmin')}>
                                     Inicio
                                 </NavLink>
-                                <NavLink href={route('user')}  >
+                                <NavLink href={route('superadmin')} >
+                                    Solicitud
+                                </NavLink>
+                                <NavLink href={route('superadmin')} >
                                     Equipos
                                 </NavLink>
-                                <NavLink href={route('user')}  >
+                                <NavLink href={route('superadmin')} >
                                     Software
                                 </NavLink>
                                 
@@ -70,8 +72,7 @@ export default function Authenticated({ auth, header, children }) {
                                     </Dropdown.Content>
                                 </Dropdown>
                             </div>
-                        </div> 
-                                               
+                        </div>                        
 
                         <div className="-mr-2 flex items-center sm:hidden">
                             <button
@@ -101,13 +102,16 @@ export default function Authenticated({ auth, header, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('user')} active={route().current('user')}>
+                        <ResponsiveNavLink href={route('superadmin')} active={route().current('superadmin')}>
                             Inicio
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('user')} >
+                        <ResponsiveNavLink href={route('superadmin')} >
+                            Solicitud
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('superadmin')} >
                             Equipos
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('user')} >
+                        <ResponsiveNavLink href={route('superadmin')} >
                             Software
                         </ResponsiveNavLink>
                     </div>
@@ -124,7 +128,6 @@ export default function Authenticated({ auth, header, children }) {
                             </ResponsiveNavLink>
                         </div>
                     </div>
-                    
                 </div>
             </nav>
 
@@ -133,8 +136,16 @@ export default function Authenticated({ auth, header, children }) {
                     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
                 </header>
             )}
-
-            <main>{children}</main>
+            
+            <main>
+            <div className='grid grid-cols-3 h-screen flex'>
+                <div className='max-w-sm h-full bg-green-400 justify-items-center'>
+                        <PrimaryButton className=''>Gestión de Usuario</PrimaryButton>
+                </div>
+                {children}
+                
+            </div>
+            </main>
         </div>
     );
 }
