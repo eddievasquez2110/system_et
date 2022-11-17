@@ -1,20 +1,19 @@
 import React, { useState } from 'react'
-import AuthenticatedLayoutAdmin from '@/Layouts/AuthenticatedLayoutAdmin';
+import AuthenticatedLayoutSuperAdmin from '@/Layouts/AuthenticatedLayoutSuperAdmin';
 import { Head } from '@inertiajs/inertia-react';
 import DashCircle from '@/Components/DashCircle';
 import DashBar from '@/Components/DashBar';
 
 
-export default function Admin(props) {
-
+export default function Dashboard(props) {
     return (
-        <AuthenticatedLayoutAdmin
+        <AuthenticatedLayoutSuperAdmin
             auth={props.auth}
             errors={props.errors}
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard {props.auth.user.name}</h2>}
         >
 
-        <Head title="Admin" />
+        <Head title="SuperAdmin" />
             <div className='grid grid-rows-2'>
                 <div className='grid grid-cols-3'>
                     <div className=''>
@@ -32,7 +31,6 @@ export default function Admin(props) {
                 <DashBar></DashBar>
                 </div>
             </div>
-                
-        </AuthenticatedLayoutAdmin>
+        </AuthenticatedLayoutSuperAdmin>
     );
 }

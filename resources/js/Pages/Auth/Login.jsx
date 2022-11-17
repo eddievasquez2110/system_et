@@ -7,6 +7,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { faKey,faUser,faMoneyBill } from '@fortawesome/free-solid-svg-icons'
 
 export default function Login({ status, canResetPassword }) {
