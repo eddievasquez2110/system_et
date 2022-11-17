@@ -8,6 +8,11 @@ class AdminController extends Controller
 {
     
     
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('solosuperadmin',['only'=> ['index']]);
+    }
 
     public function index()
     {
