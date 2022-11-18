@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tipo_Equipo;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class TipoEquipoController extends Controller
 {
@@ -14,7 +15,9 @@ class TipoEquipoController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('User',[
+            'equipos' =>Tipo_Equipo::all(),
+        ]);
     }
 
     /**
