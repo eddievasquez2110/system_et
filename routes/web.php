@@ -28,9 +28,9 @@ Route::get('/admin', function () {
 })->middleware(['auth', 'verified','soloadmin'])->name('admin'); 
 
 
-Route::get('/user', function () {
-    return Inertia::render('User');
-})->middleware(['auth', 'verified','solouser'])->name('user'); 
+// Route::get('/user', function () {
+//     return Inertia::render('equipo');
+// })->middleware(['auth', 'verified','solouser'])->name('user'); 
 
 // ---------------------
 

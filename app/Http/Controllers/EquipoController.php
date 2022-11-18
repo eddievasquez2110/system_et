@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Equipo;
+use App\Models\Tipo_Equipo;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -18,8 +19,8 @@ class EquipoController extends Controller
         // return response()->json([
         //     'message' => 'Probando controlador y ruta equipos'
         // ]);
-        return Inertia::render('User',[
-
+        return Inertia::render('User',[ 
+            'equipos' => Tipo_Equipo::get()
         ]);
         // return Inertia::render('Equipo/Index', [
         //     'equipos' => Equipo::with('Especificacion:ID_Especificacion,ID_Uso_Equipo')->latest()->get()

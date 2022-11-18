@@ -4,13 +4,14 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
+import PrimaryButton from '@/Components/PrimaryButton';
 
 export default function Authenticated({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
         <div className="min-h-screen bg-gray-100">
-            <nav className="bg-green-300 border-b border-gray-100">
+            <nav className="bg-green-900 border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
@@ -24,19 +25,29 @@ export default function Authenticated({ auth, header, children }) {
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Home
+                                    Inicio
                                 </NavLink>
+                                <NavLink href={route('dashboard')} active={route().current('dashboard')} >
+                                    Solicitud
+                                </NavLink>
+                                <NavLink href={route('dashboard')} active={route().current('dashboard')} >
+                                    Equipos
+                                </NavLink>
+                                <NavLink href={route('dashboard')} active={route().current('dashboard')} >
+                                    Software
+                                </NavLink>
+                                
                             </div>
                         </div>
 
-                        <div className="hidden sm:flex sm:items-center sm:ml-6 h-12 w-38 justify-center flex m-2 border border-gray-500 rounded-lg bg-white">
+                        <div className="hidden sm:flex sm:items-center sm:ml-6 h-12 w-38 justify-center flex m-2 border-white rounded-lg bg-amber-400">
                             <div className="ml-3 relative ">
                                 <Dropdown>
                                     <Dropdown.Trigger>
                                         <span className="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                className="inline-flex px-2 py-2 border border-transparent leading-4 font-medium rounded-md text-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 {auth.user.name}
 
@@ -94,14 +105,23 @@ export default function Authenticated({ auth, header, children }) {
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            Home
+                            Inicio
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                            Solicitud
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                            Equipos
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                            Software
                         </ResponsiveNavLink>
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">
-                            <div className="font-medium text-base text-gray-800">{auth.user.name}</div>
-                            <div className="font-medium text-sm text-gray-500">{auth.user.email}</div>
+                            <div className="font-medium text-base text-green-300">{auth.user.name}</div>
+                            <div className="font-medium text-sm text-green-300">{auth.user.email}</div>
                         </div>
 
                         <div className="mt-3 space-y-1">
@@ -113,14 +133,23 @@ export default function Authenticated({ auth, header, children }) {
                 </div>
             </nav>
 
-            {/* Puede incluirce varios tipos de heder o crear otros archivos AuthenticatedLayout */}
+            
             {header && (
                 <header className="bg-white shadow">
                     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
                 </header>
             )}
-
-            <main>{children}</main>
+            
+            
+            
+            <main>
+            <div className='grid grid-cols-4 flex-wrap '>
+                <div className='max-w-md h-screen bg-green-400 justify-items-center'>
+                        <PrimaryButton className=''>Gestión de Usuario</PrimaryButton>
+                </div>
+                {children}
+            </div>
+            </main>
         </div>
     );
 }
