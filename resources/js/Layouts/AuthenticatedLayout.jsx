@@ -134,7 +134,37 @@ export default function Authenticated({ auth, header, children }) {
                 </header>
             )}
 
-            <main>{children}</main>
+            {
+                auth.user.ID_Rol == '1' ?
+                <div className='grid grid-cols-3 h-screen flex'>
+                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
+                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
+                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
+                        <PrimaryButton>Gestión de Software</PrimaryButton>
+                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
+                        <PrimaryButton>Reporte</PrimaryButton>
+                    </div>
+                    {children}
+                </div> : auth.user.ID_Rol == '2' ?
+                <div className='grid grid-cols-3 h-screen flex'>
+                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
+                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
+                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
+                        <PrimaryButton>Gestión de Software</PrimaryButton>
+                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
+                        <PrimaryButton>Reporte</PrimaryButton>
+                    </div>
+                    {children}
+                </div> : auth.user.ID_Rol == '3' ?
+                    <div>
+                    {children} 
+                    </div>
+                 : <></>
+            }
+            
+            <main>
+                
+            </main>
         </div>
     );
 }
