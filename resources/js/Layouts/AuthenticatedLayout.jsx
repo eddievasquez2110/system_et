@@ -18,22 +18,19 @@ export default function Authenticated({ auth, header, children }) {
 
                             {/* Logo UNCP */}
                             <div className="shrink-0 flex items-center">
-                                <Link href={route('dashboard')} >
+                                <Link href={route('user')} >
                                     <ApplicationLogo className="block text-gray-500"/>
                                 </Link>
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                <NavLink href={route('user')} active={route().current('user')}>
                                     Inicio
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')} >
-                                    Solicitud
-                                </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')} >
+                                <NavLink href={route('user')}  >
                                     Equipos
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')} >
+                                <NavLink href={route('user')}  >
                                     Software
                                 </NavLink>
                                 
@@ -104,16 +101,13 @@ export default function Authenticated({ auth, header, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                        <ResponsiveNavLink href={route('user')} active={route().current('user')}>
                             Inicio
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            Solicitud
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                        <ResponsiveNavLink href={route('user')} >
                             Equipos
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                        <ResponsiveNavLink href={route('user')} >
                             Software
                         </ResponsiveNavLink>
                     </div>
@@ -139,16 +133,37 @@ export default function Authenticated({ auth, header, children }) {
                     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
                 </header>
             )}
-            
-            
+
+            {
+                auth.user.ID_Rol == '1' ?
+                <div className='grid grid-cols-3 h-screen flex'>
+                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
+                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
+                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
+                        <PrimaryButton>Gestión de Software</PrimaryButton>
+                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
+                        <PrimaryButton>Reporte</PrimaryButton>
+                    </div>
+                    {children}
+                </div> : auth.user.ID_Rol == '2' ?
+                <div className='grid grid-cols-3 h-screen flex'>
+                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
+                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
+                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
+                        <PrimaryButton>Gestión de Software</PrimaryButton>
+                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
+                        <PrimaryButton>Reporte</PrimaryButton>
+                    </div>
+                    {children}
+                </div> : auth.user.ID_Rol == '3' ?
+                    <div>
+                    {children} 
+                    </div>
+                 : <></>
+            }
             
             <main>
-            <div className='grid grid-cols-4 flex-wrap '>
-                <div className='max-w-md h-screen bg-green-400 justify-items-center'>
-                        <PrimaryButton className=''>Gestión de Usuario</PrimaryButton>
-                </div>
-                {children}
-            </div>
+                
             </main>
         </div>
     );

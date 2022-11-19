@@ -19,7 +19,7 @@ class SoloAdmin
     {
         switch(auth::user()->ID_Rol){
             case ('1'):
-                return redirect('dashboard');//si es administrador continua al HOME
+                return redirect('superadmin');//si es administrador continua al HOME
             break;
 			case('2'):
                 return $next($request);// si es un usuario normal redirige a la ruta USER

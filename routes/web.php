@@ -20,8 +20,8 @@ Route::get('/', function() {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified','solosuperadmin'])->name('dashboard'); 
+    return Inertia::render('SuperAdmin');
+})->middleware(['auth', 'verified','solosuperadmin'])->name('superadmin'); 
 
 Route::get('/admin', function () {
     return Inertia::render('Admin');
@@ -35,6 +35,7 @@ Route::get('/admin', function () {
 // ---------------------
 
 Route::resource('equipos', EquipoController::class)
-    ->only(['index', 'store', 'update', 'destroy']);
+    ->only(['index', 'store', 'update', 'destroy'])
+    ->middleware(['auth', 'verified','solouser']); 
 
 require __DIR__.'/auth.php';
