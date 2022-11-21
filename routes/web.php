@@ -31,4 +31,5 @@ Route::get('/user', function () {
     return Inertia::render('User');
 })->middleware(['auth', 'verified','solouser'])->name('user'); 
 
+
 require __DIR__.'/auth.php';
