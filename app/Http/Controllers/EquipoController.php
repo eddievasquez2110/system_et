@@ -15,15 +15,23 @@ class EquipoController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Equipo/Index', [
-            'equipos' => Equipo::with('Especificacion:ID_Especificacion,ID_Uso_Equipo')->latest()->get()
-        ]);
+
+
+        $equipo = Equipo::get();
+        return response()->json($equipo);
+
+
+        // return Inertia::render('Equipo/Index', [
+        //     // 'equipos' => Equipo::with('Especificacion:ID_Especificacion,ID_Uso_Equipo')->latest()->get()
+        //     'equipos' => Equipo::get(),
+        // ]);
+
     }
 
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     
     public function store(Request $request)
@@ -34,14 +42,16 @@ class EquipoController extends Controller
    
     public function show(Equipo $equipo)
     {
-        //
+
+        $eq = Equipo::where('ID_Equipo',$equipo->ID_Equipo)->first();
+        return response()->json($eq);
     }
 
    
-    public function edit(Equipo $equipo)
-    {
-        //
-    }
+    // public function edit(Equipo $equipo)
+    // {
+    //     //
+    // }
 
     public function update(Request $request, Equipo $equipo)
     {
@@ -51,6 +61,8 @@ class EquipoController extends Controller
 
     public function destroy(Equipo $equipo)
     {
-        //
+        $equipo = Equipo::find($equipo);
+        $equipo->delete();
+
     }
 }

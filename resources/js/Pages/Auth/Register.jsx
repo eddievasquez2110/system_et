@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import { map } from 'lodash';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -62,6 +63,10 @@ export default function Register() {
                         <option value={data.ID_Oficina=4}>Contabilidad</option>
                         <option value={data.ID_Oficina=5}>Vicerrectorado</option>
                         <option value={data.ID_Oficina=6}>Rectorado</option>
+                    </select>
+
+                    <select id ='oficina' name='oficina'  className='block w-full bg-white border border-gray-300 rounded-md h-10 text-gray-500 py'>
+                        <option value={data.ID_Oficina}>{}</option>
                     </select>
 
                     <InputError message={errors.ID_Oficina} className="mt-2" />

@@ -44,7 +44,7 @@ export default function Authenticated({ auth, header, children }) {
                                                 type="button"
                                                 className="inline-flex px-2 py-2 border border-transparent leading-4 font-medium rounded-md text-black hover:text-gray-700 focus:outline-none transition ease-in-out duration-150 text-xs"
                                             >
-                                                {auth.user.name}
+                                                {auth.user.email}
 
                                                 <svg
                                                     className="ml-2 -mr-0.5 h-4 w-4"
@@ -130,9 +130,37 @@ export default function Authenticated({ auth, header, children }) {
                     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
                 </header>
             )}
+
+            {
+                auth.user.ID_Rol == '1' ?
+                <div className='grid grid-cols-3 h-screen flex'>
+                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
+                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
+                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
+                        <PrimaryButton>Gestión de Software</PrimaryButton>
+                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
+                        <PrimaryButton>Reporte</PrimaryButton>
+                    </div>
+                    {children}
+                </div> : auth.user.ID_Rol == '2' ?
+                <div className='grid grid-cols-3 h-screen flex'>
+                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
+                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
+                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
+                        <PrimaryButton>Gestión de Software</PrimaryButton>
+                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
+                        <PrimaryButton>Reporte</PrimaryButton>
+                    </div>
+                    {children}
+                </div> : auth.user.ID_Rol == '3' ?
+                    <div>
+                    {children} 
+                    </div>
+                 : <></>
+            }
             
             <main>
-                {children}
+                
             </main>
         </div>
     );
