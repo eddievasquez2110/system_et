@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EquipoController;
 use App\Http\Middleware\SoloSuperAdmin;
 use App\Models\Rol;
 use Illuminate\Foundation\Application;
