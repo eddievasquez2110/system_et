@@ -65,16 +65,12 @@ export default function Register() {
                         <option value={data.ID_Oficina=6}>Rectorado</option>
                     </select>
 
-                    <select id ='oficina' name='oficina'  className='block w-full bg-white border border-gray-300 rounded-md h-10 text-gray-500 py'>
-                        <option value={data.ID_Oficina}>{}</option>
-                    </select>
-
                     <InputError message={errors.ID_Oficina} className="mt-2" />
                 </div>
 
                 {/*input name*/}
                 <div className="mt-4">
-                    <InputLabel forInput="name" value="Name" />
+                    <InputLabel forInput="name" value="Nombre" />
 
                     <TextInput
                         type="text"
@@ -109,7 +105,7 @@ export default function Register() {
 
                 {/*input password*/}
                 <div className="mt-4">
-                    <InputLabel forInput="password" value="Password" />
+                    <InputLabel forInput="password" value="Contraseña" />
 
                     <TextInput
                         type="password"
@@ -127,7 +123,7 @@ export default function Register() {
 
                 {/*input confirmacion password*/}
                 <div className="mt-4">
-                    <InputLabel forInput="password_confirmation" value="Confirm Password" />
+                    <InputLabel forInput="password_confirmation" value="Confirmar Contraseña" />
 
                     <TextInput
                         type="password"

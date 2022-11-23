@@ -35,11 +35,11 @@ export const  data = {
 export default function DashBar(props) {
 
     return (
-        <div id="chart">
+        <div id="chart" className='w-100'>
             <Bar 
             data={data} 
             type="Bar" 
-            className='mt-4'
+            className='mt-10'
             />
         </div>
     );

@@ -11,8 +11,8 @@ export const  data = {
         'Yellow'
       ],
       datasets: [{
-        label: 'My First Dataset',
-        data: [300, 50, 100],
+        label: 'Graficos',
+        data: [50/100, 70/100],
         backgroundColor: [
           'rgb(255, 99, 132)',
           'rgb(54, 162, 235)',
@@ -25,7 +25,7 @@ export const  data = {
 export default function DashCircle(props) {
 
     return (
-        <div id="chart">
+        <div id="chart" className='w-80'>
             <Doughnut 
             data={data} 
             type="Doughnut" 

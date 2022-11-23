@@ -4,7 +4,7 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
-import PrimaryButton from '@/Components/PrimaryButton';
+import ButtonDashboard from '@/Components/ButtonDashboard';
 
 export default function Authenticated({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
@@ -133,27 +133,30 @@ export default function Authenticated({ auth, header, children }) {
 
             {
                 auth.user.ID_Rol == '1' ?
-                <div className='grid grid-cols-3 h-screen flex'>
-                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
-                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
-                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
-                        <PrimaryButton>Gestión de Software</PrimaryButton>
-                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
-                        <PrimaryButton>Reporte</PrimaryButton>
+                <div className='flex h-full'>
+                    <div className='flex w-3/5 grid basis-1/4 bg-green-400 pt-10'>
+                        <ButtonDashboard>Gestión de Usuarios</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Solicitudes</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Software</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Equipos</ButtonDashboard>
+                        <ButtonDashboard>Reporte</ButtonDashboard>
                     </div>
                     {children}
                 </div> : auth.user.ID_Rol == '2' ?
-                <div className='grid grid-cols-3 h-screen flex'>
-                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
-                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
-                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
-                        <PrimaryButton>Gestión de Software</PrimaryButton>
-                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
-                        <PrimaryButton>Reporte</PrimaryButton>
+                
+                <div className='flex h-full'>
+                    <div className='flex w-3/5 flex-col basis-1/4 bg-green-400 pt-10 '>
+                        <ButtonDashboard>Gestión de Usuarios</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Solicitudes</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Software</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Equipos</ButtonDashboard>
+                        <ButtonDashboard>Reporte</ButtonDashboard>
                     </div>
+                    <div className='flex basis-3/4 w-full'>
                     {children}
+                    </div>
                 </div> : auth.user.ID_Rol == '3' ?
-                    <div>
+                    <div className='flex flex-cols w-full'>
                     {children} 
                     </div>
                  : <></>
