@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Especificacion;
 use App\Models\Tipo_Equipo;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -15,8 +16,8 @@ class TipoEquipoController extends Controller
      */
     public function index()
     {
-        return Inertia::render('User',[
-            'equipos' =>Tipo_Equipo::all(),
+        return Inertia::render('User/Index',[
+            'equipos' => Tipo_Equipo::all(),
         ]);
     }
 
@@ -47,9 +48,12 @@ class TipoEquipoController extends Controller
      * @param  \App\Models\Tipo_Equipo  $tipo_Equipo
      * @return \Illuminate\Http\Response
      */
-    public function show(Tipo_Equipo $tipo_Equipo)
+    public function show($id)
     {
-        //
+        return Inertia::render('User/Lista',[
+            'laptops' =>Tipo_Equipo::where('ID_Tipo_Equipo',$id)->get(),
+            'especificacion' =>Especificacion::where('ID_Tipo_Equipo',$id)->get()
+        ]);
     }
 
     /**

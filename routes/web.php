@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\EquipoController;
+use App\Http\Controllers\TipoEquipoController;
 use App\Http\Middleware\SoloSuperAdmin;
 use App\Models\Rol;
 use Doctrine\DBAL\Schema\Index;
@@ -26,10 +26,11 @@ Route::get('/', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
 
 
-Route::get('/inicio', function () {
-        return Inertia::render('User/Index');
-})->middleware(['auth', 'verified','solouser'])->name('user'); 
+Route::get('/inicio', [TipoEquipoController::class,'index'])
+->middleware(['auth', 'verified','solouser'])->name('user'); 
  
+Route::get('/inicio/{id}',[TipoEquipoController::class,'show'])
+        ->name('inicio.show');
 
 Route::get('/admin', function () {
     return Inertia::render('Admin/Index',[
@@ -46,8 +47,6 @@ Route::get('/reportes', function () {
     return Inertia::render('Admin/Reportes');
 })->middleware(['auth', 'verified','soloadmin']);
 
-Route::get('/xd', function(){
-    return ('xd');
-})->middleware(['auth'])->name('xd');
+
 
 require __DIR__.'/auth.php';
