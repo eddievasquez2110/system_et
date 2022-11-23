@@ -22,18 +22,16 @@ export default function Authenticated({ auth, children }) {
                             </div>
 
                             <div className="text-white space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                {/* <NavLink href={route('equipos.index')} active={route().current('equipos.index')}>
+                                <NavLink href={route('user')}>
                                     Inicio
-                                </NavLink> */}
-                                <NavLink href={route('')} active={route().current('')} >
-                                    Solicitud
                                 </NavLink>
-                                <NavLink href={route('')} active={route().current('')} >
-                                    Equipos
+                                <NavLink href="/">
+                                    Inicio
                                 </NavLink>
-                                <NavLink href={route('')} active={route().current('')} >
-                                    Software
+                                <NavLink href="/xd">
+                                    Inicio
                                 </NavLink>
+                                
                             </div>
                         </div>
 
@@ -102,9 +100,7 @@ export default function Authenticated({ auth, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('')} active={route().current('')}>
-                            Home
-                        </ResponsiveNavLink>
+                        
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">

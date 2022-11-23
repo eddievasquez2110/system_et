@@ -46,8 +46,8 @@ Route::get('/reportes', function () {
     return Inertia::render('Admin/Reportes');
 })->middleware(['auth', 'verified','soloadmin']);
 
-Route::resource('equipos', EquipoController::class)
-    ->only(['index', 'store', 'update', 'destroy'])
-    ->middleware(['auth', 'verified','solouser']); 
+Route::get('/xd', function(){
+    return ('xd');
+})->middleware(['auth'])->name('xd');
 
 require __DIR__.'/auth.php';
