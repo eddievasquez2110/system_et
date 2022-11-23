@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\TipoEquipoController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\EquipoController;
 use App\Http\Middleware\SoloSuperAdmin;
 use App\Models\Rol;
 use Doctrine\DBAL\Schema\Index;
@@ -11,6 +12,7 @@ use Inertia\Inertia;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
+/*
 Route::get('/', function() {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -18,21 +20,34 @@ Route::get('/', function() {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+});*/
 
-    Route::get('/dashboard', function () {
-        return Inertia::render('SuperAdmin');
-    })->middleware(['auth', 'verified','solosuperadmin'])->name('superadmin'); 
-
-    Route::get('/admin', function () {
-        return Inertia::render('Admin');
-    })->middleware(['auth', 'verified','soloadmin'])->name('admin'); 
+Route::get('/', [AuthenticatedSessionController::class, 'create'])
+        ->name('login');
 
 
- Route::resource('/user',TipoEquipoController::class)
-         ->only(['index']);
+Route::get('/inicio', function () {
+        return Inertia::render('User/Index');
+})->middleware(['auth', 'verified','solouser'])->name('user'); 
+ 
 
-/* Route::get('equipos',[TipoEquipoController::class,'index'])
-    ->name('equipotest')->middleware(['auth']); */
+Route::get('/admin', function () {
+    return Inertia::render('Admin/Index',[
+        'canRegister' => Route::has('registro'),
+        'canReportes' => Route::has('reporte')
+    ]);
+})->middleware(['auth', 'verified','soloadmin'])->name('admin'); 
+
+Route::get('/dashboard', function () {
+    return Inertia::render('SuperAdmin/Index');
+})->middleware(['auth', 'verified','solosuperadmin'])->name('superadmin');
+
+Route::get('/reportes', function () {
+    return Inertia::render('Admin/Reportes');
+})->middleware(['auth', 'verified','soloadmin']);
+
+Route::resource('equipos', EquipoController::class)
+    ->only(['index', 'store', 'update', 'destroy'])
+    ->middleware(['auth', 'verified','solouser']); 
 
 require __DIR__.'/auth.php';

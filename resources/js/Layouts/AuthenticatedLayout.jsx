@@ -4,6 +4,7 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
+import ButtonDashboard from '@/Components/ButtonDashboard';
 
 export default function Authenticated({ auth, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
@@ -46,7 +47,7 @@ export default function Authenticated({ auth, children }) {
                                                 type="button"
                                                 className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
-                                                {auth.user.name}
+                                                {auth.user.email}
 
                                                 <svg
                                                     className="ml-2 -mr-0.5 h-4 w-4"
@@ -123,27 +124,30 @@ export default function Authenticated({ auth, children }) {
 
             {
                 auth.user.ID_Rol == '1' ?
-                <div className='grid grid-cols-3 h-screen flex'>
-                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
-                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
-                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
-                        <PrimaryButton>Gestión de Software</PrimaryButton>
-                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
-                        <PrimaryButton>Reporte</PrimaryButton>
+                <div className='flex h-full'>
+                    <div className='flex w-3/5 grid basis-1/4 bg-green-400 pt-10'>
+                        <ButtonDashboard>Gestión de Usuarios</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Solicitudes</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Software</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Equipos</ButtonDashboard>
+                        <ButtonDashboard>Reporte</ButtonDashboard>
                     </div>
                     {children}
                 </div> : auth.user.ID_Rol == '2' ?
-                <div className='grid grid-cols-3 h-screen flex'>
-                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
-                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
-                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
-                        <PrimaryButton>Gestión de Software</PrimaryButton>
-                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
-                        <PrimaryButton>Reporte</PrimaryButton>
+                
+                <div className='flex h-full'>
+                    <div className='flex w-3/5 flex-col basis-1/4 bg-green-400 pt-10 '>
+                        <ButtonDashboard>Gestión de Usuarios</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Solicitudes</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Software</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Equipos</ButtonDashboard>
+                        <ButtonDashboard>Reporte</ButtonDashboard>
                     </div>
+                    <div className='flex basis-3/4 w-full'>
                     {children}
+                    </div>
                 </div> : auth.user.ID_Rol == '3' ?
-                    <div>
+                    <div className='flex flex-cols w-full'>
                     {children} 
                     </div>
                  : <></>
