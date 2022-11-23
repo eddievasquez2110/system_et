@@ -19,7 +19,7 @@ class EquipoController extends Controller
         // return response()->json([
         //     'message' => 'Probando controlador y ruta equipos'
         // ]);
-        return Inertia::render('User',[ 
+        return Inertia::render('User/Index',[ 
             'equipos' => Tipo_Equipo::get()
         ]);
         // return Inertia::render('Equipo/Index', [
@@ -28,10 +28,10 @@ class EquipoController extends Controller
 
     }
 
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     
     public function store(Request $request)
@@ -42,14 +42,16 @@ class EquipoController extends Controller
    
     public function show(Equipo $equipo)
     {
-        //
+
+        $eq = Equipo::where('ID_Equipo',$equipo->ID_Equipo)->first();
+        return response()->json($eq);
     }
 
    
-    public function edit(Equipo $equipo)
-    {
-        //
-    }
+    // public function edit(Equipo $equipo)
+    // {
+    //     //
+    // }
 
     public function update(Request $request, Equipo $equipo)
     {
@@ -59,6 +61,8 @@ class EquipoController extends Controller
 
     public function destroy(Equipo $equipo)
     {
-        //
+        $equipo = Equipo::find($equipo);
+        $equipo->delete();
+
     }
 }

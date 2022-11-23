@@ -19,12 +19,17 @@ Route::get('/', function() {
     ]);
 });
 
+Route::get('/user', function () {
+    return Inertia::render('User/Index');
+})->middleware(['auth', 'verified','solouser'])->name('user'); 
+
+
 Route::get('/dashboard', function () {
-    return Inertia::render('SuperAdmin');
+    return Inertia::render('SuperAdmin/Index');
 })->middleware(['auth', 'verified','solosuperadmin'])->name('superadmin'); 
 
 Route::get('/admin', function () {
-    return Inertia::render('Admin');
+    return Inertia::render('Admin/Index');
 })->middleware(['auth', 'verified','soloadmin'])->name('admin'); 
 
 
@@ -35,7 +40,6 @@ Route::get('/admin', function () {
 // ---------------------
 
 Route::resource('equipos', EquipoController::class)
-    ->only(['index', 'store', 'update', 'destroy'])
-    ->middleware(['auth', 'verified','solouser']); 
+    ->only(['index', 'store', 'update', 'destroy']);
 
 require __DIR__.'/auth.php';

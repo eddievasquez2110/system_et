@@ -25,7 +25,7 @@ class SoloUser
                 return redirect('admin');// si es un usuario normal redirige a la ruta USER
 			break;	
             case ('3'):
-                return redirect('equipos');//si es administrador redirige al moderador
+                return $next($request);//si es administrador redirige al moderador
             break;
         }
     }
