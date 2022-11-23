@@ -29,9 +29,8 @@ Route::get('/', function() {
     })->middleware(['auth', 'verified','soloadmin'])->name('admin'); 
 
 
- Route::resource('/equipos',TipoEquipoController::class)
-         ->only(['index'])
-         ->middleware(['auth','verified','solouser']);
+ Route::resource('/user',TipoEquipoController::class)
+         ->only(['index']);
 
 /* Route::get('equipos',[TipoEquipoController::class,'index'])
     ->name('equipotest')->middleware(['auth']); */

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AuthenticatedLayoutAdmin from '@/Layouts/AuthenticatedLayoutAdmin';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
 import DashCircle from '@/Components/DashCircle';
 import DashBar from '@/Components/DashBar';
@@ -8,7 +8,7 @@ import DashBar from '@/Components/DashBar';
 export default function Admin(props) {
 
     return (
-        <AuthenticatedLayoutAdmin
+        <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard {props.auth.user.name}</h2>}
@@ -33,6 +33,6 @@ export default function Admin(props) {
                 </div>
             </div>
                 
-        </AuthenticatedLayoutAdmin>
+        </AuthenticatedLayout>
     );
 }

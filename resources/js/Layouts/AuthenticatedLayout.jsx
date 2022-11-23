@@ -24,15 +24,15 @@ export default function Authenticated({ auth, children }) {
                                 {/* <NavLink href={route('equipos.index')} active={route().current('equipos.index')}>
                                     Inicio
                                 </NavLink> */}
-                                {/* <NavLink href={route('dashboard')} active={route().current('dashboard')} >
+                                <NavLink href={route('')} active={route().current('')} >
                                     Solicitud
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')} >
+                                <NavLink href={route('')} active={route().current('')} >
                                     Equipos
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')} >
+                                <NavLink href={route('')} active={route().current('')} >
                                     Software
-                                </NavLink> */}
+                                </NavLink>
                             </div>
                         </div>
 
@@ -101,9 +101,9 @@ export default function Authenticated({ auth, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        {/* <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                        <ResponsiveNavLink href={route('')} active={route().current('')}>
                             Home
-                        </ResponsiveNavLink> */}
+                        </ResponsiveNavLink>
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
@@ -120,7 +120,38 @@ export default function Authenticated({ auth, children }) {
                     </div>
                 </div>
             </nav>
-            <main>{children}</main>
+
+            {
+                auth.user.ID_Rol == '1' ?
+                <div className='grid grid-cols-3 h-screen flex'>
+                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
+                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
+                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
+                        <PrimaryButton>Gestión de Software</PrimaryButton>
+                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
+                        <PrimaryButton>Reporte</PrimaryButton>
+                    </div>
+                    {children}
+                </div> : auth.user.ID_Rol == '2' ?
+                <div className='grid grid-cols-3 h-screen flex'>
+                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
+                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
+                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
+                        <PrimaryButton>Gestión de Software</PrimaryButton>
+                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
+                        <PrimaryButton>Reporte</PrimaryButton>
+                    </div>
+                    {children}
+                </div> : auth.user.ID_Rol == '3' ?
+                    <div>
+                    {children} 
+                    </div>
+                 : <></>
+            }
+            
+            <main>
+                
+            </main>
         </div>
     );
 }

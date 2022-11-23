@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react'
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
 import DashCircle from '@/Components/DashCircle';
 import DashBar from '@/Components/DashBar';
