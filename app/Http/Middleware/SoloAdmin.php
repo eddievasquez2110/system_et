@@ -25,7 +25,7 @@ class SoloAdmin
                 return $next($request);// si es un usuario normal redirige a la ruta USER
 			break;	
             case ('3'):
-                return redirect('user');//si es administrador redirige al moderador
+                return redirect('inicio');//si es administrador redirige al moderador
             break;
         }
     }
