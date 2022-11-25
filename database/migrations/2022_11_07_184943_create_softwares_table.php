@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id('ID_Software');
             $table->unsignedBigInteger('ID_Uso_Equipo');
             $table->foreign('ID_Uso_Equipo')->references('ID_Uso_Equipo')->on('uso__equipos')->cascadeOnDelete()->cascadeOnUpdate();
-            // $table->unsignedBigInteger('ID_Especificacion_Software');
-            // $table->foreign('ID_Especificacion_Software')->references('ID_ESpecificacion_Software')->on('especificacion__software')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->unsignedBigInteger('ID_Especificacion_Software');
+            $table->foreign('ID_Especificacion_Software')->references('ID_Especificacion_Software')->on('especificacion__software')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('Nombre_Software',100);
             $table->string('Version_Software',45);
             $table->string('Descripcion_Software',250);
