@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id('ID_SolicitudDetalle');
             $table->unsignedBigInteger('ID_Solicitud');
             $table->foreign('ID_Solicitud')->references('ID_Solicitud')->on('solicituds')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->unsignedBigInteger('ID_Equipo');
-            $table->foreign('ID_Equipo')->references('ID_Equipo')->on('equipos')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->unsignedBigInteger('ID_Software');
-            $table->foreign('ID_Software')->references('ID_Software')->on('software')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->unsignedBigInteger('ID_Especificacion_Equipo');
+            $table->foreign('ID_Especificacion_Equipo')->references('ID_Especificacion_Equipo')->on('especificacion__equipos')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->unsignedBigInteger('ID_Especificacion_Software');
+            $table->foreign('ID_Especificacion_Software')->references('ID_Especificacion_Software')->on('especificacion__software')->cascadeOnDelete()->cascadeOnUpdate();
             $table->String('Descripcion_SolicitudDetalle', 45);
             $table->timestamps();
         });

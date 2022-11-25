@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('versions', function (Blueprint $table) {
-            $table->id('ID_Version');
-            $table->string('Nombre_Version');
-            $table->string('Anio_Version');
+        Schema::create('software', function (Blueprint $table) {
+            $table->id('ID_Software');
+            $table->string('Nombre_Software',45);
+            $table->string('Version_Software',45);
+            $table->string('Descripcion_Software',250);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('versions');
+        Schema::dropIfExists('software');
     }
 };

@@ -46,7 +46,4 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
 });
 
 
-Route::resource('equipos', EquipoController::class)
-    ->only(['index', 'store', 'update', 'destroy']);
-
 require __DIR__.'/auth.php';
