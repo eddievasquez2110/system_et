@@ -7,20 +7,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
-class AdminController extends Controller
+class ReporteController extends Controller
 {
-    
-    
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('soloadmin',['only'=> ['index']]);
-    }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $reportes = User::all();
-        return Inertia::render('Admin/Reportes',['reportes'=>$reportes]);
+        // $reportes = User::all();
+        // return Inertia::render('Admin/Reportes',['reportes'=>$reportes]);
     }
 
     /**

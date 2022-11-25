@@ -25,7 +25,7 @@ export default function Authenticated({ auth, header, children }) {
                                 <NavLink href={route('user')} active={route().current('user')}>
                                     Inicio
                                 </NavLink>
-                                <NavLink href={route('user')}  >
+                                <NavLink href={route('user')} >
                                     Equipos
                                 </NavLink>
                                 <NavLink href={route('user')}  >
@@ -61,7 +61,6 @@ export default function Authenticated({ auth, header, children }) {
                                             </button>
                                         </span>
                                     </Dropdown.Trigger>
-
                                     <Dropdown.Content>
                                         <Dropdown.Link href={route('logout')} method="post" as="button">
                                             Cerrar Sesión
@@ -135,7 +134,7 @@ export default function Authenticated({ auth, header, children }) {
                 auth.user.ID_Rol == '1' ?
                 <div className='flex h-full'>
                     <div className='flex w-3/5 grid basis-1/4 bg-green-400 pt-10'>
-                        <ButtonDashboard>Gestión de Usuarios</ButtonDashboard>
+                        <Link href={route('reportes.index')} ><ButtonDashboard>Gestión de Usuarios</ButtonDashboard></Link>
                         <ButtonDashboard>Gestión de Solicitudes</ButtonDashboard>
                         <ButtonDashboard>Gestión de Software</ButtonDashboard>
                         <ButtonDashboard>Gestión de Equipos</ButtonDashboard>
@@ -152,8 +151,10 @@ export default function Authenticated({ auth, header, children }) {
                         <ButtonDashboard>Gestión de Equipos</ButtonDashboard>
                         <ButtonDashboard>Reporte</ButtonDashboard>
                     </div>
-                    <div className='flex basis-3/4 w-full'>
-                    {children}
+                    <div className=''>
+                        <div className='flex basis-3/4 w-full'>
+                            {children}
+                        </div>
                     </div>
                 </div> : auth.user.ID_Rol == '3' ?
                     <div className='flex flex-cols w-full'>
