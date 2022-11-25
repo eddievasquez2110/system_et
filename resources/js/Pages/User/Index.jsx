@@ -1,23 +1,20 @@
-import React from 'react';
+import React from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
-
-export default function User(props) {
-    return (
-        <AuthenticatedLayout
-            auth={props.auth}
-            errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Hola {props.auth.user.name}</h2>}
-        >
-            <Head title="User" />
-
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 bg-green-200 border-b border-gray-200">Estas en Linea con nosotros!</div>
-                    </div>
-                </div>
-            </div>
-        </AuthenticatedLayout>
-    );
+import Equipo from '@/Components/Equipo';
+const User = ({auth,equipos}) => {
+  return (
+    <AuthenticatedLayout auth={auth}>
+      <Head title="Inicio" />
+      <div className="wrapper flex flex-wrap justify-center items-center gap-5 mt-8">
+            {
+                equipos.map(equipo =>
+                    <Equipo key={equipo.ID_Tipo_Equipo} equipo={equipo}/>
+                    )
+            }
+        </div>
+    </AuthenticatedLayout>
+  )
 }
+
+export default User

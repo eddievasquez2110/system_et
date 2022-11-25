@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\TipoEquipoController;
 use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Middleware\SoloSuperAdmin;
 use App\Models\Rol;
+use Doctrine\DBAL\Schema\Index;
 use Faker\Guesser\Name;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -35,9 +37,12 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
 
 //RUTAS SOLO USER
 Route::middleware(['auth', 'verified','solouser'])->group(function () {
-    Route::get('/inicio', function () {
-        return Inertia::render('User/Index');
-    })->name('user');
+
+    Route::get('/inicio', [TipoEquipoController::class,'index'])
+        ->name('user'); 
+ 
+    Route::get('/inicio/{id}',[TipoEquipoController::class,'show'])
+        ->name('inicio.show');
 });
 
 

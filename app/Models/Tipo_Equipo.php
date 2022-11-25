@@ -10,6 +10,7 @@ class Tipo_Equipo extends Model
     use HasFactory;
 
     protected $fillable = [
+        'ID_Tipo_Equipo',
         'Nombre_Tipo_Equipo',
     ];
 
