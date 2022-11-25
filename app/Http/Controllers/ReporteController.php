@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Especificacion;
-use App\Models\Tipo_Equipo;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
-class TipoEquipoController extends Controller
+class ReporteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,8 @@ class TipoEquipoController extends Controller
      */
     public function index()
     {
-        return Inertia::render('User/Index',[
-            'equipos' => Tipo_Equipo::all(),
-        ]);
+        // $reportes = User::all();
+        // return Inertia::render('Admin/Reportes',['reportes'=>$reportes]);
     }
 
     /**
@@ -45,24 +44,21 @@ class TipoEquipoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tipo_Equipo  $tipo_Equipo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return Inertia::render('User/Lista',[
-            'laptops' =>Tipo_Equipo::where('ID_Tipo_Equipo',$id)->get(),
-            'especificacion' =>Especificacion::where('ID_Tipo_Equipo',$id)->get()
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tipo_Equipo  $tipo_Equipo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tipo_Equipo $tipo_Equipo)
+    public function edit($id)
     {
         //
     }
@@ -71,10 +67,10 @@ class TipoEquipoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tipo_Equipo  $tipo_Equipo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tipo_Equipo $tipo_Equipo)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -82,10 +78,10 @@ class TipoEquipoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tipo_Equipo  $tipo_Equipo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tipo_Equipo $tipo_Equipo)
+    public function destroy($id)
     {
         //
     }

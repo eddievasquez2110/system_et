@@ -4,47 +4,48 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
-import PrimaryButton from '@/Components/PrimaryButton';
+import ButtonDashboard from '@/Components/ButtonDashboard';
 
-export default function Authenticated({ auth, header, children }) {
+export default function Authenticated({ auth, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
         <div className="min-h-screen bg-gray-100">
-            <nav className="bg-green-900 border-b border-gray-100">
+            <nav className="bg-lime-900 border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between h-16">
+                    <div className="flex p-2 justify-between ">
                         <div className="flex">
 
                             {/* Logo UNCP */}
                             <div className="shrink-0 flex items-center">
-                                <Link href={route('user')} >
-                                    <ApplicationLogo className="block text-gray-500"/>
+                                <Link href="/">
+                                    <ApplicationLogo className="block h-5 w-auto text-gray-500" />
                                 </Link>
                             </div>
 
-                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('user')} active={route().current('user')}>
+                            <div className="text-white space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink href={route('user')}>
                                     Inicio
                                 </NavLink>
-                                <NavLink href={route('user')}  >
+                                <NavLink href={route('user')} >
                                     Equipos
                                 </NavLink>
-                                <NavLink href={route('user')}  >
+                                <NavLink href="/xd">
                                     Software
                                 </NavLink>
                                 
                             </div>
                         </div>
 
-                        <div className="hidden sm:flex sm:items-center sm:ml-6 h-12 w-38 justify-center flex m-2 border-white rounded-lg bg-amber-400">
+                        <div className="hidden sm:flex sm:items-center sm:ml-6 h-12 w-38 justify-center flex m-2 border border-gray-500 rounded-lg bg-white">
                             <div className="ml-3 relative ">
                                 <Dropdown>
                                     <Dropdown.Trigger>
                                         <span className="inline-flex rounded-md">
+                                            
                                             <button
                                                 type="button"
-                                                className="inline-flex px-2 py-2 border border-transparent leading-4 font-medium rounded-md text-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 {auth.user.name}
 
@@ -63,7 +64,6 @@ export default function Authenticated({ auth, header, children }) {
                                             </button>
                                         </span>
                                     </Dropdown.Trigger>
-
                                     <Dropdown.Content>
                                         <Dropdown.Link href={route('logout')} method="post" as="button">
                                             Cerrar Sesión
@@ -101,21 +101,13 @@ export default function Authenticated({ auth, header, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('user')} active={route().current('user')}>
-                            Inicio
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('user')} >
-                            Equipos
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('user')} >
-                            Software
-                        </ResponsiveNavLink>
+                        
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">
-                            <div className="font-medium text-base text-green-300">{auth.user.name}</div>
-                            <div className="font-medium text-sm text-green-300">{auth.user.email}</div>
+                            <div className="font-medium text-base text-gray-800">{auth.user.name}</div>
+                            <div className="font-medium text-sm text-gray-500">{auth.user.email}</div>
                         </div>
 
                         <div className="mt-3 space-y-1">
@@ -126,37 +118,35 @@ export default function Authenticated({ auth, header, children }) {
                     </div>
                 </div>
             </nav>
-
             
-            {header && (
-                <header className="bg-white shadow">
-                    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
-                </header>
-            )}
-
             {
                 auth.user.ID_Rol == '1' ?
-                <div className='grid grid-cols-3 h-screen flex'>
-                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
-                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
-                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
-                        <PrimaryButton>Gestión de Software</PrimaryButton>
-                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
-                        <PrimaryButton>Reporte</PrimaryButton>
+                <div className='flex h-full'>
+                    <div className='flex w-3/5 grid basis-1/4 bg-green-400 pt-10'>
+                        <Link href={route('reportes.index')} ><ButtonDashboard>Gestión de Usuarios</ButtonDashboard></Link>
+                        <ButtonDashboard>Gestión de Solicitudes</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Software</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Equipos</ButtonDashboard>
+                        <ButtonDashboard>Reporte</ButtonDashboard>
                     </div>
                     {children}
                 </div> : auth.user.ID_Rol == '2' ?
-                <div className='grid grid-cols-3 h-screen flex'>
-                    <div className='w-4/5 h-screen bg-green-400 px-24 pt-24 py-10 space-y-5'>
-                        <PrimaryButton>Gestión de Usuarios</PrimaryButton>
-                        <PrimaryButton>Gestión de Solicitudes</PrimaryButton>
-                        <PrimaryButton>Gestión de Software</PrimaryButton>
-                        <PrimaryButton>Gestión de Equipos</PrimaryButton>
-                        <PrimaryButton>Reporte</PrimaryButton>
+                
+                <div className='flex h-full'>
+                    <div className='flex w-3/5 flex-col basis-1/4 bg-green-400 pt-10 '>
+                        <ButtonDashboard>Gestión de Usuarios</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Solicitudes</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Software</ButtonDashboard>
+                        <ButtonDashboard>Gestión de Equipos</ButtonDashboard>
+                        <ButtonDashboard>Reporte</ButtonDashboard>
                     </div>
-                    {children}
+                    <div className=''>
+                        <div className='flex basis-3/4 w-full'>
+                            {children}
+                        </div>
+                    </div>
                 </div> : auth.user.ID_Rol == '3' ?
-                    <div>
+                    <div className='flex flex-cols w-full'>
                     {children} 
                     </div>
                  : <></>
