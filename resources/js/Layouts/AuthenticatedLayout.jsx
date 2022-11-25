@@ -15,6 +15,8 @@ export default function Authenticated({ auth, children }) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex p-2 justify-between ">
                         <div className="flex">
+
+                            {/* Logo UNCP */}
                             <div className="shrink-0 flex items-center">
                                 <Link href="/">
                                     <ApplicationLogo className="block h-5 w-auto text-gray-500" />
@@ -45,7 +47,7 @@ export default function Authenticated({ auth, children }) {
                                                 type="button"
                                                 className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
-                                                {auth.user.email}
+                                                {auth.user.name}
 
                                                 <svg
                                                     className="ml-2 -mr-0.5 h-4 w-4"
@@ -116,7 +118,7 @@ export default function Authenticated({ auth, children }) {
                     </div>
                 </div>
             </nav>
-
+            
             {
                 auth.user.ID_Rol == '1' ?
                 <div className='flex h-full'>

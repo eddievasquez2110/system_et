@@ -18,3 +18,4 @@ const User = ({auth,equipos}) => {
 }
 
 export default User
+

@@ -21,10 +21,8 @@ class EquipoController extends Controller
         //$equipo = Equipo::get();
         //return response()->json($equipo);
 
-
         // return Inertia::render('Equipo/Index', [
-        //     // 'equipos' => Equipo::with('Especificacion:ID_Especificacion,ID_Uso_Equipo')->latest()->get()
-        //     'equipos' => Equipo::get(),
+        //     'equipos' => Equipo::with('Especificacion:ID_Especificacion,ID_Uso_Equipo')->latest()->get()
         // ]);
 
         return Inertia::render('User/Index',[ 
