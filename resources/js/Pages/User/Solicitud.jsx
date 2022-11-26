@@ -8,19 +8,19 @@ const Solicitud = ({auth,softwares}) => {
     return (
       <AuthenticatedLayout auth={auth}>
         <Head title="Solicitud" />
-        <div className='w-600 bg-green-300 justify-center items-center '>
+        <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'>SELECCIÓN DE PROGRAMAS</div>
+                <div className="wrapper flex flex-wrap items-center justify-center gap-5 mt-8">
+                    {
+                        softwares.map(software =>
+                            <Software key={software.ID_Software} software={software}/>
+                            )
+                    }  
+                           
+                </div>
+                <div className='p-10 flex justify-center'>
+                        <PrimaryButton>Continuar</PrimaryButton>  
+                </div> 
         
-            <div className="wrapper flex flex-wrap justify-center items-center gap-5 mt-8">
-                {
-                    softwares.map(software =>
-                        <Software key={software.ID_Software} software={software}/>
-                        )
-                }            
-            </div>
-            <div>
-                <PrimaryButton>Continuar</PrimaryButton>
-            </div>
-        </div>
       </AuthenticatedLayout>
     )
   }

@@ -2,11 +2,11 @@ import React from 'react'
 const Equipo = ({equipo}) => {
 
   return (
-      <div className="max-w-xs bg-white rounded-lg border-2 border-neutral-100 shadow-md  ">
+      <div className="max-w-xs bg-white rounded-lg border-2 border-green-100 shadow-md shadow-lime-800/50 ">
                 <a href="#">
-                    <img src={`../images/${equipo.ID_Tipo_Equipo}.jpg`} className='rounded-t-lg' style={{height:"250px",width:"380px"}} alt="" />
+                    <img src={`../images/equipos/${equipo.ID_Tipo_Equipo}.jpg`} className='rounded-t-lg' style={{height:"250px",width:"380px"}} alt="" />
                 </a>
-                <div className="p-5">
+                <div className="p-5 ">
                 { equipo.ID_Tipo_Equipo == '1' || equipo.ID_Tipo_Equipo == '2' ?
                     <>
                     <a href="#">
@@ -19,7 +19,7 @@ const Equipo = ({equipo}) => {
                     </>
                     : <>
                     <a href="#">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-lime-800 ">{equipo.Nombre_Tipo_Equipo}</h5>
+                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-lime-800 text-center">{equipo.Nombre_Tipo_Equipo}</h5>
                     </a>
                     <a href={route('inicio.show',{id: `${equipo.ID_Tipo_Equipo}`})}  className="inline-flex items-center justify-center py-5 w-full bg-green-700 border border-transparent rounded-md font-bold text-xs text-white tracking-widest active:bg-green-900 hover:bg-green-600 transition ease-in-out duration-150">
                         Ir

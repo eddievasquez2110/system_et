@@ -5,6 +5,9 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
 import ButtonDashboard from '@/Components/ButtonDashboard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { faKey,faUser,faMoneyBill } from '@fortawesome/free-solid-svg-icons'
 
 export default function Authenticated({ auth, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
@@ -48,7 +51,7 @@ export default function Authenticated({ auth, children }) {
                                                 type="button"
                                                 className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
-                                                {auth.user.name}
+                                                <FontAwesomeIcon className="h-5 w-10"  icon={faUser} />{auth.user.name}
 
                                                 <svg
                                                     className="ml-2 -mr-0.5 h-4 w-4"
@@ -155,9 +158,9 @@ export default function Authenticated({ auth, children }) {
                         </div>
                     </div>
                 </div> : auth.user.ID_Rol == '3' ?
-                    <div className='flex flex-cols w-full'>
+                    <div className='flex w-full h-full place-content-around '>
                     
-                    <div>
+                    <div className='bg-gradient-to-r from-green-100 to-green-300'>
                         {children} 
                     </div>
                     </div>
