@@ -15,10 +15,35 @@ class SoftwareSeeder extends Seeder
      */
     public function run()
     {
+
+        $especificacions = Software::create([
+            'Nombre_Software' => 'SIGA',
+            'Version_Software' => '2022',
+            'Descripcion_Software' => 'Sistema de Gestión Administrativa, desarrollada por el Ministerio de Economia y Finanzas',
+        ]);
+
+        $especificacions = Software::create([
+            'Nombre_Software' => 'SIAF',
+            'Version_Software' => '2022',
+            'Descripcion_Software' => 'Sistema de Ejecución, desarrollada por el Ministerio de Economia y Finanzas',
+        ]);
+
         $especificacions = Software::create([
             'Nombre_Software' => 'Microsoft Office',
             'Version_Software' => '2016',
             'Descripcion_Software' => 'Microsoft Office es un conjunto de aplicaciones con las cuales podemos llevar a cabo tareas de ofimática, pudiendo automatizar y alcanzar un alto nivel de rendimiento en dichas tareas gracias a las herramientas que ofrece.',
+        ]);
+
+        $especificacions = Software::create([
+            'Nombre_Software' => 'Any Desk',
+            'Version_Software' => '2022',
+            'Descripcion_Software' => 'Sistema de Ejecución, desarrollada por el Ministerio de Economia y Finanzas',
+        ]);
+
+        $especificacions = Software::create([
+            'Nombre_Software' => 'Adobe Acrobat',
+            'Version_Software' => '2016',
+            'Descripcion_Software' => 'Adobe Reader es una aplicación que te permite ver, imprimir y buscar en documentos PDF a través de una interfaz.',
         ]);
 
         $especificacions = Software::create([
@@ -28,9 +53,16 @@ class SoftwareSeeder extends Seeder
         ]);
 
         $especificacions = Software::create([
-            'Nombre_Software' => 'Adove Reader',
-            'Version_Software' => '2016',
-            'Descripcion_Software' => 'Adobe Reader es una aplicación que te permite ver, imprimir y buscar en documentos PDF a través de una interfaz.',
+            'Nombre_Software' => 'Zoom',
+            'Version_Software' => '2022',
+            'Descripcion_Software' => 'Software gratuito, utilizado para realizar reuniones o acceder a reuniones virtuales',
         ]);
+
+        $especificacions = Software::create([
+            'Nombre_Software' => 'FoxPro',
+            'Version_Software' => '2022',
+            'Descripcion_Software' => 'Sistema de Gestor de Base de datos y lenguaje de programación orientado a procedimientos',
+        ]);
+        
     }
 }
