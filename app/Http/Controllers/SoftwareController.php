@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Software;
 use Illuminate\Http\Request;
-
+use Inertia\Inertia;
 class SoftwareController extends Controller
 {
     /**
@@ -14,7 +14,9 @@ class SoftwareController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('User/Solicitud',[
+            'softwares' => Software::all(),
+        ]);
     }
 
     /**
@@ -46,7 +48,7 @@ class SoftwareController extends Controller
      */
     public function show(Software $software)
     {
-        //
+        
     }
 
     /**

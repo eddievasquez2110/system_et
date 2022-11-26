@@ -6,6 +6,7 @@ const User = ({auth,equipos}) => {
   return (
     <AuthenticatedLayout auth={auth}>
       <Head title="Inicio" />
+      
       <div className="wrapper flex flex-wrap justify-center items-center gap-5 mt-8">
             {
                 equipos.map(equipo =>

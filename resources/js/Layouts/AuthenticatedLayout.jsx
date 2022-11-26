@@ -13,7 +13,7 @@ export default function Authenticated({ auth, children }) {
         <div className="min-h-screen bg-gray-100">
             <nav className="bg-lime-900 border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex p-2 justify-between ">
+                    <div className="flex justify-between p-2">
                         <div className="flex">
 
                             {/* Logo UNCP */}
@@ -21,10 +21,11 @@ export default function Authenticated({ auth, children }) {
                                 <Link href="/">
                                     <ApplicationLogo className="block h-5 w-auto text-gray-500" />
                                 </Link>
+                                <h1 className='text-yellow-400 ml-4 font-mono'>SISTET</h1>
                             </div>
 
-                            <div className="text-white space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('user')}>
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
+                                <NavLink href={route('user')} active={route().current('user')}>
                                     Inicio
                                 </NavLink>
                                 <NavLink href={route('user')} >
@@ -101,7 +102,15 @@ export default function Authenticated({ auth, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        
+                        <ResponsiveNavLink href={route('user')} active={route().current('user')}>
+                            Inicio
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('user')} >
+                            Equipos
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('user')} >
+                            Software
+                        </ResponsiveNavLink>
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
@@ -112,7 +121,7 @@ export default function Authenticated({ auth, children }) {
 
                         <div className="mt-3 space-y-1">
                             <ResponsiveNavLink method="post" href={route('logout')} as="button">
-                                Cerrar Sesión
+                                Log Out
                             </ResponsiveNavLink>
                         </div>
                     </div>
@@ -147,7 +156,10 @@ export default function Authenticated({ auth, children }) {
                     </div>
                 </div> : auth.user.ID_Rol == '3' ?
                     <div className='flex flex-cols w-full'>
-                    {children} 
+                    
+                    <div>
+                        {children} 
+                    </div>
                     </div>
                  : <></>
             }

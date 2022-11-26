@@ -3,7 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\TipoEquipoController;
-use App\Http\Controllers\EquipoController;
+use App\Http\Controllers\SoftwareController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Middleware\SoloSuperAdmin;
 use App\Models\Rol;
@@ -43,6 +43,9 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
  
     Route::get('/inicio/{id}',[TipoEquipoController::class,'show'])
         ->name('inicio.show');
+
+    Route::get('/solicitud', [SoftwareController::class,'index'])
+        ->name('solicitud');
 });
 
 
