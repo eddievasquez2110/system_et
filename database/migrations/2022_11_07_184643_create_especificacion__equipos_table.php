@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('especificacions', function (Blueprint $table) {
-            $table->id('ID_Especificacion');
+        Schema::create('especificacion__equipos', function (Blueprint $table) {
+            $table->id('ID_Especificacion_Equipo');
             $table->unsignedBigInteger('ID_Tipo_Equipo');
             $table->unsignedBigInteger('ID_Uso_Equipo');
             $table->foreign('ID_Tipo_Equipo')->references('ID_Tipo_Equipo')->on('Tipo__Equipos');
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('especificacions');
+        Schema::dropIfExists('especificacion__equipos');
     }
 };

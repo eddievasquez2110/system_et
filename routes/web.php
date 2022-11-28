@@ -4,50 +4,60 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminTipoEquipoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\TipoEquipoController;
+use App\Http\Controllers\SoftwareController;
+use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\SolicitudDetalleController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\SoloSuperAdmin;
 use App\Models\Rol;
 use Doctrine\DBAL\Schema\Index;
+use Faker\Guesser\Name;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
-/*
-Route::get('/', function() {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});*/
 
+//RUTA INICIO
 Route::get('/', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
 
+//RUTAS SOLO SUPER ADMIN
+Route::middleware(['auth', 'verified','solosuperadmin'])->group(function () {
+    Route::get('/superadmin', function () {
+        return Inertia::render('SuperAdmin/Index');
+    })->name('superadmin');
 
-Route::get('/inicio', [TipoEquipoController::class,'index'])
-->middleware(['auth', 'verified','solouser'])->name('user'); 
+    Route::get('/superadmin/reportes', [SolicitudDetalleController::class,'index'])
+         ->name('reportes.a');
+});
+
+//RUTAS SOLO ADMIN
+Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Admin/Index');
+    })->name('admin');
+
+    Route::get('/dashboard/reportes', [SolicitudDetalleController::class,'index'])
+         ->name('reportes');
+
+});
+
+//RUTAS SOLO USER
+Route::middleware(['auth', 'verified','solouser'])->group(function () {
+
+    Route::get('/inicio', [TipoEquipoController::class,'index'])
+        ->name('user'); 
  
-Route::get('/inicio/{id}',[TipoEquipoController::class,'show'])
+    Route::get('/inicio/{id}',[TipoEquipoController::class,'show'])
         ->name('inicio.show');
 
-/* Route::get('/admin', function(){
-            return Inertia::render('Admin/Admin');
-        })->middleware(['auth'])->name('admin.index'); */
+    Route::get('/solicitud', [SoftwareController::class,'index'])
+        ->name('solicitud');
+});
 
 Route::resource('/tequipo', AdminTipoEquipoController::class)
                 ->middleware(['auth']);
-
-Route::get('/dashboard', function () {
-    return Inertia::render('SuperAdmin/Index');
-})->middleware(['auth', 'verified','solosuperadmin'])->name('superadmin');
-
-Route::get('/reportes', function () {
-    return Inertia::render('Admin/Reportes');
-})->middleware(['auth', 'verified','soloadmin']);
-
-
 
 require __DIR__.'/auth.php';

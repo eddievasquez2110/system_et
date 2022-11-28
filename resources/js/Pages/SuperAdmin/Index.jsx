@@ -14,17 +14,19 @@ export default function Dashboard(props) {
         >
 
         <Head title="SuperAdmin" />
-            <div className='w-full bg-white'>
-                <div className='flex flex-wrap justify-center'>
-                    <div className='target'>
-                        <DashCircle></DashCircle>
-                    </div>
+            <div className='flex flex-col'>
+                <div className='wrapper flex flex-wrap justify-center mt-8 gap-4'>
+                    
+                    <DashCircle></DashCircle>
+                    
                     <DashCircle></DashCircle>
                     <DashCircle></DashCircle>
                 </div>
                 
-                <div className='w-3/5 justify-center'>
-                    <DashBar className=''></DashBar>
+                <div className=' flex place-content-around mt-8'>
+                    <div className=''>
+                        <DashBar className=''></DashBar>
+                    </div>
                 </div>
             </div>
         </AuthenticatedLayout>

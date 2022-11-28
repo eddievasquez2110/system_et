@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Especificacion;
 use Illuminate\Http\Request;
 
-class EspecificacionController extends Controller
+class SuperAdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('solosuperadmin',['only'=> ['index']]);
+    }
+
     public function index()
     {
         //
@@ -41,10 +42,10 @@ class EspecificacionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Especificacion  $especificacion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Especificacion $especificacion)
+    public function show($id)
     {
         //
     }
@@ -52,10 +53,10 @@ class EspecificacionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Especificacion  $especificacion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Especificacion $especificacion)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +65,10 @@ class EspecificacionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Especificacion  $especificacion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Especificacion $especificacion)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +76,10 @@ class EspecificacionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Especificacion  $especificacion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Especificacion $especificacion)
+    public function destroy($id)
     {
         //
     }
