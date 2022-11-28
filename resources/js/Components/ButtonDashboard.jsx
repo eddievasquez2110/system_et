@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ButtonDashboard({ type = 'submit', className = '', processing, children }) {
+export default function ButtonDashboard({ type = 'submit', className = '', processing, children, href}) {
     return (
         <button
             type={type}
@@ -10,6 +10,7 @@ export default function ButtonDashboard({ type = 'submit', className = '', proce
                 } ` + className
             }
             disabled={processing}
+            href={href}
         >
             {children}
         </button>

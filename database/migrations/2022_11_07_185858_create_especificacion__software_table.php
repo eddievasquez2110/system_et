@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('especificacion__software', function (Blueprint $table) {
             $table->id('ID_Especificacion_Software');
-            $table->String('Procesador')->nullable();
-            $table->String('EspacioDisco')->nullable();
-            $table->String('SistemaOperativo')->nullable();
-            $table->String('TamañoARAM')->nullable();
-            $table->String('TarjetaVideo')->nullable();
+            $table->unsignedBigInteger('ID_Software');
+            $table->foreign('ID_Software')->references('ID_Software')->on('software')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->unsignedBigInteger('ID_Uso_Equipo');
+            $table->foreign('ID_Uso_Equipo')->references('ID_Uso_Equipo')->on('uso__equipos')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->Text('Nombre_Especificacion')->nullable();
+            $table->Text('Especificacion')->nullable();
             $table->timestamps();
         });
     }

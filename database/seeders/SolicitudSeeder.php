@@ -14,19 +14,19 @@ class SolicitudSeeder extends Seeder
     {
         $solicitud = Solicitud::create([
             'id' => 1,
-            'Fecha_Solicitud'=>'2022-11-10: 12:30:12',
+            'Fecha_Solicitud'=>'2022-11-10 12:30:12',
             'Estado_Solicitud'=>'Aceptado',
         ]);
 
         $solicitud = Solicitud::create([
             'id' => 1,
-            'Fecha_Solicitud'=>'2022-11-10: 12:35:12',
+            'Fecha_Solicitud'=>'2022-11-10 12:35:12',
             'Estado_Solicitud'=>'Rechazado',
         ]);
 
         $solicitud = Solicitud::create([
             'id' => 1,
-            'Fecha_Solicitud'=>'2022-11-10: 12:50:12',
+            'Fecha_Solicitud'=>'2022-11-10 12:50:12',
             'Estado_Solicitud'=>'Pendiente',
         ]);
     }

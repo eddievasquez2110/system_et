@@ -5,20 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Especificacion_Software extends Model
+class Especificacion_Equipo extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'ID_Software',
+        'ID_Tipo_Equipo',
         'ID_Uso_Equipo',
         'Nombre_Especificacion',
         'Especificacion',
     ];
 
-    public function Software()
-    {
-        return $this->belongsTo(Software::class);
+    public function Tipo_Equipo(){
+        return $this->hasOne(Tipo_Equipo::class);
     }
 
     public function Uso_Equipo()

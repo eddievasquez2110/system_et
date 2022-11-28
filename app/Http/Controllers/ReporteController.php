@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Especificacion;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
-class EspecificacionController extends Controller
+class ReporteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,8 @@ class EspecificacionController extends Controller
      */
     public function index()
     {
-        //
+        // $reportes = User::all();
+        // return Inertia::render('Admin/Reportes',['reportes'=>$reportes]);
     }
 
     /**
@@ -41,10 +44,10 @@ class EspecificacionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Especificacion  $especificacion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Especificacion $especificacion)
+    public function show($id)
     {
         //
     }
@@ -52,10 +55,10 @@ class EspecificacionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Especificacion  $especificacion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Especificacion $especificacion)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +67,10 @@ class EspecificacionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Especificacion  $especificacion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Especificacion $especificacion)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +78,10 @@ class EspecificacionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Especificacion  $especificacion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Especificacion $especificacion)
+    public function destroy($id)
     {
         //
     }
