@@ -13,7 +13,7 @@ const User = ({auth,equipos}) => {
                     <Equipo key={equipo.ID_Tipo_Equipo} equipo={equipo}/>
                     )
             }
-        </div>
+       </div>
     </AuthenticatedLayout>
   )
 }

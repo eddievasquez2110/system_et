@@ -39,7 +39,9 @@ export default function DashBar(props) {
             <Bar 
             data={data} 
             type="Bar" 
-            className='mt-10'
+            className='max-w-xs justify-center bg-white w-100 p-5 rounded-lg drop-shadow'
+            height={400}
+            width={400}
             />
         </div>
     );
