@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminTipoEquipoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\TipoEquipoController;
 use App\Http\Controllers\SoftwareController;
@@ -41,19 +42,6 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
     Route::get('/dashboard/reportes', [SolicitudDetalleController::class,'index'])
          ->name('reportes');
 
-    Route::get('/dashboard/reportes/{id}',[SolicitudDetalleController::class,'show'])
-         ->name('reportes.show');
-
-    // Route::prefix('dashboard')->group(function () {
-    //     Route::get('/reportes', function() {
-
-    //     });
-    // });
-    
-    //Route::resource('reportes', ReporteController::class);
-    //Route::resource('usuarios', AdminController::class);
-    // Route::get('/usuarios', [UserController::class,'index'])
-    //     ->name('usuarios');
 });
 
 //RUTAS SOLO USER
@@ -69,5 +57,7 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         ->name('solicitud');
 });
 
+Route::resource('/tequipo', AdminTipoEquipoController::class)
+                ->middleware(['auth']);
 
 require __DIR__.'/auth.php';
