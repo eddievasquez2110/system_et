@@ -35,12 +35,26 @@ Route::middleware(['auth', 'verified','solosuperadmin'])->group(function () {
 
 //RUTAS SOLO ADMIN
 Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Admin/Index');
-    })->name('admin');
+     Route::get('/dashboard', function () {
+         return Inertia::render('Admin/Admin');
+     })->name('admin');
+
+    Route::get('/dashboard/tipoequipos', [AdminTipoEquipoController::class,'index'])
+         ->name('d.tipoequipos');
+
+    Route::get('/dashboard/usoequipos', [AdminUsoEquipoController::class,'index'])
+         ->name('d.usoequipos');
+
+    Route::get('/dashboard/especificacionequipo', [AdminUsoEquipoController::class,'index'])
+         ->name('d.especificacionequipo');
+    
+    Route::get('/dashboard/softwares', [AdminUsoEquipoController::class,'index'])
+         ->name('d.softwares');
 
     Route::get('/dashboard/reportes', [SolicitudDetalleController::class,'index'])
          ->name('reportes');
+
+    
 
 });
 
