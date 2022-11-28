@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
-import TableAuto from '@/Components/TableAuto';
+import Table from '@/Components/Table';
+import TableReporte from '@/Components/TableReporte';
 
 
 
@@ -16,9 +17,7 @@ export default function Reportes(props) {
 
         <Head title="Reportes" />
         <div className='container mx-auto'>
-            <div className="">
-            <TableAuto></TableAuto>
-            </div>
+            <TableReporte></TableReporte>
         </div>
 
                 

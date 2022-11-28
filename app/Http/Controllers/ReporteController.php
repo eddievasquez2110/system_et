@@ -16,8 +16,8 @@ class ReporteController extends Controller
      */
     public function index()
     {
-        // $reportes = User::all();
-        // return Inertia::render('Admin/Reportes',['reportes'=>$reportes]);
+        $reportes = User::all();
+        return Inertia::render('Admin/Reportes',['reportes'=>$reportes]);
     }
 
     /**

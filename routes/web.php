@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\TipoEquipoController;
 use App\Http\Controllers\SoftwareController;
 use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\SolicitudDetalleController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\SoloSuperAdmin;
 use App\Models\Rol;
 use Doctrine\DBAL\Schema\Index;
@@ -15,24 +17,43 @@ use Inertia\Inertia;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
+
 //RUTA INICIO
 Route::get('/', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
 
 //RUTAS SOLO SUPER ADMIN
 Route::middleware(['auth', 'verified','solosuperadmin'])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/superadmin', function () {
         return Inertia::render('SuperAdmin/Index');
     })->name('superadmin');
+
+    Route::get('/superadmin/reportes', [SolicitudDetalleController::class,'index'])
+         ->name('reportes.a');
 });
 
 //RUTAS SOLO ADMIN
 Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
-    Route::get('/admin', function () {
+    Route::get('/dashboard', function () {
         return Inertia::render('Admin/Index');
     })->name('admin');
 
-    Route::resource('reportes', AdminController::class);
+    Route::get('/dashboard/reportes', [SolicitudDetalleController::class,'index'])
+         ->name('reportes');
+
+    Route::get('/dashboard/reportes/{id}',[SolicitudDetalleController::class,'show'])
+         ->name('reportes.show');
+
+    // Route::prefix('dashboard')->group(function () {
+    //     Route::get('/reportes', function() {
+
+    //     });
+    // });
+    
+    //Route::resource('reportes', ReporteController::class);
+    //Route::resource('usuarios', AdminController::class);
+    // Route::get('/usuarios', [UserController::class,'index'])
+    //     ->name('usuarios');
 });
 
 //RUTAS SOLO USER

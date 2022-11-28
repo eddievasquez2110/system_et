@@ -5,9 +5,9 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
 import ButtonDashboard from '@/Components/ButtonDashboard';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faKey,faUser,faMoneyBill } from '@fortawesome/free-solid-svg-icons'
+import { faUser,faUsers,faClipboardList,faWind,faComputer, faBook, faWindowRestore} from '@fortawesome/free-solid-svg-icons';
 
 export default function Authenticated({ auth, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
@@ -26,19 +26,39 @@ export default function Authenticated({ auth, children }) {
                                 </Link>
                                 <h1 className='text-yellow-400 ml-4 font-mono'>SISTET</h1>
                             </div>
-
-                            <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
-                                <NavLink href={route('user')} active={route().current('user')}>
-                                    Inicio
-                                </NavLink>
-                                <NavLink href={route('user')} >
-                                    Equipos
-                                </NavLink>
-                                <NavLink href="/xd">
-                                    Software
-                                </NavLink>
+                            { auth.user.ID_Rol == '1' ?
+                                <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
+                                    <NavLink href={route('superadmin')} active={route().current('superadmin')}>
+                                        Inicio
+                                    </NavLink>
+                                    <NavLink href={route('superadmin')} >
+                                        Equipos
+                                    </NavLink>
+                                    <NavLink href={route('superadmin')}>
+                                        Software
+                                    </NavLink>
                                 
-                            </div>
+                                </div>
+                                : auth.user.ID_Rol == '2' ?
+                                    <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
+
+                                    </div>
+                                : auth.user.ID_Rol == '3' ?
+                                    <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
+                                        <NavLink href={route('user')} active={route().current('user')}>
+                                            Inicio
+                                        </NavLink>
+                                        <NavLink href={route('user')} >
+                                            Equipos
+                                        </NavLink>
+                                        <NavLink href={route('user')}>
+                                            Software
+                                        </NavLink>
+                                    
+                                    </div>
+                                : <></>
+                            } 
+                            
                         </div>
 
                         <div className="hidden sm:flex sm:items-center sm:ml-6 h-12 w-38 justify-center flex m-2 border border-gray-500 rounded-lg bg-white">
@@ -104,17 +124,37 @@ export default function Authenticated({ auth, children }) {
                 </div>
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
-                    <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('user')} active={route().current('user')}>
-                            Inicio
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('user')} >
-                            Equipos
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('user')} >
-                            Software
-                        </ResponsiveNavLink>
-                    </div>
+                    { auth.user.ID_Rol == '1' ?
+                        <div className="pt-2 pb-3 space-y-1">
+                            <ResponsiveNavLink href={route('user')} active={route().current('user')}>
+                                Inicio
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('user')} >
+                                Equipos
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('user')} >
+                                Software
+                            </ResponsiveNavLink>
+                        </div>
+                        : auth.user.ID_Rol == '2' ?
+                        <div className="pt-2 pb-3 space-y-1">
+                            
+                        </div>
+                        : auth.user.ID_Rol == '3' ?
+                        <div className="pt-2 pb-3 space-y-1">
+                            <ResponsiveNavLink href={route('user')} active={route().current('user')}>
+                                Inicio
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('user')} >
+                                Equipos
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('user')} >
+                                Software
+                            </ResponsiveNavLink>
+                        </div>
+                        : <></>
+                    }
+                    
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">
@@ -132,37 +172,80 @@ export default function Authenticated({ auth, children }) {
             </nav>
             
             {
-                auth.user.ID_Rol == '1' ?
-                <div className='flex h-full'>
-                    <div className='flex w-3/5 grid basis-1/4 bg-green-400 pt-10'>
-                        <Link href={route('reportes.index')} ><ButtonDashboard>Gestión de Usuarios</ButtonDashboard></Link>
-                        <ButtonDashboard>Gestión de Solicitudes</ButtonDashboard>
-                        <ButtonDashboard>Gestión de Software</ButtonDashboard>
-                        <ButtonDashboard>Gestión de Equipos</ButtonDashboard>
-                        <ButtonDashboard>Reporte</ButtonDashboard>
+                auth.user.ID_Rol == '1'?
+                <div className='flex h-full '>
+                    <div className='flex flex-col w-3/5  basis-1/4 bg-green-400 pt-10'>
+                        <Link href={route('reportes.a')} className='grid'>
+                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faUsers} />
+                                <span className='hidden sm:flex '>Gestión de Usuarios</span>
+                            </ButtonDashboard>
+                        </Link>
+                        <Link href={route('reportes.a')} className='grid'>
+                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faClipboardList} />
+                                <span className='hidden sm:flex '>Gestión de Solicitudes</span>
+                            </ButtonDashboard>
+                        </Link>
+                        <Link href={route('reportes.a')} className='grid'>
+                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faWindowRestore} />
+                                <span className='hidden sm:flex '>Gestión de Software</span>
+                            </ButtonDashboard>
+                        </Link>
+                        <Link href={route('reportes.a')} className='grid'>
+                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faComputer} />
+                                <span className='hidden sm:flex flex-inline'>Gestión de Equipos</span>
+                            </ButtonDashboard>
+                        </Link>
+                        <Link href={route('reportes.a')} className='grid'>
+                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faBook} />
+                                <span className='hidden sm:flex '>Gestión de Reportes</span>
+                            </ButtonDashboard>
+                        </Link>
                     </div>
-                    {children}
-                </div> : auth.user.ID_Rol == '2' ?
-                
-                <div className='flex h-full'>
-                    <div className='flex w-3/5 flex-col basis-1/4 bg-green-400 pt-10 '>
-                        <ButtonDashboard>Gestión de Usuarios</ButtonDashboard>
-                        <ButtonDashboard>Gestión de Solicitudes</ButtonDashboard>
-                        <ButtonDashboard>Gestión de Software</ButtonDashboard>
-                        <ButtonDashboard>Gestión de Equipos</ButtonDashboard>
-                        <ButtonDashboard>Reporte</ButtonDashboard>
+                    <div className='w-full h-full place-content-around '>
+                        <div className='bg-gradient-to-r from-green-100 to-green-300'>
+                            {children} 
+                        </div>
                     </div>
-                    <div className=''>
-                        <div className='flex basis-3/4 w-full'>
-                            {children}
+                </div> : auth.user.ID_Rol == '2'?
+                <div className='flex h-full'>
+                    <div className='flex flex-col w-3/5  basis-1/4 bg-green-400 pt-10'>
+                        <Link href={route('reportes')} className='grid'>
+                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faUsers} />
+                                <span className='hidden sm:flex '>Gestión de Usuarios</span>
+                            </ButtonDashboard>
+                        </Link>
+                        <Link href={route('reportes')} className='grid'>
+                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faClipboardList} />
+                                <span className='hidden sm:flex '>Gestión de Solicitudes</span>
+                            </ButtonDashboard>
+                        </Link>
+                        <Link href={route('reportes')} className='grid'>
+                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faWindowRestore} />
+                                <span className='hidden sm:flex '>Gestión de Software</span>
+                            </ButtonDashboard>
+                        </Link>
+                        <Link href={route('reportes')} className='grid'>
+                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faComputer} />
+                                <span className='hidden sm:flex flex-inline'>Gestión de Equipos</span>
+                            </ButtonDashboard>
+                        </Link>
+                        <Link href={route('reportes')} className='grid'>
+                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faBook} />
+                                <span className='hidden sm:flex '>Gestión de Reportes</span>
+                            </ButtonDashboard>
+                        </Link>
+                    </div>
+                    <div className='w-full h-full place-content-around '>
+                        <div className='bg-gradient-to-r from-green-100 to-green-300'>
+                            {children} 
                         </div>
                     </div>
                 </div> : auth.user.ID_Rol == '3' ?
                     <div className='flex w-full h-full place-content-around '>
                     
-                    <div className='bg-gradient-to-r from-green-100 to-green-300'>
-                        {children} 
-                    </div>
+                        <div className='bg-gradient-to-r from-green-100 to-green-300'>
+                            {children} 
+                        </div>
                     </div>
                  : <></>
             }

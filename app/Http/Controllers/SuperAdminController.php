@@ -2,25 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Inertia\Inertia;
 
-class AdminController extends Controller
+class SuperAdminController extends Controller
 {
-    
     
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('soloadmin',['only'=> ['index']]);
+        $this->middleware('solosuperadmin',['only'=> ['index']]);
     }
 
     public function index()
     {
-        
-
+        //
     }
 
     /**

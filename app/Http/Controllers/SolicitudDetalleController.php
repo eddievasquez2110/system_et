@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Solicitud_Detalle;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+
 
 class SolicitudDetalleController extends Controller
 {
@@ -14,14 +17,13 @@ class SolicitudDetalleController extends Controller
      */
     public function index()
     {
-        //
+        
+        return Inertia::render('Admin/Reportes',[
+            'solicitud_D' => Solicitud_Detalle::all(),
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         //
@@ -44,9 +46,12 @@ class SolicitudDetalleController extends Controller
      * @param  \App\Models\Solicitud_Detalle  $solicitud_Detalle
      * @return \Illuminate\Http\Response
      */
-    public function show(Solicitud_Detalle $solicitud_Detalle)
+    public function show($id)
     {
-        //
+        return Inertia::render('User/Lista',[
+            'solicitudes_D' =>Solicitud_Detalle::where('ID_Tipo_Equipo',$id)->get(),
+            'usuarios' =>User::where('ID_Tipo_Equipo',$id)->get()
+        ]);
     }
 
     /**
