@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminTipoEquipoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\TipoEquipoController;
 use App\Http\Middleware\SoloSuperAdmin;
@@ -32,12 +33,12 @@ Route::get('/inicio', [TipoEquipoController::class,'index'])
 Route::get('/inicio/{id}',[TipoEquipoController::class,'show'])
         ->name('inicio.show');
 
-Route::get('/admin', function () {
-    return Inertia::render('Admin/Index',[
-        'canRegister' => Route::has('registro'),
-        'canReportes' => Route::has('reporte')
-    ]);
-})->middleware(['auth', 'verified','soloadmin'])->name('admin'); 
+/* Route::get('/admin', function(){
+            return Inertia::render('Admin/Admin');
+        })->middleware(['auth'])->name('admin.index'); */
+
+Route::resource('/tequipo', AdminTipoEquipoController::class)
+                ->middleware(['auth']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('SuperAdmin/Index');
