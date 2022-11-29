@@ -14,8 +14,8 @@ class Tipo_Equipo extends Model
         'Nombre_Tipo_Equipo',
     ];
 
-    public function Equipo()
+    public function Especificacion_Equipos()
     {
-        return $this->belongsTo(Equipo::class);
+        return $this->belongsTo(Especificacion_Equipo::class);
     }
 }
