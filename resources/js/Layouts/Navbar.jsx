@@ -93,7 +93,13 @@ const Navbar = ({auth,children}) => {
                             </li>
                         </ul>
                     </li>
-                    
+                    <li className='px-3'>
+                    <Link href={route('d.softwares')} active={route().current('d.softwares')} className="flex items-center justify-center p-2 text-base font-normal text-white rounded-lg focus:outline-none hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
+                        <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round"  stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap ">Software</span>
+                    </Link>
+    
+                    </li>
                     <li className='px-3'>
                         <a href="#" onClick={()=>setShow(false)} className="flex items-center  justify-center p-2 text-base font-normal text-white rounded-lg  text-gray-700 rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
                         <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
