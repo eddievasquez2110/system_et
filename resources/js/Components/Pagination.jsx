@@ -6,9 +6,9 @@ export default function Pagination({ links }) {
     const b = a.replace('&','&amp')
     function getClassName(active) {
         if(active) {
-            return "mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-white focus:border-primary focus:text-primary bg-blue-700 text-white";
+            return "mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-green-600 focus:border-primary focus:text-primary bg-green-700 text-white";
         } else{
-            return "mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-white focus:border-primary focus:text-primary";
+            return "mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-green-400 focus:border-primary focus:text-primary";
         }
     }
     return (

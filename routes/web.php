@@ -5,7 +5,7 @@ use App\Http\Controllers\AdminTipoEquipoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\TipoEquipoController;
 use App\Http\Controllers\SoftwareController;
-use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\AdminUsoEquipoController;
 use App\Http\Controllers\SolicitudDetalleController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\SoloSuperAdmin;
@@ -45,10 +45,10 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
     Route::get('/dashboard/usoequipos', [AdminUsoEquipoController::class,'index'])
          ->name('d.usoequipos');
 
-    Route::get('/dashboard/especificacionequipo', [AdminUsoEquipoController::class,'index'])
+    Route::get('/dashboard/especificacionequipo', [AdminEspecificacionEquipoController::class,'index'])
          ->name('d.especificacionequipo');
     
-    Route::get('/dashboard/softwares', [AdminUsoEquipoController::class,'index'])
+    Route::get('/dashboard/softwares', [AdminSoftwareController::class,'index'])
          ->name('d.softwares');
 
     Route::get('/dashboard/reportes', [SolicitudDetalleController::class,'index'])

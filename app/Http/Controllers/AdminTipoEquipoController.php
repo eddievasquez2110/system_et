@@ -10,8 +10,8 @@ class AdminTipoEquipoController extends Controller
 {
     public function index()
     {
-        $tiposList = Tipo_Equipo::orderBy('ID_Tipo_Equipo')->paginate(3);
-        return Inertia::render('Admin/Equipos',[
+        $tiposList = Tipo_Equipo::orderBy('ID_Tipo_Equipo')->paginate(6);
+        return Inertia::render('Admin/Equipos/TipoEquipo',[
             'tipos' => $tiposList
         ]);
     }
