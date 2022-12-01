@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Software;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
-class SoftwareController extends Controller
+
+class ReporteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +16,8 @@ class SoftwareController extends Controller
      */
     public function index()
     {
-        return Inertia::render('User/Solicitud',[
-            'softwares' => Software::all(),
-        ]);
+        $reportes = User::all();
+        return Inertia::render('Admin/Reportes',['reportes'=>$reportes]);
     }
 
     /**
@@ -43,21 +44,21 @@ class SoftwareController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Software  $software
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Software $software)
+    public function show($id)
     {
-        
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Software  $software
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Software $software)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +67,10 @@ class SoftwareController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Software  $software
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Software $software)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +78,10 @@ class SoftwareController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Software  $software
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Software $software)
+    public function destroy($id)
     {
         //
     }

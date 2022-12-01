@@ -10,15 +10,19 @@ class Especificacion_Software extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Procesador',
-        'EspacioDisco',
-        'SistemaOperativo',
-        'MemoriaRAM',
-        'TarjetaVideo',
+        'ID_Software',
+        'ID_Uso_Equipo',
+        'Nombre_Especificacion',
+        'Especificacion',
     ];
 
     public function Software()
     {
         return $this->belongsTo(Software::class);
+    }
+
+    public function Uso_Equipo()
+    {
+        return $this->HasOne(Uso_Equipo::class);
     }
 }

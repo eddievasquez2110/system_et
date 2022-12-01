@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Solicitud;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
 class SolicitudController extends Controller
 {
@@ -14,7 +16,8 @@ class SolicitudController extends Controller
      */
     public function index()
     {
-        //
+        $reportes = Solicitud::all();
+        return Inertia::render('User/Select_Software',['reportes'=>$reportes]);
     }
 
     /**

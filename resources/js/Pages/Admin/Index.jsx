@@ -11,21 +11,22 @@ export default function Admin(props) {
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard {props.auth.user.name}</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Hola {props.auth.user.name}</h2>}
         >
 
         <Head title="Admin" />
-            <div className='w-full bg-white'>
-                <div className='flex flex-wrap justify-center'>
-                    <div className='target'>
-                        <DashCircle></DashCircle>
-                    </div>
+        <div className='flex flex-col'>
+                <div className='wrapper flex flex-wrap justify-center mt-8 gap-4'>
+                    
+                    <DashCircle></DashCircle>
                     <DashCircle></DashCircle>
                     <DashCircle></DashCircle>
                 </div>
                 
-                <div className='w-3/5 justify-center'>
-                    <DashBar className=''></DashBar>
+                <div className=' flex place-content-around mt-8'>
+                    <div className=''>
+                        <DashBar className=''></DashBar>
+                    </div>
                 </div>
             </div>
                 

@@ -10,9 +10,9 @@ class Solicitud_Detalle extends Model
     use HasFactory;
 
     protected $fillable = [
-        'ID_Software',
-        'ID_Equipo',
-        'ID_Software',
+        'ID_Solicitud',
+        'ID_Especificacion_Equipo',
+        'ID_Especificacion_Software',
         'Descripcion_SolicitudDetalle',
     ];
 

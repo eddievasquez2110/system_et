@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Version;
+use App\Models\Especificacion_Equipo;
 use Illuminate\Http\Request;
 
-class VersionController extends Controller
+class EspecificacionEquipoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class VersionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Version  $version
+     * @param  \App\Models\Especificacion  $especificacion
      * @return \Illuminate\Http\Response
      */
-    public function show(Version $version)
+    public function show(Especificacion_Equipo $especificacion)
     {
         //
     }
@@ -52,10 +52,10 @@ class VersionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Version  $version
+     * @param  \App\Models\Especificacion  $especificacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Version $version)
+    public function edit(Especificacion_Equipo $especificacion)
     {
         //
     }
@@ -64,10 +64,10 @@ class VersionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Version  $version
+     * @param  \App\Models\Especificacion  $especificacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Version $version)
+    public function update(Request $request, Especificacion_Equipo $especificacion)
     {
         //
     }
@@ -75,10 +75,10 @@ class VersionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Version  $version
+     * @param  \App\Models\Especificacion  $especificacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Version $version)
+    public function destroy(Especificacion_Equipo $especificacion)
     {
         //
     }
