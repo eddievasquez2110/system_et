@@ -35,11 +35,11 @@ export const  data = {
 export default function DashBar(props) {
 
     return (
-        <div id="chart" className='w-100'>
+        <div id="chart">
             <Bar 
             data={data} 
             type="Bar" 
-            className='max-w-xs justify-center bg-white w-100 p-5 rounded-lg drop-shadow'
+            className='max-w-md justify-center bg-white p-10 rounded-lg drop-shadow'
             height={400}
             width={400}
             />

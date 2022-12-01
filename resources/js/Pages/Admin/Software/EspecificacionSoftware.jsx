@@ -2,14 +2,14 @@ import React from 'react';
 import Navbar from '@/Layouts/Navbar';
 import { Head } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
-import List_Especificacion_Equipo from '@/Components/Equipos/List_Especificacion_Equipo';
-export default function EspecificacionEquipo({espEquipos,auth}) {
+import List_Especificacion_Software from '@/Components/Software/List_Especificacion_Software';
+export default function EspecificacionSoftware({espSoftwares,auth}) {
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
             <div className='flex flex-col my-3'>
                 <div className='flex items-center gap-8 '>
-                    <span className='text-slate-500 text-3xl'>Especificaciones de Equipos</span>
+                    <span className='text-slate-500 text-3xl'>Especificaciones de Softwares</span>
                     <div className='inline my-2'>
                         <button className='px-4 py-1 text-white text-lg rounded-md bg-green-500'>Nuevo</button>
                     </div>
@@ -32,7 +32,7 @@ export default function EspecificacionEquipo({espEquipos,auth}) {
                                 ID
                             </th>
                             <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
-                                Tipo Equipo
+                                Software
                             </th>
                             <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
                                 Uso Equipo
@@ -59,11 +59,11 @@ export default function EspecificacionEquipo({espEquipos,auth}) {
                     </thead>
                     <tbody>
 
-                        {console.log(espEquipos)}
+                        {console.log(espSoftware)}
                         {
-                            espEquipos.data.map(espEquipo => {
+                            espSoftwares.data.map(espSoftware => {
                                 return(
-                                    <List_Especificacion_Equipo  espEquipo={espEquipo}  key={espEquipo.ID_Especificacion_Equipo}/>
+                                    <List_Especificacion_Software  espSoftware={espSoftware}  key={espSoftware.ID_Especificacion_Software}/>
                                 )
                             })
                         }
@@ -71,7 +71,7 @@ export default function EspecificacionEquipo({espEquipos,auth}) {
                     </tbody>
                 </table>
             </div>
-            <Pagination class="mt-2" links={espEquipos.links} />
+            <Pagination class="mt-2" links={espSoftwares.links} />
         </Navbar>
     );
 }

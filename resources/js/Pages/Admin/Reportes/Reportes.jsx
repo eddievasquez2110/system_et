@@ -8,14 +8,11 @@ export default function Admin({auth}) {
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
-            <div className='flex flex-col'>
-                <div className='wrapper flex flex-wrap justify-center mt-8 gap-4 pb-5'>
-                    <DashCircle></DashCircle>
-                    <DashCircle></DashCircle>
-                    <DashCircle></DashCircle>
+                <div className='flex place-content-around mt-8'>
+                    <div className='py-10'>
+                        <DashBar className=''></DashBar>
+                    </div>
                 </div>
-                
-            </div>
         </Navbar>
     );
 }

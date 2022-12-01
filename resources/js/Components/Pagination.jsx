@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from '@inertiajs/inertia-react';
   
 export default function Pagination({ links }) {
-    const a = links[0].label;
-    const b = a.replace('&','&amp')
+    
     function getClassName(active) {
         if(active) {
             return "mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-green-600 focus:border-primary focus:text-primary bg-green-700 text-white";
@@ -14,7 +13,7 @@ export default function Pagination({ links }) {
     return (
         links.length > 3 && (
             <div className="mb-2">
-                <pre>{b}</pre>
+                
                 <div className="flex flex-wrap mt-8">
                     {links.map((link, key) => (
                             link.url === null ?

@@ -7,7 +7,7 @@ const User = ({auth,equipos}) => {
     <AuthenticatedLayout auth={auth}>
       <Head title="Inicio" />
       <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'>SELECCIÓN DE EQUIPOS</div>
-      <div className="wrapper flex flex-wrap justify-center items-center gap-5 mt-8">
+      <div className="wrapper flex flex-wrap justify-center items-center gap-5 mt-8 pb-5">
             {
                 equipos.map(equipo =>
                     <Equipo key={equipo.ID_Tipo_Equipo} equipo={equipo}/>
