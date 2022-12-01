@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\TipoEquipoController;
 use App\Http\Controllers\SoftwareController;
 use App\Http\Controllers\AdminUsoEquipoController;
+use App\Http\Controllers\InfoSoftwareController;
 use App\Http\Controllers\SolicitudDetalleController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\SoloSuperAdmin;
@@ -69,6 +70,9 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
 
     Route::get('/solicitud', [SoftwareController::class,'index'])
         ->name('solicitud');
+
+    Route::get('/infosoft', [InfoSoftwareController::class,'index'])
+        ->name('infosoft');
 });
 
 Route::resource('/tequipo', AdminTipoEquipoController::class)
