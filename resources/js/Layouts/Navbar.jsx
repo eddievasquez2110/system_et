@@ -2,7 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { FaAngleRight} from "react-icons/fa";
 import { Link } from '@inertiajs/inertia-react';
-
+import { Inertia } from "@inertiajs/inertia";
+import Swal from 'sweetalert2'
 const Navbar = ({auth,children}) => {
     const [show,setShow] = useState(false);
     const [open,setOpen] =useState(true);
@@ -13,13 +14,13 @@ const Navbar = ({auth,children}) => {
         display:"none"
     }
     const alertLogout = (e) => {
-        if(!confirm('Estas Seguro de salir del sistema')){
+        /* if(!confirm('Estas Seguro de salir del sistema')){
             return e.preventDefault();
         }else{
             return this;
-        }
-        /* e.preventDefault();
-        e.stopPropagation();
+        } */
+        
+        console.log(e);
         Swal.fire({
             title: 'Estas seguro?',
             text: "Usted saldra del sistema",
@@ -29,14 +30,16 @@ const Navbar = ({auth,children}) => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Salir'
           }).then((result) => { 
-            if (!result.isConfirmed) {
+            if (result.isConfirmed) {
+
               Swal.fire(
                 'Logout!',
                 'Saliste del sistema.',
                 'success'
               )
+              Inertia.post(route("logout"));
             }
-          }) */
+          })
     }
 
   return (
@@ -46,7 +49,7 @@ const Navbar = ({auth,children}) => {
                 <a href="#">
                 <div className="flex cursor-auto items-center pb-4 border-b border-gray-200">
                     <div className="shrink-0">
-                    <img src={"../images/Logo/Logo.png"} style={open ?{width:'75px'}:{width:'35px'}} alt="" />
+                    <img src={"/images/Logo/Logo.png"} style={open ?{width:'75px'}:{width:'35px'}} alt="" />
                     </div>
                     <div className="grow ml-3 " style={open ? styleOpen : styleClose}>
                     <p className="text-sm font-semibold text-white">Sistema de <br />Especificaciones</p>
@@ -91,7 +94,7 @@ const Navbar = ({auth,children}) => {
                         </a>
                     </li>
                     <li className='bottom-0  px-3 py-3  absolute  w-full' >
-                        <Link onClick={(e) => alertLogout(e)} href={route('logout')} method="post" as="button"  className="flex items-center w-full text-left justify-center p-2 text-base font-normal text-white rounded-lg  text-gray-700 rounded-lg  hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out">
+                        <Link onClick={alertLogout}  as="button"  className="flex items-center w-full text-left justify-center p-2 text-base font-normal text-white rounded-lg  text-gray-700 rounded-lg  hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out">
                         <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"></path></svg>
                         <span style={open ? styleOpen : styleClose} className="flex-1 ml-3  whitespace-nowrap">Salir</span>
                         </Link>

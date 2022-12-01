@@ -3,6 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
 import Equipo from '@/Components/Equipo';
 const User = ({auth,equipos}) => {
+
   return (
     <AuthenticatedLayout auth={auth}>
       <Head title="Inicio" />
