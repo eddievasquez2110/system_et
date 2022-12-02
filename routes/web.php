@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\TipoEquipoController;
 use App\Http\Controllers\SoftwareController;
 use App\Http\Controllers\AdminUsoEquipoController;
+use App\Http\Controllers\InfoSoftwareController;
 use App\Http\Controllers\SolicitudDetalleController;
 use App\Http\Controllers\AdminReporteController;
 use App\Http\Controllers\UserController;
@@ -91,8 +92,8 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
     Route::get('/solicitud', [SoftwareController::class,'index'])
         ->name('solicitud');
 
-    Route::get('/equipos')->name('equipos');
-    Route::get('/softwares')->name('softwares');
+    Route::get('/infosoft', [InfoSoftwareController::class,'index'])
+        ->name('infosoft');
 });
 
 
