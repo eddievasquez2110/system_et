@@ -44,8 +44,8 @@ class AdminTipoEquipoController extends Controller
     public function edit($id)
     {
         $tipos = Tipo_Equipo::where('ID_Tipo_Equipo',$id)->get();
-        return Inertia::render('Admin/Tipo_Equipo/Edit',[
-            'tipos' => $tipos
+        return Inertia::render('Admin/Equipos/Tipo_Equipo/Edit',[
+            'tipo' => $tipos
         ]);
     }
 
@@ -53,6 +53,7 @@ class AdminTipoEquipoController extends Controller
     {
         $request ->validate([
             'Nombre_Tipo_Equipo' => 'required',
+            'Imagen' => 'required',
         ]);
         $tipo_equip = $request->all();
 

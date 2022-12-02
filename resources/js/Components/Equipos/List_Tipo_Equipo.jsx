@@ -49,7 +49,7 @@ const List_Tipo_Equipo = ({tipo}) => {
                     <Link
                         tabIndex="1"
                         className="px-4 py-2 text-sm text-white bg-blue-500 rounded"
-                        href={route('d.tipoequipos.edit',`${tipo.ID_Tipo_Equipo}`)}
+                        href={route("d.tipoequipos.edit",`${tipo.ID_Tipo_Equipo}`)}
                         ><FontAwesomeIcon className="h-4 w-5 "  icon={faEdit} />
                     </Link>
 
