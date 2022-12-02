@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import Navbar from '@/Layouts/Navbar'
 import { Head, useForm, usePage, Link } from '@inertiajs/inertia-react';
-const Edit = ({auth,tipo}) => {
+const Edit = ({auth,uso}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, put, progress} = useForm({
-        Nombre_Tipo_Equipo: `${tipo[0].Nombre_Tipo_Equipo}` || "",
-        Imagen: `${tipo[0].Imagen}` || null,
+        Nombre_Uso_Equipo: `${uso[0].Nombre_Uso_Equipo}` || "",
     });
-    console.log(data.Imagen);
-    console.log(tipo[0].ID_Tipo_Equipo);
+    console.log(uso[0].ID_Uso_Equipo);
 
     const onSelectedFile = (e) =>{
         const file = e.target.files[0];
@@ -17,7 +15,7 @@ const Edit = ({auth,tipo}) => {
     }
     function handleSubmit(e) {
         e.preventDefault();
-        put(route("d.tipoequipos.update", `${tipo[0].ID_Tipo_Equipo}`));
+        put(route('tequipo.update', `${tipo[0].ID_Uso_Equipo}`));
     }
   return (
     <Navbar auth={auth}>

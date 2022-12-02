@@ -43,25 +43,25 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
          return Inertia::render('Admin/Admin');
      })->name('admin');
 
-    //Route::resource('/dashboard/tipoequipos', AdminTipoEquipoController::class);
+    Route::controller(AdminTipoEquipoController::class)->group(function () {
+          Route::get('/dashboard/tipoequipos','index')->name('d.tipoequipos.index');
+          Route::get('/dashboard/tipoequipos/create','create')->name('d.tipoequipos.create');
+          Route::post('/dashboard/tipoequipos/store','store')->name('d.tipoequipos.store');
+          Route::get('/dashboard/tipoequipos/edit','edit')->name('d.tipoequipos.edit');
+          Route::teput('/dashboard/tipoequipos/update','update')->name('d.tipoequipos.update');
+          Route::delete('/dashboard/tipoequipos/{id}','destroy')->name('d.tipoequipos.destroy');
+    });
 
-    Route::get('/dashboard/tipoequipos', [AdminTipoEquipoController::class,'index'])
-         ->name('d.tipoequipos.index');
-
-    Route::get('/dashboard/tipoequipos/create', [AdminTipoEquipoController::class,'create'])
-         ->name('d.tipoequipos.create');
-    
-    Route::post('/dashboard/tipoequipos/store', [AdminTipoEquipoController::class,'store'])
-         ->name('d.tipoequipos.store');
-    
-    Route::put('/dashboard/tipoequipos/edit', [AdminTipoEquipoController::class,'edit'])
-         ->name('d.tipoequipos.edit');
-
-    Route::delete('/dashboard/tipoequipos/{id}', [AdminTipoEquipoController::class,'destroy'])
-         ->name('d.tipoequipos.destroy');
-
-    Route::get('/dashboard/usoequipos', [AdminUsoEquipoController::class,'index'])
-         ->name('d.usoequipos');
+//     Route::get('/dashboard/usoequipos', [AdminUsoEquipoController::class,'index'])
+//          ->name('d.usoequipos');
+     Route::controller(AdminUsoEquipoController::class)->group(function () {
+          Route::get('/dashboard/usoequipos','index')->name('d.usoequipos.index');
+          Route::get('/dashboard/usoequipos/create','create')->name('d.usoequipos.create');
+          Route::post('/dashboard/usoequipos/store','store')->name('d.usoequipos.store');
+          Route::get('/dashboard/usoequipos/edit','edit')->name('d.usoequipos.edit');
+          Route::put('/dashboard/usoequipos/edit','update')->name('d.usoequipos.update');
+          Route::delete('/dashboard/usoequipos/{id}','destroy')->name('d.usoequipos.destroy');
+     });
 
     Route::get('/dashboard/especificacionequipo', [AdminEspecificacionEquipoController::class,'index'])
          ->name('d.especificacionequipo');

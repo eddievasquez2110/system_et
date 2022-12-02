@@ -45,7 +45,7 @@ class AdminTipoEquipoController extends Controller
     {
         $tipos = Tipo_Equipo::where('ID_Tipo_Equipo',$id)->get();
         return Inertia::render('Admin/Tipo_Equipo/Edit',[
-            'tipo' => $tipos
+            'tipos' => $tipos
         ]);
     }
 
