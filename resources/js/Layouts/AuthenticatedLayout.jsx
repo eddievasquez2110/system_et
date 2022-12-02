@@ -69,7 +69,7 @@ export default function Authenticated({ auth, children }) {
                                             
                                             <button
                                                 type="button"
-                                                className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                className="inline-flex px-2 py-2 border border-transparent leading-4 font-medium rounded-md text-grenn-400 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 <FontAwesomeIcon className="h-5 w-10"  icon={faUser} />{auth.user.name}
 

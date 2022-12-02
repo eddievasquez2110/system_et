@@ -2,21 +2,22 @@ import React from 'react';
 import Navbar from '@/Layouts/Navbar';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
-import List_Tipo_Equipo from '@/Components/Admin_Tipo/List_Tipo_Equipo';
-export default function Admin({tipos,auth}) {
+import List_Tipo_Equipo from '@/Components/Equipos/List_Tipo_Equipo';
+
+export default function Index({tipos,auth}) {
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
             <div className='flex flex-col my-3'>
-                <div className='flex items-center gap-4 '>
-                <span className='text-slate-500 text-3xl'>Especificaciones Técnicas</span>
+                <div className='flex items-center gap-8 '>
+                <span className='text-slate-500 text-3xl'>Tipos de Equipos</span>
                 <div className='inline my-2'>
-                 <Link
-                    className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
-                    href={route("tequipo.create")}
-                >
-                    Nuevo
-                 </Link>
+                    <Link
+                        className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
+                        href={route("d.tipoequipos.create")}
+                        >
+                        Nuevo
+                    </Link>
                 </div>
                 </div>
                 <div className='flex mt-2  items-center justify-between'>
@@ -34,7 +35,7 @@ export default function Admin({tipos,auth}) {
                     <thead className="text-xs text-white uppercase bg-green-700">
                         <tr>
                             <th scope="col" className="py-2 px-4" style={{borderRight: '1px solid white'}}>
-                                Id
+                                ID
                             </th>
                             <th scope="col" className="py-2 px-4" style={{borderRight: '1px solid white'}}>
                                 <div className="flex items-center">
@@ -62,10 +63,11 @@ export default function Admin({tipos,auth}) {
                                 )
                             })
                         }
-
+                       
                     </tbody>
                 </table>
             </div>
+            <Pagination class="mt-2" links={tipos.links} />
         </Navbar>
     );
 }

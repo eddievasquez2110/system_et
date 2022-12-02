@@ -10,15 +10,15 @@ class AdminTipoEquipoController extends Controller
 {
     public function index()
     {
-        $tiposList = Tipo_Equipo::orderBy('ID_Tipo_Equipo')->paginate(3);
-        return Inertia::render('Admin/Tipo_Equipo/Admin',[
-            'tipos' => $tiposList
+        $tipos = Tipo_Equipo::orderBy('ID_Tipo_Equipo')->paginate(6);
+        return Inertia::render('Admin/Equipos/Tipo_Equipo/Index',[
+            'tipos' => $tipos
         ]);
     }
 
-    public function create()
+    public function create() 
     {
-        return Inertia::render('Admin/Tipo_Equipo/Create');
+        return Inertia::render('Admin/Equipos/Tipo_Equipo/Create');
     }
 
     public function store(Request $request)
@@ -38,7 +38,7 @@ class AdminTipoEquipoController extends Controller
         }
 
         Tipo_Equipo::create($tipo_equip);
-        return redirect()->route('tequipo.index');
+        return redirect()->route('d.tipoequipos.index');
     }
 
     public function edit($id)
@@ -49,30 +49,29 @@ class AdminTipoEquipoController extends Controller
         ]);
     }
 
-    public function update($id, Request $request)
+    public function update(Request $request, $id)
     {
         $request ->validate([
             'Nombre_Tipo_Equipo' => 'required',
         ]);
-
         $tipo_equip = $request->all();
 
-        /* if($imagen = $request->file('Imagen')){
+        if($imagen = $request->file('Imagen')){
             $rutaGuardarImg = 'images/';
             $imagenProducto = date('YmdHis') . "." . $imagen->getClientOriginalExtension(); 
             $imagen->move($rutaGuardarImg, $imagenProducto);
             $tipo_equip['Imagen'] = "$imagenProducto";
          }else{
             unset($tipo_equip['Imagen']);
-         } */
+         }
 
         Tipo_Equipo::where('ID_Tipo_Equipo',$id)->update($tipo_equip);
-        return redirect()->route('tequipo.index');
+        return redirect()->route('d.tipoequipos.index');
     }
 
     public function destroy($id)
     {
         Tipo_Equipo::where('ID_Tipo_Equipo',$id)->delete();
-        return redirect()->route('tequipo.index');
+        return redirect()->route('d.tipoequipos.index');
     }
 }

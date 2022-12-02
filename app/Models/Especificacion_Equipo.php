@@ -16,11 +16,11 @@ class Especificacion_Equipo extends Model
         'Especificacion',
     ];
 
-    public function Tipo_Equipo(){
+    public function tipo__equipos(){
         return $this->hasOne(Tipo_Equipo::class);
     }
 
-    public function Uso_Equipo()
+    public function Uso__Equipo()
     {
         return $this->HasOne(Uso_Equipo::class);
     }

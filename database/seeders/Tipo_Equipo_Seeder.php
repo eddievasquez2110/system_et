@@ -16,47 +16,47 @@ class Tipo_Equipo_Seeder extends Seeder
     public function run()
     {
         $tipoEquipo = Tipo_Equipo::create([
-            'Nombre_Tipo_Equipo' => 'LAPTOP',
-            'Imagen' => '1',
+            'Nombre_Tipo_Equipo' => 'CPU',
+            'Imagen' => '/equipos/1.jpg',
         ]);
 
         $tipoEquipo = Tipo_Equipo::create([
-            'Nombre_Tipo_Equipo' => 'CPU',
-            'Imagen' => '2',
+            'Nombre_Tipo_Equipo' => 'Laptop',
+            'Imagen' => '/equipos/2.jpg',
         ]);
 
         $tipoEquipo = Tipo_Equipo::create([
             'Nombre_Tipo_Equipo' => 'MONITOR',
-            'Imagen' => '3',
+            'Imagen' => '/equipos/3.jpg',
         ]);
 
         $tipoEquipo = Tipo_Equipo::create([
             'Nombre_Tipo_Equipo' => 'IMPRESORA TONER BLANCO Y NEGRO',
-            'Imagen' => '4',
+            'Imagen' => '/equipos/4.jpg',
         ]);
 
         $tipoEquipo = Tipo_Equipo::create([
             'Nombre_Tipo_Equipo' => 'IMPRESORA TINTA COLORES',
-            'Imagen' => '5',
+            'Imagen' => '/equipos/5.jpg',
         ]);
 
         $tipoEquipo = Tipo_Equipo::create([
             'Nombre_Tipo_Equipo' => 'PROYECTOR',
-            'Imagen' => '6',
+            'Imagen' => '/equipos/6.jpg',
         ]);
 
         $tipoEquipo = Tipo_Equipo::create([
             'Nombre_Tipo_Equipo' => 'PANTALLA INTERACTIVA',
-            'Imagen' => '7',
+            'Imagen' => '/equipos/7.jpg',
         ]);
 
         $tipoEquipo = Tipo_Equipo::create([
             'Nombre_Tipo_Equipo' => 'DISCO DURO EXTERNO',
-            'Imagen' => '8',
+            'Imagen' => '/equipos/8.jpg',
         ]);
         $tipoEquipo = Tipo_Equipo::create([
-            'Nombre_Tipo_Equipo' => 'DISCO DURO EXTERNO',
-            'Imagen' => '9',
+            'Nombre_Tipo_Equipo' => 'TABLET',
+            'Imagen' => '/equipos/9.jpg',
         ]);
     }
 }
