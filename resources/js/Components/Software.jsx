@@ -2,8 +2,7 @@ import React from 'react'
 import CheckboxSoftware from './CheckboxSoftware'
 
 const Software = ({software}) => {
-   
-
+    
   return (
         <div className="max-w-xs bg-white rounded-lg border-2 border-neutral-100 shadow-md shadow-lime-800/50">
             <a href="#">
