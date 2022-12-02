@@ -90,6 +90,9 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
 
     Route::get('/solicitud', [SoftwareController::class,'index'])
         ->name('solicitud');
+
+    Route::get('/equipos')->name('equipos');
+    Route::get('/softwares')->name('softwares');
 });
 
 
