@@ -11,9 +11,9 @@ class AdminUsoEquipoController extends Controller
     
     public function index()
     {
-        $usosList = Uso_Equipo::orderBy('ID_Uso_Equipo')->paginate(6);
+        $usos = Uso_Equipo::orderBy('ID_Uso_Equipo')->paginate(6);
         return Inertia::render('Admin/Equipos/UsoEquipo',[
-            'usos' => $usosList
+            'usos' => $usos
         ]);
     }
 

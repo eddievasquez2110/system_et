@@ -10,11 +10,7 @@ use Inertia\Inertia;
 
 class SolicitudDetalleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         
@@ -29,23 +25,13 @@ class SolicitudDetalleController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Solicitud_Detalle  $solicitud_Detalle
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         return Inertia::render('User/Lista',[
@@ -54,35 +40,19 @@ class SolicitudDetalleController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Solicitud_Detalle  $solicitud_Detalle
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit(Solicitud_Detalle $solicitud_Detalle)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Solicitud_Detalle  $solicitud_Detalle
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, Solicitud_Detalle $solicitud_Detalle)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Solicitud_Detalle  $solicitud_Detalle
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(Solicitud_Detalle $solicitud_Detalle)
     {
         //

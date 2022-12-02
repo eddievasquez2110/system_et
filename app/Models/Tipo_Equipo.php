@@ -12,10 +12,11 @@ class Tipo_Equipo extends Model
     protected $fillable = [
         'ID_Tipo_Equipo',
         'Nombre_Tipo_Equipo',
+        'Imagen'
     ];
 
-    public function Equipo()
+    public function Especificacion_Equipos()
     {
-        return $this->belongsTo(Equipo::class);
+        return $this->belongsTo(Especificacion_Equipo::class);
     }
 }
