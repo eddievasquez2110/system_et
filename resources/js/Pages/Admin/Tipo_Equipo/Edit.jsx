@@ -4,20 +4,19 @@ import { Head, useForm, usePage, Link } from '@inertiajs/inertia-react';
 const Edit = ({auth,tipo}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, put, progress} = useForm({
-        Nombre_Tipo_Equipo: `${tipo[0].Nombre_Tipo_Equipo}` || "",
-        Imagen: `${tipo[0].Imagen}` || null,
+        Nombre_Tipo_Equipo: tipo[0].Nombre_Tipo_Equipo,
+        Imagen: tipo[0].Imagen,
     });
-    console.log(data.Imagen);
-    console.log(tipo[0].ID_Tipo_Equipo);
-
+    console.log(data);
     const onSelectedFile = (e) =>{
         const file = e.target.files[0];
         const url = URL.createObjectURL(file);
         setPreview(url);
     }
+
     function handleSubmit(e) {
         e.preventDefault();
-        put(route('tequipo.update', `${tipo[0].ID_Tipo_Equipo}`));
+        put(route('tequipo.update',`${tipo[0].ID_Tipo_Equipo}`));
     }
   return (
     <Navbar auth={auth}>
@@ -43,7 +42,7 @@ const Edit = ({auth,tipo}) => {
                                         <input
                                             type="text"
                                             className="w-full px-4 py-2"
-                                            label="Nombre_Tipo_Equipo"
+                                            label="Tipo Equipo"
                                             name="Nombre_Tipo_Equipo"
                                             value={data.Nombre_Tipo_Equipo}
                                             onChange={(e) =>
@@ -78,7 +77,9 @@ const Edit = ({auth,tipo}) => {
                                             }
                                         />
                                         </label>
-                                        
+                                        <span className="text-red-600">
+                                            {errors.Imagen}
+                                        </span>
                                         </div>
                                     </div>
                                 </div>

@@ -49,21 +49,22 @@ class AdminTipoEquipoController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
         $request ->validate([
             'Nombre_Tipo_Equipo' => 'required',
         ]);
+
         $tipo_equip = $request->all();
 
-        if($imagen = $request->file('Imagen')){
+        /* if($imagen = $request->file('Imagen')){
             $rutaGuardarImg = 'images/';
             $imagenProducto = date('YmdHis') . "." . $imagen->getClientOriginalExtension(); 
             $imagen->move($rutaGuardarImg, $imagenProducto);
             $tipo_equip['Imagen'] = "$imagenProducto";
          }else{
             unset($tipo_equip['Imagen']);
-         }
+         } */
 
         Tipo_Equipo::where('ID_Tipo_Equipo',$id)->update($tipo_equip);
         return redirect()->route('tequipo.index');
