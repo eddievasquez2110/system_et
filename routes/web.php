@@ -47,8 +47,8 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
           Route::get('/dashboard/tipoequipos','index')->name('d.tipoequipos.index');
           Route::get('/dashboard/tipoequipos/create','create')->name('d.tipoequipos.create');
           Route::post('/dashboard/tipoequipos/store','store')->name('d.tipoequipos.store');
-          Route::get('/dashboard/tipoequipos/edit','edit')->name('d.tipoequipos.edit');
-          Route::put('/dashboard/tipoequipos/update','update')->name('d.tipoequipos.update');
+          Route::get('/dashboard/tipoequipos/edit/{id}','edit')->name('d.tipoequipos.edit');
+          Route::put('/dashboard/tipoequipos/update/{id}','update')->name('d.tipoequipos.update');
           Route::delete('/dashboard/tipoequipos/{id}','destroy')->name('d.tipoequipos.destroy');
     });
 
