@@ -9,7 +9,7 @@ const Solicitud = ({auth,softwares}) => {
       <AuthenticatedLayout auth={auth}>
         <Head title="Solicitud" />
         <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'>SELECCIÓN DE PROGRAMAS</div>
-                <div className="wrapper flex flex-wrap items-center justify-center gap-5 mt-8">
+                <div className="wrapper flex flex-wrap items-center justify-center gap-5 mt-8 pb-5">
                     {
                         softwares.map(software =>
                             <Software key={software.ID_Software} software={software}/>

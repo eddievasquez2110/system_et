@@ -22,7 +22,11 @@ return new class extends Migration
             $table->unsignedBigInteger('ID_Especificacion_Software');
             $table->foreign('ID_Especificacion_Software')->references('ID_Especificacion_Software')->on('especificacion__software')->cascadeOnDelete()->cascadeOnUpdate();
             $table->String('Descripcion_SolicitudDetalle', 45);
+<<<<<<< HEAD
            // $table->String('Proyecto',200);
+=======
+            //$table->Long('Proyecto',200);
+>>>>>>> 29478ecfee435e823f331879c1a027d395c35f36
             $table->timestamps();
         });
     }

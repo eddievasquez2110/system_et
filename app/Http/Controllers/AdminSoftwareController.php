@@ -10,9 +10,9 @@ class AdminSoftwareController extends Controller
 {
     public function index()
     {
-        $softList = Software::orderBy('ID_Software')->paginate(6);
+        $soft = Software::orderBy('ID_Software')->paginate(6);
         return Inertia::render('Admin/Software/Software',[
-            'soft' => $softList
+            'soft' => $soft
         ]);
     }
 }
