@@ -51,10 +51,11 @@ class AdminTipoEquipoController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request ->validate([
-            'Nombre_Tipo_Equipo' => 'required',
-            'Imagen' => 'required',
-        ]);
+        //  $request ->validate([
+        // //     'Nombre_Tipo_Equipo' => 'required',
+        //      'Imagen' => 'required|image|mimes:jpeg,jpg,png,svg|max:1024'
+        //  ]);
+         
         $tipo_equip = $request->all();
 
         if($imagen = $request->file('Imagen')){
