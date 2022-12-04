@@ -13,7 +13,7 @@ const Edit = ({auth,tipo}) => {
         const url = URL.createObjectURL(file);
         setPreview(url);
     }
-
+    
     function handleSubmit(e) {
         e.preventDefault();
         put(route('tequipo.update',`${tipo[0].ID_Tipo_Equipo}`));

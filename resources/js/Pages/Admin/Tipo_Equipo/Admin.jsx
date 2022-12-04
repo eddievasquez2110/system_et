@@ -66,6 +66,7 @@ export default function Admin({tipos,auth}) {
                     </tbody>
                 </table>
             </div>
+            <Pagination class="mt-2" links={tipos.links} />
         </Navbar>
     );
 }
