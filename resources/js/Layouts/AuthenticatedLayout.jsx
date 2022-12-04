@@ -24,7 +24,7 @@ export default function Authenticated({ auth, children }) {
                                 <Link href="/">
                                     <ApplicationLogo className="block h-5 w-auto text-gray-500" />
                                 </Link>
-                                <h1 className='text-yellow-400 ml-4 font-mono'>SISTET</h1>
+                                <h1 className='text-yellow-400 ml-4 font-mono'>UNCP EETT</h1>
                             </div>
                             { auth.user.ID_Rol == '1' ?
                                 <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
