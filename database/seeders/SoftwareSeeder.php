@@ -18,48 +18,56 @@ class SoftwareSeeder extends Seeder
 
         $especificacions = Software::create([
             'Nombre_Software' => 'SIGA',
+            'Imagen' => 'software/1.png',
             'Version_Software' => '2022',
             'Descripcion_Software' => 'Sistema de Gestión Administrativa, desarrollada por el Ministerio de Economia y Finanzas',
         ]);
 
         $especificacions = Software::create([
             'Nombre_Software' => 'SIAF',
+            'Imagen' => 'software/2.png',
             'Version_Software' => '2022',
             'Descripcion_Software' => 'Sistema de Ejecución, desarrollada por el Ministerio de Economia y Finanzas',
         ]);
 
         $especificacions = Software::create([
             'Nombre_Software' => 'Microsoft Office',
+            'Imagen' => 'software/3.png',
             'Version_Software' => '2016',
             'Descripcion_Software' => 'Microsoft Office es un conjunto de aplicaciones con las cuales podemos llevar a cabo tareas de ofimática, pudiendo automatizar y alcanzar un alto nivel de rendimiento en dichas tareas gracias a las herramientas que ofrece.',
         ]);
 
         $especificacions = Software::create([
             'Nombre_Software' => 'Any Desk',
+            'Imagen' => 'software/4.png',
             'Version_Software' => '2022',
             'Descripcion_Software' => 'Sistema de Ejecución, desarrollada por el Ministerio de Economia y Finanzas',
         ]);
 
         $especificacions = Software::create([
             'Nombre_Software' => 'Adobe Acrobat',
+            'Imagen' => 'software/5.png',
             'Version_Software' => '2016',
             'Descripcion_Software' => 'Adobe Reader es una aplicación que te permite ver, imprimir y buscar en documentos PDF a través de una interfaz.',
         ]);
 
         $especificacions = Software::create([
             'Nombre_Software' => 'AutoCad',
+            'Imagen' => 'software/6.png',
             'Version_Software' => '2016',
             'Descripcion_Software' => 'AutoCAD es un software de diseño asistido por computadora (CAD) que se utiliza para dibujar, diseñar y modelar en 2D y 3D de forma precisa con sólidos, superficies, objetos de malla, características de documentación, etc.',
         ]);
 
         $especificacions = Software::create([
             'Nombre_Software' => 'Zoom',
+            'Imagen' => 'software/7.png',
             'Version_Software' => '2022',
             'Descripcion_Software' => 'Software gratuito, utilizado para realizar reuniones o acceder a reuniones virtuales',
         ]);
 
         $especificacions = Software::create([
             'Nombre_Software' => 'FoxPro',
+            'Imagen' => 'software/8.png',
             'Version_Software' => '2022',
             'Descripcion_Software' => 'Sistema de Gestor de Base de datos y lenguaje de programación orientado a procedimientos',
         ]);

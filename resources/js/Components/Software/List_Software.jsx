@@ -13,6 +13,11 @@ const List_Software = ({soft}) => {
                 {soft.Nombre_Software}
             </td>
             <td className="py-4 px-6">
+                <div className='flex items-center justify-center'>
+                    <img src={`../images/${soft.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
+                </div>
+            </td>
+            <td className="py-4 px-6">
                 {soft.Descripcion_Software}
             </td>
             <td className="flex gap-3 justify-center py-3 text-right ">

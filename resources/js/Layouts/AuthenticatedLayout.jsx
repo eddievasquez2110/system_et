@@ -51,7 +51,7 @@ export default function Authenticated({ auth, children }) {
                                         <NavLink href={route('user')} >
                                             Equipos
                                         </NavLink>
-                                        <NavLink href={route('user')}>
+                                        <NavLink href={route('infosoft')} active={route().current('infosoft')}>
                                             Software
                                         </NavLink>
                                     

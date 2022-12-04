@@ -24,6 +24,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
 
+
 //RUTA INICIO
 Route::get('/', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
@@ -51,6 +52,24 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
           Route::get('/dashboard/tipoequipos/edit/{id}','edit')->name('d.tipoequipos.edit');
           Route::put('/dashboard/tipoequipos/update/{id}','update')->name('d.tipoequipos.update');
           Route::delete('/dashboard/tipoequipos/{id}','destroy')->name('d.tipoequipos.destroy');
+    });
+
+    Route::controller(AdminSoftwareController::class)->group(function () {
+        Route::get('/dashboard/softwares','index')->name('d.softwares.index');
+        Route::get('/dashboard/softwares/create','create')->name('d.softwares.create');
+        Route::post('/dashboard/softwares/store','store')->name('d.softwares.store');
+        Route::get('/dashboard/softwares/edit/{id}','edit')->name('d.softwares.edit');
+        Route::put('/dashboard/softwares/update/{id}','update')->name('d.softwares.update');
+        Route::delete('/dashboard/softwares/{id}','destroy')->name('d.softwares.destroy');
+    });
+
+    Route::controller(AdminEspecificacionSoftwareController::class)->group(function () {
+        Route::get('/dashboard/especificacionsoftware','index')->name('d.especificacionsoftware.index');
+        Route::get('/dashboard/especificacionsoftware/create','create')->name('d.especificacionsoftware.create');
+        Route::post('/dashboard/especificacionsoftware/store','store')->name('d.especificacionsoftware.store');
+        Route::get('/dashboard/especificacionsoftware/edit/{id}','edit')->name('d.especificacionsoftware.edit');
+        Route::put('/dashboard/especificacionsoftware/update/{id}','update')->name('d.especificacionsoftware.update');
+        Route::delete('/dashboard/especificacionsoftware/{id}','destroy')->name('d.especificacionsoftware.destroy');
     });
 
 //     Route::get('/dashboard/usoequipos', [AdminUsoEquipoController::class,'index'])
