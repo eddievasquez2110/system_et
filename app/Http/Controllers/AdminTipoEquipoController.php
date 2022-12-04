@@ -44,7 +44,7 @@ class AdminTipoEquipoController extends Controller
     public function edit($id)
     {
         $tipos = Tipo_Equipo::where('ID_Tipo_Equipo',$id)->get();
-        return Inertia::render('Admin/Tipo_Equipo/Edit',[
+        return Inertia::render('Admin/Equipos/Tipo_Equipo/Edit',[
             'tipos' => $tipos
         ]);
     }
@@ -64,7 +64,7 @@ class AdminTipoEquipoController extends Controller
          }else{
             unset($tipo_equip['Imagen']);
          }
-
+        
         Tipo_Equipo::where('ID_Tipo_Equipo',$id)->update($tipo_equip);
         return redirect()->route('d.tipoequipos.index');
     }
