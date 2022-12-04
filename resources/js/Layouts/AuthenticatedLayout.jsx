@@ -6,11 +6,36 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
 import ButtonDashboard from '@/Components/ButtonDashboard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Swal from 'sweetalert2';
+import { Inertia } from '@inertiajs/inertia';
 
 import { faUser,faUsers,faClipboardList,faWind,faComputer, faBook, faWindowRestore} from '@fortawesome/free-solid-svg-icons';
 
 export default function Authenticated({ auth, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+    
+    const alertLogout = (e) => {
+        
+       console.log(e);
+        Swal.fire({
+            title: '¿Estas seguro?',
+            text: "Usted saldra del sistema",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Salir'
+          }).then((result) => { 
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Logout!',
+                'Saliste del sistema.',
+                'success'
+              )
+              Inertia.post(route('logout'));
+            }
+          })
+    }
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -28,15 +53,7 @@ export default function Authenticated({ auth, children }) {
                             </div>
                             { auth.user.ID_Rol == '1' ?
                                 <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
-                                    <NavLink href={route('superadmin')} active={route().current('superadmin')}>
-                                        Inicio
-                                    </NavLink>
-                                    <NavLink href={route('superadmin')} >
-                                        Equipos
-                                    </NavLink>
-                                    <NavLink href={route('superadmin')}>
-                                        Software
-                                    </NavLink>
+                                    
                                 
                                 </div>
                                 : auth.user.ID_Rol == '2' ?
@@ -69,9 +86,9 @@ export default function Authenticated({ auth, children }) {
                                             
                                             <button
                                                 type="button"
-                                                className="inline-flex px-2 py-2 border border-transparent leading-4 font-medium rounded-md text-grenn-400 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
-                                                <FontAwesomeIcon className="h-5 w-10"  icon={faUser} />{auth.user.name}
+                                                <FontAwesomeIcon className="h-5 w-10"  icon={faUser} />{auth.user.name.toUpperCase()}
 
                                                 <svg
                                                     className="ml-2 -mr-0.5 h-4 w-4"
@@ -89,9 +106,9 @@ export default function Authenticated({ auth, children }) {
                                         </span>
                                     </Dropdown.Trigger>
                                     <Dropdown.Content>
-                                        <Dropdown.Link href={route('logout')} method="post" as="button">
+                                        <Link onClick={alertLogout} as="button" className='block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-red-200 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'>
                                             Cerrar Sesión
-                                        </Dropdown.Link>
+                                        </Link>
                                     </Dropdown.Content>
                                 </Dropdown>
                             </div>
@@ -158,14 +175,16 @@ export default function Authenticated({ auth, children }) {
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">
-                            <div className="font-medium text-base text-gray-800">{auth.user.name}</div>
-                            <div className="font-medium text-sm text-gray-500">{auth.user.email}</div>
+                            <div className="font-medium text-base text-green-200">{auth.user.name}</div>
+                            <div className="font-medium text-sm text-green-300">{auth.user.email}</div>
                         </div>
 
                         <div className="mt-3 space-y-1">
-                            <ResponsiveNavLink method="post" href={route('logout')} as="button">
-                                Log Out
-                            </ResponsiveNavLink>
+                            <Link onClick={alertLogout} as="button" className=' text-white block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-red-200 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'>
+                                
+                                Cerrar Sesión
+                                
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,7 @@ const Software = ({software}) => {
             <div className="p-5">
                 <a href='#' name='software'>   
                     <CheckboxSoftware name="software" value={software.Nombre_Software} />
-                        <span className="ml-2 text-md text-lime-800">{software.Nombre_Software}</span>
+                        <span className="ml-2 text-md text-lime-800">{software.Nombre_Software.toUpperCase()}</span>
                 </a> 
             </div>
             

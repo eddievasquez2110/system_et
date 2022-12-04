@@ -41,7 +41,7 @@ const List_Tipo_Equipo = ({tipo}) => {
             </td>
             <td className="px-4 py-2">
                 <div className='flex items-center justify-center'>
-                    <img src={`../images/${tipo.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
+                    <img src={`/images/Equipos/${tipo.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
                 </div>        
             </td>
             <td className="flex gap-3 justify-center py-3 text-right ">

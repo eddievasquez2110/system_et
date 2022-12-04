@@ -8,8 +8,9 @@ import Dropdown from '@/Components/Dropdown';
 import { Inertia } from '@inertiajs/inertia';
 
 import Swal from 'sweetalert2';
+import NavLink from '@/Components/NavLink';
 
-const Navbar = ({auth,children}) => {
+const NavbarSAdmin = ({auth,children}) => {
     const [show,setShow] = useState(false);
     const [open,setOpen] =useState(true);
 
@@ -23,14 +24,6 @@ const Navbar = ({auth,children}) => {
         display:"none"
     }
     const alertLogout = (e) => {
-        /*if(!confirm('Estas Seguro de salir del sistema')){
-            return e.preventDefault();
-        }else{
-            return this;
-        }
-        e.preventDefault();
-        e.stopPropagation();
-        */
        console.log(e);
         Swal.fire({
             title: 'Estas seguro?',
@@ -53,7 +46,10 @@ const Navbar = ({auth,children}) => {
     }
 
   return (
+    <>
+                         
     <div className='flex justify-between'>
+        
         <div className="shadow-md bg-green-800 sticky top-0 h-screen" style={open ?{width:'18%'}:{width:'75px'}}>
           <div className='relative '>
             <div className="pt-4 pb-2 px-6">
@@ -149,7 +145,29 @@ const Navbar = ({auth,children}) => {
                     </ul>
             </div>
         </div>
-            <div className='bg-white' style={open ?{width:'82%'}:{width:'95%'}}>
+        <div className='bg-white' style={open ?{width:'82%'}:{width:'95%'}}>
+            {auth.user.ID_Rol == 1 ?
+
+                
+            <div className='justify-center'>
+                <nav className="bg-green-800 h-14 ">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mr-10 pt-3">
+                        <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex">
+                            <NavLink href={route('superadmin')} active={route().current('superadmin')}>
+                                Inicio
+                            </NavLink>
+                            <NavLink href={route('user')} >
+                                Equipos
+                            </NavLink>
+                            <NavLink href={route('infosoft')}>
+                                Software
+                            </NavLink>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+                : <></>
+            }
                 <div className='flex p-5 justify-between items-center h-14 border-b border-neutral-100 shadow-md'>
                     <div className='text-slate-400'>
                         Hola bienvenido al modo {auth.user.name}
@@ -193,16 +211,18 @@ const Navbar = ({auth,children}) => {
                 <div className='flex  justify-center bg-slate-100 overflow-y-auto ' style={{height:'calc(100% - 112px)'}}>
                 <div className='w-5/6'>
                  {children}
-                </div>  
-                </div>
-                <div className='h-14 flex items-center justify-center text-slate-400 border-t-2 border-neutral-100'>
+                 <div className='h-14 flex items-center justify-center text-slate-400 border-t-2 border-neutral-100'>
                    <div>
                     Copyrigth © OGSIC 2022 
                    </div>
                 </div>
+                </div>  
+                </div>
+                
             </div>
     </div>
+    </>
   )
 }
 
-export default Navbar
+export default NavbarSAdmin
