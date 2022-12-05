@@ -16,13 +16,13 @@ class Especificacion_Software extends Model
         'Especificacion',
     ];
 
-    public function Software()
+    public function software()
     {
-        return $this->belongsTo(Software::class);
+        return $this->belongsTo(Software::class,'ID_Software','Nombre_Software');
     }
 
-    public function Uso_Equipo()
+    public function uso__equipos()
     {
-        return $this->HasOne(Uso_Equipo::class);
+        return $this->HasOne(Uso_Equipo::class,'ID_Uso_Equipo','Nombre_Uso_Equipo');
     }
 }

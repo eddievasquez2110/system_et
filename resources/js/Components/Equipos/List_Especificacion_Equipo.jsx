@@ -10,10 +10,10 @@ const List_Especificacion_Equipo = ({espEquipo}) => {
                 {espEquipo.ID_Especificacion_Equipo}
             </th>
             <td className="py-4 px-6">
-                {espEquipo.ID_Tipo_Equipo}
+                {espEquipo.Nombre_Tipo_Equipo}
             </td>
             <td className="py-4 px-6">
-                {espEquipo.ID_Uso_Equipo}
+                {espEquipo.Nombre_Uso_Equipo}
             </td>
             <td className="py-4 px-6">
                 {espEquipo.Nombre_Especificacion}

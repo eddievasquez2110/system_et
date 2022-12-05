@@ -17,11 +17,11 @@ class Especificacion_Equipo extends Model
     ];
 
     public function tipo__equipos(){
-        return $this->hasOne(Tipo_Equipo::class);
+        return $this->hasMany(Tipo_Equipo::class,'ID_Tipo_Equipo','Nombre_Tipo_Equipo');
     }
 
-    public function Uso__Equipo()
+    public function uso__equipos()
     {
-        return $this->HasOne(Uso_Equipo::class);
+        return $this->HasOne(Uso_Equipo::class,'ID_Uso_Equipo','Nombre_Uso_Equipo');
     }
 }

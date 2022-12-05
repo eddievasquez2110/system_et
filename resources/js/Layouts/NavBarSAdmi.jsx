@@ -168,6 +168,7 @@ const NavbarSAdmin = ({auth,children}) => {
             </div>
                 : <></>
             }
+            
                 <div className='flex p-5 justify-between items-center h-14 border-b border-neutral-100 shadow-md'>
                     <div className='text-slate-400'>
                         Hola bienvenido al modo {auth.user.name}
