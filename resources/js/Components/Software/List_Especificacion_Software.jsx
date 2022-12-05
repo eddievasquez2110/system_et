@@ -16,10 +16,10 @@ const List_Especificacion_Software = ({espSoftware}) => {
                 {espSoftware.Nombre_Uso_Equipo}
             </td>
             <td className="py-4 px-6">
-                {espSoftware.Nombre_Especificacion}
+                {espSoftware.Nombre_Especificacion_Software}
             </td>
             <td className="py-4 px-6">
-                {espSoftware.Especificacion}
+                {espSoftware.Especificacion_Software}
             </td>
             <td className="flex gap-3 justify-center py-3 text-right ">
                 <a href="#" className="font-medium text-blue-500">

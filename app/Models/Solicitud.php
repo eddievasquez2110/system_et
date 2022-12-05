@@ -20,7 +20,7 @@ class Solicitud extends Model
         return $this->HasOne(User::class);
     }
 
-    public function SolicitudDetalle()
+    public function solicitud_detalles()
     {
         return $this->belongsTo(Solicitud_Detalle::class);
     }
