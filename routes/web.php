@@ -37,6 +37,7 @@ Route::middleware(['auth', 'verified','solosuperadmin'])->group(function () {
 
     Route::get('/superadmin/reportes', [SolicitudDetalleController::class,'index'])
          ->name('reportes.a');
+
 });
 
 //RUTAS SOLO ADMIN
@@ -100,7 +101,7 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
 });
 
 //RUTAS SOLO USER
-Route::middleware(['auth', 'verified','solouser'])->group(function () {
+//Route::middleware(['auth', 'verified','solouser'])->group(function () {
 
     Route::get('/inicio', [TipoEquipoController::class,'index'])
         ->name('user'); 
@@ -113,7 +114,8 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
 
     Route::get('/infosoft', [InfoSoftwareController::class,'index'])
         ->name('infosoft');
-});
+    
+//});
 
 
 require __DIR__.'/auth.php';
