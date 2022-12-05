@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from 'sweetalert2';
 import { Inertia } from '@inertiajs/inertia';
 
-import { faUser,faUsers,faClipboardList,faWind,faComputer, faBook, faWindowRestore} from '@fortawesome/free-solid-svg-icons';
+import { faUser,faUsers,faClipboardList,faWind,faComputer, faBook, faWindowRestore, faBriefcase} from '@fortawesome/free-solid-svg-icons';
 
 export default function Authenticated({ auth, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
@@ -77,13 +77,18 @@ export default function Authenticated({ auth, children }) {
                             } 
                             
                         </div>
-
+                        <div className='flex'>
+                        <div className="sm:flex sm:items-center m-2">
+                            <div className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white font-bold hover:text-green-300 focus:outline-none transition ease-in-out duration-150 ">
+                                                <FontAwesomeIcon className="h-6 w-10"  icon={faBriefcase} />
+                                                
+                        </div>
+                        </div>
                         <div className="hidden sm:flex sm:items-center sm:ml-6 h-12 w-38 justify-center flex m-2 border border-gray-500 rounded-lg bg-white">
                             <div className="ml-3 relative ">
                                 <Dropdown>
                                     <Dropdown.Trigger>
                                         <span className="inline-flex rounded-md">
-                                            
                                             <button
                                                 type="button"
                                                 className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
@@ -113,7 +118,7 @@ export default function Authenticated({ auth, children }) {
                                 </Dropdown>
                             </div>
                         </div>                        
-
+                        </div>
                         <div className="-mr-2 flex items-center sm:hidden">
                             <button
                                 onClick={() => setShowingNavigationDropdown((previousState) => !previousState)}
