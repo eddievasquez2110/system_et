@@ -3,7 +3,7 @@ import { useState } from 'react'
 //mport { FaAngleRight} from "react-icons/fa";
 import { Link } from '@inertiajs/inertia-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleLeft, faCirclePlay, faCircleRight, faUser} from '@fortawesome/free-solid-svg-icons';
+import { faCircleLeft, faUser} from '@fortawesome/free-solid-svg-icons';
 import Dropdown from '@/Components/Dropdown';
 import { Inertia } from '@inertiajs/inertia';
 
@@ -53,8 +53,9 @@ const Navbar = ({auth,children}) => {
     }
 
   return (
-    <div className='flex w-full'>
-        <div className="min-h-screen shadow-md bg-green-800 relative" style={open ?{width:'18%'}:{width:'75px'}}>
+    <div className='flex justify-between'>
+        <div className="shadow-md bg-green-800 sticky top-0 h-screen" style={open ?{width:'18%'}:{width:'75px'}}>
+          <div className='relative '>
             <div className="pt-4 pb-2 px-6">
                 <a href="#">
                 <div className="flex cursor-auto items-center pb-4 border-b border-gray-200">
@@ -66,6 +67,7 @@ const Navbar = ({auth,children}) => {
                     </div>
                 </div>
                 </a>
+            </div>
             </div>
             <div onClick={() => setOpen(!open ) || setOpen1(!open1)} className='absolute w-8 h-8 text-lg text-white cursor-pointer inset-y-1/2 -right-3 flex items-center justify-center rounded-full bg-teal-500'>
                 {/* <FaAngleRight/> */}
@@ -118,12 +120,12 @@ const Navbar = ({auth,children}) => {
                         </button>
                         <ul style={show1?{display:"block"}:{display:"none"}} className="bg-white rounded-lg mt-1">
                             <li>
-                                <Link href={route('d.softwares')} active={route().current('d.softwares')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.softwares')} active={route().current('d.softwares.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Software
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.especificacionsoftware')} active={route().current('d.especificacionsoftware')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.especificacionsoftware')} active={route().current('d.especificacionsoftware.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Especificacion de Software
                                 </Link>
                             </li>

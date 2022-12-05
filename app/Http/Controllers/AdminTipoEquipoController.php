@@ -45,15 +45,17 @@ class AdminTipoEquipoController extends Controller
     {
         $tipos = Tipo_Equipo::where('ID_Tipo_Equipo',$id)->get();
         return Inertia::render('Admin/Equipos/Tipo_Equipo/Edit',[
-            'tipos' => $tipos
+            'tipo' => $tipos
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        $request ->validate([
-            'Nombre_Tipo_Equipo' => 'required',
-        ]);
+        //  $request ->validate([
+        // //     'Nombre_Tipo_Equipo' => 'required',
+        //      'Imagen' => 'required|image|mimes:jpeg,jpg,png,svg|max:1024'
+        //  ]);
+         
         $tipo_equip = $request->all();
 
         if($imagen = $request->file('Imagen')){

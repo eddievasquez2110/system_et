@@ -11,7 +11,7 @@ class AdminSoftwareController extends Controller
     public function index()
     {
         $soft = Software::orderBy('ID_Software')->paginate(6);
-        return Inertia::render('Admin/Software/Software',[
+        return Inertia::render('Admin/Software/Index',[
             'soft' => $soft
         ]);
     }

@@ -3,10 +3,12 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
 import InfoSoftwares from '@/Components/InfoSoftwares';
 
-const InfoSoftware = ({auth, infoSoftwares}) => {
+const InfoSoftware = ({auth, infoSoftwares, usuarios, oficina}) => {
     // console.log(auth)
     // console.log(auth.user.id)
     console.log(infoSoftwares)
+    console.log(usuarios)
+    console.log(oficina)
     return (
         <AuthenticatedLayout auth={auth}>
         <Head title="Especificaciones" />

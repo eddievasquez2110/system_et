@@ -17,8 +17,18 @@ const Edit = ({auth,tipo}) => {
     }
     function handleSubmit(e) {
         e.preventDefault();
-        put(route("d.tipoequipos.update", `${tipo[0].ID_Tipo_Equipo}`));
+        //put(route("d.tipoequipos.update", `${tipo[0].ID_Tipo_Equipo}`));
+        Inertia.post(`/Edit/${tipo.ID_Tipo_Equipo}`, {
+
+            _method: 'put',
+
+            name: data.name,
+
+            image: data.image,
+
+          })
     }
+
   return (
     <Navbar auth={auth}>
         <Head title="Tipo Equipo" />
