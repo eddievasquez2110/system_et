@@ -1,23 +1,41 @@
-import React from 'react';
+import React from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
-
-export default function User(props) {
-    return (
-        <AuthenticatedLayout
-            auth={props.auth}
-            errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Hola {props.auth.user.name}</h2>}
-        >
-            <Head title="User" />
-
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 bg-green-200 border-b border-gray-200">Estas en Linea con nosotros!</div>
-                    </div>
-                </div>
+import Equipo from '@/Components/Equipo';
+import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
+const User = ({auth,equipos}) => {
+  return (
+    <>
+      {auth.user.ID_Rol == 1 ?
+        <NavbarSAdmin auth={auth}>
+          <Head title="Inicio" />
+          <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'>SELECCIÓN DE EQUIPOS</div>
+          <div className="wrapper flex flex-wrap justify-center items-center gap-5 mt-8 pb-5">
+                {
+                    equipos.map(equipo =>
+                        <Equipo key={equipo.ID_Tipo_Equipo} equipo={equipo}/>
+                        )
+                }
+          </div>
+        </NavbarSAdmin>
+        :auth.user.ID_Rol == 3 ?
+          <AuthenticatedLayout auth={auth}>
+            <Head title="Inicio" />
+            <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'>SELECCIÓN DE EQUIPOS</div>
+            <div className="wrapper flex flex-wrap justify-center items-center gap-5 mt-8 pb-5">
+                  {
+                      equipos.map(equipo =>
+                          <Equipo key={equipo.ID_Tipo_Equipo} equipo={equipo}/>
+                          )
+                  }
             </div>
-        </AuthenticatedLayout>
+          </AuthenticatedLayout>
+        :<></>
+      }
+        </>
     );
+    
 }
+
+export default User
+

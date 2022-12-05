@@ -14,8 +14,9 @@ class Solicitud_DetalleSeeder extends Seeder
     {
         $solicitud_detalle = Solicitud_Detalle::create([
             'ID_Solicitud'=>1,
-            'ID_Equipo'=>1,
-            'ID_Software'=>1,
+            'ID_Especificacion_Equipo'=>1,
+            'Cantidad_Equipo'=>1,
+            'ID_Especificacion_Software'=>1,
             'Descripcion_SolicitudDetalle'=>'Es la primera solicitud que se realiza',
         ]);
     }
