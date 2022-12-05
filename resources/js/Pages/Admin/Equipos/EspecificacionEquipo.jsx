@@ -63,11 +63,20 @@ export default function EspecificacionEquipo({espEquipos,auth}) {
                         {
                             espEquipos.data.map(espEquipo => {
                                 return(
-                                    <List_Especificacion_Equipo  espEquipo={espEquipo}  key={espEquipo.ID_Especificacion_Equipo}/>
+                                    <List_Especificacion_Equipo  espEquipo={espEquipo} key={espEquipo.ID_Especificacion_Equipo}/>
                                 )
                             })
                         }
-                    
+                        {/* {console.log(espEquipoLists)}
+                        {
+                            espEquipoLists.data.map(espEquipoList => {
+                                return(
+                                    <List_Especificacion_Equipo  espEquipoList={espEquipoList}  key={espEquipoList.ID_Tipo_Equipo}/>
+                                )
+                            })
+                        } */}
+                        
+                        
                     </tbody>
                 </table>
             </div>

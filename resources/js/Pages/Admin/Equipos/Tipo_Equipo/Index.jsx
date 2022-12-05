@@ -58,7 +58,7 @@ export default function Index({tipos,auth}) {
                         
                         {
                             tipos.data.map(tipo => {
-                                return(
+                                return( 
                                     <List_Tipo_Equipo tipo={tipo} key={tipo.ID_Tipo_Equipo}/>
                                 )
                             })
@@ -67,7 +67,7 @@ export default function Index({tipos,auth}) {
                     </tbody>
                 </table>
             </div>
-            <Pagination class="mt-2" links={tipos.links} />
+            <Pagination className="mt-2" links={tipos.links} />
         </Navbar>
     );
 }

@@ -10,9 +10,10 @@ class AdminEspecificacionSoftwareController extends Controller
 {
     public function index()
     {
-        //$EspEquipoList = Especificacion_Equipo::with('tipo__equipos:Nombre_Tipo_Equipo')->where('ID_Tipo_Equipo','=','ID_Especificacion_Equipo')->paginate(6);
-        $espSoftwares = Especificacion_Software::orderBy('ID_Especificacion_Software')->paginate(6);
-        //$TipoList = Tipo_Equipo::orderBy('ID_Tipo_Equipo');
+        $espSoftwares = Especificacion_Software::with('software','uso__equipos')
+        ->join('software','especificacion__software.ID_Software','=','software.ID_Software')
+        ->join('uso__equipos','especificacion__software.ID_Uso_Equipo','=','uso__equipos.ID_Uso_Equipo')->paginate(6);
+
         return Inertia::render('Admin/Software/EspecificacionSoftware',[
             'espSoftwares' => $espSoftwares,
             //'tipoEquipos' => $TipoList

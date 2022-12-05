@@ -19,40 +19,40 @@ class Especificacion_SoftwareSeeder extends Seeder
 
             'ID_Software' => '1',
             'ID_Uso_Equipo' => '1',
-            'Nombre_Especificacion' => 'Procesador',
-            'Especificacion' => 'Doble núcleo de 1GHz',
+            'Nombre_Especificacion_Software' => 'Procesador',
+            'Especificacion_Software' => 'Doble núcleo de 1GHz',
         ]);
 
         $especificacion_software = Especificacion_Software::create([
             
             'ID_Software' => '1',
             'ID_Uso_Equipo' => '1',
-            'Nombre_Especificacion' => 'Espacio de Disco',
-            'Especificacion' => '4 GB',
+            'Nombre_Especificacion_Software' => 'Espacio de Disco',
+            'Especificacion_Software' => '4 GB',
         ]);
 
         $especificacion_software = Especificacion_Software::create([
 
             'ID_Software' => '1',
             'ID_Uso_Equipo' => '1',
-            'Nombre_Especificacion' => 'Sistema Operativo',
-            'Especificacion' => 'Windows 10',
+            'Nombre_Especificacion_Software' => 'Sistema Operativo',
+            'Especificacion_Software' => 'Windows 10',
         ]);
 
         $especificacion_software = Especificacion_Software::create([
 
             'ID_Software' => '1',
             'ID_Uso_Equipo' => '1',
-            'Nombre_Especificacion' => 'Tamaño RAM',
-            'Especificacion' => '8 GB',
+            'Nombre_Especificacion_Software' => 'Tamaño RAM',
+            'Especificacion_Software' => '8 GB',
         ]);
 
         $especificacion_software = Especificacion_Software::create([
 
             'ID_Software' => '1',
             'ID_Uso_Equipo' => '1',
-            'Nombre_Especificacion' => 'Tarjeta de Video',
-            'Especificacion' => '1 GB',
+            'Nombre_Especificacion_Software' => 'Tarjeta de Video',
+            'Especificacion_Software' => '1 GB',
         ]);
         
     }

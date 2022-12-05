@@ -19,8 +19,8 @@ return new class extends Migration
             $table->unsignedBigInteger('ID_Uso_Equipo');
             $table->foreign('ID_Tipo_Equipo')->references('ID_Tipo_Equipo')->on('Tipo__Equipos');
             $table->foreign('ID_Uso_Equipo')->references('ID_Uso_Equipo')->on('uso__equipos')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->Text('Nombre_Especificacion')->nullable();
-            $table->Text('Especificacion')->nullable();
+            $table->Text('Nombre_Especificacion_Equipo')->nullable();
+            $table->Text('Especificacion_Equipo')->nullable();
             $table->timestamps();
         });
     }

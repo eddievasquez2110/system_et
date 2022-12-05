@@ -12,16 +12,20 @@ class Especificacion_Equipo extends Model
     protected $fillable = [
         'ID_Tipo_Equipo',
         'ID_Uso_Equipo',
-        'Nombre_Especificacion',
-        'Especificacion',
+        'Nombre_Especificacion_Equipo',
+        'Especificacion_Equipo',
     ];
 
     public function tipo__equipos(){
-        return $this->hasOne(Tipo_Equipo::class);
+        return $this->hasMany(Tipo_Equipo::class,'ID_Tipo_Equipo','Nombre_Tipo_Equipo');
     }
 
-    public function Uso__Equipo()
+    public function uso__equipos()
     {
-        return $this->HasOne(Uso_Equipo::class);
+        return $this->HasOne(Uso_Equipo::class,'ID_Uso_Equipo','Nombre_Uso_Equipo');
+    }
+    public function solicitud__detalles()
+    {
+        return $this->belongsTo(Solicitud_Detalle::class);
     }
 }

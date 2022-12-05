@@ -41,24 +41,27 @@ const List_Tipo_Equipo = ({tipo}) => {
             </td>
             <td className="px-4 py-2">
                 <div className='flex items-center justify-center'>
-                    <img src={`../images/${tipo.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
+                    <img src={`/images/Equipos/${tipo.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
                 </div>        
             </td>
             <td className="flex gap-3 justify-center py-3 text-right ">
                 <div className='flex align-center justify-center gap-4'>
-                    <Link
-                        tabIndex="1"
-                        className="px-4 py-2 text-sm text-white bg-blue-500 rounded"
-                        href={route("d.tipoequipos.edit",`${tipo.ID_Tipo_Equipo}`)}
-                        ><FontAwesomeIcon className="h-4 w-5 "  icon={faEdit} />
-                    </Link>
+                    
+                    <div className='font-medium text-blue-500 pt-2'>
+                      <Link
+                          tabIndex="1"
+                          className="bg-blue-100 px-5 py-2 rounded-md hover:bg-blue-700 hover:text-white"
+                          href={route("d.tipoequipos.edit",`${tipo.ID_Tipo_Equipo}`)}
+                          ><FontAwesomeIcon className="h-4 w-5 "  icon={faEdit} />
+                      </Link>
+                    </div>
 
-                    <div>
+                    <div className='font-medium text-red-500 ' >
                         <button
                             onClick={destroy}
                             tabIndex="-1"
                             id={tipo.ID_Tipo_Equipo}
-                            className="mx-1 px-4 py-2 text-sm text-white bg-red-500 rounded"
+                            className="bg-red-100 px-5 py-2 rounded-md hover:bg-red-700 hover:text-white"
                             type="button"
                             > <FontAwesomeIcon className="h-4 w-5 "  icon={faTrashCan} />      
                         </button>

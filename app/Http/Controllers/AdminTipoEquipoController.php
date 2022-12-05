@@ -31,7 +31,7 @@ class AdminTipoEquipoController extends Controller
         $tipo_equip = $request->all();
 
         if($imagen = $request->file('Imagen')) {
-            $rutaGuardarImg = 'images/';
+            $rutaGuardarImg = 'images/Equipos';
             $imagenProducto = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
             $imagen->move($rutaGuardarImg, $imagenProducto);
             $tipo_equip['Imagen'] = "$imagenProducto";         
