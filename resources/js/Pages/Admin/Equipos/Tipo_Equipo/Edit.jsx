@@ -42,7 +42,7 @@ const Edit = ({auth,tipo}) => {
                                     className="px-6 py-2 text-white bg-blue-500 rounded-md focus:outline-none"
                                     href={ route("d.tipoequipos.index") }
                                 >
-                                    Back
+                                    Volver
                                 </Link>
                             </div>
 
