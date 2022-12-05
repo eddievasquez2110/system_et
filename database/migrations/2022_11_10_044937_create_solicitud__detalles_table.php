@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('solicitud__detalles', function (Blueprint $table) {
-            $table->id('ID_SolicitudDetalle');
+            $table->id('ID_Solicitud_Detalle');
             $table->unsignedBigInteger('ID_Solicitud');
             $table->foreign('ID_Solicitud')->references('ID_Solicitud')->on('solicituds')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('ID_Especificacion_Equipo');

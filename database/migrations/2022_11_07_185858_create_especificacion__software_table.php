@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreign('ID_Software')->references('ID_Software')->on('software')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('ID_Uso_Equipo');
             $table->foreign('ID_Uso_Equipo')->references('ID_Uso_Equipo')->on('uso__equipos')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->Text('Nombre_Especificacion')->nullable();
-            $table->Text('Especificacion')->nullable();
+            $table->Text('Nombre_Especificacion_Software')->nullable();
+            $table->Text('Especificacion_Software')->nullable();
             $table->timestamps();
         });
     }

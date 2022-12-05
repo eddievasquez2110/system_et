@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminUsoEquipoController;
 use App\Http\Controllers\InfoSoftwareController;
 use App\Http\Controllers\SolicitudDetalleController;
 use App\Http\Controllers\AdminReporteController;
+use App\Http\Controllers\AdminSolicitudController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\SoloSuperAdmin;
 use App\Models\Rol;
@@ -21,7 +22,6 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
-
 
 
 
@@ -87,7 +87,6 @@ Route::middleware(['auth', 'verified','solosuperadmin'])->group(function () {
   
       Route::get('/dashboard/reportes', [AdminReporteController::class,'index'])
            ->name('d.reportes');
-  
 
 });
 
@@ -146,6 +145,9 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
 
     Route::get('/dashboard/reportes', [AdminReporteController::class,'index'])
          ->name('d.reportes');
+
+    Route::get('/dashboard/solicitudes', [AdminSolicitudController::class,'index'])
+         ->name('d.solicituds');
 
     
 

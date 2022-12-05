@@ -12,8 +12,8 @@ class Especificacion_Software extends Model
     protected $fillable = [
         'ID_Software',
         'ID_Uso_Equipo',
-        'Nombre_Especificacion',
-        'Especificacion',
+        'Nombre_Especificacion_Software',
+        'Especificacion_Software',
     ];
 
     public function software()
@@ -24,5 +24,10 @@ class Especificacion_Software extends Model
     public function uso__equipos()
     {
         return $this->HasOne(Uso_Equipo::class,'ID_Uso_Equipo','Nombre_Uso_Equipo');
+    }
+
+    public function solicitud__detalles()
+    {
+        return $this->belongsTo(Solicitud_Detalle::class);
     }
 }
