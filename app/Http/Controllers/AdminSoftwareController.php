@@ -16,22 +16,6 @@ class AdminSoftwareController extends Controller
         ]);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function destroy($id)
     {
         Software::where('ID_Software',$id)->delete();

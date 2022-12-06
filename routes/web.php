@@ -24,7 +24,6 @@ use Inertia\Inertia;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
-
 //RUTA INICIO
 Route::get('/', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
@@ -96,6 +95,7 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
          return Inertia::render('Admin/Admin');
      })->name('admin');
 
+     //EQUIPOS
     Route::controller(AdminTipoEquipoController::class)->group(function () {
           Route::get('/dashboard/tipoequipos','index')->name('d.tipoequipos.index');
           Route::get('/dashboard/tipoequipos/create','create')->name('d.tipoequipos.create');
@@ -105,6 +105,25 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
           Route::delete('/dashboard/tipoequipos/{id}','destroy')->name('d.tipoequipos.destroy');
     });
 
+    Route::controller(AdminUsoEquipoController::class)->group(function () {
+          Route::get('/dashboard/usoequipos','index')->name('d.usoequipos.index');
+          Route::get('/dashboard/usoequipos/create','create')->name('d.usoequipos.create');
+          Route::post('/dashboard/usoequipos/store','store')->name('d.usoequipos.store');
+          Route::get('/dashboard/usoequipos/edit/{id}','edit')->name('d.usoequipos.edit');
+          Route::put('/dashboard/usoequipos/update/{id}','update')->name('d.usoequipos.update');
+          Route::delete('/dashboard/usoequipos/{id}','destroy')->name('d.usoequipos.destroy');
+     });
+
+     Route::controller(AdminEspecificacionEquipoController::class)->group(function () {
+          Route::get('/dashboard/especificacionequipo','index')->name('d.especificacionequipo.index');
+          Route::get('/dashboard/especificacionequipo/create','create')->name('d.especificacionequipo.create');
+          Route::post('/dashboard/especificacionequipo/store','store')->name('d.especificacionequipo.store');
+          Route::get('/dashboard/especificacionequipo/edit/{id}','edit')->name('d.especificacionequipo.edit');
+          Route::put('/dashboard/especificacionequipo/update/{id}','update')->name('d.especificacionequipo.update');
+          Route::delete('/dashboard/especificacionequipo/{id}','destroy')->name('d.especificacionequipo.destroy');
+      });
+
+      //SOFTWARE
     Route::controller(AdminSoftwareController::class)->group(function () {
         Route::get('/dashboard/softwares','index')->name('d.softwares.index');
         Route::get('/dashboard/softwares/create','create')->name('d.softwares.create');

@@ -20,26 +20,6 @@ class AdminEspecificacionSoftwareController extends Controller
         ]);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function destroy($id)
     {
         Especificacion_Software::where('ID_Especificacion_Software',$id)->delete();

@@ -4,7 +4,7 @@ import { Head } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Especificacion_Software from '@/Components/Software/List_Especificacion_Software';
 export default function EspecificacionSoftware({espSoftwares,auth}) {
-    console.log(espSoftwares)
+    
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
