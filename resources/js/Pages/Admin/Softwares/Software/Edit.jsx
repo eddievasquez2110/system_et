@@ -1,27 +1,33 @@
-import React, {  useState } from 'react'
-import Navbar from '@/Layouts/Navbar';
-import { Head, useForm, Link } from '@inertiajs/inertia-react';
+import React, { useState } from 'react'
+import Navbar from '@/Layouts/Navbar'
+import { Head, useForm, usePage, Link } from '@inertiajs/inertia-react';
+import { Inertia } from '@inertiajs/inertia';
 
-const Create = ({auth}) => {
+const Edit = ({auth,soft}) => {
     const [preview, setPreview] = useState('');
-    const {data, setData, errors, post, progress} = useForm({
-        Nombre_Tipo_Equipo:"",
-        Imagen: null,
+    const {data, setData, errors, put, progress} = useForm({
+        Nombre_Software: soft.Nombre_Software,
+        Imagen: soft.Imagen,
     });
-    console.log(data);
+
     const onSelectedFile = (e) =>{
         const file = e.target.files[0];
         const url = URL.createObjectURL(file);
         setPreview(url);
     }
+    function handleSubmit(e) {
+        e.preventDefault();
+        Inertia.post(route('d.softwares.update',`${soft.ID_Software}`),{
+            _method: 'put',
+            Nombre_Software: data.Nombre_Software,
+            Imagen: data.Imagen,
+          })
+        
+    }
 
-function handleSubmit(e){
-    e.preventDefault();
-    post(route('d.tipoequipos.store'))
-}
   return (
     <Navbar auth={auth}>
-        <Head title='Tipo Equipo'/>
+        <Head title="Softwares" />
         <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -30,7 +36,7 @@ function handleSubmit(e){
                             <div className="flex items-center justify-between mb-6">
                                 <Link
                                     className="px-6 py-2 text-white bg-blue-500 rounded-md focus:outline-none"
-                                    href={ route("d.tipoequipos.index") }
+                                    href={ route("d.softwares.index") }
                                 >
                                     Regresar
                                 </Link>
@@ -39,25 +45,27 @@ function handleSubmit(e){
                             <form name="createForm" onSubmit={handleSubmit}>
                                 <div className="flex flex-col">
                                     <div className="mb-4">
-                                        <label className="">Nombre Tipo de equipo</label>
+                                        <label className="">Nombre Software: </label>
                                         <input
                                             type="text"
                                             className="w-full px-4 py-2 text-gray-500"
-                                            label="tipo_equipo"
-                                            name="tipo_equipo"
-                                            value={data.Nombre_Tipo_Equipo}
+                                            label="Nombre_Software"
+                                            name="Nombre_Software"
+                                            value={data.Nombre_Software}
                                             onChange={(e) =>
-                                                setData("Nombre_Tipo_Equipo", e.target.value)
+                                                setData("Nombre_Software", e.target.value)
                                             }
                                         />
                                         <span className="text-red-600">
-                                            {errors.Nombre_Tipo_Equipo}
+                                            {errors.Nombre_Software}
                                         </span>
                                     </div>
                                     <div className="mb-4">
                                         <label className="">Subir Imagen</label>
                                         <div className='mt-4 mb-4'>
-                                           {preview && <img src={`${preview}`} alt="" style={{width:'300px'}}  /> }
+                                            {preview ? 
+                                                <img src={`${preview}`} alt="" style={{width:'300px'}}/> 
+                                                : <img src={`/images/softwares/${data.Imagen}`} alt="" style={{width:'300px'}} />   }
                                         </div>
                                         <div className='flex items-center justify-center w-full'>
                                         <label className='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group'>
@@ -68,20 +76,18 @@ function handleSubmit(e){
                                         <input
                                             type="file"
                                             className="hidden"
-                                            label="imagen"
-                                            name="imagen"
+                                            label="Imagen"
+                                            name="Imagen"
                                             onChange={(e) =>
                                                 {setData("Imagen", e.target.files[0]);
                                                 onSelectedFile(e)}
                                             }
                                         />
                                         </label>
-
-                                        </div>
-
                                         <span className="text-red-600">
                                             {errors.Imagen}
                                         </span>
+                                        </div>
                                     </div>
                                 </div>
                                 {progress && (
@@ -94,7 +100,7 @@ function handleSubmit(e){
                                         type="submit"
                                         className="px-6 py-2 font-bold text-white bg-green-500 rounded"
                                     >
-                                        Guardar
+                                        Actualizar
                                     </button>
                                 </div>
                             </form>
@@ -107,4 +113,4 @@ function handleSubmit(e){
   )
 }
 
-export default Create
+export default Edit

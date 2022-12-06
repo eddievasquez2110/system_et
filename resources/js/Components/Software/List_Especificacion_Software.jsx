@@ -9,7 +9,7 @@ const List_Especificacion_Software = ({espSoftware}) => {
 
     function destroy(e){
         const id = e.currentTarget.id;
-        console.log(id)
+
         Swal.fire({
           title: 'Estas seguro?',
           text: "Usted Eliminara este registro",

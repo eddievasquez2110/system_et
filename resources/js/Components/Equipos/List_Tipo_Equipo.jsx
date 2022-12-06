@@ -9,7 +9,7 @@ import { Inertia } from '@inertiajs/inertia';
 const List_Tipo_Equipo = ({tipo}) => {
     function destroy(e){
         const id = e.currentTarget.id;
-        console.log(id)
+
         Swal.fire({
           title: 'Estas seguro?',
           text: "Usted Eliminara este registro",

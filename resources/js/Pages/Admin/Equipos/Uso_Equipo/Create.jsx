@@ -25,7 +25,7 @@ function handleSubmit(e){
                                     className="px-6 py-2 text-white bg-blue-500 rounded-md focus:outline-none"
                                     href={ route("d.usoequipos.index") }
                                 >
-                                    Back
+                                    Regresar
                                 </Link>
                             </div>
 

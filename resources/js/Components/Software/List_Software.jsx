@@ -9,7 +9,7 @@ const List_Software = ({soft}) => {
 
     function destroy(e){
         const id = e.currentTarget.id;
-        console.log(id)
+
         Swal.fire({
           title: 'Estas seguro?',
           text: "Usted Eliminara este registro",
@@ -42,7 +42,7 @@ const List_Software = ({soft}) => {
             </td>
             <td className="py-4 px-6">
                 <div className='flex items-center justify-center'>
-                    <img src={`../images/${soft.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
+                    <img src={`../images/softwares/${soft.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
                 </div>
             </td>
             <td className="py-4 px-6">
