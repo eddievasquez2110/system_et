@@ -3,7 +3,7 @@ import Navbar from '@/Layouts/Navbar';
 import { Head } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Uso_Equipo from '@/Components/Equipos/List_Uso_Equipo';
-export default function UsoEquipo({usos,auth}) {
+export default function Index({usos,auth}) {
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
