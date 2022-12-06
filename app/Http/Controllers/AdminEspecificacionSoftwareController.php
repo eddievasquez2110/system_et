@@ -19,4 +19,31 @@ class AdminEspecificacionSoftwareController extends Controller
             //'tipoEquipos' => $TipoList
         ]);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function destroy($id)
+    {
+        Especificacion_Software::where('ID_Especificacion_Software',$id)->delete();
+        return redirect()->route('d.especificacionsoftware.index');
+    }
+
 }

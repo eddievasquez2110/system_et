@@ -17,4 +17,30 @@ class AdminUsoEquipoController extends Controller
         ]);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function destroy($id)
+    {
+        Uso_Equipo::where('ID_Uso_Equipo',$id)->delete();
+        return redirect()->route('d.usoequipos.index');
+    }
 }

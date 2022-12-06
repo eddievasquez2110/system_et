@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import Navbar from '@/Layouts/Navbar'
 import { Head, useForm, usePage, Link } from '@inertiajs/inertia-react';
-const Edit = ({auth,tipo}) => {
+import { Inertia } from '@inertiajs/inertia';
+
+const Edit = ({auth,equipo}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, put, progress} = useForm({
-        Nombre_Tipo_Equipo: `${tipo[0].Nombre_Tipo_Equipo}` || "",
-        Imagen: `${tipo[0].Imagen}` || null,
+        Nombre_Tipo_Equipo: equipo.Nombre_Tipo_Equipo,
+        Imagen: equipo.Imagen,
     });
-    console.log(data.Imagen);
-    console.log(tipo[0].ID_Tipo_Equipo);
-
+    console.log(equipo);
+    console.log(data);
     const onSelectedFile = (e) =>{
         const file = e.target.files[0];
         const url = URL.createObjectURL(file);
@@ -17,16 +18,12 @@ const Edit = ({auth,tipo}) => {
     }
     function handleSubmit(e) {
         e.preventDefault();
-        //put(route("d.tipoequipos.update", `${tipo[0].ID_Tipo_Equipo}`));
-        Inertia.post(`/Edit/${tipo.ID_Tipo_Equipo}`, {
-
+        Inertia.post(route('d.tipoequipos.update',`${equipo.ID_Tipo_Equipo}`),{
             _method: 'put',
-
-            name: data.name,
-
-            image: data.image,
-
+            Nombre_Tipo_Equipo: data.Nombre_Tipo_Equipo,
+            Imagen: data.Imagen,
           })
+        /* put(route("d.tipoequipos.update", `${equipo.ID_Tipo_Equipo}`)); */
     }
 
   return (
@@ -69,7 +66,7 @@ const Edit = ({auth,tipo}) => {
                                         <div className='mt-4 mb-4'>
                                             {preview ? 
                                                 <img src={`${preview}`} alt="" style={{width:'300px'}}/> 
-                                                : <img src={`/images/${data.Imagen}`} alt="" style={{width:'300px'}} />   }
+                                                : <img src={`/images/equipos/${data.Imagen}`} alt="" style={{width:'300px'}} />   }
                                         </div>
                                         <div className='flex items-center justify-center w-full'>
                                         <label className='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group'>
@@ -88,7 +85,9 @@ const Edit = ({auth,tipo}) => {
                                             }
                                         />
                                         </label>
-
+                                        <span className="text-red-600">
+                                            {errors.Imagen}
+                                        </span>
                                         </div>
                                     </div>
                                 </div>

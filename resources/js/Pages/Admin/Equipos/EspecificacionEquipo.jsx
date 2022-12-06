@@ -4,6 +4,7 @@ import { Head } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Especificacion_Equipo from '@/Components/Equipos/List_Especificacion_Equipo';
 export default function EspecificacionEquipo({espEquipos,auth}) {
+    console.log(espEquipos)
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
@@ -59,7 +60,6 @@ export default function EspecificacionEquipo({espEquipos,auth}) {
                     </thead>
                     <tbody>
 
-                        {console.log(espEquipos)}
                         {
                             espEquipos.data.map(espEquipo => {
                                 return(

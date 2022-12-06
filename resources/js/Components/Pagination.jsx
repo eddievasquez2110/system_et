@@ -18,11 +18,13 @@ export default function Pagination({ links }) {
                     {links.map((link, key) => (
                             link.url === null ?
                                     (<div
-                                        dangerouslySetInnerHTML={{__html: link.label}}
+                                            key={link.label}
+                                            dangerouslySetInnerHTML={{__html: link.label}}
                                             className="mr-1 mb-1 px-4 py-3 text-sm leading-4 text-gray-500 border rounded"
                                         ></div>) :
   
                                     (<Link
+                                                key={link.label}
                                                 className={getClassName(link.active)}
                                                 href={ link.url }
                                                 dangerouslySetInnerHTML={{__html: link.label}}

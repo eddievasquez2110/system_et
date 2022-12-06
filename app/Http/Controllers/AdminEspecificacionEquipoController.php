@@ -21,4 +21,41 @@ class AdminEspecificacionEquipoController extends Controller
             'espEquipos' => $espEquipos,
         ]);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function destroy($id)
+    {
+        Especificacion_Equipo::where('ID_Especificacion_Equipo',$id)->delete();
+        return redirect()->route('d.especificacionequipo.index');
+    }
+
 }

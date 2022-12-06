@@ -134,14 +134,23 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
           Route::delete('/dashboard/usoequipos/{id}','destroy')->name('d.usoequipos.destroy');
      });
 
-    Route::get('/dashboard/especificacionequipo', [AdminEspecificacionEquipoController::class,'index'])
-         ->name('d.especificacionequipo');
-    
-    Route::get('/dashboard/softwares', [AdminSoftwareController::class,'index'])
-         ->name('d.softwares');
+     Route::controller(AdminEspecificacionEquipoController::class)->group(function (){
+          Route::get('/dashboard/especificacionequipo','index')->name('d.especificacionequipo.index');
+          Route::get('/dashboard/especificacionequipo/create','create')->name('d.especificacionequipo.create');
+          Route::post('/dashboard/especificacionequipo/store','store')->name('d.especificacionequipo.store');
+          Route::get('/dashboard/especificacionequipo/edit/{id}','edit')->name('d.especificacionequipo.edit');
+          Route::put('/dashboard/especificacionequipo/update/{id}','update')->name('d.especificacionequipo.update');
+          Route::delete('/dashboard/especificacionequipo/{id}','destroy')->name('d.especificacionequipo.destroy');
+     });
 
-    Route::get('/dashboard/especificacionsoftware', [AdminEspecificacionSoftwareController::class,'index'])
-         ->name('d.especificacionsoftware');
+//     Route::get('/dashboard/especificacionequipo', [AdminEspecificacionEquipoController::class,'index'])
+//          ->name('d.especificacionequipo');
+    
+//     Route::get('/dashboard/softwares', [AdminSoftwareController::class,'index'])
+//          ->name('d.softwares');
+
+//     Route::get('/dashboard/especificacionsoftware', [AdminEspecificacionSoftwareController::class,'index'])
+//          ->name('d.especificacionsoftware');
 
     Route::get('/dashboard/reportes', [AdminReporteController::class,'index'])
          ->name('d.reportes');
