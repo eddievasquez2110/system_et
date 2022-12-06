@@ -5,6 +5,7 @@ import Pagination from '@/Components/Pagination';
 import List_Tipo_Equipo from '@/Components/Equipos/List_Tipo_Equipo';
 
 export default function Index({tipos,auth}) {
+    console.log(tipos)
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>

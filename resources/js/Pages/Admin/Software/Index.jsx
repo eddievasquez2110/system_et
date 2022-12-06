@@ -4,6 +4,7 @@ import { Head } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Software from '@/Components/Software/List_Software';
 export default function Index({soft,auth}) {
+    console.log(soft)
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>

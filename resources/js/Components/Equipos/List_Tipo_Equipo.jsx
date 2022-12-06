@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2'
 import { Link } from '@inertiajs/inertia-react';
+import { Inertia } from '@inertiajs/inertia';
 
 
 const List_Tipo_Equipo = ({tipo}) => {
-  
     function destroy(e){
         const id = e.currentTarget.id;
+        console.log(id)
         Swal.fire({
           title: 'Estas seguro?',
           text: "Usted Eliminara este registro",

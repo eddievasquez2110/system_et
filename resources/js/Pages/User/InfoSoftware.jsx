@@ -4,10 +4,12 @@ import { Head } from '@inertiajs/inertia-react';
 import InfoSoftwares from '@/Components/InfoSoftwares';
 import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
 
-const InfoSoftware = ({auth, infoSoftwares}) => {
+const InfoSoftware = ({auth, infoSoftwares, usuarios, oficina}) => {
     // console.log(auth)
     // console.log(auth.user.id)
     console.log(infoSoftwares)
+    console.log(usuarios)
+    console.log(oficina)
     return (
         <>
         {auth.user.ID_Rol == 1 ?

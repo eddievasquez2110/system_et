@@ -14,14 +14,14 @@ class Oficina extends Model
         'Cargo_Oficina',
     ];
 
-    protected $hidden = [
-        'Nombre_Oficina',
-    ];
+    // protected $hidden = [
+    //     'Nombre_Oficina',
+    // ];
     
     public $timestamps = true;
 
     public function User()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'ID_Oficina', 'ID_Oficina');
     }
 }
