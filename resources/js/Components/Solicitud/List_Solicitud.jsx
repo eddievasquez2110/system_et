@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashCan} from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashCan, faEye} from '@fortawesome/free-solid-svg-icons';
 
 const List_Solicitud = ({soli}) => {
   return (
@@ -33,12 +33,17 @@ const List_Solicitud = ({soli}) => {
             <td className="grid gap-4 py-2 items-center">
                 <a href="#" className="font-medium text-blue-500">
                     <div className='bg-blue-100 px-5 py-2 rounded-md hover:bg-blue-700 hover:text-white'>
-                        <FontAwesomeIcon className="h-4 w-5 "  icon={faEdit} />
+                         Ver
+                    </div>
+                </a>
+                <a href="#" className="font-medium text-green-500">
+                    <div className='bg-green-100 px-5 py-2 rounded-md hover:bg-green-700 hover:text-white'>
+                         Editar
                     </div>
                 </a>
                 <a href="#" className="font-medium text-red-500 ">
                     <div className='bg-red-100 px-5 py-2 rounded-md hover:bg-red-700 hover:text-white'>
-                        <FontAwesomeIcon className="h-4 w-5 "  icon={faTrashCan} />
+                        Rechazar
                     </div>
                 </a>
             </td>
