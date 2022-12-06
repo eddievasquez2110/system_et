@@ -19,4 +19,13 @@ class AdminSolicitudController extends Controller
             'solis' => $solis,
         ]);
     }
+
+    public function show($id)
+    {
+        return Inertia::render('User/Lista',[
+            'laptops' =>Solicitud_Detalle::where('ID_Tipo_Equipo',$id)->get(),
+            'especificacion' =>Solicitud_Detalle::where('ID_Tipo_Equipo',$id)->get()
+        ]);
+    }
+
 }

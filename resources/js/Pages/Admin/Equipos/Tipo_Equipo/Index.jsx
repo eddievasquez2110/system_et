@@ -6,6 +6,7 @@ import List_Tipo_Equipo from '@/Components/Equipos/List_Tipo_Equipo';
 import { Inertia } from '@inertiajs/inertia';
 
 export default function Index({tipos,auth}) {
+
     const [query,setQuery]= useState('');
     const search = (e) => {
         Inertia.get(route(route().current()),
@@ -14,8 +15,10 @@ export default function Index({tipos,auth}) {
                 preserveState: true,
                 replace: true,
             })     
-}
+    }
+    
     console.log(query);
+
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>

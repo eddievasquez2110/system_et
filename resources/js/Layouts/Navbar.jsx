@@ -23,14 +23,7 @@ const Navbar = ({auth,children}) => {
         display:"none"
     }
     const alertLogout = (e) => {
-        /*if(!confirm('Estas Seguro de salir del sistema')){
-            return e.preventDefault();
-        }else{
-            return this;
-        }
-        e.preventDefault();
-        e.stopPropagation();
-        */
+        
        console.log(e);
         Swal.fire({
             title: 'Estas seguro?',
@@ -69,7 +62,7 @@ const Navbar = ({auth,children}) => {
                 </a>
             </div>
             </div>
-            <div onClick={() => setOpen(!open ) || setOpen1(!open1)} className='absolute w-8 h-8 text-lg text-white cursor-pointer inset-y-1/2 -right-3 flex items-center justify-center rounded-full bg-teal-500'>
+            <div onClick={() => setOpen(!open ) || setOpen1(!open1)} className='absolute w-10 h-10 text-lg text-white cursor-pointer inset-y-1/2 -right-3 flex items-center justify-center rounded-full bg-green-800'>
                 {/* <FaAngleRight/> */}
                 <FontAwesomeIcon className="h-5 w-10 "  icon={faCircleLeft} /> 
             </div>
@@ -106,7 +99,7 @@ const Navbar = ({auth,children}) => {
                             </Link>
                             </li>
                             <li>
-                            <Link href={route('d.especificacionequipo')} active={route().current('d.especificacionequipo')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                            <Link href={route('d.especificacionequipo.index')} active={route().current('d.especificacionequipo.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                 Especificacion Equipo
                             </Link>
                             </li>
@@ -120,12 +113,12 @@ const Navbar = ({auth,children}) => {
                         </button>
                         <ul style={show1?{display:"block"}:{display:"none"}} className="bg-white rounded-lg mt-1">
                             <li>
-                                <Link href={route('d.softwares')} active={route().current('d.softwares.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.softwares.index')} active={route().current('d.softwares.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Software
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.especificacionsoftware')} active={route().current('d.especificacionsoftware.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.especificacionsoftware.index')} active={route().current('d.especificacionsoftware.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Especificacion de Software
                                 </Link>
                             </li>

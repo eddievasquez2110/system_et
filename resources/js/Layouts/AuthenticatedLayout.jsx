@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from 'sweetalert2';
 import { Inertia } from '@inertiajs/inertia';
 
-import { faUser,faUsers,faClipboardList,faWind,faComputer, faBook, faWindowRestore, faBriefcase} from '@fortawesome/free-solid-svg-icons';
+import { faUser,faUsers,faClipboardList,faComputer, faBook, faWindowRestore, faBriefcase} from '@fortawesome/free-solid-svg-icons';
 
 export default function Authenticated({ auth, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
@@ -65,9 +65,7 @@ export default function Authenticated({ auth, children }) {
                                         <NavLink href={route('user')} active={route().current('user')}>
                                             Inicio
                                         </NavLink>
-                                        <NavLink href={route('user')} >
-                                            Equipos
-                                        </NavLink>
+                                        
                                         <NavLink href={route('infosoft')} active={route().current('infosoft')}>
                                             Software
                                         </NavLink>
@@ -150,9 +148,6 @@ export default function Authenticated({ auth, children }) {
                         <div className="pt-2 pb-3 space-y-1">
                             <ResponsiveNavLink href={route('user')} active={route().current('user')}>
                                 Inicio
-                            </ResponsiveNavLink>
-                            <ResponsiveNavLink href={route('user')} >
-                                Equipos
                             </ResponsiveNavLink>
                             <ResponsiveNavLink href={route('user')} >
                                 Software

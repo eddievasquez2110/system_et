@@ -1,24 +1,20 @@
-import React, { useState } from 'react'
-import Navbar from '@/Layouts/Navbar'
-import { Head, useForm, usePage, Link } from '@inertiajs/inertia-react';
-import { Inertia } from '@inertiajs/inertia';
+import React, {  useState } from 'react'
+import Navbar from '@/Layouts/Navbar';
+import { Head, useForm, Link } from '@inertiajs/inertia-react';
 
-const Edit = ({auth,usos}) => {
+const Create = ({auth}) => {
     const [preview, setPreview] = useState('');
-    const {data, setData, errors, put, progress} = useForm({
-        Nombre_Uso_Equipo: usos.Nombre_Uso_Equipo,
+    const {data, setData, errors, post, progress} = useForm({
+        Nombre_Uso_Equipo:"",
     });
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        Inertia.post(route('d.usoequipos.update',`${usos.ID_Uso_Equipo}`),{
-            _method: 'put',
-            Nombre_Uso_Equipo: data.Nombre_Uso_Equipo,
-          })
-    }
+function handleSubmit(e){
+    e.preventDefault();
+    post(route('d.usoequipos.store'))
+}
   return (
     <Navbar auth={auth}>
-        <Head title="Uso Equipo" />
+        <Head title='Uso Equipo'/>
         <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -29,19 +25,19 @@ const Edit = ({auth,usos}) => {
                                     className="px-6 py-2 text-white bg-blue-500 rounded-md focus:outline-none"
                                     href={ route("d.usoequipos.index") }
                                 >
-                                    Back
+                                    Regresar
                                 </Link>
                             </div>
 
                             <form name="createForm" onSubmit={handleSubmit}>
                                 <div className="flex flex-col">
                                     <div className="mb-4">
-                                        <label className="">Nombre Uso Equipo</label>
+                                        <label className="">Nombre Uso de equipo</label>
                                         <input
                                             type="text"
                                             className="w-full px-4 py-2 text-gray-500"
-                                            label="Nombre_Uso_Equipo"
-                                            name="Nombre_Uso_Equipo"
+                                            label="Uso_equipo"
+                                            name="Uso_equipo"
                                             value={data.Nombre_Uso_Equipo}
                                             onChange={(e) =>
                                                 setData("Nombre_Uso_Equipo", e.target.value)
@@ -51,7 +47,6 @@ const Edit = ({auth,usos}) => {
                                             {errors.Nombre_Uso_Equipo}
                                         </span>
                                     </div>
-                                    
                                 </div>
                                 {progress && (
                                   <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
@@ -63,7 +58,7 @@ const Edit = ({auth,usos}) => {
                                         type="submit"
                                         className="px-6 py-2 font-bold text-white bg-green-500 rounded"
                                     >
-                                        Actualizar
+                                        Guardar
                                     </button>
                                 </div>
                             </form>
@@ -76,4 +71,4 @@ const Edit = ({auth,usos}) => {
   )
 }
 
-export default Edit
+export default Create

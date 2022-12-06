@@ -13,8 +13,12 @@ class Uso_Equipo extends Model
         'Nombre_Uso_Equipo',
     ];
 
-    public function Especificacion()
+    public function Especificacion_Equipo()
     {
-        return $this->belongsTo(Especificacion::class);
+        return $this->belongsTo(Especificacion_Equipo::class);
+    }
+    public function Especificacion_Software()
+    {
+        return $this->belongsTo(Especificacion_Software::class);
     }
 }

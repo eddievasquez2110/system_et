@@ -1,9 +1,10 @@
 import React from 'react';
 import Navbar from '@/Layouts/Navbar';
-import { Head } from '@inertiajs/inertia-react';
+import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Uso_Equipo from '@/Components/Equipos/List_Uso_Equipo';
-export default function UsoEquipo({usos,auth}) {
+
+export default function Index({usos,auth}) {
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
@@ -11,7 +12,12 @@ export default function UsoEquipo({usos,auth}) {
                 <div className='flex items-center gap-8 '>
                 <span className='text-slate-500 text-3xl'>Usos de Equipos</span>
                 <div className='inline my-2'>
-                 <button className='px-4 py-1  text-white text-lg rounded-md bg-green-500 '>Nuevo</button>
+                    <Link
+                        className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
+                        href={route("d.usoequipos.create")}
+                        >
+                        Nuevo
+                    </Link>
                 </div>
                 </div>
                 <div className='flex mt-2  items-center justify-between'>
