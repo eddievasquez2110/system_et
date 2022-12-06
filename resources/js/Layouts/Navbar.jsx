@@ -23,14 +23,7 @@ const Navbar = ({auth,children}) => {
         display:"none"
     }
     const alertLogout = (e) => {
-        /*if(!confirm('Estas Seguro de salir del sistema')){
-            return e.preventDefault();
-        }else{
-            return this;
-        }
-        e.preventDefault();
-        e.stopPropagation();
-        */
+        
        console.log(e);
         Swal.fire({
             title: 'Estas seguro?',
@@ -69,7 +62,7 @@ const Navbar = ({auth,children}) => {
                 </a>
             </div>
             </div>
-            <div onClick={() => setOpen(!open ) || setOpen1(!open1)} className='absolute w-8 h-8 text-lg text-white cursor-pointer inset-y-1/2 -right-3 flex items-center justify-center rounded-full bg-teal-500'>
+            <div onClick={() => setOpen(!open ) || setOpen1(!open1)} className='absolute w-10 h-10 text-lg text-white cursor-pointer inset-y-1/2 -right-3 flex items-center justify-center rounded-full bg-green-800'>
                 {/* <FaAngleRight/> */}
                 <FontAwesomeIcon className="h-5 w-10 "  icon={faCircleLeft} /> 
             </div>
