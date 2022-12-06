@@ -149,8 +149,6 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
     Route::get('/dashboard/solicitudes', [AdminSolicitudController::class,'index'])
          ->name('d.solicituds');
 
-    
-
 });
 
 //RUTAS SOLO USER
