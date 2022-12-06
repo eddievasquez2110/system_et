@@ -81,9 +81,7 @@ class AdminEspecificacionEquipoController extends Controller
 
     public function destroy($id)
     {
-        Especificacion_Equipo::with('tipo__equipos','uso__equipos')
-        ->join('tipo__equipos','especificacion__equipos.ID_Tipo_Equipo','=','tipo__equipos.ID_Tipo_Equipo')
-        ->join('uso__equipos','especificacion__equipos.ID_Uso_Equipo','=','uso__equipos.ID_Uso_Equipo')->where('ID_Especificacion_Equipo',$id)->delete();
+        Especificacion_Equipo::where('ID_Especificacion_Equipo',$id)->delete();
         return redirect()->route('d.especificacionequipo.index');
     }
 }
