@@ -144,24 +144,38 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
 
 //     Route::get('/dashboard/usoequipos', [AdminUsoEquipoController::class,'index'])
 //          ->name('d.usoequipos');
-     
+     Route::controller(AdminUsoEquipoController::class)->group(function () {
+          Route::get('/dashboard/usoequipos','index')->name('d.usoequipos.index');
+          Route::get('/dashboard/usoequipos/create','create')->name('d.usoequipos.create');
+          Route::post('/dashboard/usoequipos/store','store')->name('d.usoequipos.store');
+          Route::get('/dashboard/usoequipos/edit','edit')->name('d.usoequipos.edit');
+          Route::put('/dashboard/usoequipos/edit','update')->name('d.usoequipos.update');
+          Route::delete('/dashboard/usoequipos/{id}','destroy')->name('d.usoequipos.destroy');
+     });
+
+     Route::controller(AdminEspecificacionEquipoController::class)->group(function (){
+          Route::get('/dashboard/especificacionequipo','index')->name('d.especificacionequipo.index');
+          Route::get('/dashboard/especificacionequipo/create','create')->name('d.especificacionequipo.create');
+          Route::post('/dashboard/especificacionequipo/store','store')->name('d.especificacionequipo.store');
+          Route::get('/dashboard/especificacionequipo/edit/{id}','edit')->name('d.especificacionequipo.edit');
+          Route::put('/dashboard/especificacionequipo/update/{id}','update')->name('d.especificacionequipo.update');
+          Route::delete('/dashboard/especificacionequipo/{id}','destroy')->name('d.especificacionequipo.destroy');
+     });
 
 //     Route::get('/dashboard/especificacionequipo', [AdminEspecificacionEquipoController::class,'index'])
 //          ->name('d.especificacionequipo');
     
-    Route::get('/dashboard/softwares', [AdminSoftwareController::class,'index'])
-         ->name('d.softwares');
+//     Route::get('/dashboard/softwares', [AdminSoftwareController::class,'index'])
+//          ->name('d.softwares');
 
-    Route::get('/dashboard/especificacionsoftware', [AdminEspecificacionSoftwareController::class,'index'])
-         ->name('d.especificacionsoftware');
+//     Route::get('/dashboard/especificacionsoftware', [AdminEspecificacionSoftwareController::class,'index'])
+//          ->name('d.especificacionsoftware');
 
     Route::get('/dashboard/reportes', [AdminReporteController::class,'index'])
          ->name('d.reportes');
 
     Route::get('/dashboard/solicitudes', [AdminSolicitudController::class,'index'])
          ->name('d.solicituds');
-
-    
 
 });
 

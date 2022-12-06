@@ -38,7 +38,6 @@ class TipoEquipoController extends Controller
         ]);
     }
 
-    
     public function edit(Tipo_Equipo $tipo_Equipo)
     {
         //
