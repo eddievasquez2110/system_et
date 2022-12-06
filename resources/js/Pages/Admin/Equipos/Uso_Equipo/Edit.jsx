@@ -8,14 +8,13 @@ const Edit = ({auth,usos}) => {
     const {data, setData, errors, put, progress} = useForm({
         Nombre_Uso_Equipo: usos.Nombre_Uso_Equipo,
     });
-    //console.log(usos[0].ID_Uso_Equipo);
+
     function handleSubmit(e) {
         e.preventDefault();
         Inertia.post(route('d.usoequipos.update',`${usos.ID_Uso_Equipo}`),{
             _method: 'put',
             Nombre_Uso_Equipo: data.Nombre_Uso_Equipo,
           })
-        /* put(route("d.tipoequipos.update", `${equipo.ID_Tipo_Equipo}`)); */
     }
   return (
     <Navbar auth={auth}>
@@ -37,10 +36,10 @@ const Edit = ({auth,usos}) => {
                             <form name="createForm" onSubmit={handleSubmit}>
                                 <div className="flex flex-col">
                                     <div className="mb-4">
-                                        <label className="">Uso Equipo</label>
+                                        <label className="">Nombre Uso Equipo</label>
                                         <input
                                             type="text"
-                                            className="w-full px-4 py-2"
+                                            className="w-full px-4 py-2 text-gray-500"
                                             label="Nombre_Uso_Equipo"
                                             name="Nombre_Uso_Equipo"
                                             value={data.Nombre_Uso_Equipo}

@@ -7,7 +7,6 @@ const Create = ({auth}) => {
     const {data, setData, errors, post, progress} = useForm({
         Nombre_Uso_Equipo:"",
     });
-    console.log(data);
 
 function handleSubmit(e){
     e.preventDefault();
@@ -36,7 +35,7 @@ function handleSubmit(e){
                                         <label className="">Nombre Uso de equipo</label>
                                         <input
                                             type="text"
-                                            className="w-full px-4 py-2"
+                                            className="w-full px-4 py-2 text-gray-500"
                                             label="Uso_equipo"
                                             name="Uso_equipo"
                                             value={data.Nombre_Uso_Equipo}

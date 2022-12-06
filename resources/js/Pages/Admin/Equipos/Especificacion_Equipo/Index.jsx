@@ -1,9 +1,10 @@
 import React from 'react';
 import Navbar from '@/Layouts/Navbar';
-import { Head } from '@inertiajs/inertia-react';
+import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Especificacion_Equipo from '@/Components/Equipos/List_Especificacion_Equipo';
-export default function EspecificacionEquipo({espEquipos,auth}) {
+
+export default function Index({espEquipos,auth}) {
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
@@ -11,7 +12,12 @@ export default function EspecificacionEquipo({espEquipos,auth}) {
                 <div className='flex items-center gap-8 '>
                     <span className='text-slate-500 text-3xl'>Especificaciones de Equipos</span>
                     <div className='inline my-2'>
-                        <button className='px-4 py-1 text-white text-lg rounded-md bg-green-500'>Nuevo</button>
+                    <Link
+                        className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
+                        href={route("d.especificacionequipo.create")}
+                        >
+                        Nuevo
+                    </Link>
                     </div>
                 </div>
                 <div className='flex mt-2  items-center justify-between'>
@@ -59,7 +65,6 @@ export default function EspecificacionEquipo({espEquipos,auth}) {
                     </thead>
                     <tbody>
 
-                        {console.log(espEquipos)}
                         {
                             espEquipos.data.map(espEquipo => {
                                 return(
@@ -67,15 +72,6 @@ export default function EspecificacionEquipo({espEquipos,auth}) {
                                 )
                             })
                         }
-                        {/* {console.log(espEquipoLists)}
-                        {
-                            espEquipoLists.data.map(espEquipoList => {
-                                return(
-                                    <List_Especificacion_Equipo  espEquipoList={espEquipoList}  key={espEquipoList.ID_Tipo_Equipo}/>
-                                )
-                            })
-                        } */}
-                        
                         
                     </tbody>
                 </table>

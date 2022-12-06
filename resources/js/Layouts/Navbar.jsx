@@ -106,7 +106,7 @@ const Navbar = ({auth,children}) => {
                             </Link>
                             </li>
                             <li>
-                            <Link href={route('d.especificacionequipo')} active={route().current('d.especificacionequipo')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                            <Link href={route('d.especificacionequipo.index')} active={route().current('d.especificacionequipo.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                 Especificacion Equipo
                             </Link>
                             </li>
@@ -125,7 +125,7 @@ const Navbar = ({auth,children}) => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.especificacionsoftware')} active={route().current('d.especificacionsoftware.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.especificacionsoftware')} active={route().current('d.especificacionsoftware')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Especificacion de Software
                                 </Link>
                             </li>
