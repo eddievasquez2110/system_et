@@ -1,8 +1,9 @@
 import React from 'react';
 import Navbar from '@/Layouts/Navbar';
-import { Head } from '@inertiajs/inertia-react';
+import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Software from '@/Components/Software/List_Software';
+
 export default function Index({soft,auth}) {
     console.log(soft)
     return (
@@ -12,7 +13,12 @@ export default function Index({soft,auth}) {
                 <div className='flex items-center gap-8 '>
                 <span className='text-slate-500 text-3xl'>Softwares</span>
                 <div className='inline my-2'>
-                 <button className='px-4 py-1  text-white text-lg rounded-md bg-green-500 '>Nuevo</button>
+                    <Link
+                        className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
+                        href={route("d.softwares.create")}
+                        >
+                        Nuevo
+                    </Link>
                 </div>
                 </div>
                 <div className='flex mt-2  items-center justify-between'>

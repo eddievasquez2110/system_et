@@ -5,7 +5,7 @@ import { Head, useForm, Link } from '@inertiajs/inertia-react';
 const Create = ({auth}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, post, progress} = useForm({
-        Nombre_Tipo_Equipo:"",
+        Nombre_Software:"",
         Imagen: null,
     });
     console.log(data);
@@ -17,7 +17,7 @@ const Create = ({auth}) => {
 
 function handleSubmit(e){
     e.preventDefault();
-    post(route('d.tipoequipos.store'))
+    post(route('d.softwares.store'))
 }
   return (
     <Navbar auth={auth}>
@@ -30,7 +30,7 @@ function handleSubmit(e){
                             <div className="flex items-center justify-between mb-6">
                                 <Link
                                     className="px-6 py-2 text-white bg-blue-500 rounded-md focus:outline-none"
-                                    href={ route("d.tipoequipos.index") }
+                                    href={ route("d.softwares.index") }
                                 >
                                     Regresar
                                 </Link>
@@ -39,19 +39,19 @@ function handleSubmit(e){
                             <form name="createForm" onSubmit={handleSubmit}>
                                 <div className="flex flex-col">
                                     <div className="mb-4">
-                                        <label className="">Nombre Tipo de equipo</label>
+                                        <label className="">Nombre Software</label>
                                         <input
                                             type="text"
                                             className="w-full px-4 py-2 text-gray-500"
-                                            label="tipo_equipo"
-                                            name="tipo_equipo"
-                                            value={data.Nombre_Tipo_Equipo}
+                                            label="Nombre_Software"
+                                            name="Nombre_Software"
+                                            value={data.Nombre_Software}
                                             onChange={(e) =>
-                                                setData("Nombre_Tipo_Equipo", e.target.value)
+                                                setData("Nombre_Software", e.target.value)
                                             }
                                         />
                                         <span className="text-red-600">
-                                            {errors.Nombre_Tipo_Equipo}
+                                            {errors.Nombre_Software}
                                         </span>
                                     </div>
                                     <div className="mb-4">
