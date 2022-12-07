@@ -15,7 +15,7 @@ const InfoSoftwares = ({infoSoftware}) => {
                     </div>
                 </a> 
 
-                <PrimaryButton className='md:w-full min-[320px]:w-full'>Ver Especificacion</PrimaryButton>
+                <PrimaryButton className='md:w-full min-[200px]:w-full'>Ver Especificacion</PrimaryButton>
 
             </div>
          

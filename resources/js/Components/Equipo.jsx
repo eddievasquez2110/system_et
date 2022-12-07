@@ -3,6 +3,7 @@ const Equipo = ({equipo,auth}) => {
 
   return (
       <div className="max-w-xs bg-white rounded-lg border-2 border-green-100 shadow-md shadow-lime-800/50 ">
+        
                 <a href="#">
                     <img src={`../images/equipos/${equipo.Imagen}`} className='rounded-t-lg' style={{height:"250px",width:"380px"}} alt="" />
                 </a>
@@ -33,6 +34,7 @@ const Equipo = ({equipo,auth}) => {
                     
                 </div>
             </div>
+    
   )
 }
 
