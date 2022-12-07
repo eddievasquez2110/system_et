@@ -149,7 +149,7 @@ export default function Authenticated({ auth, children }) {
                             <ResponsiveNavLink href={route('user')} active={route().current('user')}>
                                 Inicio
                             </ResponsiveNavLink>
-                            <ResponsiveNavLink href={route('user')} >
+                            <ResponsiveNavLink href={route('infosoft')} active={route().current('infosoft')} >
                                 Software
                             </ResponsiveNavLink>
                         </div>
