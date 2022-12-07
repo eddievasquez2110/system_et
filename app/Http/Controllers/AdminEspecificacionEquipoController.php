@@ -10,10 +10,13 @@ use Inertia\Inertia;
 
 class AdminEspecificacionEquipoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         
-        $espEquipos = Especificacion_Equipo::with('tipo__equipos','uso__equipos')
+         $search = $request->query('search');
+         $espEquipos = Especificacion_Equipo::query()->when($search, fn($query) => 
+         $query->where('Nombre_Tipo_Equipo','LIKE',"%{$search}%")->orWhere('ID_Especificacion_Equipo', 'LIKE', "%{$search}%")
+          )->with('tipo__equipos','uso__equipos')
         ->join('tipo__equipos','especificacion__equipos.ID_Tipo_Equipo','=','tipo__equipos.ID_Tipo_Equipo')
         ->join('uso__equipos','especificacion__equipos.ID_Uso_Equipo','=','uso__equipos.ID_Uso_Equipo')->paginate(6);
         
