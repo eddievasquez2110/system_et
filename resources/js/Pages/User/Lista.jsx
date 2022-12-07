@@ -18,7 +18,7 @@ const Lista = ({auth, laptops,especificacion}) => {
       :auth.user.ID_Rol == 3 ?
         <AuthenticatedLayout auth={auth}>
         <Head title="Especificaciones" />
-        <div className='flex items-center justify-center mt-8'>    
+        <div className='flex flex-col h-screen items-center justify-center m-4'>    
             <div className="overflow-x-auto w-5/6 relative shadow-md sm:rounded-lg  ">
             <Table  laptops={laptops} especificacion={especificacion}/>
             </div>   
