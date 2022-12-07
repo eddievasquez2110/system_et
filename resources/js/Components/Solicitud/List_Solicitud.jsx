@@ -23,7 +23,7 @@ const List_Solicitud = ({soli}) => {
                 </div>
                 {soli.Especificacion_Software}
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4">
                 {soli.Fecha_Solicitud}
             </td>
             <td className="py-4 px-6">
@@ -32,17 +32,17 @@ const List_Solicitud = ({soli}) => {
             
             <td className="grid gap-4 py-2 items-center">
                 <a href="#" className="font-medium text-blue-500">
-                    <div className='bg-blue-100 px-5 py-2 rounded-md hover:bg-blue-700 hover:text-white'>
+                    <div className='flex justify-center bg-blue-100 px-5 py-2 rounded-md hover:bg-blue-700 hover:text-white mx-3'>
                          Ver
                     </div>
                 </a>
                 <a href="#" className="font-medium text-green-500">
-                    <div className='bg-green-100 px-5 py-2 rounded-md hover:bg-green-700 hover:text-white'>
-                         Editar
+                    <div className='flex justify-center bg-green-100 px-5 py-2 rounded-md hover:bg-green-700 hover:text-white  mx-3'>
+                         Aceptar
                     </div>
                 </a>
                 <a href="#" className="font-medium text-red-500 ">
-                    <div className='bg-red-100 px-5 py-2 rounded-md hover:bg-red-700 hover:text-white'>
+                    <div className='flex justify-center bg-red-100 px-5 py-2 rounded-md hover:bg-red-700 hover:text-white  mx-3'>
                         Rechazar
                     </div>
                 </a>
