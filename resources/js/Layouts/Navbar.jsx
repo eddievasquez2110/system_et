@@ -3,7 +3,7 @@ import { useState } from 'react'
 //mport { FaAngleRight} from "react-icons/fa";
 import { Link } from '@inertiajs/inertia-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleLeft, faUser} from '@fortawesome/free-solid-svg-icons';
+import { faBell, faCircleLeft, faUser} from '@fortawesome/free-solid-svg-icons';
 import Dropdown from '@/Components/Dropdown';
 import { Inertia } from '@inertiajs/inertia';
 
@@ -154,6 +154,10 @@ const Navbar = ({auth,children}) => {
                     <div className='text-slate-400'>
                         Hola bienvenido al modo {auth.user.name}
                     </div>
+                    <div className='flex flex-row'>
+                    <div className='place-items-end mt-2 mr-5 text-green-500'>
+                        <FontAwesomeIcon className="h-5 w-10"  icon={faBell} />
+                    </div>
                     <div className='rounded-md px-2 font-bold text-slate-200 text-md border border-green-500'>
                     <Dropdown>
                         <Dropdown.Trigger>
@@ -188,6 +192,7 @@ const Navbar = ({auth,children}) => {
                         
                         </Dropdown.Content>
                     </Dropdown>
+                    </div>
                     </div>
                 </div>
                 <div className='flex  justify-center bg-slate-100 overflow-y-auto ' style={{height:'calc(100% - 112px)'}}>
