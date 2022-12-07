@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/Layouts/Navbar';
-import { Head } from '@inertiajs/inertia-react';
+import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Especificacion_Software from '@/Components/Software/List_Especificacion_Software';
+import { Inertia } from '@inertiajs/inertia';
+
 export default function EspecificacionSoftware({espSoftwares,auth}) {
     
+    const [query,setQuery]= useState('');
+    const search = (e) => {
+        Inertia.get(route(route().current()),
+            {search : query},
+            {
+                preserveState: true,
+                replace: true,
+            })     
+    }
+    
+    console.log(query);
+
     return (
         <Navbar auth={auth}>
-            <Head title='Admin'/>
+            <Head title='Especificacion Software'/>
             <div className='flex flex-col my-3'>
                 <div className='flex items-center gap-8 '>
                     <span className='text-slate-500 text-3xl'>Especificaciones de Softwares</span>
                     <div className='inline my-2'>
-                        <button className='px-4 py-1 text-white text-lg rounded-md bg-green-500'>Nuevo</button>
+                        <Link
+                            className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
+                            href={route("d.especificacionsoftware.create")}
+                            >
+                            Nuevo
+                        </Link>
                     </div>
                 </div>
                 <div className='flex mt-2  items-center justify-between'>
@@ -21,7 +40,14 @@ export default function EspecificacionSoftware({espSoftwares,auth}) {
                     </div>
                     <div className='flex items-center gap-4'>
                         <label className='text-slate-500'>Buscar: </label>
-                        <input className='rounded-md py-1 text-slate-500' type="text" />
+                        <input 
+                        className='rounded-md py-1 text-slate-500 placeholder:text-gray-300' 
+                        type="text"
+                        id='search'
+                        onChange={(e) => setQuery(e.target.value)}
+                        onKeyUp={search}
+                        placeholder='Digitar Equipo'
+                        />
                     </div>
                 </div>
             </div>

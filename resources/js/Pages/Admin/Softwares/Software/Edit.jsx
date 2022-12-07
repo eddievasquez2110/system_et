@@ -8,6 +8,8 @@ const Edit = ({auth,soft}) => {
     const {data, setData, errors, put, progress} = useForm({
         Nombre_Software: soft.Nombre_Software,
         Imagen: soft.Imagen,
+        Version_Software: soft.Version_Software,
+        Descripcion_Software: soft.Descripcion_Software,
     });
 
     const onSelectedFile = (e) =>{
@@ -21,6 +23,8 @@ const Edit = ({auth,soft}) => {
             _method: 'put',
             Nombre_Software: data.Nombre_Software,
             Imagen: data.Imagen,
+            Version_Software: data.Version_Software,
+            Descripcion_Software: data.Descripcion_Software,
           })
         
     }
@@ -88,6 +92,38 @@ const Edit = ({auth,soft}) => {
                                             {errors.Imagen}
                                         </span>
                                         </div>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="">Version Software</label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-4 py-2 text-gray-500"
+                                            label="Version_Software"
+                                            name="Version_Software"
+                                            value={data.Version_Software}
+                                            onChange={(e) =>
+                                                setData("Version_Software", e.target.value)
+                                            }
+                                        />
+                                        <span className="text-red-600">
+                                            {errors.Version_Software}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="">Descripcion Software</label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-4 py-2 text-gray-500"
+                                            label="Descripcion_Software"
+                                            name="Descripcion_Software"
+                                            value={data.Descripcion_Software}
+                                            onChange={(e) =>
+                                                setData("Descripcion_Software", e.target.value)
+                                            }
+                                        />
+                                        <span className="text-red-600">
+                                            {errors.Descripcion_Software}
+                                        </span>
                                     </div>
                                 </div>
                                 {progress && (

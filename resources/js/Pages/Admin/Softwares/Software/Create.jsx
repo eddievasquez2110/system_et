@@ -7,6 +7,8 @@ const Create = ({auth}) => {
     const {data, setData, errors, post, progress} = useForm({
         Nombre_Software:"",
         Imagen: null,
+        Version_Software:"",
+        Descripcion_Software:"",
     });
     console.log(data);
     const onSelectedFile = (e) =>{
@@ -81,6 +83,38 @@ function handleSubmit(e){
 
                                         <span className="text-red-600">
                                             {errors.Imagen}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="">Version Software</label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-4 py-2 text-gray-500"
+                                            label="Version_Software"
+                                            name="Version_Software"
+                                            value={data.Version_Software}
+                                            onChange={(e) =>
+                                                setData("Version_Software", e.target.value)
+                                            }
+                                        />
+                                        <span className="text-red-600">
+                                            {errors.Version_Software}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="">Descripcion Software</label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-4 py-2 text-gray-500"
+                                            label="Descripcion_Software"
+                                            name="Descripcion_Software"
+                                            value={data.Descripcion_Software}
+                                            onChange={(e) =>
+                                                setData("Descripcion_Software", e.target.value)
+                                            }
+                                        />
+                                        <span className="text-red-600">
+                                            {errors.Descripcion_Software}
                                         </span>
                                     </div>
                                 </div>

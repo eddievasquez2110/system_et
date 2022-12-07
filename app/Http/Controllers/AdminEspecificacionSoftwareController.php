@@ -11,9 +11,12 @@ use Inertia\Inertia;
 
 class AdminEspecificacionSoftwareController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $espSoftwares = Especificacion_Software::with('software','uso__equipos')
+         $search = $request->query('search');
+         $espSoftwares = Especificacion_Software::query()->when($search, fn($query) => 
+         $query->where('Nombre_Tipo_Equipo','LIKE',"%{$search}%")->orWhere('ID_Especificacion_Software', 'LIKE', "%{$search}%")
+          )->with('software','uso__equipos')
         ->join('software','especificacion__software.ID_Software','=','software.ID_Software')
         ->join('uso__equipos','especificacion__software.ID_Uso_Equipo','=','uso__equipos.ID_Uso_Equipo')->paginate(6);
 
@@ -31,13 +34,15 @@ class AdminEspecificacionSoftwareController extends Controller
     public function store(Request $request)
     {
         $request ->validate([
-            'Nombre_Tipo_Equipo' => 'required',
+            'Nombre_Software' => 'required',
             'Nombre_Uso_Equipo' => 'required',
             'Nombre_Especificacion_Software' => 'required',
             'Especificacion_Software' => 'required',
         ]);
 
         $espSoftwares = $request->all();
+
+        
 
         Especificacion_Software::create($espSoftwares);
         return redirect()->route('d.especificacionsoftware.index');

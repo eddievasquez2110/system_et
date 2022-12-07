@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/Layouts/Navbar';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Software from '@/Components/Software/List_Software';
+import { Inertia } from '@inertiajs/inertia';
 
 export default function Index({soft,auth}) {
-    console.log(soft)
+
+    const [query,setQuery]= useState('');
+    const search = (e) => {
+        Inertia.get(route(route().current()),
+            {search : query},
+            {
+                preserveState: true,
+                replace: true,
+            })     
+    }
+    
+    console.log(query);
+
     return (
         <Navbar auth={auth}>
-            <Head title='Admin'/>
+            <Head title='Software'/>
             <div className='flex flex-col my-3'>
                 <div className='flex items-center gap-8 '>
                 <span className='text-slate-500 text-3xl'>Softwares</span>
@@ -27,7 +40,14 @@ export default function Index({soft,auth}) {
                     </div>
                     <div className='flex items-center gap-4'>
                         <label className='text-slate-500'>Buscar: </label>
-                        <input className='rounded-md py-1 text-slate-500' type="text" />
+                        <input 
+                        className='rounded-md py-1 text-slate-500 placeholder:text-gray-300' 
+                        type="text"
+                        id='search'
+                        onChange={(e) => setQuery(e.target.value)}
+                        onKeyUp={search}
+                        placeholder='Digitar Equipo'
+                        />
                     </div>
                 </div>
             </div>

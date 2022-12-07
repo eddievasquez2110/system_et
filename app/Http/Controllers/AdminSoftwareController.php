@@ -8,9 +8,12 @@ use Inertia\Inertia;
 
 class AdminSoftwareController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $soft = Software::orderBy('ID_Software')->paginate(6);
+        $search = $request->query('search');
+        $soft = Software::query()->when($search, fn($query) => 
+        $query->where('Nombre_Software','LIKE',"%{$search}%")->orWhere('ID_Software', 'LIKE', "%{$search}%")
+         )->paginate(6);
         return Inertia::render('Admin/Softwares/Software/Index',[
             'soft' => $soft
         ]);
@@ -25,7 +28,7 @@ class AdminSoftwareController extends Controller
     {
         $request ->validate([
             'Nombre_Software' => 'required',
-            'Imagen' => 'required|image|mimes:jpg,jpeg,png,svg|max:1024'
+            'Imagen' => 'required|image|mimes:jpg,jpeg,png,svg|max:1024',
         ]);
 
         $soft = $request->all();
@@ -43,16 +46,16 @@ class AdminSoftwareController extends Controller
 
     public function edit($id)
     {
-        $sofft = Software::where('ID_Software',$id)->first();
+        $soft = Software::where('ID_Software',$id)->first();
         return Inertia::render('Admin/Softwares/Software/Edit',[
-            'soft' => $sofft,
+            'soft' => $soft,
         ]);
     }
 
     public function update(Request $request, $id)
     {
          $request ->validate([
-             'Nombre_Software' => 'required'
+             'Nombre_Software' => 'required',
           ]);
          
         $soft = $request->all();
@@ -66,7 +69,9 @@ class AdminSoftwareController extends Controller
         
         Software::where('ID_Software',$id)->update([
             'Nombre_Software' => $soft['Nombre_Software'],
-            'Imagen' => $soft['Imagen']
+            'Imagen' => $soft['Imagen'],
+            'Version_Software' => $soft['Version_Software'],
+            'Descripcion_Software' => $soft['Descripcion_Software'],
         ]);
         return redirect()->route('d.softwares.index');
     }
