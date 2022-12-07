@@ -262,7 +262,7 @@ export default function Authenticated({ auth, children }) {
                 </div> : auth.user.ID_Rol == '3' ?
                     <div className='flex w-full h-full place-content-around '>
                     
-                        <div className='bg-gradient-to-r from-green-100 to-green-300'>
+                        <div className='bg-gradient-to-r w-full h-full from-green-100 to-green-300'>
                             {children} 
                         </div>
                     </div>
