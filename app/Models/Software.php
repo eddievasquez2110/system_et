@@ -11,9 +11,11 @@ class Software extends Model
 
     protected $fillable = [
         'ID_Version',
-        'ID_Especificacion_Software',
         'Nombre_Software',
+        'Imagen',
+        'Version_Software',
         'Descripcion_Software',
+        
     ];
 
     public function Version()

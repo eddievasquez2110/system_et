@@ -22,10 +22,10 @@ class SoloSuperAdmin
                 return $next($request);//si es administrador continua al HOME
             break;
 			case('2'):
-                return redirect('admin');// si es un usuario normal redirige a la ruta USER
+                return redirect('dashboard');// si es un usuario normal redirige a la ruta USER
 			break;	
             case ('3'):
-                return redirect('user');//si es administrador redirige al moderador
+                return redirect('inicio');//si es administrador redirige al moderador
             break;
         }
     }

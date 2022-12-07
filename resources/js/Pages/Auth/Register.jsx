@@ -6,7 +6,8 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
 
-export default function Register() {
+
+export default function Register({rols}) {
     const { data, setData, post, processing, errors, reset } = useForm({
         ID_Rol: '',
         ID_Oficina: '',
@@ -33,7 +34,7 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <GuestLayout label='Registro de Usuario'>
             <Head title="register" />
 
             <form onSubmit={submit}>
@@ -69,7 +70,7 @@ export default function Register() {
 
                 {/*input name*/}
                 <div className="mt-4">
-                    <InputLabel forInput="name" value="Name" />
+                    <InputLabel forInput="name" value="Nombre" />
 
                     <TextInput
                         type="text"
@@ -104,7 +105,7 @@ export default function Register() {
 
                 {/*input password*/}
                 <div className="mt-4">
-                    <InputLabel forInput="password" value="Password" />
+                    <InputLabel forInput="password" value="Contraseña" />
 
                     <TextInput
                         type="password"
@@ -122,7 +123,7 @@ export default function Register() {
 
                 {/*input confirmacion password*/}
                 <div className="mt-4">
-                    <InputLabel forInput="password_confirmation" value="Confirm Password" />
+                    <InputLabel forInput="password_confirmation" value="Confirmar Contraseña" />
 
                     <TextInput
                         type="password"

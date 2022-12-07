@@ -3,7 +3,8 @@ import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Head, useForm } from '@inertiajs/inertia-react';
+import { Head, Link, useForm } from '@inertiajs/inertia-react';
+
 
 export default function ForgotPassword({ status }) {
     const { data, setData, post, processing, errors } = useForm({
@@ -21,12 +22,12 @@ export default function ForgotPassword({ status }) {
     };
 
     return (
-        <GuestLayout>
-            <Head title="Forgot Password" />
+        <GuestLayout label='SOLICITAR RESTAURACIÓN DE CONTRASEÑA'>
+            <Head title="Cambio de Contraseña" />
 
             <div className="mb-4 text-sm text-gray-500 leading-normal">
-                Forgot your password? No problem. Just let us know your email address and we will email you a password
-                reset link that will allow you to choose a new one.
+            ¿Olvidaste tu contraseña? No hay problema. Simplemente háganos saber su dirección de correo electrónico y le enviaremos una contraseña por correo electrónico
+                  restablecer enlace que le permitirá elegir uno nuevo.
             </div>
 
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
@@ -43,9 +44,15 @@ export default function ForgotPassword({ status }) {
 
                 <InputError message={errors.email} className="mt-2" />
 
-                <div className="flex items-center justify-end mt-4">
+                <div className="mt-5 flex items-center justify-end mt-4 space-x-12">
+                    <Link
+                        className="px-9 py-4 text-white bg-blue-500 rounded-md focus:outline-none"
+                        href={ route("login") }
+                    >
+                    Regresar
+                    </Link>
                     <PrimaryButton className="ml-4" processing={processing}>
-                        Email Password Reset Link
+                        Enviar Correo
                     </PrimaryButton>
                 </div>
             </form>
