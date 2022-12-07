@@ -79,10 +79,10 @@ const NavbarSAdmin = ({auth,children}) => {
                         </Link>
                     </li>
                     <li className='px-3'>
-                        <a href="#" onClick={()=>setShow(false)} className="flex items-center  justify-center p-2 text-base font-normal text-white rounded-lg  text-gray-700 rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
-                        <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
-                        <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap ">Usuarios</span>
-                        </a>
+                        <Link href={route('d.Usuarios.index')} active={route().current('d.Usuarios.index')} className="flex items-center justify-center p-2 text-base font-normal text-white rounded-lg focus:outline-none hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
+                            <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
+                            <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap ">Usuarios</span>
+                        </Link>
                     </li>
                     <li className='px-3'>
                         <button href="#" onClick={()=>setShow(!show)} className="flex items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">

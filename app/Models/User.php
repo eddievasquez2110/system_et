@@ -41,12 +41,12 @@ class User extends Authenticatable
 
     public function Rol()
     {
-        return $this->HasOne(Rol::class, 'ID_Rol', 'ID_Rol');
+        return $this->HasOne(Rol::class, 'ID_Rol', 'Nombre_Rol');
     }
 
     public function Oficina()
     {
-        return $this->HasOne(Oficina::class, 'ID_Oficina', 'ID_Oficina');
+        return $this->HasOne(Oficina::class, 'ID_Oficina', 'Nombre_Oficina');
     }
 
     public function Solicitud()

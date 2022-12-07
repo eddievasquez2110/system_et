@@ -22,6 +22,6 @@ class Oficina extends Model
 
     public function User()
     {
-        return $this->belongsTo(User::class, 'ID_Oficina', 'ID_Oficina');
+        return $this->belongsTo(User::class);
     }
 }

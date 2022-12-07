@@ -161,6 +161,14 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
           Route::put('/dashboard/especificacionequipo/update/{id}','update')->name('d.especificacionequipo.update');
           Route::delete('/dashboard/especificacionequipo/{id}','destroy')->name('d.especificacionequipo.destroy');
      });
+     Route::controller(UserController::class)->group(function (){
+        Route::get('/dashboard/Usuario','index')->name('d.Usuarios.index');
+        Route::get('/dashboard/Usuario/create','create')->name('d.Usuarios.create');
+        Route::post('/dashboard/Usuario/store','store')->name('d.Usuarios.store');
+        Route::get('/dashboard/Usuario/edit/{id}','edit')->name('d.Usuarios.edit');
+        Route::put('/dashboard/Usuario/update/{id}','update')->name('d.Usuarios.update');
+        Route::delete('/dashboard/Usuario/{id}','destroy')->name('d.Usuarios.destroy');
+   });
 
 //     Route::get('/dashboard/especificacionequipo', [AdminEspecificacionEquipoController::class,'index'])
 //          ->name('d.especificacionequipo');
