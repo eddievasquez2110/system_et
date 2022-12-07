@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faKey,faUser,faMoneyBill } from '@fortawesome/free-solid-svg-icons'
 
-export default function Login({ status, canResetPassword }) {
+export default function Login({ status, canResetPassword}) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
@@ -34,7 +34,7 @@ export default function Login({ status, canResetPassword }) {
     };
 
     return (
-        <GuestLayout>
+        <GuestLayout label='UNIVERSIDAD NACIONAL DEL CENTRO DEL PERÚ SISTEMA EETT'>
             <Head title="Log in" />
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
             
@@ -91,17 +91,22 @@ export default function Login({ status, canResetPassword }) {
                     <PrimaryButton className="flex justify-center w-80 " processing={processing}>
                         Ingresar
                     </PrimaryButton>
-
+                    <div className='mt-5 space-x-8'>
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="underline mt-4 text-sm text-blue-600 hover:text-red-900"
+                            className="underline mt-4 text-sm text-green-500 hover:text-green-700"
                         >
                             ¿Olvidaste tu contraseña?
                         </Link>
                     )}
-
-                    
+                        <Link
+                            href={route('notificaciones.create')}
+                            className="underline mt-4 text-sm text-green-500 hover:text-green-700"
+                        >
+                            Solicitar acceso
+                        </Link>
+                    </div>
                 </div>
                 <span className="flex text-center mt-5 text-xs text-gray-600 ">OFICINA GENERAL DE GESTIÓN DE SISTEMAS DE INFORMACIÓN Y COMUNICACIONES</span>
             </form>

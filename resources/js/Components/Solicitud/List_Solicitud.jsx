@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashCan} from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashCan, faEye} from '@fortawesome/free-solid-svg-icons';
 
 const List_Solicitud = ({soli}) => {
   return (
@@ -23,7 +23,7 @@ const List_Solicitud = ({soli}) => {
                 </div>
                 {soli.Especificacion_Software}
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4">
                 {soli.Fecha_Solicitud}
             </td>
             <td className="py-4 px-6">
@@ -32,13 +32,18 @@ const List_Solicitud = ({soli}) => {
             
             <td className="grid gap-4 py-2 items-center">
                 <a href="#" className="font-medium text-blue-500">
-                    <div className='bg-blue-100 px-5 py-2 rounded-md hover:bg-blue-700 hover:text-white'>
-                        <FontAwesomeIcon className="h-4 w-5 "  icon={faEdit} />
+                    <div className='flex justify-center bg-blue-100 px-5 py-2 rounded-md hover:bg-blue-700 hover:text-white mx-3'>
+                         Ver
+                    </div>
+                </a>
+                <a href="#" className="font-medium text-green-500">
+                    <div className='flex justify-center bg-green-100 px-5 py-2 rounded-md hover:bg-green-700 hover:text-white  mx-3'>
+                         Aceptar
                     </div>
                 </a>
                 <a href="#" className="font-medium text-red-500 ">
-                    <div className='bg-red-100 px-5 py-2 rounded-md hover:bg-red-700 hover:text-white'>
-                        <FontAwesomeIcon className="h-4 w-5 "  icon={faTrashCan} />
+                    <div className='flex justify-center bg-red-100 px-5 py-2 rounded-md hover:bg-red-700 hover:text-white  mx-3'>
+                        Rechazar
                     </div>
                 </a>
             </td>

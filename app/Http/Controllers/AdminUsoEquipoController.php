@@ -9,9 +9,12 @@ use Inertia\Inertia;
 class AdminUsoEquipoController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
-        $usos = Uso_Equipo::orderBy('ID_Uso_Equipo')->paginate(6);
+        $search = $request->query('search');
+        $usos = Uso_Equipo::query()->when($search, fn($query) => 
+        $query->where('Nombre_Uso_Equipo','LIKE',"%{$search}%")->orWhere('ID_Uso_Equipo', 'LIKE', "%{$search}%")
+         )->paginate(6);
         return Inertia::render('Admin/Equipos/Uso_Equipo/Index',[
             'usos' => $usos
         ]);

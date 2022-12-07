@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
 
     public function run()
     {
-        $user1 = User::create([
+        $user = User::create([
             'ID_Rol'=>1,
             'ID_Oficina'=>1,
             'name'=>'Super Admin',
@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'password'=>Hash::make('s_admin'),
         ]);
 
-        $user2 = User::create([
+        $user = User::create([
             'ID_Rol'=>2,
             'ID_Oficina'=>1,
             'name'=>'Admin',
@@ -28,12 +28,20 @@ class UserSeeder extends Seeder
             'password'=>Hash::make('admin'),
         ]);
 
-        $user3 = User::create([
+        $user = User::create([
             'ID_Rol'=>3,
             'ID_Oficina'=>2,
             'name'=>'user1',
             'email'=>'user1@gmail.com',
             'password'=>Hash::make('user1'),
+        ]);
+
+        $user = User::create([
+            'ID_Rol'=>3,
+            'ID_Oficina'=>3,
+            'name'=>'user2',
+            'email'=>'user2@gmail.com',
+            'password'=>Hash::make('user2'),
         ]);
     }
 }

@@ -12,7 +12,7 @@ class RolController extends Controller
     public function index()
     {
         return Inertia::render('Auth/Register', [
-            'rols' => Rol::latest()->get()
+            'rol' => Rol::all(),
         ]);
     }
     
@@ -30,7 +30,7 @@ class RolController extends Controller
     public function show(Rol $rol)
     {
         return view('rols.profile', [
-            'rols' => Rol::findOrFail($rol)
+            'rol' => Rol::findOrFail($rol)
         ]);
     }
 
