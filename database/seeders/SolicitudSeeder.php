@@ -20,14 +20,11 @@ class SolicitudSeeder extends Seeder
 
         $solicitud = Solicitud::create([
             'id' => 1,
-            'Fecha_Solicitud'=>'2022-11-10 12:35:12',
-            'Estado_Solicitud'=>'Rechazado',
+            'Fecha_Solicitud'=>'2022-12-06',
         ]);
-
         $solicitud = Solicitud::create([
-            'id' => 1,
-            'Fecha_Solicitud'=>'2022-11-10 12:50:12',
-            'Estado_Solicitud'=>'Pendiente',
+            'id' => 2,
+            'Fecha_Solicitud'=>'2022-12-05 12:57:00',
         ]);
     }
 }

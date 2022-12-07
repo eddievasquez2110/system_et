@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id('ID_Solicitud');
             $table->unsignedBigInteger('id');
             $table->foreign('id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->dateTime('Fecha_Solicitud');
-            $table->string('Estado_Solicitud',30);
+            $table->date('Fecha_Solicitud');
+            $table->string('Estado_Solicitud',30)->nullable()->default('Pendiente');
             $table->timestamps();
         });
     }
