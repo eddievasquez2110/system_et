@@ -6,11 +6,21 @@ import PrimaryButton from '@/Components/PrimaryButton';
 
 const Create = ({auth}) => {
     const [preview, setPreview] = useState('');
-    const {data, setData, errors, post, progress} = useForm({
+    const {data, setData, errors, post, progress,processing} = useForm({
         Email_User:"",
         Asunto_User:"",
         Mensaje_User:"",
     });
+
+const onHandleChange = (event) => {
+        setData(event.target.name, event.target.value);
+};
+
+const submit = (e) => {
+        e.preventDefault();
+
+        post(route('password.email'));
+};
 
 function handleSubmit(e){
     e.preventDefault();
@@ -88,7 +98,7 @@ function handleSubmit(e){
                                     >
                                         Regresar
                                     </Link>
-                                    <PrimaryButton className="ml-4" >
+                                    <PrimaryButton className="ml-4" processing={processing} >
                                         Enviar
                                     </PrimaryButton>
                                     
