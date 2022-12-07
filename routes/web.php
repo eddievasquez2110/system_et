@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminSoftwareController;
 use App\Http\Controllers\AdminEspecificacionEquipoController;
 use App\Http\Controllers\AdminEspecificacionSoftwareController;
@@ -13,6 +12,7 @@ use App\Http\Controllers\InfoSoftwareController;
 use App\Http\Controllers\SolicitudDetalleController;
 use App\Http\Controllers\AdminReporteController;
 use App\Http\Controllers\AdminSolicitudController;
+use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\SoloSuperAdmin;
 use App\Models\Rol;
@@ -22,7 +22,6 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
-
 
 //RUTA INICIO
 Route::get('/', [AuthenticatedSessionController::class, 'create'])
@@ -196,5 +195,13 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
     
 });
 
+Route::controller(NotificacionController::class)->group(function (){
+     Route::get('/notificaciones','index')->name('notificaciones.index');
+     Route::get('/acceso','create')->name('notificaciones.create');
+     Route::post('/notificaciones/store','store')->name('notificaciones.store');
+     Route::get('/dashboard/especificacionequipo/edit/{id}','edit')->name('notificaciones.edit');
+     Route::put('/dashboard/especificacionequipo/update/{id}','update')->name('notificaciones.update');
+     Route::delete('/dashboard/especificacionequipo/{id}','destroy')->name('notificaciones.destroy');
+});
 
 require __DIR__.'/auth.php';

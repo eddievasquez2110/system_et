@@ -64,7 +64,6 @@ export default function Index({solis,auth}) {
                         </tr>
                     </thead>
                     <tbody>
-                    {console.log(solis)}
                         {
                             solis.data.map(soli => {
                                 return( 
