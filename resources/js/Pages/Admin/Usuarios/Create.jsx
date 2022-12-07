@@ -2,13 +2,16 @@ import React, {  useState } from 'react'
 import Navbar from '@/Layouts/Navbar';
 import { Head, useForm, Link } from '@inertiajs/inertia-react';
 
+
 const Create = ({auth}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, post, progress} = useForm({
+        ID_Rol:"",
+        ID_Oficina:"",
+        name:"",        
         Nombre_Oficina:"",
         Cargo_Oficina:"",
         Nombre_Rol:"",
-        name:"",
         email:"",
         password:"",
 
@@ -20,6 +23,9 @@ function handleSubmit(e){
     e.preventDefault();
     post(route('d.Usuarios.store'))
 }
+const onHandleChange = (event) => {
+    setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+};
   return (
     <Navbar auth={auth}>
         <Head title='Uso Equipo'/>
@@ -70,6 +76,7 @@ function handleSubmit(e){
                                         <select 
                                             id ='oficina' 
                                             name='oficina'  
+                                            forInput="oficina"
                                             className='block w-full bg-white border   h-10  py'
                                             value={data.Nombre_Oficina}
                                             onChange={(e) =>
@@ -77,12 +84,12 @@ function handleSubmit(e){
                                             }
                                             >
                                             
-                                            <option value={data.ID_Oficina=1}>Informacion y comunicaciones</option>
-                                            <option value={data.ID_Oficina=2}>Logistica</option>
-                                            <option value={data.ID_Oficina=3}>RR_HH</option>
-                                            <option value={data.ID_Oficina=4}>Contabilidad</option>
-                                            <option value={data.ID_Oficina=5}>Vicerrectorado</option>
-                                            <option value={data.ID_Oficina=6}>Rectorado</option>
+                                            <option value={data.ID_Oficina=1}>{data.Nombre_Oficina='Informacion y comunicaciones'}</option>
+                                            <option value={data.ID_Oficina=2}>{data.Nombre_Oficina='Logistica'}</option>
+                                            <option value={data.ID_Oficina=3}>{data.Nombre_Oficina='RR_HH'}</option>
+                                            <option value={data.ID_Oficina=4}>{data.Nombre_Oficina='Contabilidad'}</option>
+                                            <option value={data.ID_Oficina=5}>{data.Nombre_Oficina='Vicerrectorado'}</option>
+                                            <option value={data.ID_Oficina=6}>{data.Nombre_Oficina='Rectorado'}</option>
                                         </select>
                                         <span className="text-red-600">
                                             {errors.Nombre_Oficina}
@@ -108,37 +115,17 @@ function handleSubmit(e){
                                         <label className="">Rol</label><br />
 
                                         
-                                        <input
-                                            type="radio"
-                                            className="text-gray-500"
-                                            label="Nombre_Rol"
-                                            name="Nombre_Rol"
+                                        <select
+                                            id ='rol' 
+                                            name='rol'  
+                                            className='block w-full bg-white border   h-10  py'
                                             value={data.Nombre_Rol}
                                             onChange={(e) =>
                                                 setData("Nombre_Rol", e.target.value)
                                             }
-                                        />Usuario <br />
-
-                                        <input
-                                            type="radio"
-                                            className="text-gray-500"
-                                            label="Nombre_Rol"
-                                            name="Nombre_Rol"
-                                            value={data.Nombre_Rol}
-                                            onChange={(e) =>
-                                                setData("Nombre_Rol", e.target.value)
-                                            }
-                                        /> Administrador <br />
-                                        <input
-                                            type="radio"
-                                            className="text-gray-500"
-                                            label="Nombre_Rol"
-                                            name="Nombre_Rol"
-                                            value={data.Nombre_Rol}
-                                            onChange={(e) =>
-                                                setData("Nombre_Rol", e.target.value)
-                                            }
-                                        /> Super Administrador
+                                        >
+                                            <option value={data.ID_Rol=3}>{data.Nombre_Rol='Usuario'}</option>
+                                        </select>
                                         <span className="text-red-600">
                                             {errors.Nombre_Rol}
                                         </span>
@@ -162,15 +149,24 @@ function handleSubmit(e){
                                     <div className="mb-4">
                                         <label className="">Contraseña</label>
                                         <input
+                                            // type="password"
+                                            // name="password"
+                                            // value={data.password}
+                                            // className="mt-1 block w-full"
+                                            // autoComplete="new-password"
+                                            handleChange={onHandleChange}
+                                            required
                                             type="text"
                                             className="w-full px-4 py-2 text-gray-500"
                                             label="password"
                                             name="password"
                                             value={data.password}
+                                            autoComplete="new-password"
                                             onChange={(e) =>
                                                 setData("password", e.target.value)
                                             }
                                         />
+                                        
                                         <span className="text-red-600">
                                             {errors.password}
                                         </span>
@@ -188,8 +184,10 @@ function handleSubmit(e){
                                     >
                                         Guardar
                                     </button>
+                                    {console.log(data)}
                                 </div>
                             </form>
+                            
 
                         </div>
                     </div>

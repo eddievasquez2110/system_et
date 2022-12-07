@@ -41,6 +41,9 @@ export default function Index({usua,auth}) {
                                 Nombre
                             </th>
                             <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
+                                Rol
+                            </th>
+                            <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
                                 OFicina
                             </th>
                             <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
@@ -64,7 +67,7 @@ export default function Index({usua,auth}) {
                         </tr>
                     </thead>
                     <tbody>
-
+                        {console.log(usua)}
                         {
                             usua.data.map(usuaa => {
                                 return(

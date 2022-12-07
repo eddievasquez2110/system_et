@@ -8,6 +8,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -20,8 +24,8 @@ class UserController extends Controller
     }
 
     public function index()
-    {
-        $usua = User::with('rol','oficina')
+    {  
+        $usua = User::with('Rol','Oficina')
         ->join('rols','users.ID_Rol','=','rols.ID_Rol')
         ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')->paginate(6);
         
@@ -38,18 +42,30 @@ class UserController extends Controller
     
     public function store(Request $request)
     {
+    
         $request ->validate([
-            'ID_Rol'=> 'required',
-            'ID_Oficina'=> 'required',
-            'name'=> 'required',
-            'email'=> 'required',
-            'password'=> 'required',
+            'Nombre_Rol'=> 'required',
+            'Cargo_Oficina'=> 'required',
+            'Nombre_Oficina'=> 'required',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => ['required', Rules\Password::defaults()],
         ]);
 
         $usua = $request->all();
-
-        User::create($usua);
+        
+        Rol::create($usua);
+        Oficina::create($usua);
+        $user = User::create([
+            'ID_Rol' => $request->ID_Rol,
+            'ID_Oficina' => $request->ID_Oficina,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        event(new Registered($user));
         return redirect()->route('d.Usuarios.index');
+        Auth::login($user);
     }
 
     

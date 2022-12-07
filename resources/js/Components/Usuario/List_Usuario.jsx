@@ -38,6 +38,9 @@ const List_Usuario = ({usua}) => {
                 {usua.name}
             </td>
             <td className="py-4 px-6">
+                {usua.Nombre_Rol}
+            </td>
+            <td className="py-4 px-6">
                 {usua.Nombre_Oficina}
             </td>
             <td className="py-4 px-6">
@@ -53,7 +56,7 @@ const List_Usuario = ({usua}) => {
                       <Link
                           tabIndex="1"
                           className="bg-blue-100 px-5 py-2 rounded-md hover:bg-blue-700 hover:text-white"
-                          href={route("d.especificacionequipo.edit",`${usua.id}`)}
+                          href={route("d.Usuarios.edit",`${usua.id}`)}
                           ><FontAwesomeIcon className="h-4 w-5 "  icon={faEdit} />
                       </Link>
                     </div>
