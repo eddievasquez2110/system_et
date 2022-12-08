@@ -23,14 +23,6 @@ const Navbar = ({auth,children}) => {
         display:"none"
     }
     const alertLogout = (e) => {
-        /*if(!confirm('Estas Seguro de salir del sistema')){
-            return e.preventDefault();
-        }else{
-            return this;
-        }
-        e.preventDefault();
-        e.stopPropagation();
-        */
        console.log(e);
         Swal.fire({
             title: 'Estas seguro?',
@@ -51,7 +43,6 @@ const Navbar = ({auth,children}) => {
             }
           })
     }
-
   return (
     <div className='flex justify-between'>
         <div className="shadow-md bg-green-800 sticky top-0 h-screen" style={open ?{width:'18%'}:{width:'75px'}}>
