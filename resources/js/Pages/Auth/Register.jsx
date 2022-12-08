@@ -5,9 +5,9 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
-import { map } from 'lodash';
 
-export default function Register() {
+
+export default function Register({rols}) {
     const { data, setData, post, processing, errors, reset } = useForm({
         ID_Rol: '',
         ID_Oficina: '',
@@ -34,7 +34,7 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <GuestLayout label='Registro de Usuario'>
             <Head title="register" />
 
             <form onSubmit={submit}>

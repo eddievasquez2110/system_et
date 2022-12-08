@@ -6,6 +6,7 @@ import List_Tipo_Equipo from '@/Components/Equipos/List_Tipo_Equipo';
 import { Inertia } from '@inertiajs/inertia';
 
 export default function Index({tipos,auth}) {
+
     const [query,setQuery]= useState('');
     const search = (e) => {
         Inertia.get(route(route().current()),
@@ -14,11 +15,13 @@ export default function Index({tipos,auth}) {
                 preserveState: true,
                 replace: true,
             })     
-}
+    }
+    
     console.log(query);
+
     return (
         <Navbar auth={auth}>
-            <Head title='Admin'/>
+            <Head title='Tipo Equipo'/>
             <div className='flex flex-col my-3'>
                 <div className='flex items-center gap-8 '>
                 <span className='text-slate-500 text-3xl'>Tipos de Equipos</span>
@@ -38,11 +41,12 @@ export default function Index({tipos,auth}) {
                     <div className='flex items-center gap-4'>
                         <label className='text-slate-500'>Buscar: </label>
                         <input 
-                        className='rounded-md py-1 text-slate-500' 
+                        className='rounded-md py-1 text-slate-500 placeholder:text-gray-300' 
                         type="text"
                         id='search'
                         onChange={(e) => setQuery(e.target.value)}
                         onKeyUp={search}
+                        placeholder='Digitar Equipo'
                         />
                     </div>
                 </div>

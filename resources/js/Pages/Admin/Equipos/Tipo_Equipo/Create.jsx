@@ -32,7 +32,7 @@ function handleSubmit(e){
                                     className="px-6 py-2 text-white bg-blue-500 rounded-md focus:outline-none"
                                     href={ route("d.tipoequipos.index") }
                                 >
-                                    Back
+                                    Regresar
                                 </Link>
                             </div>
 
@@ -42,7 +42,7 @@ function handleSubmit(e){
                                         <label className="">Nombre Tipo de equipo</label>
                                         <input
                                             type="text"
-                                            className="w-full px-4 py-2"
+                                            className="w-full px-4 py-2 text-gray-500"
                                             label="tipo_equipo"
                                             name="tipo_equipo"
                                             value={data.Nombre_Tipo_Equipo}

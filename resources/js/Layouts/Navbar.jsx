@@ -3,7 +3,7 @@ import { useState } from 'react'
 //mport { FaAngleRight} from "react-icons/fa";
 import { Link } from '@inertiajs/inertia-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleLeft, faUser} from '@fortawesome/free-solid-svg-icons';
+import { faBell, faCircleLeft, faUser} from '@fortawesome/free-solid-svg-icons';
 import Dropdown from '@/Components/Dropdown';
 import { Inertia } from '@inertiajs/inertia';
 
@@ -23,6 +23,7 @@ const Navbar = ({auth,children}) => {
         display:"none"
     }
     const alertLogout = (e) => {
+        
        console.log(e);
         Swal.fire({
             title: 'Estas seguro?',
@@ -60,7 +61,7 @@ const Navbar = ({auth,children}) => {
                 </a>
             </div>
             </div>
-            <div onClick={() => setOpen(!open ) || setOpen1(!open1)} className='absolute w-8 h-8 text-lg text-white cursor-pointer inset-y-1/2 -right-3 flex items-center justify-center rounded-full bg-teal-500'>
+            <div onClick={() => setOpen(!open ) || setOpen1(!open1)} className='absolute w-10 h-10 text-lg text-white cursor-pointer inset-y-1/2 -right-3 flex items-center justify-center rounded-full bg-green-800'>
                 {/* <FaAngleRight/> */}
                 <FontAwesomeIcon className="h-5 w-10 "  icon={faCircleLeft} /> 
             </div>
@@ -74,10 +75,10 @@ const Navbar = ({auth,children}) => {
                         </Link>
                     </li>
                     <li className='px-3'>
-                        <a href="#" onClick={()=>setShow(false)} className="flex items-center  justify-center p-2 text-base font-normal text-white rounded-lg  text-gray-700 rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
-                        <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
-                        <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap ">Usuarios</span>
-                        </a>
+                        <Link href={route('d.Usuarios.index')} active={route().current('d.Usuarios.index')} className="flex items-center justify-center p-2 text-base font-normal text-white rounded-lg focus:outline-none hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
+                            <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
+                            <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap ">Usuarios</span>
+                        </Link>
                     </li>
                     <li className='px-3'>
                         <button href="#" onClick={()=>setShow(!show)} className="flex items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
@@ -97,7 +98,7 @@ const Navbar = ({auth,children}) => {
                             </Link>
                             </li>
                             <li>
-                            <Link href={route('d.especificacionequipo')} active={route().current('d.especificacionequipo')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                            <Link href={route('d.especificacionequipo.index')} active={route().current('d.especificacionequipo.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                 Especificacion Equipo
                             </Link>
                             </li>
@@ -111,12 +112,12 @@ const Navbar = ({auth,children}) => {
                         </button>
                         <ul style={show1?{display:"block"}:{display:"none"}} className="bg-white rounded-lg mt-1">
                             <li>
-                                <Link href={route('d.softwares')} active={route().current('d.softwares.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.softwares.index')} active={route().current('d.softwares.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Software
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.especificacionsoftware')} active={route().current('d.especificacionsoftware.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.especificacionsoftware.index')} active={route().current('d.especificacionsoftware.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Especificacion de Software
                                 </Link>
                             </li>
@@ -152,6 +153,10 @@ const Navbar = ({auth,children}) => {
                     <div className='text-slate-400'>
                         Hola bienvenido al modo {auth.user.name}
                     </div>
+                    <div className='flex flex-row'>
+                    <div className='place-items-end mt-2 mr-5 text-green-500'>
+                        <FontAwesomeIcon className="h-5 w-10"  icon={faBell} />
+                    </div>
                     <div className='rounded-md px-2 font-bold text-slate-200 text-md border border-green-500'>
                     <Dropdown>
                         <Dropdown.Trigger>
@@ -186,6 +191,7 @@ const Navbar = ({auth,children}) => {
                         
                         </Dropdown.Content>
                     </Dropdown>
+                    </div>
                     </div>
                 </div>
                 <div className='flex  justify-center bg-slate-100 overflow-y-auto ' style={{height:'calc(100% - 112px)'}}>

@@ -1,25 +1,24 @@
 import React, { useState } from 'react'
 import Navbar from '@/Layouts/Navbar'
 import { Head, useForm, usePage, Link } from '@inertiajs/inertia-react';
-const Edit = ({auth,uso}) => {
+import { Inertia } from '@inertiajs/inertia';
+
+const Edit = ({auth,usos}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, put, progress} = useForm({
-        Nombre_Uso_Equipo: `${uso[0].Nombre_Uso_Equipo}` || "",
+        Nombre_Uso_Equipo: usos.Nombre_Uso_Equipo,
     });
-    console.log(uso[0].ID_Uso_Equipo);
 
-    const onSelectedFile = (e) =>{
-        const file = e.target.files[0];
-        const url = URL.createObjectURL(file);
-        setPreview(url);
-    }
     function handleSubmit(e) {
         e.preventDefault();
-        put(route('tequipo.update', `${tipo[0].ID_Uso_Equipo}`));
+        Inertia.post(route('d.usoequipos.update',`${usos.ID_Uso_Equipo}`),{
+            _method: 'put',
+            Nombre_Uso_Equipo: data.Nombre_Uso_Equipo,
+          })
     }
   return (
     <Navbar auth={auth}>
-        <Head title="Tipo Equipo" />
+        <Head title="Uso Equipo" />
         <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -28,7 +27,7 @@ const Edit = ({auth,uso}) => {
                             <div className="flex items-center justify-between mb-6">
                                 <Link
                                     className="px-6 py-2 text-white bg-blue-500 rounded-md focus:outline-none"
-                                    href={ route("d.tipoequipos.index") }
+                                    href={ route("d.usoequipos.index") }
                                 >
                                     Back
                                 </Link>
@@ -37,48 +36,22 @@ const Edit = ({auth,uso}) => {
                             <form name="createForm" onSubmit={handleSubmit}>
                                 <div className="flex flex-col">
                                     <div className="mb-4">
-                                        <label className="">Tipo Equipo</label>
+                                        <label className="">Nombre Uso Equipo</label>
                                         <input
                                             type="text"
-                                            className="w-full px-4 py-2"
-                                            label="Nombre_Tipo_Equipo"
-                                            name="Nombre_Tipo_Equipo"
-                                            value={data.Nombre_Tipo_Equipo}
+                                            className="w-full px-4 py-2 text-gray-500"
+                                            label="Nombre_Uso_Equipo"
+                                            name="Nombre_Uso_Equipo"
+                                            value={data.Nombre_Uso_Equipo}
                                             onChange={(e) =>
-                                                setData("Nombre_Tipo_Equipo", e.target.value)
+                                                setData("Nombre_Uso_Equipo", e.target.value)
                                             }
                                         />
                                         <span className="text-red-600">
-                                            {errors.Nombre_Tipo_Equipo}
+                                            {errors.Nombre_Uso_Equipo}
                                         </span>
                                     </div>
-                                    <div className="mb-4">
-                                        <label className="">Subir Imagen</label>
-                                        <div className='mt-4 mb-4'>
-                                            {preview ? 
-                                                <img src={`${preview}`} alt="" style={{width:'300px'}}/> 
-                                                : <img src={`/images/${data.Imagen}`} alt="" style={{width:'300px'}} />   }
-                                        </div>
-                                        <div className='flex items-center justify-center w-full'>
-                                        <label className='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group'>
-                                        <div className='flex flex-col items-center justify-center pt-7'>
-                                        <svg className="w-10 h-10 text-purple-400 group-hover:text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                        <p className='text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider'>Seleccione la imagen</p>
-                                        </div>
-                                        <input
-                                            type="file"
-                                            className="hidden"
-                                            label="Imagen"
-                                            name="Imagen"
-                                            onChange={(e) =>
-                                                {setData("Imagen", e.target.files[0]);
-                                                onSelectedFile(e)}
-                                            }
-                                        />
-                                        </label>
-
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 {progress && (
                                   <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">

@@ -4,18 +4,15 @@ import CheckboxSoftware from './CheckboxSoftware'
 const Software = ({software}) => {
     
   return (
-        <div className="max-w-xs bg-white rounded-lg border-2 border-neutral-100 shadow-md shadow-lime-800/50">
-            <a href="#">
-                    <img src={`../images/software/${software.ID_Software}.png`} className='rounded-t-lg' style={{height:"150px",width:"200px"}} alt="" />
-            </a> 
-            <div className="p-5">
-                <a href='#' name='software'>   
-                    <CheckboxSoftware name="software" value={software.Nombre_Software} />
-                        <span className="ml-2 text-md text-lime-800">{software.Nombre_Software.toUpperCase()}</span>
-                </a> 
+      
+            <div className="relative max-w-xs bg-white rounded-lg border-2 border-neutral-100 shadow-md shadow-lime-800/50" style={{height:"184px",width:"160px"}}>
+                <a 
+                type='button'
+                href="#">
+                        <img src={`../images/softwares/${software.ID_Software}.png`} className='mt-3' style={{height:"148px",width:"180px"}} alt="" />            
+                </a>
+                <span className='absolute top-1 leading-4 font-bold bg-green-700 text-white rounded-2xl px-2 left-2' style={{fontSize:"11px"}}>{software.Nombre_Software}</span>      
             </div>
-            
-        </div>
   )
 }
 

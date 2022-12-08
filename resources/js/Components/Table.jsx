@@ -16,11 +16,11 @@ const Table = ({laptops,especificacion}) => {
                 especificacion.map(especifi => {
                     return(
                     <tr className="bg-white border-b">
-                        <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                            {especifi.Nombre_Especificacion}
+                        <th className="py-4 px-6 font-medium text-gray-900">
+                            {especifi.Nombre_Especificacion_Equipo}
                         </th>
                         <td className="py-4 px-6">
-                            {especifi.Especificacion}
+                            {especifi.Especificacion_Equipo}
                         </td>
                     </tr>
                     )

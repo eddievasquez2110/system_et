@@ -9,8 +9,7 @@ const Edit = ({auth,equipo}) => {
         Nombre_Tipo_Equipo: equipo.Nombre_Tipo_Equipo,
         Imagen: equipo.Imagen,
     });
-    console.log(equipo);
-    console.log(data);
+
     const onSelectedFile = (e) =>{
         const file = e.target.files[0];
         const url = URL.createObjectURL(file);
@@ -49,7 +48,7 @@ const Edit = ({auth,equipo}) => {
                                         <label className="">Tipo Equipo</label>
                                         <input
                                             type="text"
-                                            className="w-full px-4 py-2"
+                                            className="w-full px-4 py-2 text-gray-500"
                                             label="Nombre_Tipo_Equipo"
                                             name="Nombre_Tipo_Equipo"
                                             value={data.Nombre_Tipo_Equipo}
