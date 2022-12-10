@@ -60,14 +60,15 @@ const Solicitud = ({auth,softwares}) => {
                             <div className='text-center p-4 '>
                               <h2>Programas selecionados</h2>
                             </div>
+                            <div className='bg-white rounded ml-4 p-6' style={{height:"400px"}}>
+                              <div className=''>
+                                  <span>Lista :</span>
+                              </div>
+                            </div>
                         </div>
                       </div>
                     </div>    
-                  </div>
-                  {/* <div className='p-10 flex justify-center'>
-                          <PrimaryButton>Continuar</PrimaryButton>  
-                  </div>  */}
-          
+                </div>
         </AuthenticatedLayout>
         :<></>
         }

@@ -96,12 +96,12 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
 
      //EQUIPOS
     Route::controller(AdminTipoEquipoController::class)->group(function () {
-          Route::get('/dashboard/tipoequipos','index')->name('d.tipoequipos.index');
-          Route::get('/dashboard/tipoequipos/create','create')->name('d.tipoequipos.create');
-          Route::post('/dashboard/tipoequipos/store','store')->name('d.tipoequipos.store');
-          Route::get('/dashboard/tipoequipos/edit/{id}','edit')->name('d.tipoequipos.edit');
-          Route::put('/dashboard/tipoequipos/update/{id}','update')->name('d.tipoequipos.update');
-          Route::delete('/dashboard/tipoequipos/{id}','destroy')->name('d.tipoequipos.destroy');
+          Route::get('/equipo/tipoequipos','index')->name('d.tipoequipos.index');
+          Route::get('/equipo/tipoequipos/create','create')->name('d.tipoequipos.create');
+          Route::post('/equipo/tipoequipos/store','store')->name('d.tipoequipos.store');
+          Route::get('/equipo/tipoequipos/edit/{id}','edit')->name('d.tipoequipos.edit');
+          Route::put('/equipo/tipoequipos/update/{id}','update')->name('d.tipoequipos.update');
+          Route::delete('/equipo/tipoequipos/{id}','destroy')->name('d.tipoequipos.destroy');
     });
 
     Route::controller(AdminUsoEquipoController::class)->group(function () {
