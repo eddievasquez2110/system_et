@@ -64,7 +64,7 @@ const Navbar = ({auth,children}) => {
                 </a>
             </div>
             </div>
-            <div onClick={() => setOpen(!open)} className='absolute w-10 h-10 text-lg text-white cursor-pointer inset-y-1/2 -right-3 flex items-center justify-center rounded-full bg-green-800'>
+            <div onClick={() => setOpen(!open)} className='absolute w-10 h-10 text-lg text-white cursor-pointer top-3/4 -right-3 flex items-center justify-center rounded-full bg-green-800'>
                 <FontAwesomeIcon className="h-5 w-10 "  icon={faCircleLeft} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
             </div>
 
@@ -95,7 +95,7 @@ const Navbar = ({auth,children}) => {
                             <span style={open ? styleOpen : styleClose}  className="flex-1 ml-3 text-left whitespace-nowrap">Equipos</span>
                             {open && <svg  className="w-6 h-6" style={show?{transform: 'rotate(180deg)',}:{transform: 'rotate(0deg)'}} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>}
                         </button>
-                            {show  && <ul  className="bg-white rounded-lg mt-1">
+                            {open ? (show  && <ul  className="bg-white rounded-lg mt-1">
                                 <li>
                                     <Link href={route('d.tipoequipos.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out"
                                     >
@@ -112,7 +112,24 @@ const Navbar = ({auth,children}) => {
                                         Especificacion Equipo
                                     </Link>
                                 </li>
-                            </ul>}
+                            </ul>): (show  && <ul  className="bg-white z-30 absolute rounded-lg mt-1">
+                                <li>
+                                    <Link href={route('d.tipoequipos.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out"
+                                    >
+                                        Tipo de Equipo
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href={route('d.usoequipos.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                        Uso de Equipo
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href={route('d.especificacionequipo.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                        Especificacion Equipo
+                                    </Link>
+                                </li>
+                            </ul>)}
                     </li>
                     <li className='px-3 '>
                         <button href="#" onClick={()=>setShow1(!show1)} className="flex  items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
@@ -132,14 +149,14 @@ const Navbar = ({auth,children}) => {
                                 </Link>
                             </li>
                             
-                        </ul>) : (show1 && <ul  className="absolute z-50 left-full top-1/3 bg-white rounded-lg ">
+                        </ul>) : (show1 && <ul  className="absolute z-20 mt-1 bg-white rounded-lg">
                             <li>
-                                <Link href={route('d.softwares.index')}  className="flex items-center p-2  w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.softwares.index')}  className="flex items-center p-2 pl-3 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Software
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.especificacionsoftware.index')}  className="flex items-center p-2  w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.especificacionsoftware.index')}  className="flex items-center p-2 pl-3 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Especificacion de Software
                                 </Link>
                             </li>
@@ -217,11 +234,11 @@ const Navbar = ({auth,children}) => {
                     </div>
                 </div>
                 <div className='flex  justify-center bg-slate-100 overflow-y-auto ' style={{height:'calc(100% - 112px)'}}>
-                <div className='w-5/6'>
-                 {children}
-                </div>  
+                    <div className='w-5/6'>
+                    {children}
+                    </div>  
                 </div>
-                <div className='h-14 flex items-center justify-center text-slate-400 border-t-2 border-neutral-100'>
+                <div className=' h-14 flex items-center justify-center text-slate-400 border-t-2 border-neutral-100'>
                    <div>
                     Copyrigth © OGSIC 2022 
                    </div>
