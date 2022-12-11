@@ -11,9 +11,9 @@ class RolController extends Controller
     
     public function index()
     {
-        return Inertia::render('Auth/Register', [
-            'rols' => Rol::latest()->get()
-        ]);
+        $roles = Rol::pluck('Nombre_Rol', 'ID_Rol');
+        $roles->all();
+        
     }
     
     public function create()
@@ -30,7 +30,7 @@ class RolController extends Controller
     public function show(Rol $rol)
     {
         return view('rols.profile', [
-            'rols' => Rol::findOrFail($rol)
+            'rol' => Rol::findOrFail($rol)
         ]);
     }
 
@@ -50,5 +50,10 @@ class RolController extends Controller
     public function destroy(Rol $rol)
     {
         
+    }
+
+    public function getRol(){
+        $rols = Rol::select('ID_Rol','Nombre_Rol')->get();
+        return $rols;
     }
 }

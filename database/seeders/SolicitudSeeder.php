@@ -20,7 +20,7 @@ class SolicitudSeeder extends Seeder
 
         $solicitud = Solicitud::create([
             'id' => 1,
-            'Fecha_Solicitud'=>'2022-12-06',
+            'Fecha_Solicitud'=>'2022-12-09 17:13:00',
         ]);
         $solicitud = Solicitud::create([
             'id' => 2,

@@ -15,10 +15,10 @@ class AdminEspecificacionEquipoController extends Controller
         
          $search = $request->query('search');
          $espEquipos = Especificacion_Equipo::query()->when($search, fn($query) => 
-         $query->where('Nombre_Tipo_Equipo','LIKE',"%{$search}%")->orWhere('ID_Especificacion_Equipo', 'LIKE', "%{$search}%")
+         $query->where('Nombre_Tipo_Equipo','LIKE',"%{$search}%")->orWhere('Nombre_Uso_Equipo', 'LIKE', "%{$search}%")
           )->with('tipo__equipos','uso__equipos')
         ->join('tipo__equipos','especificacion__equipos.ID_Tipo_Equipo','=','tipo__equipos.ID_Tipo_Equipo')
-        ->join('uso__equipos','especificacion__equipos.ID_Uso_Equipo','=','uso__equipos.ID_Uso_Equipo')->paginate(6);
+        ->join('uso__equipos','especificacion__equipos.ID_Uso_Equipo','=','uso__equipos.ID_Uso_Equipo')->paginate(5);
         
         return Inertia::render('Admin/Equipos/Especificacion_Equipo/Index',[
             'espEquipos' => $espEquipos,

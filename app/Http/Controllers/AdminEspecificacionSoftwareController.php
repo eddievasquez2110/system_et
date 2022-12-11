@@ -15,10 +15,10 @@ class AdminEspecificacionSoftwareController extends Controller
     {
          $search = $request->query('search');
          $espSoftwares = Especificacion_Software::query()->when($search, fn($query) => 
-         $query->where('Nombre_Tipo_Equipo','LIKE',"%{$search}%")->orWhere('ID_Especificacion_Software', 'LIKE', "%{$search}%")
+         $query->where('Nombre_Software','LIKE',"%{$search}%")->orWhere('Nombre_Uso_Equipo', 'LIKE', "%{$search}%")
           )->with('software','uso__equipos')
         ->join('software','especificacion__software.ID_Software','=','software.ID_Software')
-        ->join('uso__equipos','especificacion__software.ID_Uso_Equipo','=','uso__equipos.ID_Uso_Equipo')->paginate(6);
+        ->join('uso__equipos','especificacion__software.ID_Uso_Equipo','=','uso__equipos.ID_Uso_Equipo')->paginate(5);
 
         return Inertia::render('Admin/Softwares/Especificacion_Software/Index',[
             'espSoftwares' => $espSoftwares,
