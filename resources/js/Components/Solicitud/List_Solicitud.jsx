@@ -20,14 +20,14 @@ const List_Solicitud = ({soli}) => {
             <td className="py-4 px-6">
                 <div className='flex flex-col'>
                 {soli.Nombre_Especificacion_Equipo}:
-                ___________________________________________________
+                _________________________
                 </div>
                 {soli.Especificacion_Equipo}
             </td>
             <td className="py-4 px-6">
             <div className='flex flex-col'>
                 {soli.Nombre_Especificacion_Software}:
-                _____________________________
+                ________________________
                 </div>
                 {soli.Especificacion_Software}
             </td>
