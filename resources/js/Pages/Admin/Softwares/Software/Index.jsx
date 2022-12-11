@@ -22,7 +22,7 @@ export default function Index({soft,auth}) {
     return (
         <Navbar auth={auth}>
             <Head title='Software'/>
-            <div className='flex flex-col my-3'>
+            <div className='flex flex-col my-3 '>
                 <div className='flex items-center gap-8 '>
                 <span className='text-slate-500 text-3xl'>Softwares</span>
                 <div className='inline my-2'>
