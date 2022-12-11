@@ -14,7 +14,7 @@ class AdminUsoEquipoController extends Controller
         $search = $request->query('search');
         $usos = Uso_Equipo::query()->when($search, fn($query) => 
         $query->where('Nombre_Uso_Equipo','LIKE',"%{$search}%")->orWhere('ID_Uso_Equipo', 'LIKE', "%{$search}%")
-         )->paginate(6);
+         )->paginate(5);
         return Inertia::render('Admin/Equipos/Uso_Equipo/Index',[
             'usos' => $usos
         ]);

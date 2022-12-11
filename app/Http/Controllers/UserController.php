@@ -23,25 +23,28 @@ class UserController extends Controller
         $this->middleware('soloadmin',['only'=> ['index']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {  
-        $roles = Rol::pluck('Nombre_Rol', 'ID_Rol');
-        $usua = User::with('Rol','Oficina')
+        $search = $request->query('search');
+        $usua = User::query()->when($search, fn($query) => 
+        $query->where('email','LIKE',"%{$search}%")->orWhere('name', 'LIKE', "%{$search}%")
+        )->with('Rol','Oficina')
         ->join('rols','users.ID_Rol','=','rols.ID_Rol')
-        ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')->paginate(6);
+        ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')->paginate(5);
         
         return Inertia::render('Admin/Usuarios/Index',[
             'usua' => $usua,
-            "roles"=> $roles
         ]);
         
     }
     
     public function create()
     {
-        $users = Oficina::get()->last();
+        $ofis = Oficina::all();
+        $rols = Rol::all();
         return Inertia::render('Admin/Usuarios/Create',[
-            'users' => $users
+            'ofis' => $ofis,
+            'rols' => $rols
         ]);
     }
     
@@ -50,19 +53,14 @@ class UserController extends Controller
     
         $request ->validate([
             'ID_Rol'=> 'required',
-            'Nombre_Oficina'=> 'required',
-            'Cargo_Oficina'=> 'required',
+            'ID_Oficina'=> 'required',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', Rules\Password::defaults()],
         ]);
 
         $usua = $request->all();
-        
-        $ofi = Oficina::create([
-            'Nombre_Oficina' => $request->Nombre_Oficina,
-            'Cargo_Oficina' => $request->Cargo_Oficina,
-        ]);
+
         $user = User::create([
             'ID_Rol' => $request->ID_Rol,
             'ID_Oficina' => $request->ID_Oficina,
@@ -70,7 +68,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        event(new Registered($ofi,$user));
+        event(new Registered($user));
         return redirect()->route('d.Usuarios.index');
         
     }

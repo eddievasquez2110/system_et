@@ -14,7 +14,7 @@ class AdminTipoEquipoController extends Controller
         $search = $request->query('search');
         $tipos = Tipo_Equipo::query()->when($search, fn($query) => 
         $query->where('Nombre_Tipo_Equipo','LIKE',"%{$search}%")->orWhere('ID_Tipo_Equipo', 'LIKE', "%{$search}%")
-         )->paginate(6);
+         )->paginate(5);
         return Inertia::render('Admin/Equipos/Tipo_Equipo/Index',[
             'tipos' => $tipos
         ]);
