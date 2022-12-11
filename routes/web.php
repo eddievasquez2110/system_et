@@ -13,8 +13,9 @@ use App\Http\Controllers\SolicitudDetalleController;
 use App\Http\Controllers\AdminReporteController;
 use App\Http\Controllers\AdminSolicitudController;
 use App\Http\Controllers\NotificacionController;
+use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
-use App\Http\Middleware\SoloSuperAdmin;
+
 use App\Models\Rol;
 use Doctrine\DBAL\Schema\Index;
 use Faker\Guesser\Name;
@@ -37,54 +38,70 @@ Route::middleware(['auth', 'verified','solosuperadmin'])->group(function () {
          ->name('reportes.a');
 
          Route::controller(AdminTipoEquipoController::class)->group(function () {
-            Route::get('/superadmin/tipoequipos','index')->name('d.tipoequipos.index');
-            Route::get('/superadmin/tipoequipos/create','create')->name('d.tipoequipos.create');
-            Route::post('/superadmin/tipoequipos/store','store')->name('d.tipoequipos.store');
-            Route::get('/superadmin/tipoequipos/edit/{id}','edit')->name('d.tipoequipos.edit');
-            Route::put('/superadmin/tipoequipos/update/{id}','update')->name('d.tipoequipos.update');
-            Route::delete('/superadmin/tipoequipos/{id}','destroy')->name('d.tipoequipos.destroy');
+            Route::get('/superadmin/tipoequipos','index')->name('s.tipoequipos.index');
+            Route::get('/superadmin/tipoequipos/create','create')->name('s.tipoequipos.create');
+            Route::post('/superadmin/tipoequipos/store','store')->name('s.tipoequipos.store');
+            Route::get('/superadmin/tipoequipos/edit/{id}','edit')->name('s.tipoequipos.edit');
+            Route::put('/superadmin/tipoequipos/update/{id}','update')->name('s.tipoequipos.update');
+            Route::delete('/superadmin/tipoequipos/{id}','destroy')->name('s.tipoequipos.destroy');
       });
   
       Route::controller(AdminSoftwareController::class)->group(function () {
-          Route::get('/dashboard/softwares','index')->name('d.softwares.index');
-          Route::get('/dashboard/softwares/create','create')->name('d.softwares.create');
-          Route::post('/dashboard/softwares/store','store')->name('d.softwares.store');
-          Route::get('/dashboard/softwares/edit/{id}','edit')->name('d.softwares.edit');
-          Route::put('/dashboard/softwares/update/{id}','update')->name('d.softwares.update');
-          Route::delete('/dashboard/softwares/{id}','destroy')->name('d.softwares.destroy');
+          Route::get('/superadmin/softwares','index')->name('s.softwares.index');
+          Route::get('/superadmin/softwares/create','create')->name('s.softwares.create');
+          Route::post('/superadmin/softwares/store','store')->name('s.softwares.store');
+          Route::get('/superadmin/softwares/edit/{id}','edit')->name('s.softwares.edit');
+          Route::put('/superadmin/softwares/update/{id}','update')->name('s.softwares.update');
+          Route::delete('/superadmin/softwares/{id}','destroy')->name('s.softwares.destroy');
       });
+
+      Route::controller(AdminEspecificacionEquipoController::class)->group(function () {
+        Route::get('/superadmin/especificacionequipo','index')->name('s.especificacionequipo.index');
+        Route::get('/superadmin/especificacionequipo/create','create')->name('s.especificacionequipo.create');
+        Route::post('/superadmin/especificacionequipo/store','store')->name('s.especificacionequipo.store');
+        Route::get('/superadmin/especificacionequipo/edit/{id}','edit')->name('s.especificacionequipo.edit');
+        Route::put('/superadmin/especificacionequipo/update/{id}','update')->name('s.especificacionequipo.update');
+        Route::delete('/superadmin/especificacionequipo/{id}','destroy')->name('s.especificacionequipo.destroy');
+    });
   
       Route::controller(AdminEspecificacionSoftwareController::class)->group(function () {
-          Route::get('/dashboard/especificacionsoftware','index')->name('d.especificacionsoftware.index');
-          Route::get('/dashboard/especificacionsoftware/create','create')->name('d.especificacionsoftware.create');
-          Route::post('/dashboard/especificacionsoftware/store','store')->name('d.especificacionsoftware.store');
-          Route::get('/dashboard/especificacionsoftware/edit/{id}','edit')->name('d.especificacionsoftware.edit');
-          Route::put('/dashboard/especificacionsoftware/update/{id}','update')->name('d.especificacionsoftware.update');
-          Route::delete('/dashboard/especificacionsoftware/{id}','destroy')->name('d.especificacionsoftware.destroy');
+          Route::get('/superadmin/especificacionsoftware','index')->name('s.especificacionsoftware.index');
+          Route::get('/superadmin/especificacionsoftware/create','create')->name('s.especificacionsoftware.create');
+          Route::post('/superadmin/especificacionsoftware/store','store')->name('s.especificacionsoftware.store');
+          Route::get('/superadmin/especificacionsoftware/edit/{id}','edit')->name('s.especificacionsoftware.edit');
+          Route::put('/superadmin/especificacionsoftware/update/{id}','update')->name('s.especificacionsoftware.update');
+          Route::delete('/superadmin/especificacionsoftware/{id}','destroy')->name('s.especificacionsoftware.destroy');
       });
   
-  //     Route::get('/dashboard/usoequipos', [AdminUsoEquipoController::class,'index'])
+  //     Route::get('/superadmin/usoequipos', [AdminUsoEquipoController::class,'index'])
   //          ->name('d.usoequipos');
        Route::controller(AdminUsoEquipoController::class)->group(function () {
-            Route::get('/dashboard/usoequipos','index')->name('d.usoequipos.index');
-            Route::get('/dashboard/usoequipos/create','create')->name('d.usoequipos.create');
-            Route::post('/dashboard/usoequipos/store','store')->name('d.usoequipos.store');
-            Route::get('/dashboard/usoequipos/edit','edit')->name('d.usoequipos.edit');
-            Route::put('/dashboard/usoequipos/edit','update')->name('d.usoequipos.update');
-            Route::delete('/dashboard/usoequipos/{id}','destroy')->name('d.usoequipos.destroy');
+            Route::get('/superadmin/usoequipos','index')->name('s.usoequipos.index');
+            Route::get('/superadmin/usoequipos/create','create')->name('s.usoequipos.create');
+            Route::post('/superadmin/usoequipos/store','store')->name('s.usoequipos.store');
+            Route::get('/superadmin/usoequipos/edit','edit')->name('s.usoequipos.edit');
+            Route::put('/superadmin/usoequipos/edit','update')->name('s.usoequipos.update');
+            Route::delete('/superadmin/usoequipos/{id}','destroy')->name('s.usoequipos.destroy');
        });
   
-      Route::get('/dashboard/especificacionequipo', [AdminEspecificacionEquipoController::class,'index'])
-           ->name('d.especificacionequipo');
-      
-      Route::get('/dashboard/softwares', [AdminSoftwareController::class,'index'])
-           ->name('d.softwares');
+       Route::controller(UserController::class)->group(function (){
+        Route::get('/superadmin/Usuario','index')->name('s.Usuarios.index');
+        Route::get('/superadmin/Usuario/create','create')->name('s.Usuarios.create');
+        Route::post('/superadmin/Usuario/store','store')->name('s.Usuarios.store');
+        Route::get('/superadmin/Usuario/edit/{id}','edit')->name('s.Usuarios.edit');
+        Route::put('/superadmin/Usuario/update/{id}','update')->name('s.Usuarios.update');
+        Route::delete('/superadmin/Usuario/{id}','destroy')->name('s.Usuarios.destroy');
+        //Route::get('/superadmin/Usuario/getRol','getRol');
+   });
+
+      Route::get('/superadmin/softwares', [AdminSoftwareController::class,'index'])
+           ->name('s.softwares');
   
-      Route::get('/dashboard/especificacionsoftware', [AdminEspecificacionSoftwareController::class,'index'])
-           ->name('d.especificacionsoftware');
+      Route::get('/superadmin/especificacionsoftware', [AdminEspecificacionSoftwareController::class,'index'])
+           ->name('s.especificacionsoftware');
   
-      Route::get('/dashboard/reportes', [AdminReporteController::class,'index'])
-           ->name('d.reportes');
+      Route::get('/superadmin/reportes', [AdminReporteController::class,'index'])
+           ->name('s.reportes');
 
 });
 
@@ -167,6 +184,7 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
         Route::get('/dashboard/Usuario/edit/{id}','edit')->name('d.Usuarios.edit');
         Route::put('/dashboard/Usuario/update/{id}','update')->name('d.Usuarios.update');
         Route::delete('/dashboard/Usuario/{id}','destroy')->name('d.Usuarios.destroy');
+        //Route::get('/dashboard/Usuario/getRol','getRol');
    });
 
 //     Route::get('/dashboard/especificacionequipo', [AdminEspecificacionEquipoController::class,'index'])
@@ -207,9 +225,14 @@ Route::controller(NotificacionController::class)->group(function (){
      Route::get('/notificaciones','index')->name('notificaciones.index');
      Route::get('/acceso','create')->name('notificaciones.create');
      Route::post('/notificaciones/store','store')->name('notificaciones.store');
-     Route::get('/dashboard/especificacionequipo/edit/{id}','edit')->name('notificaciones.edit');
-     Route::put('/dashboard/especificacionequipo/update/{id}','update')->name('notificaciones.update');
-     Route::delete('/dashboard/especificacionequipo/{id}','destroy')->name('notificaciones.destroy');
+     //Route::post('/notificaciones/show','show')->name('notificaciones.show');
+     Route::delete('/notificaciones/{id}','destroy')->name('notificaciones.destroy');
 });
+
+// Route::group([
+//     'prefix' => 'Usuario'
+// ], function($router){
+//     Route::get('create',[RolController::class,'getRol']);
+// });
 
 require __DIR__.'/auth.php';

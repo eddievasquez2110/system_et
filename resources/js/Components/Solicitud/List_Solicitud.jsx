@@ -1,6 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashCan, faEye} from '@fortawesome/free-solid-svg-icons';
+import dayjs from 'dayjs'
 
 const List_Solicitud = ({soli}) => {
   return (
@@ -24,7 +25,7 @@ const List_Solicitud = ({soli}) => {
                 {soli.Especificacion_Software}
             </td>
             <td className="py-4">
-                {soli.Fecha_Solicitud}
+                {dayjs(soli.created_at).format('DD-MM-YYYY')}
             </td>
             <td className="py-4 px-6">
                 {soli.Estado_Solicitud}

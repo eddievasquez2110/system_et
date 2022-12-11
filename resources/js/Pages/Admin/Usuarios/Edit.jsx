@@ -84,12 +84,8 @@ const Edit = ({auth,usua}) => {
                                                 }
                                                 >
                                                 
-                                                <option value={data.ID_Oficina=1}>Informacion y comunicaciones</option>
-                                                <option value={data.ID_Oficina=2}>Logistica</option>
-                                                <option value={data.ID_Oficina=3}>RR_HH</option>
-                                                <option value={data.ID_Oficina=4}>Contabilidad</option>
-                                                <option value={data.ID_Oficina=5}>Vicerrectorado</option>
-                                                <option value={data.ID_Oficina=6}>Rectorado</option>
+                                                <option value={data.ID_Oficina}>{data.Nombre_Oficina}</option>
+                                                
                                             </select>
                                             <span className="text-red-600">
                                                 {errors.Nombre_Oficina}
@@ -115,18 +111,17 @@ const Edit = ({auth,usua}) => {
                                             <label className="">Rol</label><br />
     
                                             
-                                            <input
-                                                type="text"
-    
-                                                className="w-full px-4 py-2 "
-                                                label="Nombre_Rol"
-                                                name="Nombre_Rol"
-                                                value={data.Nombre_Rol='Usuario'}
+                                            <select 
+                                                id ='rol' 
+                                                name='rol'  
+                                                className='block w-full bg-white border   h-10  py'
+                                                value={data.Nombre_Rol}
                                                 onChange={(e) =>
                                                     setData("Nombre_Rol", e.target.value)
                                                 }
-                                                readOnly
-                                            />
+                                                >
+                                                <option value={data.ID_Rol}>{data.Nombre_Rol}</option>
+                                            </select>
                                             <span className="text-red-600">
                                                 {errors.Nombre_Rol}
                                             </span>

@@ -3,19 +3,16 @@ import Navbar from '@/Layouts/Navbar';
 import { Head, useForm, Link } from '@inertiajs/inertia-react';
 
 
-const Create = ({auth}) => {
+const Create = ({auth,users}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, post, progress} = useForm({
         ID_Rol:"",
         ID_Oficina:"",
-        name:"",        
-        Nombre_Oficina:"",
+        name:"", 
+        Nombre_Oficina:"",       
         Cargo_Oficina:"",
-        Nombre_Rol:"",
         email:"",
         password:"",
-
-
 
     });
 
@@ -24,8 +21,9 @@ function handleSubmit(e){
     post(route('d.Usuarios.store'))
 }
 const onHandleChange = (event) => {
-    setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+    setData(event.target.name, event.target.value);
 };
+
   return (
     <Navbar auth={auth}>
         <Head title='Uso Equipo'/>
@@ -74,22 +72,30 @@ const onHandleChange = (event) => {
                                             }
                                         /> */}
                                         <select 
-                                            id ='oficina' 
-                                            name='oficina'  
-                                            forInput="oficina"
+                                            id ='Nombre_Oficina' 
+                                            label="Nombre_Oficina"
+                                            name='Nombre_Oficina'  
+                                            forInput="Nombre_Oficina"
                                             className='block w-full bg-white border   h-10  py'
-                                            value={data.Nombre_Oficina}
+                    
                                             onChange={(e) =>
-                                                setData("Nombre_Oficina", e.target.value)
+                                                setData('Nombre_Oficina', e.target.value)
                                             }
+                                            
+                                            required
                                             >
                                             
-                                            <option value={data.ID_Oficina=1}>{data.Nombre_Oficina='Informacion y comunicaciones'}</option>
-                                            <option value={data.ID_Oficina=2}>{data.Nombre_Oficina='Logistica'}</option>
-                                            <option value={data.ID_Oficina=3}>{data.Nombre_Oficina='RR_HH'}</option>
-                                            <option value={data.ID_Oficina=4}>{data.Nombre_Oficina='Contabilidad'}</option>
-                                            <option value={data.ID_Oficina=5}>{data.Nombre_Oficina='Vicerrectorado'}</option>
-                                            <option value={data.ID_Oficina=6}>{data.Nombre_Oficina='Rectorado'}</option>
+                                            
+                                            {data.ID_Oficina=users.ID_Oficina+1}
+                                            <option value="" disabled selected='true'>seleccione una oficina</option>
+                                            <option value={setData.Nombre_Oficina='Informacion y comunicaciones'}>Informacion y comunicaciones</option>
+                                            <option value={setData.Nombre_Oficina='Logistica'}>Logistica</option>
+                                            <option value={setData.Nombre_Oficina='RR_HH'}>RR_HH</option>
+                                            <option value={setData.Nombre_Oficina='Contabilidad'}>Contabilidad</option>
+                                            <option value={setData.Nombre_Oficina='Vicerrectorado'}>Vicerrectorado</option>
+                                            <option value={setData.Nombre_Oficina='Rectorado'}>Rectorado</option>
+
+                                            
                                         </select>
                                         <span className="text-red-600">
                                             {errors.Nombre_Oficina}
@@ -97,43 +103,56 @@ const onHandleChange = (event) => {
                                     </div>
                                     <div className="mb-4">
                                         <label className="">Cargo</label>
-                                        <input
-                                            type="text"
-                                            className="w-full px-4 py-2 text-gray-500"
+                                        <select 
+                                            id ='Cargo_Oficina' 
                                             label="Cargo_Oficina"
-                                            name="Cargo_Oficina"
-                                            value={data.Cargo_Oficina}
+                                            name='Cargo_Oficina'  
+                                            forInput="Cargo_Oficina"
+                                            className='block w-full bg-white border   h-10  py'
+                                            
                                             onChange={(e) =>
-                                                setData("Cargo_Oficina", e.target.value)
+                                                setData('Cargo_Oficina', e.target.value)
                                             }
-                                        /> 
+                                            required
+                                            >
+                                            
+                                            <option value="" disabled selected='true'>seleccione una oficina</option>
+                                            <option value={setData.Cargo_Oficina='jefe'}>Jefe</option>
+                                            <option value={setData.Cargo_Oficina='Secretaria'}>Secretaria</option>
+                                            <option value={setData.Cargo_Oficina='Asistente'}>Asistente</option>
+                                            <option value={setData.Cargo_Oficina='Practicante'}>Practicante</option>
+                                        </select>
                                         <span className="text-red-600">
                                             {errors.Cargo_Oficina}
                                         </span>
                                     </div>
                                     <div className="mb-4">
-                                        <label className="">Rol</label><br />
+                                        <label className="rol">Rol</label><br />
 
-                                        
                                         <select
-                                            id ='rol' 
-                                            name='rol'  
+                                            id ='ID_Rol' 
+                                            name='ID_Rol'  
                                             className='block w-full bg-white border   h-10  py'
-                                            value={data.Nombre_Rol}
+                                            label="ID_Rol"
+                                            forInput="ID_Rol"
                                             onChange={(e) =>
-                                                setData("Nombre_Rol", e.target.value)
+                                                setData('ID_Rol', e.target.value)
                                             }
+                                            required
                                         >
-                                            <option value={data.ID_Rol=3}>{data.Nombre_Rol='Usuario'}</option>
+                                            <option value="" disabled selected='true'>seleccione un rol</option>
+                                            <option value={setData.ID_Rol=3}>Usuario</option>
+                                            <option value={setData.ID_Rol=2}>Administrador</option>
+                                            <option value={setData.ID_Rol=1}>Super Administrador</option>
                                         </select>
                                         <span className="text-red-600">
-                                            {errors.Nombre_Rol}
+                                            {errors.ID_Rol}
                                         </span>
                                     </div>
                                     <div className="mb-4">
                                         <label className="">Email</label>
                                         <input
-                                            type="text"
+                                            type="email"
                                             className="w-full px-4 py-2 text-gray-500"
                                             label="email"
                                             name="email"
@@ -156,7 +175,7 @@ const onHandleChange = (event) => {
                                             // autoComplete="new-password"
                                             handleChange={onHandleChange}
                                             required
-                                            type="text"
+                                            type="password"
                                             className="w-full px-4 py-2 text-gray-500"
                                             label="password"
                                             name="password"

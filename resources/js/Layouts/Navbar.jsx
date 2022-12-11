@@ -8,6 +8,8 @@ import Dropdown from '@/Components/Dropdown';
 import { Inertia } from '@inertiajs/inertia';
 
 import Swal from 'sweetalert2';
+import NumeroNotificacion from '@/Components/Notificaciones/NumeroNotificacion';
+import List_Notificacion from '@/Components/Notificaciones/List_Notificacion';
 
 const Navbar = ({auth,children}) => {
     const [show,setShow] = useState(false);
@@ -56,10 +58,11 @@ const Navbar = ({auth,children}) => {
                     <img src={"/images/Logo/Logo.png"} style={open ?{width:'75px'}:{width:'35px'}} alt="" />
                     </div>
                     <div className="grow ml-3 " style={open ? styleOpen : styleClose}>
-                    <p className="text-sm font-semibold text-white">Sistema de <br />Especificaciones</p>
+                    <p className="text-sm font-semibold text-white">UNCP SISTEMA EETT</p>
                     </div>
                 </div>
                 </a>
+                <br></br>
             </div>
             </div>
             <div onClick={() => setOpen(!open ) || setOpen1(!open1)} className='absolute w-10 h-10 text-lg text-white cursor-pointer inset-y-1/2 -right-3 flex items-center justify-center rounded-full bg-green-800'>
@@ -154,45 +157,59 @@ const Navbar = ({auth,children}) => {
                     <div className='text-slate-400'>
                         Hola bienvenido al modo {auth.user.name}
                     </div>
-                    <div className='flex flex-row'>
-                    <div className='place-items-end mt-2 mr-5 text-green-500'>
-                        <FontAwesomeIcon className="h-5 w-10"  icon={faBell} />
-                    </div>
-                    <div className='rounded-md px-2 font-bold text-slate-200 text-md border border-green-500'>
-                    <Dropdown>
-                        <Dropdown.Trigger>
+                    <div className='flex flex-row gap-6'>
+                        <div className='rounded-md px-2 font-bold text-slate-200 text-md '>
                             <span className="inline-flex rounded-md">
-                                            
+                                <Link href={route('notificaciones.index')}>
                                 <button
                                     type="button"
-                                    className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                    className="relative inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                 >
-                                    <FontAwesomeIcon className="h-5 w-10"  icon={faUser} />{auth.user.name.toUpperCase()}
-
-                                    <svg
-                                        className="ml-2 -mr-0.5 h-4 w-4"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
+                                    <FontAwesomeIcon className="h-5 w-10"  icon={faBell} />
+                                    <span className='absolute -top-0 right-2 bg-yellow-300 py-0.3 px-[5px] box-content text-black rounded-full text-[8px] font-bold'>
+                                        .
+                                    </span>
+                                
                                 </button>
+                                </Link>
                             </span>
-                        </Dropdown.Trigger>
-                        <Dropdown.Content>
-                            
-                            <Link onClick={alertLogout} as="button" className='block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-red-200 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'>
-                                Cerrar Sesión
-                            </Link>
+                        </div>
                         
-                        </Dropdown.Content>
-                    </Dropdown>
-                    </div>
+                        <div className='rounded-md px-2 font-bold text-slate-200 text-md border border-green-500'>
+                        <Dropdown>
+                            <Dropdown.Trigger>
+                                <span className="inline-flex rounded-md">
+                                                
+                                    <button
+                                        type="button"
+                                        className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                    >
+                                        <FontAwesomeIcon className="h-5 w-10"  icon={faUser} />{auth.user.name.toUpperCase()}
+
+                                        <svg
+                                            className="ml-2 -mr-0.5 h-4 w-4"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                    </button>
+                                </span>
+                            </Dropdown.Trigger>
+                            <Dropdown.Content>
+                                
+                                <Link onClick={alertLogout} as="button" className='block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-red-200 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'>
+                                    Cerrar Sesión
+                                </Link>
+                            
+                            </Dropdown.Content>
+                        </Dropdown>
+                        </div>
                     </div>
                 </div>
                 <div className='flex  justify-center bg-slate-100 overflow-y-auto ' style={{height:'calc(100% - 112px)'}}>

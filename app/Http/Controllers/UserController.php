@@ -25,28 +25,33 @@ class UserController extends Controller
 
     public function index()
     {  
+        $roles = Rol::pluck('Nombre_Rol', 'ID_Rol');
         $usua = User::with('Rol','Oficina')
         ->join('rols','users.ID_Rol','=','rols.ID_Rol')
         ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')->paginate(6);
         
         return Inertia::render('Admin/Usuarios/Index',[
             'usua' => $usua,
+            "roles"=> $roles
         ]);
         
     }
     
     public function create()
     {
-        return Inertia::render('Admin/Usuarios/Create');
+        $users = Oficina::get()->last();
+        return Inertia::render('Admin/Usuarios/Create',[
+            'users' => $users
+        ]);
     }
     
     public function store(Request $request)
     {
     
         $request ->validate([
-            'Nombre_Rol'=> 'required',
-            'Cargo_Oficina'=> 'required',
+            'ID_Rol'=> 'required',
             'Nombre_Oficina'=> 'required',
+            'Cargo_Oficina'=> 'required',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', Rules\Password::defaults()],
@@ -54,8 +59,10 @@ class UserController extends Controller
 
         $usua = $request->all();
         
-        Rol::create($usua);
-        Oficina::create($usua);
+        $ofi = Oficina::create([
+            'Nombre_Oficina' => $request->Nombre_Oficina,
+            'Cargo_Oficina' => $request->Cargo_Oficina,
+        ]);
         $user = User::create([
             'ID_Rol' => $request->ID_Rol,
             'ID_Oficina' => $request->ID_Oficina,
@@ -63,9 +70,9 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        event(new Registered($user));
+        event(new Registered($ofi,$user));
         return redirect()->route('d.Usuarios.index');
-        Auth::login($user);
+        
     }
 
     
@@ -79,7 +86,7 @@ class UserController extends Controller
     
     public function edit($id)
     {
-        $usua = User::with('rol','oficina')
+        $usua = User::with('Rol','Oficina')
         ->join('rols','users.ID_Rol','=','rols.ID_Rol')
         ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')->where('id',$id)->first();
         
@@ -125,5 +132,10 @@ class UserController extends Controller
     {
         User::where('id',$id)->delete();
         return redirect()->route('d.Usuarios.index');
+    }
+
+    public function getRol(){
+        $usua = Rol::select('ID_Rol','Nombre_Rol')->get();
+        return $usua;
     }
 }

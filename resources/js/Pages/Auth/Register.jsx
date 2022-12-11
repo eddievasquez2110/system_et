@@ -30,7 +30,7 @@ export default function Register({rols}) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('register'));
+        post(route('registro'));
     };
 
     return (
