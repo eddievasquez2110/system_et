@@ -69,7 +69,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         event(new Registered($user));
-        return redirect()->route('d.Usuarios.index');
+        return redirect()->route('d.usuarios.index');
         
     }
 
@@ -122,14 +122,14 @@ class UserController extends Controller
            'password' => $usua['password'],
        ]);
 
-       return redirect()->route('d.Usuarios.index');
+       return redirect()->route('d.usuarios.index');
     }
 
     
     public function destroy($id)
     {
         User::where('id',$id)->delete();
-        return redirect()->route('d.Usuarios.index');
+        return redirect()->route('d.usuarios.index');
     }
 
     public function getRol(){
