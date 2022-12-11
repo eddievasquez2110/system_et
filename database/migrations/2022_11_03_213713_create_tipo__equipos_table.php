@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('ID_Tipo_Equipo');
             $table->string('Nombre_Tipo_Equipo');
             $table->string('Imagen');
+            $table->string('Editor_Equipo');
             $table->timestamps();
         });
     }

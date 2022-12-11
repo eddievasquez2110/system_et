@@ -20,7 +20,7 @@ export default function Index({tipos,auth}) {
     console.log(query);
 
     return (
-        <Navbar auth={auth}>
+        <AuthenticatedLayout auth={auth}>
             <Head title='Tipo Equipo'/>
             <div className='flex flex-col my-3'>
                 <div className='flex items-center gap-8 '>
@@ -28,7 +28,7 @@ export default function Index({tipos,auth}) {
                 <div className='inline my-2'>
                     <Link
                         className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
-                        href={route("d.tipoequipos.create")}
+                        href={route("d.userequipos.create")}
                         >
                         Nuevo
                     </Link>
@@ -72,9 +72,6 @@ export default function Index({tipos,auth}) {
                                 Accion
                                 </div>
                             </th>
-                            <th scope="col" className="py-2 px-4" style={{borderRight: '1px solid white'}}>
-                                Editor
-                            </th>
                             
                         </tr>
                     </thead>
@@ -92,6 +89,8 @@ export default function Index({tipos,auth}) {
                 </table>
             </div>
             <Pagination className="mt-2" links={tipos.links} />
-        </Navbar>
+            
+        </AuthenticatedLayout>
+
     );
 }
