@@ -3,14 +3,13 @@ import Navbar from '@/Layouts/Navbar';
 import { Head, useForm, Link } from '@inertiajs/inertia-react';
 
 
-const Create = ({auth,users}) => {
+
+const Create = ({auth,users,ofis,rols}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, post, progress} = useForm({
         ID_Rol:"",
         ID_Oficina:"",
-        name:"", 
-        Nombre_Oficina:"",       
-        Cargo_Oficina:"",
+        name:"",        
         email:"",
         password:"",
 
@@ -76,27 +75,28 @@ const onHandleChange = (event) => {
                                             label="Nombre_Oficina"
                                             name='Nombre_Oficina'  
                                             forInput="Nombre_Oficina"
-                                            className='block w-full bg-white border   h-10  py'
+                                            className='block w-full bg-white border h-10 '
                     
                                             onChange={(e) =>
-                                                setData('Nombre_Oficina', e.target.value)
+                                                setData('ID_Oficina', e.target.value)
                                             }
                                             
                                             required
                                             >
                                             
-                                            
-                                            {data.ID_Oficina=users.ID_Oficina+1}
                                             <option value="" disabled selected='true'>seleccione una oficina</option>
-                                            <option value={setData.Nombre_Oficina='Informacion y comunicaciones'}>Informacion y comunicaciones</option>
-                                            <option value={setData.Nombre_Oficina='Logistica'}>Logistica</option>
-                                            <option value={setData.Nombre_Oficina='RR_HH'}>RR_HH</option>
-                                            <option value={setData.Nombre_Oficina='Contabilidad'}>Contabilidad</option>
-                                            <option value={setData.Nombre_Oficina='Vicerrectorado'}>Vicerrectorado</option>
-                                            <option value={setData.Nombre_Oficina='Rectorado'}>Rectorado</option>
-
+                                             
+                                            
+                                            {
+                                            ofis.map(ofi => {
+                                                return(
+                                                    <option value={setData.ID_Oficina=ofi.ID_Oficina}>{ofi.Nombre_Oficina}</option>
+                                                )
+                                            })
+                                            }
                                             
                                         </select>
+                                            
                                         <span className="text-red-600">
                                             {errors.Nombre_Oficina}
                                         </span>
@@ -108,7 +108,7 @@ const onHandleChange = (event) => {
                                             label="Cargo_Oficina"
                                             name='Cargo_Oficina'  
                                             forInput="Cargo_Oficina"
-                                            className='block w-full bg-white border   h-10  py'
+                                            className='block w-full bg-white border h-10 py'
                                             
                                             onChange={(e) =>
                                                 setData('Cargo_Oficina', e.target.value)
@@ -116,11 +116,15 @@ const onHandleChange = (event) => {
                                             required
                                             >
                                             
-                                            <option value="" disabled selected='true'>seleccione una oficina</option>
-                                            <option value={setData.Cargo_Oficina='jefe'}>Jefe</option>
-                                            <option value={setData.Cargo_Oficina='Secretaria'}>Secretaria</option>
-                                            <option value={setData.Cargo_Oficina='Asistente'}>Asistente</option>
-                                            <option value={setData.Cargo_Oficina='Practicante'}>Practicante</option>
+                                            <option value="" disabled selected='true'>seleccione el cargo</option>
+                                            {
+                                            ofis.map(ofi => {
+                                                return(
+                                                    <option key={ofi.ID_Oficina} ofi={ofi.Nombre_Oficina}>{ofi.Cargo_Oficina}</option>
+                                                )
+                                            })
+                                            }
+                                            
                                         </select>
                                         <span className="text-red-600">
                                             {errors.Cargo_Oficina}
@@ -141,9 +145,18 @@ const onHandleChange = (event) => {
                                             required
                                         >
                                             <option value="" disabled selected='true'>seleccione un rol</option>
-                                            <option value={setData.ID_Rol=3}>Usuario</option>
-                                            <option value={setData.ID_Rol=2}>Administrador</option>
-                                            <option value={setData.ID_Rol=1}>Super Administrador</option>
+                                            {
+                                                rols.map( rol => {
+                                                    return (
+                                                        <option value={setData.ID_Rol=rol.ID_Rol}>{rol.Nombre_Rol}</option>
+                                                        
+                                                    )
+                                                    
+                                                    
+                                                })
+                                                
+                                            }
+                                            
                                         </select>
                                         <span className="text-red-600">
                                             {errors.ID_Rol}

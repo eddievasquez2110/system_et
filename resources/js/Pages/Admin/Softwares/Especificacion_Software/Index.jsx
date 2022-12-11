@@ -51,13 +51,11 @@ export default function EspecificacionSoftware({espSoftwares,auth}) {
                     </div>
                 </div>
             </div>
-            <div className="overflow-x-auto  relative shadow-md sm:rounded-lg">
+            <div className="overflow-x-auto  relative shadow-md sm:rounded-lg mt-5">
                 <table className="w-full text-sm text-left text-gray-500 ">
                     <thead className="text-xs text-white uppercase bg-green-700">
                         <tr>
-                            <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
-                                ID
-                            </th>
+                        
                             <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
                                 Software
                             </th>

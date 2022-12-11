@@ -48,7 +48,7 @@ const Solicitud = ({auth,softwares}) => {
                               />
                             </div>
                           
-                          <div className='flex flex-wrap justify-between gap-5'>
+                          <div className='flex flex-wrap justify-center gap-5'>
                           {
                                 softwares.map(software =>
                                     <Software key={software.ID_Software} software={software}/>
