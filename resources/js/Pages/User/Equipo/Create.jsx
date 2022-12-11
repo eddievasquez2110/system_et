@@ -7,7 +7,7 @@ const Create = ({auth}) => {
     const {data, setData, errors, post, progress} = useForm({
         Nombre_Tipo_Equipo:"",
         Imagen: null,
-        Editor_Equipo:""
+        Editor_Equipo:auth.user.name.toUpperCase()
     });
     console.log(data);
     const onSelectedFile = (e) =>{
@@ -85,22 +85,7 @@ function handleSubmit(e){
                                         </span>
                                     </div>
 
-                                    <div className="mb-4">
-                                        <label className="">Agregado por: </label>
-                                        <input
-                                            type="text"
-                                            className="w-full px-4 py-2 text-gray-500"
-                                            label="editor_equipo"
-                                            name="editor_equipo"
-                                            value={data.Editor_Equipo}
-                                            onChange={(e) =>
-                                                setData("Editor_Equipo", auth.user.name.toUpperCase())
-                                            }
-                                        />
-                                        <span className="text-red-600">
-                                            {errors.Editor_Equipo}
-                                        </span>
-                                    </div>    
+                                        
                                 </div>
                                 {progress && (
                                   <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
