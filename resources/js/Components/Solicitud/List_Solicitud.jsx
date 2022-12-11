@@ -7,13 +7,20 @@ const List_Solicitud = ({soli}) => {
   return (
     
       <tr className="bg-white border-b">
-            <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                {soli.ID_Solicitud_Detalle}
-            </th>
+            <td className="py-4 px-6">
+                <div className='flex flex-col'>
+                    {soli.name}
+                </div>
+            </td>
+            <td className="py-4 px-6">
+                <div className='flex flex-col'>
+                    {soli.Nombre_Oficina}
+                </div>
+            </td>
             <td className="py-4 px-6">
                 <div className='flex flex-col'>
                 {soli.Nombre_Especificacion_Equipo}:
-                _____________________________
+                ___________________________________________________
                 </div>
                 {soli.Especificacion_Equipo}
             </td>

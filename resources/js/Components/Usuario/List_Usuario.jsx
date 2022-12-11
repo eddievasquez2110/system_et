@@ -31,9 +31,7 @@ const List_Usuario = ({usua}) => {
     return (
     
       <tr className="bg-white border-b">
-            <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                {usua.id}
-            </th>
+            
             <td className="py-4 px-6">
                 {usua.name}
             </td>
@@ -49,6 +47,7 @@ const List_Usuario = ({usua}) => {
             <td className="py-4 px-6">
                 {usua.email}
             </td>
+      
             <td className="flex gap-3 justify-center py-3 text-right ">
                 <div className='flex align-center justify-center gap-4'>
                     

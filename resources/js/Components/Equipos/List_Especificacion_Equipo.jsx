@@ -32,9 +32,6 @@ const List_Especificacion_Equipo = ({espEquipo}) => {
     return (
     
       <tr className="bg-white border-b">
-            <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                {espEquipo.ID_Especificacion_Equipo}
-            </th>
             <td className="py-4 px-6">
                 {espEquipo.Nombre_Tipo_Equipo}
             </td>
