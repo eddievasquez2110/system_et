@@ -66,6 +66,9 @@ const List_Tipo_Equipo = ({tipo}) => {
                     </div>
                 </div>
             </td>
+            <td className="px-4 py-2">
+                {tipo.Editor_Equipo}
+            </td>
     </tr>
   )
 }

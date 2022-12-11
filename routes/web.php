@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminEspecificacionSoftwareController;
 use App\Http\Controllers\AdminTipoEquipoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\TipoEquipoController;
+use App\Http\Controllers\UserTipoEquipoController;
 use App\Http\Controllers\SoftwareController;
 use App\Http\Controllers\AdminUsoEquipoController;
 use App\Http\Controllers\InfoSoftwareController;
@@ -271,6 +272,12 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
 
     Route::get('/infosoft', [InfoSoftwareController::class,'index'])
         ->name('infosoft');
+    
+    Route::controller(UserTipoEquipoController::class)->group(function () {
+        Route::get('/user/equipos','index')->name('d.userequipos.index');
+        Route::get('/user/equipos/create','create')->name('d.userequipos.create');
+        Route::post('/user/equipos/store','store')->name('d.userequipos.store');
+    });
     
 });
 
