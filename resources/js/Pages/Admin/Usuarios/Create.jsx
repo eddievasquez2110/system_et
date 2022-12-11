@@ -17,7 +17,7 @@ const Create = ({auth,users,ofis,rols}) => {
 
 function handleSubmit(e){
     e.preventDefault();
-    post(route('d.Usuarios.store'))
+    post(route('d.usuarios.store'))
 }
 const onHandleChange = (event) => {
     setData(event.target.name, event.target.value);
@@ -34,7 +34,7 @@ const onHandleChange = (event) => {
                             <div className="flex items-center justify-between mb-6">
                                 <Link
                                     className="px-6 py-2 text-white bg-blue-500 rounded-md focus:outline-none"
-                                    href={ route("d.Usuarios.index") }
+                                    href={ route("d.usuarios.index") }
                                 >
                                     Regresar
                                 </Link>

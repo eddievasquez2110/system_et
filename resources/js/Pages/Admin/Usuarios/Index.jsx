@@ -27,7 +27,7 @@ export default function Index({usua,auth}) {
                     <div className='inline my-2'>
                     <Link
                         className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
-                        href={route("d.Usuarios.create")}
+                        href={route("d.usuarios.create")}
                         >
                         Nuevo
                     </Link>

@@ -16,7 +16,7 @@ const Edit = ({auth,usua}) => {
     //console.log(usos[0].ID_Uso_Equipo);
     function handleSubmit(e) {
         e.preventDefault();
-        Inertia.post(route('d.Usuarios.update',`${usua.id}`),{
+        Inertia.post(route('d.usuarios.update',`${usua.id}`),{
             _method: 'put',
             Nombre_Oficina:usua.Nombre_Oficina,
             Cargo_Oficina:usua.Cargo_Oficina,
@@ -38,7 +38,7 @@ const Edit = ({auth,usua}) => {
                                 <div className="flex items-center justify-between mb-6">
                                     <Link
                                         className="px-6 py-2 text-white bg-blue-500 rounded-md focus:outline-none"
-                                        href={ route("d.Usuarios.index") }
+                                        href={ route("d.usuarios.index") }
                                     >
                                         Regresar
                                     </Link>

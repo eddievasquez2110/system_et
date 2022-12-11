@@ -12,12 +12,7 @@ export default function Index({solis,auth}) {
                 <div className='flex items-center gap-8 '>
                 <span className='text-slate-500 text-3xl'>Solicitudes</span>
                 <div className='inline my-2'>
-                    {/* <Link
-                        className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
-                        href={route("d.tipoequipos.create")}
-                        >
-                        Nuevo
-                    </Link> */}
+                    
                 </div>
                 </div>
                 <div className='flex mt-2  items-center justify-between'>

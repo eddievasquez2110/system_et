@@ -92,13 +92,50 @@ Route::middleware(['auth', 'verified','solosuperadmin'])->group(function () {
         Route::put('/superadmin/Usuario/update/{id}','update')->name('s.Usuarios.update');
         Route::delete('/superadmin/Usuario/{id}','destroy')->name('s.Usuarios.destroy');
         //Route::get('/superadmin/Usuario/getRol','getRol');
-   });
+        });
 
-      Route::get('/superadmin/softwares', [AdminSoftwareController::class,'index'])
-           ->name('s.softwares');
-  
-      Route::get('/superadmin/especificacionsoftware', [AdminEspecificacionSoftwareController::class,'index'])
-           ->name('s.especificacionsoftware');
+        Route::controller(RolController::class)->group(function (){
+            Route::get('/dashboard/roles','index')->name('s.roles.index');
+            Route::get('/dashboard/roles/create','create')->name('s.roles.create');
+            Route::post('/dashboard/roles/store','store')->name('s.roles.store');
+            Route::get('/dashboard/roles/edit/{id}','edit')->name('s.roles.edit');
+            Route::put('/dashboard/roles/update/{id}','update')->name('s.roles.update');
+            Route::delete('/dashboard/roles/{id}','destroy')->name('s.roles.destroy');
+        });
+        Route::controller(OficinaController::class)->group(function (){
+            Route::get('/dashboard/oficinas','index')->name('s.oficinas.index');
+            Route::get('/dashboard/oficinas/create','create')->name('s.oficinas.create');
+            Route::post('/dashboard/oficinas/store','store')->name('s.oficinas.store');
+            Route::get('/dashboard/oficinas/edit/{id}','edit')->name('s.oficinas.edit');
+            Route::put('/dashboard/oficinas/update/{id}','update')->name('s.oficinas.update');
+            Route::delete('/dashboard/oficinas/{id}','destroy')->name('s.oficinas.destroy');
+        });
+        Route::controller(UserController::class)->group(function (){
+            Route::get('/dashboard/usuarios','index')->name('s.usuarios.index');
+            Route::get('/dashboard/usuarios/create','create')->name('s.usuarios.create');
+            Route::post('/dashboard/usuarios/store','store')->name('s.usuarios.store');
+            Route::get('/dashboard/usuarios/edit/{id}','edit')->name('s.usuarios.edit');
+            Route::put('/dashboard/usuarios/update/{id}','update')->name('s.usuarios.update');
+            Route::delete('/dashboard/usuarios/{id}','destroy')->name('s.usuarios.destroy');
+        });
+
+        Route::controller(AdminSoftwareController::class)->group(function () {
+            Route::get('/dashboard/softwares','index')->name('s.softwares.index');
+            Route::get('/dashboard/softwares/create','create')->name('s.softwares.create');
+            Route::post('/dashboard/softwares/store','store')->name('s.softwares.store');
+            Route::get('/dashboard/softwares/edit/{id}','edit')->name('s.softwares.edit');
+            Route::put('/dashboard/softwares/update/{id}','update')->name('s.softwares.update');
+            Route::delete('/dashboard/softwares/{id}','destroy')->name('s.softwares.destroy');
+        });
+    
+        Route::controller(AdminEspecificacionSoftwareController::class)->group(function () {
+            Route::get('/dashboard/especificacionsoftware','index')->name('s.especificacionsoftware.index');
+            Route::get('/dashboard/especificacionsoftware/create','create')->name('s.especificacionsoftware.create');
+            Route::post('/dashboard/especificacionsoftware/store','store')->name('s.especificacionsoftware.store');
+            Route::get('/dashboard/especificacionsoftware/edit/{id}','edit')->name('s.especificacionsoftware.edit');
+            Route::put('/dashboard/especificacionsoftware/update/{id}','update')->name('s.especificacionsoftware.update');
+            Route::delete('/dashboard/especificacionsoftware/{id}','destroy')->name('s.especificacionsoftware.destroy');
+        });
   
       Route::get('/superadmin/reportes', [AdminReporteController::class,'index'])
            ->name('s.reportes');
@@ -177,15 +214,31 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
           Route::put('/dashboard/especificacionequipo/update/{id}','update')->name('d.especificacionequipo.update');
           Route::delete('/dashboard/especificacionequipo/{id}','destroy')->name('d.especificacionequipo.destroy');
      });
-     Route::controller(UserController::class)->group(function (){
-        Route::get('/dashboard/Usuario','index')->name('d.Usuarios.index');
-        Route::get('/dashboard/Usuario/create','create')->name('d.Usuarios.create');
-        Route::post('/dashboard/Usuario/store','store')->name('d.Usuarios.store');
-        Route::get('/dashboard/Usuario/edit/{id}','edit')->name('d.Usuarios.edit');
-        Route::put('/dashboard/Usuario/update/{id}','update')->name('d.Usuarios.update');
-        Route::delete('/dashboard/Usuario/{id}','destroy')->name('d.Usuarios.destroy');
-        //Route::get('/dashboard/Usuario/getRol','getRol');
-   });
+     
+    Route::controller(RolController::class)->group(function (){
+        Route::get('/dashboard/roles','index')->name('d.roles.index');
+        Route::get('/dashboard/roles/create','create')->name('d.roles.create');
+        Route::post('/dashboard/roles/store','store')->name('d.roles.store');
+        Route::get('/dashboard/roles/edit/{id}','edit')->name('d.roles.edit');
+        Route::put('/dashboard/roles/update/{id}','update')->name('d.roles.update');
+        Route::delete('/dashboard/roles/{id}','destroy')->name('d.roles.destroy');
+    });
+    Route::controller(OficinaController::class)->group(function (){
+        Route::get('/dashboard/oficinas','index')->name('d.oficinas.index');
+        Route::get('/dashboard/oficinas/create','create')->name('d.oficinas.create');
+        Route::post('/dashboard/oficinas/store','store')->name('d.oficinas.store');
+        Route::get('/dashboard/oficinas/edit/{id}','edit')->name('d.oficinas.edit');
+        Route::put('/dashboard/oficinas/update/{id}','update')->name('d.oficinas.update');
+        Route::delete('/dashboard/oficinas/{id}','destroy')->name('d.oficinas.destroy');
+    });
+    Route::controller(UserController::class)->group(function (){
+        Route::get('/dashboard/usuarios','index')->name('d.usuarios.index');
+        Route::get('/dashboard/usuarios/create','create')->name('d.usuarios.create');
+        Route::post('/dashboard/usuarios/store','store')->name('d.usuarios.store');
+        Route::get('/dashboard/usuarios/edit/{id}','edit')->name('d.usuarios.edit');
+        Route::put('/dashboard/usuarios/update/{id}','update')->name('d.usuarios.update');
+        Route::delete('/dashboard/usuarios/{id}','destroy')->name('d.usuarios.destroy');
+    });
 
 //     Route::get('/dashboard/especificacionequipo', [AdminEspecificacionEquipoController::class,'index'])
 //          ->name('d.especificacionequipo');
