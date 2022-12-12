@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2'
 import { Link } from '@inertiajs/inertia-react';
+import dayjs from 'dayjs'
 import { Inertia } from '@inertiajs/inertia';
 
-const List_Especificacion_Equipo = ({espEquipo}) => {
-    
+
+const List_Notificacion = ({noti,countNoti}) => {
     function destroy(e){
         const id = e.currentTarget.id;
         Swal.fire({
@@ -25,42 +26,37 @@ const List_Especificacion_Equipo = ({espEquipo}) => {
               'Eliminaste el registro.',
               'success'
             )
-            Inertia.delete(route("d.especificacionequipo.destroy",id));
+            Inertia.delete(route("notificaciones.destroy",id));
           }
         })
     }
+  
     return (
-    
       <tr className="bg-white border-b">
             <td className="py-4 px-6">
-                {espEquipo.Nombre_Tipo_Equipo}
+                {noti.Nombre_User}
             </td>
             <td className="py-4 px-6">
-                {espEquipo.Nombre_Uso_Equipo}
+                {noti.Email_User}
             </td>
             <td className="py-4 px-6">
-                {espEquipo.Nombre_Especificacion_Equipo}
+                {noti.Asunto_User}
             </td>
             <td className="py-4 px-6">
-                {espEquipo.Especificacion_Equipo}
+                {noti.Mensaje_User}
             </td>
+            <td className="py-4 px-6">
+                {dayjs(noti.created_at).format('DD-MM-YYYY')}
+            </td>
+            
             <td className="flex gap-3 justify-center py-3 text-right ">
                 <div className='flex align-center justify-center gap-4'>
-                    
-                    <div className='font-medium text-blue-500 pt-2'>
-                      <Link
-                          tabIndex="1"
-                          className="bg-blue-100 px-5 py-2 rounded-md hover:bg-blue-700 hover:text-white"
-                          href={route("d.especificacionequipo.edit",`${espEquipo.ID_Especificacion_Equipo}`)}
-                          ><FontAwesomeIcon className="h-4 w-5 "  icon={faEdit} />
-                      </Link>
-                    </div>
 
                     <div className='font-medium text-red-500 ' >
                         <button
                             onClick={destroy}
                             tabIndex="-1"
-                            id={espEquipo.ID_Especificacion_Equipo}
+                            id={noti.id}
                             className="bg-red-100 px-5 py-2 rounded-md hover:bg-red-700 hover:text-white"
                             type="button"
                             > <FontAwesomeIcon className="h-4 w-5 "  icon={faTrashCan} />      
@@ -72,4 +68,4 @@ const List_Especificacion_Equipo = ({espEquipo}) => {
   )
 }
 
-export default List_Especificacion_Equipo
+export default List_Notificacion

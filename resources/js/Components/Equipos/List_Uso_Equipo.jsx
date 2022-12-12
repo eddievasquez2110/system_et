@@ -31,9 +31,6 @@ const List_Uso_Equipo = ({uso}) => {
   
     return (
       <tr className="bg-white border-b ">
-            <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                {uso.ID_Uso_Equipo}
-            </th>
             <td className="py-4 px-6">
                 {uso.Nombre_Uso_Equipo}
             </td>

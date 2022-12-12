@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import Navbar from '@/Layouts/Navbar';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
-import List_Uso_Equipo from '@/Components/Equipos/List_Uso_Equipo';
+import List_Usuario from '@/Components/Usuario/List_Usuario';
 import { Inertia } from '@inertiajs/inertia';
 
-export default function Index({usos,auth}) {
-
+export default function Index({usua,auth}) {
     const [query,setQuery]= useState('');
     const search = (e) => {
         Inertia.get(route(route().current()),
@@ -21,18 +20,18 @@ export default function Index({usos,auth}) {
 
     return (
         <Navbar auth={auth}>
-            <Head title='Uso Equipo'/>
+            <Head title='Admin'/>
             <div className='flex flex-col my-3'>
                 <div className='flex items-center gap-8 '>
-                <span className='text-slate-500 text-3xl'>Usos de Equipos</span>
-                <div className='inline my-2'>
+                    <span className='text-slate-500 text-3xl'>USUARIOS</span>
+                    <div className='inline my-2'>
                     <Link
                         className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
-                        href={route("d.usoequipos.create")}
+                        href={route("d.usuarios.create")}
                         >
                         Nuevo
                     </Link>
-                </div>
+                    </div>
                 </div>
                 <div className='flex mt-2  items-center justify-between'>
                     <div className='flex items-center text-slate-500'>
@@ -57,8 +56,23 @@ export default function Index({usos,auth}) {
                         <tr>
                             
                             <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
+                                Nombre
+                            </th>
+                            <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
+                                Rol
+                            </th>
+                            <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
+                                OFicina
+                            </th>
+                            <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
                                 <div className="flex items-center">
-                                    Nombre Uso de Equipo 
+                                    Cargo
+                                    
+                                </div>
+                            </th>
+                            <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
+                                <div className="flex items-center">
+                                    Email
                                     <a href="#"><svg xmlns="http://www.w3.org/2000/svg" className="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
                                 </div>
                             </th>
@@ -71,19 +85,19 @@ export default function Index({usos,auth}) {
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        {console.log(usua)}
                         {
-                            usos.data.map(uso => {
+                            usua.data.map(usuaa => {
                                 return(
-                                    <List_Uso_Equipo uso={uso} key={uso.ID_Uso_Equipo}/>
+                                    <List_Usuario usua={usuaa} key={usuaa.id}/>
                                 )
                             })
                         }
-                       
+                        
                     </tbody>
                 </table>
             </div>
-            <Pagination class="mt-2" links={usos.links} />
+            <Pagination class="mt-2" links={usua.links} />
         </Navbar>
     );
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -13,11 +14,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Tipo__Equipos', function (Blueprint $table) {
-            $table->id('ID_Tipo_Equipo');
-            $table->string('Nombre_Tipo_Equipo');
-            $table->string('Imagen');
-            $table->string('Editor_Equipo');
+        Schema::create('notificacions', function (Blueprint $table) {
+            $table->id();
+            $table->string('Nombre_User');
+            $table->string('Email_User');
+            $table->string('Asunto_User');
+            $table->string('Mensaje_User');
+            $table->string('Estado')->default('pendiente');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo__equipos');
+        Schema::dropIfExists('notificacions');
     }
 };

@@ -7,29 +7,30 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
-class AdminTipoEquipoController extends Controller
+class UserTipoEquipoController extends Controller
 {
     public function index(Request $request)
     {
         $search = $request->query('search');
         $tipos = Tipo_Equipo::query()->when($search, fn($query) => 
         $query->where('Nombre_Tipo_Equipo','LIKE',"%{$search}%")->orWhere('ID_Tipo_Equipo', 'LIKE', "%{$search}%")
-         )->paginate(5);
-        return Inertia::render('Admin/Equipos/Tipo_Equipo/Index',[
+         )->where('Editor_Equipo','=','ADMIN')->paginate(6);
+        return Inertia::render('User/Equipo/Index',[
             'tipos' => $tipos
         ]);
     }
 
     public function create() 
     {
-        return Inertia::render('Admin/Equipos/Tipo_Equipo/Create');
+        return Inertia::render('User/Equipo/Create');
     }
 
     public function store(Request $request)
     {
         $request ->validate([
             'Nombre_Tipo_Equipo' => 'required',
-            'Imagen' => 'required|image|mimes:jpeg,png,svg|max:1024'
+            'Imagen' => 'required|image|mimes:jpeg,png,svg|max:1024',
+            'Editor_Equipo' => 'required',
         ]);
 
         $tipo_equip = $request->all();
@@ -48,7 +49,7 @@ class AdminTipoEquipoController extends Controller
     public function edit($id)
     {
         $equipos = Tipo_Equipo::where('ID_Tipo_Equipo',$id)->first();
-        return Inertia::render('Admin/Equipos/Tipo_Equipo/Edit',[
+        return Inertia::render('User/Equipo/Edit',[
             'equipo' => $equipos,
         ]);
     }
@@ -56,7 +57,8 @@ class AdminTipoEquipoController extends Controller
     public function update(Request $request, $id)
     {
          $request ->validate([
-             'Nombre_Tipo_Equipo' => 'required'
+             'Nombre_Tipo_Equipo' => 'required',
+             'Editor_Equipo' => 'required',
           ]);
          
         $tipo_equip = $request->all();

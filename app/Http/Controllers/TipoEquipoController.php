@@ -13,7 +13,7 @@ class TipoEquipoController extends Controller
     public function index()
     {
         return Inertia::render('User/Index',[
-            'equipos' => Tipo_Equipo::all(),
+            'equipos' => Tipo_Equipo::all()->where('Editor_Equipo','=','ADMIN'),
         ]);
     }
 

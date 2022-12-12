@@ -5,13 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Oficina extends Model
+class Notificacion extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'Nombre_Oficina',
-        'Cargo_Oficina',
+        'Nombre_User',
+        'Email_User',
+        'Asunto_User',
+        'Mensaje_User',
     ];
 
     // protected $hidden = [
@@ -19,9 +21,4 @@ class Oficina extends Model
     // ];
     
     public $timestamps = true;
-
-    public function User()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

@@ -1,30 +1,38 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashCan, faEye} from '@fortawesome/free-solid-svg-icons';
+import dayjs from 'dayjs'
 
 const List_Solicitud = ({soli}) => {
   return (
     
       <tr className="bg-white border-b">
-            <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                {soli.ID_Solicitud_Detalle}
-            </th>
+            <td className="py-4 px-6">
+                <div className='flex flex-col'>
+                    {soli.name}
+                </div>
+            </td>
+            <td className="py-4 px-6">
+                <div className='flex flex-col'>
+                    {soli.Nombre_Oficina}
+                </div>
+            </td>
             <td className="py-4 px-6">
                 <div className='flex flex-col'>
                 {soli.Nombre_Especificacion_Equipo}:
-                _____________________________
+                _________________________
                 </div>
                 {soli.Especificacion_Equipo}
             </td>
             <td className="py-4 px-6">
             <div className='flex flex-col'>
                 {soli.Nombre_Especificacion_Software}:
-                _____________________________
+                ________________________
                 </div>
                 {soli.Especificacion_Software}
             </td>
             <td className="py-4">
-                {soli.Fecha_Solicitud}
+                {dayjs(soli.created_at).format('DD-MM-YYYY')}
             </td>
             <td className="py-4 px-6">
                 {soli.Estado_Solicitud}

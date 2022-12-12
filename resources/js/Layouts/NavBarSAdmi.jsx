@@ -12,10 +12,18 @@ import NavLink from '@/Components/NavLink';
 
 const NavbarSAdmin = ({auth,children}) => {
     const [show,setShow] = useState(false);
+    const [show1,setShow1] = useState(false);
+    const [show2,setShow2] = useState(false);
     const [open,setOpen] =useState(true);
 
-    const [show1,setShow1] = useState(false);
-    const [open1,setOpen1] =useState(true);
+    useEffect(()=> {
+        const data = window.localStorage.getItem('valueOpen');
+        setOpen(JSON.parse(data));
+    },[])
+    
+    useEffect(() => {
+        window.localStorage.setItem('valueOpen',JSON.stringify(open))
+    },[open])
 
     const styleOpen = {
         display:"block"
@@ -78,11 +86,47 @@ const NavbarSAdmin = ({auth,children}) => {
                             <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap">Dashboard</span>
                         </Link>
                     </li>
-                    <li className='px-3'>
-                        <a href="#" onClick={()=>setShow(false)} className="flex items-center  justify-center p-2 text-base font-normal text-white rounded-lg  text-gray-700 rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
-                        <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
-                        <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap ">Usuarios</span>
-                        </a>
+                    <li className='px-3 '>
+                        <button href="#" onClick={()=>setShow2(!show2)} className="flex  items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
+                        <svg data-tooltip-target="tooltip-right" data-tooltip-placement="right" type="button"  aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
+                            <span style={open ? styleOpen : styleClose}  className="flex-1 ml-3 text-left whitespace-nowrap">Gestión de Usuarios</span>
+                            {open && <svg  className="w-6 h-6" style={show2?{transform: 'rotate(180deg)',}:{transform: 'rotate(0deg)'}} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>}
+                        </button>
+                        { open ?(show2 && <ul  className="bg-white rounded-lg mt-1 ">
+                        <li>
+                                <Link href={route('d.softwares.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                    Roles
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={route('d.softwares.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                    Oficinas
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={route('d.usuarios.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                    Usuarios
+                                </Link>
+                            </li>
+                            
+                        </ul>) : (show2 && <ul  className="absolute z-20 mt-1 bg-white rounded-lg">
+                        <li>
+                                <Link href={route('d.softwares.index')}  className="flex items-center p-2 px-5 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                    Roles
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={route('d.softwares.index')}  className="flex items-center p-2 px-5 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                    Oficinas
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={route('d.usuarios.index')}  className="flex items-center p-2 px-5 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                    Usuarios
+                                </Link>
+                            </li>
+                            
+                        </ul>)}
                     </li>
                     <li className='px-3'>
                         <button href="#" onClick={()=>setShow(!show)} className="flex items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
@@ -92,17 +136,17 @@ const NavbarSAdmin = ({auth,children}) => {
                         </button>
                         <ul style={show?{display:"block"}:{display:"none"}} className="bg-white rounded-lg mt-1">
                             <li>
-                                <Link href={route('d.tipoequipos.index')} active={route().current('d.tipoequipos.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('s.tipoequipos.index')} active={route().current('s.tipoequipos.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Tipo de Equipo
                                 </Link>
                             </li>
                             <li>
-                            <Link href={route('d.usoequipos.index')} active={route().current('d.usoequipos.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                            <Link href={route('s.usoequipos.index')} active={route().current('s.usoequipos.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                 Uso de Equipo
                             </Link>
                             </li>
                             <li>
-                            <Link href={route('d.especificacionequipo')} active={route().current('d.especificacionequipo')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                            <Link href={route('s.especificacionequipo.index')} active={route().current('s.especificacionequipo.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                 Especificacion Equipo
                             </Link>
                             </li>
@@ -116,12 +160,12 @@ const NavbarSAdmin = ({auth,children}) => {
                         </button>
                         <ul style={show1?{display:"block"}:{display:"none"}} className="bg-white rounded-lg mt-1">
                             <li>
-                                <Link href={route('d.softwares')} active={route().current('d.softwares.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('s.softwares')} active={route().current('s.softwares.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Software
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.especificacionsoftware')} active={route().current('d.especificacionsoftware.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('s.especificacionsoftware')} active={route().current('s.especificacionsoftware.index')} className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Especificacion de Software
                                 </Link>
                             </li>
@@ -130,7 +174,7 @@ const NavbarSAdmin = ({auth,children}) => {
                     </li>
 
                     <li className='px-3'>
-                        <Link href={route('d.reportes')} active={route().current('d.reportes')} className="flex items-center justify-center p-2 text-base font-normal text-white rounded-lg focus:outline-none hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
+                        <Link href={route('s.reportes')} active={route().current('s.reportes')} className="flex items-center justify-center p-2 text-base font-normal text-white rounded-lg focus:outline-none hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
                             <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
                             <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap ">Reportes</span>
                         </Link>

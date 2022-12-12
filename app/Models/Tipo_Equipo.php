@@ -12,7 +12,8 @@ class Tipo_Equipo extends Model
     protected $fillable = [
         'ID_Tipo_Equipo',
         'Nombre_Tipo_Equipo',
-        'Imagen'
+        'Imagen',
+        'Editor_Equipo'
     ];
 
     public function Especificacion_Equipos()

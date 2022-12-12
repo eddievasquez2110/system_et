@@ -5,8 +5,7 @@ import Swal from 'sweetalert2'
 import { Link } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 
-const List_Especificacion_Equipo = ({espEquipo}) => {
-    
+const List_Usuario = ({usua}) => {
     function destroy(e){
         const id = e.currentTarget.id;
         Swal.fire({
@@ -25,25 +24,30 @@ const List_Especificacion_Equipo = ({espEquipo}) => {
               'Eliminaste el registro.',
               'success'
             )
-            Inertia.delete(route("d.especificacionequipo.destroy",id));
+            Inertia.delete(route("d.usuarios.destroy",id));
           }
         })
     }
     return (
     
       <tr className="bg-white border-b">
+            
             <td className="py-4 px-6">
-                {espEquipo.Nombre_Tipo_Equipo}
+                {usua.name}
             </td>
             <td className="py-4 px-6">
-                {espEquipo.Nombre_Uso_Equipo}
+                {usua.Nombre_Rol}
             </td>
             <td className="py-4 px-6">
-                {espEquipo.Nombre_Especificacion_Equipo}
+                {usua.Nombre_Oficina}
             </td>
             <td className="py-4 px-6">
-                {espEquipo.Especificacion_Equipo}
+                {usua.Cargo_Oficina}
             </td>
+            <td className="py-4 px-6">
+                {usua.email}
+            </td>
+      
             <td className="flex gap-3 justify-center py-3 text-right ">
                 <div className='flex align-center justify-center gap-4'>
                     
@@ -51,7 +55,7 @@ const List_Especificacion_Equipo = ({espEquipo}) => {
                       <Link
                           tabIndex="1"
                           className="bg-blue-100 px-5 py-2 rounded-md hover:bg-blue-700 hover:text-white"
-                          href={route("d.especificacionequipo.edit",`${espEquipo.ID_Especificacion_Equipo}`)}
+                          href={route("d.usuarios.edit",`${usua.id}`)}
                           ><FontAwesomeIcon className="h-4 w-5 "  icon={faEdit} />
                       </Link>
                     </div>
@@ -60,7 +64,7 @@ const List_Especificacion_Equipo = ({espEquipo}) => {
                         <button
                             onClick={destroy}
                             tabIndex="-1"
-                            id={espEquipo.ID_Especificacion_Equipo}
+                            id={usua.id}
                             className="bg-red-100 px-5 py-2 rounded-md hover:bg-red-700 hover:text-white"
                             type="button"
                             > <FontAwesomeIcon className="h-4 w-5 "  icon={faTrashCan} />      
@@ -72,4 +76,4 @@ const List_Especificacion_Equipo = ({espEquipo}) => {
   )
 }
 
-export default List_Especificacion_Equipo
+export default List_Usuario

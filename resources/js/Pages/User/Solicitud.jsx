@@ -12,35 +12,63 @@ const Solicitud = ({auth,softwares}) => {
           <NavbarSAdmin auth={auth}>
           <Head title="Solicitud" />
           <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'>SELECCIÓN DE PROGRAMAS</div>
-                  <div className="wrapper flex flex-wrap items-center justify-center gap-5 mt-8 pb-5">
+                    <div className='flex'>
+                      <div style={{width:"70%"}}>
                       {
                           softwares.map(software =>
                               <Software key={software.ID_Software} software={software}/>
                               )
                       }  
-                            
-                  </div>
+                      </div>
+                      <div style={{width:"30%"}}>
+                        s
+                      </div>
+                    </div>
                   <div className='p-10 flex justify-center'>
                           <PrimaryButton>Continuar</PrimaryButton>  
                   </div> 
-          
         </NavbarSAdmin>
         :auth.user.ID_Rol == 3 ?
           <AuthenticatedLayout auth={auth}>
           <Head title="Solicitud" />
-          <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'>SELECCIÓN DE PROGRAMAS</div>
-                  <div className="wrapper flex flex-wrap items-center justify-center gap-5 mt-8 pb-5">
-                      {
-                          softwares.map(software =>
-                              <Software key={software.ID_Software} software={software}/>
-                              )
-                      }  
-                            
-                  </div>
-                  <div className='p-10 flex justify-center'>
-                          <PrimaryButton>Continuar</PrimaryButton>  
-                  </div> 
-          
+          {/* <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'>SELECCIÓN DE PROGRAMAS</div> */}
+                  <div className=" mt-8 pb-5">
+                    <div className='flex items-center justify-center'  >
+                      <div className='flex gap-8' style={{width:"90%"}}>
+
+                        <div className='flex flex-col w-2/3'>
+                            <div className='text-center p-4 '>
+                              <h2>Seleccion de programas</h2>
+                            </div>
+                            <div className='w-full mb-4'>
+                              <input 
+                              type="text" 
+                              id='buscar'
+                              className=' w-full rounded-md   py-1 text-slate-500 placeholder:text-gray-300'
+                              />
+                            </div>
+                          
+                          <div className='flex flex-wrap justify-center gap-5'>
+                          {
+                                softwares.map(software =>
+                                    <Software key={software.ID_Software} software={software}/>
+                                    )
+                            }
+                          </div>                      
+                        </div>
+                        <div className='flex flex-col w-1/3'>
+                            <div className='text-center p-4 '>
+                              <h2>Programas selecionados</h2>
+                            </div>
+                            <div className='bg-white rounded ml-4 p-6' style={{height:"400px"}}>
+                              <div className=''>
+                                  <span>Lista :</span>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>    
+                </div>
         </AuthenticatedLayout>
         :<></>
         }

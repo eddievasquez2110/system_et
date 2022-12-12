@@ -1,6 +1,6 @@
 import React, {  useState } from 'react'
-import Navbar from '@/Layouts/Navbar';
 import { Head, useForm, Link } from '@inertiajs/inertia-react';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 
 const Create = ({auth}) => {
     const [preview, setPreview] = useState('');
@@ -18,10 +18,10 @@ const Create = ({auth}) => {
 
 function handleSubmit(e){
     e.preventDefault();
-    post(route('d.tipoequipos.store'))
+    post(route('d.userequipos.store'))
 }
   return (
-    <Navbar auth={auth}>
+    <AuthenticatedLayout auth={auth}>
         <Head title='Tipo Equipo'/>
         <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -77,19 +77,23 @@ function handleSubmit(e){
                                             }
                                         />
                                         </label>
+
                                         </div>
+
                                         <span className="text-red-600">
                                             {errors.Imagen}
                                         </span>
                                     </div>
-                                    
+
+                                        
                                 </div>
                                 {progress && (
                                   <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
                                     <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" width={progress.percentage}> {progress.percentage}%</div>
                                   </div>
                                 )}
-                                <div className="mt-4">
+
+                                <div className="mt-4"> 
                                     <button
                                         type="submit"
                                         className="px-6 py-2 font-bold text-white bg-green-500 rounded"
@@ -103,7 +107,7 @@ function handleSubmit(e){
                     </div>
                 </div>
             </div>
-    </Navbar>
+    </AuthenticatedLayout>
   )
 }
 

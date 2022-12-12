@@ -34,9 +34,6 @@ const List_Software = ({soft}) => {
   return (
     
       <tr className="bg-white border-b">
-            <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                {soft.ID_Software}
-            </th>
             <td className="py-4 px-6">
                 {soft.Nombre_Software}
             </td>
@@ -45,7 +42,7 @@ const List_Software = ({soft}) => {
                     <img src={`../images/softwares/${soft.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
                 </div>
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-6 w-1/2">
                 {soft.Descripcion_Software}
             </td>
             <td className="flex gap-3 justify-center py-3 text-right ">
