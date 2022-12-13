@@ -17,20 +17,7 @@ const List_Solicitud = ({soli}) => {
                     {soli.Nombre_Oficina}
                 </div>
             </td>
-            <td className="py-4 px-6">
-                <div className='flex flex-col'>
-                {soli.Nombre_Especificacion_Equipo}:
-                _________________________
-                </div>
-                {soli.Especificacion_Equipo}
-            </td>
-            <td className="py-4 px-6">
-            <div className='flex flex-col'>
-                {soli.Nombre_Especificacion_Software}:
-                ________________________
-                </div>
-                {soli.Especificacion_Software}
-            </td>
+            
             <td className="py-4">
                 {dayjs(soli.created_at).format('DD-MM-YYYY')}
             </td>
