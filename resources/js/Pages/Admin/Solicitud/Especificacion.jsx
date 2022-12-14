@@ -4,7 +4,6 @@ import Table from '@/Components/Table';
 import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
 import Navbar from '@/Layouts/Navbar';
 import WinModal from '@/Components/WinModal';
-import TableEquipo from '@/Components/TableEquipo';
 
 
 const Lista = ({auth,laptops,especificacion}) => {
@@ -27,7 +26,7 @@ const Lista = ({auth,laptops,especificacion}) => {
         <Head title="Especificaciones" />
         <div className='flex flex-col h-screen items-center justify-center m-4'>    
             <div className="overflow-x-auto w-5/6 relative shadow-md sm:rounded-lg  ">
-            {/* <Table  laptop={equipo} especificacion={especificacion}/> */}
+              <Table  laptop={equipo} especificacion={especificacion}/>
             </div>   
         </div>
         </NavbarSAdmin>

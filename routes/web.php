@@ -257,16 +257,19 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
 
     Route::controller(AdminSolicitudController::class)->group(function (){
         Route::get('/dashboard/solicitudes', [AdminSolicitudController::class,'index'])
-         ->name('d.solicituds');
-
+            ->name('d.solicituds');
+   
         Route::get('/dashboard/especificacionEquipo/{id}', [AdminSolicitudController::class,'show'])
-        ->name('d.solicituds.show');
-
+            ->name('d.solicituds.show');
+   
         Route::get('/dashboard/solicitudes/aceptar/{id}', [AdminSolicitudController::class,'aceptar'])
-        ->name('d.solicituds.aceptar');
-
+            ->name('d.solicituds.aceptar');
+   
         Route::get('/dashboard/solicitudes/rechazar/{id}', [AdminSolicitudController::class,'rechazar'])
-        ->name('d.solicituds.rechazar');
+            ->name('d.solicituds.rechazar');
+   
+        Route::get('/dashboard/especificacion/{id}', [EspecificacionEquipoController::class,'show'])
+            ->name('d.especificacion.show');
     });
     
     

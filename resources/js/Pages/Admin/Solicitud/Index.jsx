@@ -3,8 +3,7 @@ import Navbar from '@/Layouts/Navbar';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Solicitud from '@/Components/Solicitud/List_Solicitud';
-import WinModal from '@/Components/WinModal';
-import Table from '@/Components/Table';
+
 
 export default function Index({solis,auth}) {
     return (

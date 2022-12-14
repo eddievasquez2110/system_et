@@ -1,7 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
-import Table from '@/Components/Table';
-import { faCameraRetro, faSquare, faSquareXmark } from '@fortawesome/free-solid-svg-icons';
+import { faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 import { Inertia } from '@inertiajs/inertia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -68,9 +67,6 @@ export default function WinModal({children}) {
                   
                     {children}
                   
-                  
-                  
-
                   <div className="mt-4">
                     <button
                       type="button"
