@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Solicitud_Detalle;
+use App\Models\Especificacion_Equipo;
+use App\Models\Tipo_Equipo;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -13,12 +15,11 @@ class SolicitudDetalleController extends Controller
     
     public function index()
     {
-        
+       
         return Inertia::render('Admin/Reportes',[
             'solicitud_D' => Solicitud_Detalle::all(),
         ]);
     }
-
     
     public function create()
     {

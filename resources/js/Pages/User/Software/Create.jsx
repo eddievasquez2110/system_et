@@ -1,14 +1,14 @@
 import React, {  useState } from 'react'
-import Navbar from '@/Layouts/Navbar';
 import { Head, useForm, Link } from '@inertiajs/inertia-react';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 
 const Create = ({auth}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, post, progress} = useForm({
         Nombre_Software:"",
-        Imagen: null,
         Version_Software:"",
         Descripcion_Software:"",
+        Imagen: null,
         Editor_Software:auth.user.name.toUpperCase()
     });
     console.log(data);
@@ -20,10 +20,10 @@ const Create = ({auth}) => {
 
 function handleSubmit(e){
     e.preventDefault();
-    post(route('d.softwares.store'))
+    post(route('d.usersoftwares.store'))
 }
   return (
-    <Navbar auth={auth}>
+    <AuthenticatedLayout auth={auth}>
         <Head title='Tipo Equipo'/>
         <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -33,7 +33,7 @@ function handleSubmit(e){
                             <div className="flex items-center justify-between mb-6">
                                 <Link
                                     className="px-6 py-2 text-white bg-blue-500 rounded-md focus:outline-none"
-                                    href={ route("d.softwares.index") }
+                                    href={ route("d.usersoftwares.index") }
                                 >
                                     Regresar
                                 </Link>
@@ -46,8 +46,8 @@ function handleSubmit(e){
                                         <input
                                             type="text"
                                             className="w-full px-4 py-2 text-gray-500"
-                                            label="Nombre_Software"
-                                            name="Nombre_Software"
+                                            label="Software"
+                                            name="Software"
                                             value={data.Nombre_Software}
                                             onChange={(e) =>
                                                 setData("Nombre_Software", e.target.value)
@@ -55,6 +55,38 @@ function handleSubmit(e){
                                         />
                                         <span className="text-red-600">
                                             {errors.Nombre_Software}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="">Version Software</label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-4 py-2 text-gray-500"
+                                            label="version"
+                                            name="version"
+                                            value={data.Version_Software}
+                                            onChange={(e) =>
+                                                setData("Version_Software", e.target.value)
+                                            }
+                                        />
+                                        <span className="text-red-600">
+                                            {errors.Version_Software}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="">Descripcion Software</label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-4 py-2 text-gray-500"
+                                            label="desc"
+                                            name="desc"
+                                            value={data.Descripcion_Software}
+                                            onChange={(e) =>
+                                                setData("Descripcion_Software", e.target.value)
+                                            }
+                                        />
+                                        <span className="text-red-600">
+                                            {errors.Descripcion_Software}
                                         </span>
                                     </div>
                                     <div className="mb-4">
@@ -86,45 +118,16 @@ function handleSubmit(e){
                                             {errors.Imagen}
                                         </span>
                                     </div>
-                                    <div className="mb-4">
-                                        <label className="">Version Software</label>
-                                        <input
-                                            type="text"
-                                            className="w-full px-4 py-2 text-gray-500"
-                                            label="Version_Software"
-                                            name="Version_Software"
-                                            value={data.Version_Software}
-                                            onChange={(e) =>
-                                                setData("Version_Software", e.target.value)
-                                            }
-                                        />
-                                        <span className="text-red-600">
-                                            {errors.Version_Software}
-                                        </span>
-                                    </div>
-                                    <div className="mb-4">
-                                        <label className="">Descripcion Software</label>
-                                        <input
-                                            type="text"
-                                            className="w-full px-4 py-2 text-gray-500"
-                                            label="Descripcion_Software"
-                                            name="Descripcion_Software"
-                                            value={data.Descripcion_Software}
-                                            onChange={(e) =>
-                                                setData("Descripcion_Software", e.target.value)
-                                            }
-                                        />
-                                        <span className="text-red-600">
-                                            {errors.Descripcion_Software}
-                                        </span>
-                                    </div>
+
+                                        
                                 </div>
                                 {progress && (
                                   <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
                                     <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" width={progress.percentage}> {progress.percentage}%</div>
                                   </div>
                                 )}
-                                <div className="mt-4">
+
+                                <div className="mt-4"> 
                                     <button
                                         type="submit"
                                         className="px-6 py-2 font-bold text-white bg-green-500 rounded"
@@ -138,7 +141,7 @@ function handleSubmit(e){
                     </div>
                 </div>
             </div>
-    </Navbar>
+    </AuthenticatedLayout>
   )
 }
 

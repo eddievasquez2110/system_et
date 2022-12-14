@@ -15,7 +15,7 @@ class Software extends Model
         'Imagen',
         'Version_Software',
         'Descripcion_Software',
-        
+        'Editor_Software',
     ];
 
     public function Version()

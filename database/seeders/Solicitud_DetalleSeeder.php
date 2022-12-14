@@ -33,5 +33,12 @@ class Solicitud_DetalleSeeder extends Seeder
             'ID_Especificacion_Software'=>2,
             'Descripcion_SolicitudDetalle'=>'Tercera solicitud',
         ]);
+        $solicitud_detalle = Solicitud_Detalle::create([
+            'ID_Solicitud'=>2,
+            'ID_Especificacion_Equipo'=>3,
+            'Cantidad_Equipo'=>7,
+            'ID_Especificacion_Software'=>2,
+            'Descripcion_SolicitudDetalle'=>'Tercera solicitud',
+        ]);
     }
 }

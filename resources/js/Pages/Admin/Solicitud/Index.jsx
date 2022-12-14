@@ -3,6 +3,8 @@ import Navbar from '@/Layouts/Navbar';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Solicitud from '@/Components/Solicitud/List_Solicitud';
+import WinModal from '@/Components/WinModal';
+import Table from '@/Components/Table';
 
 export default function Index({solis,auth}) {
     return (
@@ -30,16 +32,16 @@ export default function Index({solis,auth}) {
                     <thead className="text-xs text-white uppercase bg-green-700">
                         <tr>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
-                                    Nombre
+                                    ID
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
                                     Area Usuaria
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
-                                    Especificacion Equipo
+                                    Oficina
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
-                                Especificacion Software
+                                    Equipo
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
                                 <div className="flex items-center">
@@ -67,11 +69,11 @@ export default function Index({solis,auth}) {
                                 )
                             })
                         }
-                        
-                       
+                          
                     </tbody>
                 </table>
             </div>
+            
             <Pagination className="mt-2" links={solis.links} />
         </Navbar>
     );

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('Imagen');
             $table->string('Version_Software',45);
             $table->string('Descripcion_Software',250);
-            
+            $table->string('Editor_Software');
             $table->timestamps();
         });
     }
