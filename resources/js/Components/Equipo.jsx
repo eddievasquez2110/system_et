@@ -5,9 +5,9 @@ const Equipo = ({equipo,auth}) => {
       <div className="max-w-xs bg-white rounded-lg border-2 border-green-100 shadow-md shadow-lime-800/50 ">
         
                 <a href="#">
-                    <img src={`../images/equipos/${equipo.Imagen}`} className='rounded-t-lg w-96 h-64' alt="" />
+                    <img src={`../images/equipos/${equipo.Imagen}`} className='rounded-t-lg w-96 h-64 mt-4' alt="" />
                 </a>
-                <div className="p-5 ">
+                <div className="p-3 pt-0 ">
                 { equipo.ID_Tipo_Equipo == '1' || equipo.ID_Tipo_Equipo == '2' ?
                     <>
                     <a href="#">
