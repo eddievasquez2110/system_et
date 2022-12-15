@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminReporteController;
 use App\Http\Controllers\AdminSolicitudController;
 use App\Http\Controllers\EspecificacionEquipoController;
 use App\Http\Controllers\NotificacionController;
+use App\Http\Controllers\OficinaController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserSoftwareController;
@@ -226,6 +227,7 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
         Route::put('/dashboard/roles/update/{id}','update')->name('d.roles.update');
         Route::delete('/dashboard/roles/{id}','destroy')->name('d.roles.destroy');
     });
+    
     Route::controller(OficinaController::class)->group(function (){
         Route::get('/dashboard/oficinas','index')->name('d.oficinas.index');
         Route::get('/dashboard/oficinas/create','create')->name('d.oficinas.create');
@@ -242,6 +244,7 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
         Route::put('/dashboard/usuarios/update/{id}','update')->name('d.usuarios.update');
         Route::delete('/dashboard/usuarios/{id}','destroy')->name('d.usuarios.destroy');
     });
+
 
 //     Route::get('/dashboard/especificacionequipo', [AdminEspecificacionEquipoController::class,'index'])
 //          ->name('d.especificacionequipo');

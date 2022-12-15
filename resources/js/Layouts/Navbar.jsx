@@ -101,12 +101,12 @@ const Navbar = ({auth,children}) => {
                         </button>
                         { open ?(show2 && <ul  className="absolute w-full bg-white rounded-lg mt-1 ">
                         <li>
-                                <Link href={route('d.softwares.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.roles.index')} active={route().current('d.roles.index')} className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Roles
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.softwares.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.oficinas.index')} active={route().current('d.oficinas.index')} className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Oficinas
                                 </Link>
                             </li>
@@ -147,8 +147,7 @@ const Navbar = ({auth,children}) => {
                         </button>
                             {open ? (show  && <ul  className="bg-white absolute rounded-lg mt-1">
                                 <li>
-                                    <Link href={route('d.tipoequipos.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out"
-                                    >
+                                    <Link href={route('d.tipoequipos.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                         Tipo de Equipo
                                     </Link>
                                 </li>
@@ -164,8 +163,7 @@ const Navbar = ({auth,children}) => {
                                 </li>
                             </ul>): (show  && <ul  className="bg-white z-30 absolute rounded-lg mt-1">
                                 <li>
-                                    <Link href={route('d.tipoequipos.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out"
-                                    >
+                                    <Link href={route('d.tipoequipos.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                         Tipo de Equipo
                                     </Link>
                                 </li>
@@ -183,7 +181,7 @@ const Navbar = ({auth,children}) => {
                     </li>
 
                     <li className='px-3'>
-                        <SideLink href={route('d.softwares.index')} active={route().current('d.solicituds')}>
+                        <SideLink href={route('d.softwares.index')} active={route().current('d.softwares.index')}>
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faFileWord} />
                             <div style={open ? styleOpen : styleClose} className="flex-1 lg:ml-3 min-[200px]:ml-0">
                                 <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center' >Gestión de Softwares</span>

@@ -32,7 +32,7 @@ class UserController extends Controller
         ->join('rols','users.ID_Rol','=','rols.ID_Rol')
         ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')->paginate(5);
         
-        return Inertia::render('Admin/Usuarios/Index',[
+        return Inertia::render('Admin/Usuarios/Usuario/Index',[
             'usua' => $usua,
         ]);
         
@@ -42,7 +42,7 @@ class UserController extends Controller
     {
         $ofis = Oficina::all();
         $rols = Rol::all();
-        return Inertia::render('Admin/Usuarios/Create',[
+        return Inertia::render('Admin/Usuarios/Usuario/Create',[
             'ofis' => $ofis,
             'rols' => $rols
         ]);
@@ -88,7 +88,7 @@ class UserController extends Controller
         ->join('rols','users.ID_Rol','=','rols.ID_Rol')
         ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')->where('id',$id)->first();
         
-        return Inertia::render('Admin/Usuarios/Edit',[
+        return Inertia::render('Admin/Usuarios/Usuario/Edit',[
             'usua' => $usua,
         ]);
 
