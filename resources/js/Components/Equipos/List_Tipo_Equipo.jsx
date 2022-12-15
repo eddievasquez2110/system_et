@@ -35,12 +35,18 @@ const List_Tipo_Equipo = ({tipo}) => {
     
       <tr className="bg-white border-b">
             <td className="px-6 py-2">
+                {tipo.ID_Tipo_Equipo}
+            </td>
+            <td className="px-6 py-2">
                 {tipo.Nombre_Tipo_Equipo}
             </td>
             <td className="px-3 py-2 justify-center ">
                 <div className='flex items-center justify-center'>
                     <img src={`/images/Equipos/${tipo.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
                 </div>        
+            </td>
+            <td className="px-4 py-2">
+                {tipo.Editor_Equipo}
             </td>
             <td className="flex gap-3 justify-center py-3 text-right ">
                 <div className='flex align-center justify-center gap-4'>
@@ -66,9 +72,7 @@ const List_Tipo_Equipo = ({tipo}) => {
                     </div>
                 </div>
             </td>
-            <td className="px-4 py-2">
-                {tipo.Editor_Equipo}
-            </td>
+            
     </tr>
   )
 }

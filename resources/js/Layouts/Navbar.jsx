@@ -182,39 +182,14 @@ const Navbar = ({auth,children}) => {
                             </ul>)}
                     </li>
 
-                    <li className='px-3 '>                                         
-                        <button href="#" onClick={()=>setShow1(!show1)} className="flex lg:flex-row min-[200px]:flex-col items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
+                    <li className='px-3'>
+                        <SideLink href={route('d.softwares.index')} active={route().current('d.solicituds')}>
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faFileWord} />
-                            <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
-                                <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center'>Gestión de Softwares</span>
+                            <div style={open ? styleOpen : styleClose} className="flex-1 lg:ml-3 min-[200px]:ml-0">
+                                <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center' >Gestión de Softwares</span>
                             </div>
-
-                        </button>
-                        { open ?(show1 && <ul  className="absolute bg-white rounded-lg mt-1 ">
-                            <li>
-                                <Link href={route('d.softwares.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
-                                    Software
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href={route('d.especificacionsoftware.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
-                                    Especificacion de Software
-                                </Link>
-                            </li>
                             
-                        </ul>) : (show1 && <ul  className="absolute z-20 mt-1 bg-white rounded-lg">
-                            <li>
-                                <Link href={route('d.softwares.index')}  className="flex items-center p-2 px-5 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
-                                    Software
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href={route('d.especificacionsoftware.index')}  className="flex items-center p-2 px-5 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
-                                    Especificacion de Software
-                                </Link>
-                            </li>
-                            
-                        </ul>)}
+                        </SideLink>
                     </li>
 
                     <li className='px-3'>

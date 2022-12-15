@@ -35,6 +35,9 @@ const List_Software = ({soft}) => {
     
       <tr className="bg-white border-b">
             <td className="py-4 px-6">
+                {soft.ID_Software}
+            </td>
+            <td className="py-4 px-6">
                 {soft.Nombre_Software}
             </td>
             <td className="py-4 px-6">

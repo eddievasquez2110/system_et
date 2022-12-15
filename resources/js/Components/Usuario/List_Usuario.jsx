@@ -31,7 +31,9 @@ const List_Usuario = ({usua}) => {
     return (
     
       <tr className="bg-white border-b">
-            
+            <td className="py-4 px-6">
+                {usua.id}
+            </td>
             <td className="py-4 px-6">
                 {usua.name}
             </td>

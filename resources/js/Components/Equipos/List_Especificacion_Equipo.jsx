@@ -33,6 +33,9 @@ const List_Especificacion_Equipo = ({espEquipo}) => {
     
       <tr className="bg-white border-b">
             <td className="py-4 px-6">
+                {espEquipo.ID_Especificacion_Equipo}
+            </td>
+            <td className="py-4 px-6">
                 {espEquipo.Nombre_Tipo_Equipo}
             </td>
             <td className="py-4 px-6">
