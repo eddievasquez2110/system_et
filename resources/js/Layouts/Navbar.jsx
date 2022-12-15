@@ -1,7 +1,7 @@
 import React, { useEffect,useState  } from 'react'
 import { Link } from '@inertiajs/inertia-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faCircleLeft, faUser, faFilePen, faFileWord,faLaptop, faFileClipboard} from '@fortawesome/free-solid-svg-icons';
+import { faBell, faCircleLeft, faUser, faFilePen, faFileWord,faLaptop, faFileClipboard, faChartPie, faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons';
 import Dropdown from '@/Components/Dropdown';
 import { Inertia } from '@inertiajs/inertia';
 import SideLink from '@/Components/SideLink';
@@ -25,7 +25,8 @@ const Navbar = ({auth,children}) => {
     },[open])
     
     const styleOpen = {
-        display:"block"
+        // display:"block"
+        display:"flex"
     }
     const styleClose = {
         display:"none"
@@ -51,48 +52,54 @@ const Navbar = ({auth,children}) => {
           })
     }
   return (
-    <div className='flex justify-between relative'>
-        <div className="shadow-md bg-green-800 sticky top-0 h-screen" style={open ?{width:'18%'}:{width:'75px'}}>
+    <div className='flex justify-between relative '>
+        <div className="shadow-md bg-green-800 sticky top-0 h-screen " style={open ?{width:'18%'}:{width:'75px'}}>
           <div className='relative '>
-            <div className="pt-4 pb-2 px-6">
+            <div className="pt-4 px-6">
                 <a href="#">
-                <div className="flex cursor-auto items-center pb-4 border-b border-gray-200">
+                <div className="flex lg:flex-row min-[200px]:flex-col cursor-auto items-center pb-4 border-b border-gray-200">
                     <div className="shrink-0">
                     <img src={"/images/Logo/Logo.png"} style={open ?{width:'75px'}:{width:'35px'}} alt="" />
                     </div>
-                    <div className="grow ml-3 " style={open ? styleOpen : styleClose}>
-                    <p className="text-sm font-semibold text-white">UNCP SISTEMA EETT</p>
+                    <div className="grow text-center" style={open ? styleOpen : styleClose} >
+                    <p className="text-sm font-semibold text-white md:inline min-[200px]:hidden ">UNCP SISTEMA EETT</p>
                     </div>
                 </div>
                 </a>
                 <br></br>
             </div>
             </div>
-            <div onClick={() => setOpen(!open)} className='absolute w-10 h-10 text-lg text-white cursor-pointer top-3/4 -right-3 flex items-center justify-center rounded-full bg-green-800'>
+            <div onClick={() => setOpen(!open)} className='absolute w-10 h-10 text-lg text-white cursor-pointer top-2/4 -right-3 flex items-center justify-center rounded-full bg-green-800'>
                 <FontAwesomeIcon className="h-5 w-10 "  icon={faCircleLeft} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
             </div>
 
-            <div className="overflow-y-auto py-4">
-                <ul className="space-y-2">
+            <div className="overflow-y-auto ">
+                <ul className="space-y-1 ">
                     <li className='px-3'>
-                        <SideLink href={route('admin')} active={route().current('admin')}>
-                            <svg aria-hidden="true" className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
-                            <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap">Dashboard</span>
+                        <SideLink className='' href={route('admin')} active={route().current('admin')}>
+                            <FontAwesomeIcon className="h-5 w-6 "  icon={faChartPie} />
+                            <div style={open ? styleOpen : styleClose} className="flex-1 lg:ml-3 min-[200px]:ml-0 ">
+                                <span className='md:inline min-[200px]:hidden break-words' >Dashboard</span>
+                            </div>
                         </SideLink>
                     </li>
                     <li className='px-3'>
                         <SideLink href={route('d.solicituds')} active={route().current('d.solicituds')}>
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faFilePen} />
-                            <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap ">Gestión de Solicitudes</span>
+                            <div style={open ? styleOpen : styleClose} className="flex-1 lg:ml-3 min-[200px]:ml-0">
+                                <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center' >Gestión de Solicitudes</span>
+                            </div>
+                            
                         </SideLink>
                     </li>
                     <li className='px-3 '>
-                        <button href="#" onClick={()=>setShow2(!show2)} className="flex  items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
-                            <svg data-tooltip-target="tooltip-right" data-tooltip-placement="right" type="button"  aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
-                            <span style={open ? styleOpen : styleClose}  className="flex-1 ml-3 text-left whitespace-nowrap">Gestión de Usuarios</span>
-                            {open && <svg  className="w-6 h-6" style={show2?{transform: 'rotate(180deg)',}:{transform: 'rotate(0deg)'}} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>}
+                        <button href="#" onClick={()=>setShow2(!show2)} className="flex lg:flex-row min-[200px]:flex-col items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
+                            <FontAwesomeIcon className="h-5 w-6 "  icon={faUser} />
+                            <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
+                                <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center' >Gestión de Usuarios</span>
+                            </div>
                         </button>
-                        { open ?(show2 && <ul  className="bg-white rounded-lg mt-1 ">
+                        { open ?(show2 && <ul  className="absolute w-full bg-white rounded-lg mt-1 ">
                         <li>
                                 <Link href={route('d.softwares.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Roles
@@ -131,13 +138,14 @@ const Navbar = ({auth,children}) => {
                     <li className='px-3'>
                         <button href="#"
                             onClick={()=>setShow(!show)}
-                            className="flex items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50  transition duration-300 ease-in-out" 
+                            className="flex lg:flex-row min-[200px]:flex-col items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50  transition duration-300 ease-in-out" 
                         >
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faLaptop} />
-                            <span style={open ? styleOpen : styleClose}  className="flex-1 ml-3 text-left whitespace-nowrap">Gestión de Equipos</span>
-                            {open && <svg  className="w-6 h-6" style={show?{transform: 'rotate(180deg)',}:{transform: 'rotate(0deg)'}} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>}
+                            <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
+                                <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center'>Gestión de Equipos</span>
+                            </div>
                         </button>
-                            {open ? (show  && <ul  className="bg-white rounded-lg mt-1">
+                            {open ? (show  && <ul  className="bg-white absolute rounded-lg mt-1">
                                 <li>
                                     <Link href={route('d.tipoequipos.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out"
                                     >
@@ -173,13 +181,16 @@ const Navbar = ({auth,children}) => {
                                 </li>
                             </ul>)}
                     </li>
-                    <li className='px-3 '>
-                        <button href="#" onClick={()=>setShow1(!show1)} className="flex  items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
+
+                    <li className='px-3 '>                                         
+                        <button href="#" onClick={()=>setShow1(!show1)} className="flex lg:flex-row min-[200px]:flex-col items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faFileWord} />
-                            <span style={open ? styleOpen : styleClose}  className="flex-1 ml-3 text-left whitespace-nowrap">Gestión de Softwares</span>
-                            {open && <svg  className="w-6 h-6" style={show1?{transform: 'rotate(180deg)',}:{transform: 'rotate(0deg)'}} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>}
+                            <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
+                                <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center'>Gestión de Softwares</span>
+                            </div>
+
                         </button>
-                        { open ?(show1 && <ul  className="bg-white rounded-lg mt-1 ">
+                        { open ?(show1 && <ul  className="absolute bg-white rounded-lg mt-1 ">
                             <li>
                                 <Link href={route('d.softwares.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Software
@@ -209,16 +220,21 @@ const Navbar = ({auth,children}) => {
                     <li className='px-3'>
                         <SideLink href={route('d.reportes')} active={route().current('d.reportes')}>
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faFileClipboard} />
-                            <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap ">Reportes</span>
+                            <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
+                                <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center'>Reportes</span>
+                            </div>
                         </SideLink>
                     </li>
                     
-                    <li className='bottom-0  px-3 py-3  absolute  w-full' >
-                        <Link onClick={alertLogout} as="button"  className="flex items-center w-full text-left justify-center p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
-                        <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"></path></svg>
-                        <span style={open ? styleOpen : styleClose} className="flex-1 ml-3  whitespace-nowrap">Salir</span>
+                    {/* <li className='bottom-0  px-3    w-full' >
+                        <Link onClick={alertLogout} as="button"  className="flex justify-center items-center w-full text-left  p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
+                            <FontAwesomeIcon className="h-5 w-6 "  icon={faArrowRightFromBracket} />
+                            <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
+                                <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center'>Salir</span>
+                            </div>
+                            
                         </Link>
-                    </li>
+                    </li> */}
                     </ul>
             </div>
         </div>
