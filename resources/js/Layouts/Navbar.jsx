@@ -181,12 +181,14 @@ const Navbar = ({auth,children}) => {
                                 </li>
                             </ul>)}
                     </li>
+
                     <li className='px-3 '>                                         
                         <button href="#" onClick={()=>setShow1(!show1)} className="flex lg:flex-row min-[200px]:flex-col items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faFileWord} />
                             <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
                                 <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center'>Gestión de Softwares</span>
                             </div>
+
                         </button>
                         { open ?(show1 && <ul  className="absolute bg-white rounded-lg mt-1 ">
                             <li>

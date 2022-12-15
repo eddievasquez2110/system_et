@@ -11,13 +11,18 @@ class Software extends Model
 
     protected $fillable = [
         'ID_Version',
+        'ID_Uso_Equipo',
         'Nombre_Software',
         'Imagen',
         'Version_Software',
         'Descripcion_Software',
-        
+        'Editor_Software',
     ];
 
+    public function Uso(){
+        return $this->belongsTo(Uso_Equipo::class);
+    }
+    
     public function Version()
     {
         return $this->HasOne(Version::class);
@@ -27,7 +32,7 @@ class Software extends Model
     {
         return $this->HasOne(Especificacion_Software::class);
     }
-
+    
     public function Solicitud_Detalle()
     {
         return $this->belongsTo(Solicitud_Detalle::class);
