@@ -1,7 +1,7 @@
 import React, { useEffect,useState  } from 'react'
 import { Link } from '@inertiajs/inertia-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faCircleLeft, faUser} from '@fortawesome/free-solid-svg-icons';
+import { faBell, faCircleLeft, faUser, faFilePen, faFileWord,faLaptop, faFileClipboard} from '@fortawesome/free-solid-svg-icons';
 import Dropdown from '@/Components/Dropdown';
 import { Inertia } from '@inertiajs/inertia';
 import SideLink from '@/Components/SideLink';
@@ -82,13 +82,13 @@ const Navbar = ({auth,children}) => {
                     </li>
                     <li className='px-3'>
                         <SideLink href={route('d.solicituds')} active={route().current('d.solicituds')}>
-                            <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
+                            <FontAwesomeIcon className="h-5 w-6 "  icon={faFilePen} />
                             <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap ">Gestión de Solicitudes</span>
                         </SideLink>
                     </li>
                     <li className='px-3 '>
                         <button href="#" onClick={()=>setShow2(!show2)} className="flex  items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
-                        <svg data-tooltip-target="tooltip-right" data-tooltip-placement="right" type="button"  aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
+                            <svg data-tooltip-target="tooltip-right" data-tooltip-placement="right" type="button"  aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
                             <span style={open ? styleOpen : styleClose}  className="flex-1 ml-3 text-left whitespace-nowrap">Gestión de Usuarios</span>
                             {open && <svg  className="w-6 h-6" style={show2?{transform: 'rotate(180deg)',}:{transform: 'rotate(0deg)'}} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>}
                         </button>
@@ -133,7 +133,7 @@ const Navbar = ({auth,children}) => {
                             onClick={()=>setShow(!show)}
                             className="flex items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50  transition duration-300 ease-in-out" 
                         >
-                            <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                            <FontAwesomeIcon className="h-5 w-6 "  icon={faLaptop} />
                             <span style={open ? styleOpen : styleClose}  className="flex-1 ml-3 text-left whitespace-nowrap">Gestión de Equipos</span>
                             {open && <svg  className="w-6 h-6" style={show?{transform: 'rotate(180deg)',}:{transform: 'rotate(0deg)'}} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>}
                         </button>
@@ -175,7 +175,7 @@ const Navbar = ({auth,children}) => {
                     </li>
                     <li className='px-3 '>
                         <button href="#" onClick={()=>setShow1(!show1)} className="flex  items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
-                            <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round"  stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                            <FontAwesomeIcon className="h-5 w-6 "  icon={faFileWord} />
                             <span style={open ? styleOpen : styleClose}  className="flex-1 ml-3 text-left whitespace-nowrap">Gestión de Softwares</span>
                             {open && <svg  className="w-6 h-6" style={show1?{transform: 'rotate(180deg)',}:{transform: 'rotate(0deg)'}} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>}
                         </button>
@@ -208,7 +208,7 @@ const Navbar = ({auth,children}) => {
 
                     <li className='px-3'>
                         <SideLink href={route('d.reportes')} active={route().current('d.reportes')}>
-                            <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
+                            <FontAwesomeIcon className="h-5 w-6 "  icon={faFileClipboard} />
                             <span style={open ? styleOpen : styleClose} className="flex-1 ml-3 whitespace-nowrap ">Reportes</span>
                         </SideLink>
                     </li>

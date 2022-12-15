@@ -13,10 +13,12 @@ use App\Http\Controllers\InfoSoftwareController;
 use App\Http\Controllers\SolicitudDetalleController;
 use App\Http\Controllers\AdminReporteController;
 use App\Http\Controllers\AdminSolicitudController;
+use App\Http\Controllers\EspecificacionEquipoController;
 use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\UserSoftwareController;
+use App\Models\Especificacion_Equipo;
 use App\Models\Rol;
 use Doctrine\DBAL\Schema\Index;
 use Faker\Guesser\Name;
@@ -253,8 +255,24 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
     Route::get('/dashboard/reportes', [AdminReporteController::class,'index'])
          ->name('d.reportes');
 
-    Route::get('/dashboard/solicitudes', [AdminSolicitudController::class,'index'])
-         ->name('d.solicituds');
+    Route::controller(AdminSolicitudController::class)->group(function (){
+        Route::get('/dashboard/solicitudes', [AdminSolicitudController::class,'index'])
+            ->name('d.solicituds');
+   
+        Route::get('/dashboard/especificacionEquipo/{id}', [AdminSolicitudController::class,'show'])
+            ->name('d.solicituds.show');
+   
+        Route::get('/dashboard/solicitudes/aceptar/{id}', [AdminSolicitudController::class,'aceptar'])
+            ->name('d.solicituds.aceptar');
+   
+        Route::get('/dashboard/solicitudes/rechazar/{id}', [AdminSolicitudController::class,'rechazar'])
+            ->name('d.solicituds.rechazar');
+   
+        Route::get('/dashboard/especificacion/{id}', [EspecificacionEquipoController::class,'show'])
+            ->name('d.especificacion.show');
+    });
+    
+    
 
 });
 
@@ -283,6 +301,11 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::get('/user/equipos','index')->name('d.userequipos.index');
         Route::get('/user/equipos/create','create')->name('d.userequipos.create');
         Route::post('/user/equipos/store','store')->name('d.userequipos.store');
+    });
+    Route::controller(UserSoftwareController::class)->group(function () {
+        Route::get('/user/softwares','index')->name('d.usersoftwares.index');
+        Route::get('/user/softwares/create','create')->name('d.usersoftwares.create');
+        Route::post('/user/softwares/store','store')->name('d.usersoftwares.store');
     });
     
 });
