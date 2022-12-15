@@ -14,10 +14,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RolSeeder::class);
         $this->call(OficinaSeeder::class);
-        $this->call(SoftwareSeeder::class);
         $this->call(Uso_EquipoSeeder::class);
+        $this->call(SoftwareSeeder::class);
         $this->call(Tipo_EquipoSeeder::class);
-        $this->call(Especificacion_SoftwareSeeder::class);
         $this->call(Especificacion_EquipoSeeder::class);
         
         //uso equipo
