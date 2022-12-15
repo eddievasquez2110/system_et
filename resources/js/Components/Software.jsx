@@ -11,7 +11,7 @@ const Software = ({software}) => {
 
   return (
       
-            <div className="relative max-w-xs bg-white rounded-lg border-2 border-neutral-100 shadow-md shadow-lime-800/50
+            <div className="relative max-w-xs bg-white rounded-lg border-2 border-neutral-100 shadow-md shadow-lime-800/50 hover:border-4 hover:border-green-400
                 " style={{height:"184px",width:"160px"}}>
                 <button 
                 type='button'

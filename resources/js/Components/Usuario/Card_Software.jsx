@@ -8,11 +8,11 @@ const Card_Software = ({item}) => {
     }
   return (
     <div>
-        <div className='flex gap-4 mb-3 align-center justify-start'>
-            <span>{item.software.Nombre_Software}</span>
+        <div className='mt-5 flex gap-4 align-center justify-between bg-gray-100 rounded-md p-2'>
+            <span className=''>{item.software.Nombre_Software}</span>
             <button
                 id={item.ID_Software}
-                className='bg-red-500 rounded text-white p-1 '
+                className='bg-red-500 rounded text-white p-2 text-sm '
                 onClick={removeItem}
             >Quitar</button>
         </div>

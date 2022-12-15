@@ -9,13 +9,16 @@ use Inertia\Inertia;
 class SoftwareController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
-        $cartItems = CartSoftware::with('software')
-                        ->where(['ID_User'=>auth()->user()->id])
-                        ->get();
+        $search = $request->query('search');
+        $cartItems = CartSoftware::with('software')->join('software','cart_software.ID_Software','=','software.ID_Software')
+          ->where(['ID_User'=>auth()->user()->id])
+          ->get();
         return Inertia::render('User/Solicitud',[
-            'softwares' => Software::all(),
+            'softwares' => Software::query()->when($search, fn($query) => 
+            $query->where('ID_Software','LIKE',"%{$search}%")->orWhere('Nombre_Software', 'LIKE', "%{$search}%")
+              )->get(),
             'items' => $cartItems,
         ]);
     }
