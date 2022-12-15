@@ -57,7 +57,7 @@ const Navbar = ({auth,children}) => {
           <div className='relative '>
             <div className="pt-4 px-6">
                 <a href="#">
-                <div className="flex lg:flex-row min-[200px]:flex-col cursor-auto items-center pb-4 border-b border-gray-200">
+                <div className="space-x-3 flex lg:flex-row min-[200px]:flex-col cursor-auto items-center pb-4 border-b border-gray-200">
                     <div className="shrink-0">
                     <img src={"/images/Logo/Logo.png"} style={open ?{width:'75px'}:{width:'35px'}} alt="" />
                     </div>
@@ -73,8 +73,8 @@ const Navbar = ({auth,children}) => {
                 <FontAwesomeIcon className="h-5 w-10 "  icon={faCircleLeft} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
             </div>
 
-            <div className="overflow-y-auto ">
-                <ul className="space-y-1 ">
+            <div className="overflow-y-auto mt-3">
+                <ul className="space-y-2 ">
                     <li className='px-3'>
                         <SideLink className='' href={route('admin')} active={route().current('admin')}>
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faChartPie} />
@@ -93,7 +93,7 @@ const Navbar = ({auth,children}) => {
                         </SideLink>
                     </li>
                     <li className='px-3 '>
-                        <button href="#" onClick={()=>setShow2(!show2)} className="flex lg:flex-row min-[200px]:flex-col items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
+                        <button href="#" onClick={()=>setShow2(!show2)} active={route().current('d.usuarios.index')} className="flex lg:flex-row min-[200px]:flex-col items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faUser} />
                             <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
                                 <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center' >Gestión de Usuarios</span>
@@ -111,7 +111,7 @@ const Navbar = ({auth,children}) => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.usuarios.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.usuarios.index')} active={route().current('d.usuarios.index')} className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Usuarios
                                 </Link>
                             </li>
