@@ -288,14 +288,7 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
     Route::get('/inicio/{id}',[TipoEquipoController::class,'show'])
         ->name('inicio.show');
 
-    Route::get('/solicitud', [SoftwareController::class,'index'])
-        ->name('solicitud');
-
-    Route::post('/solicitud/{id}',[SoftwareController::class,'addToCart'])
-        ->name('addToCart');
-
-    Route::delete('solicitud/{id}',[SoftwareController::class,'removeItem'])
-            ->name(('removeItem'));
+    
 
     Route::get('/infosoft', [InfoSoftwareController::class,'index'])
         ->name('infosoft');
@@ -311,6 +304,13 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::post('/user/softwares/store','store')->name('d.usersoftwares.store');
     });
     
+    Route::controller(SoftwareController::class)->group(function() {
+        Route::get('/solicitud', 'index')->name('solicitud');
+        Route::post('/solicitud/{id}','addToCart')->name('addToCart');
+        Route::delete('solicitud/{id}','removeItem')->name('removeItem');
+        Route::get('/solicitud/A/','ordenarAsc')->name('ordenarAsc');
+        Route::get('/solicitud/Z/','ordenarDesc')->name('ordenarDesc');
+    });
 });
 
 Route::controller(NotificacionController::class)->group(function (){

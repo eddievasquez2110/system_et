@@ -36,9 +36,31 @@ class SoftwareController extends Controller
         }
     }
 
-    public function create()
+    public function ordenarAsc(Request $request){
+        $search = $request->query('search');
+        $cartItems = CartSoftware::with('software')->join('software','cart_software.ID_Software','=','software.ID_Software')
+          ->where(['ID_User'=>auth()->user()->id])
+          ->get();
+        return Inertia::render('User/Solicitud',[
+            'softwares' => Software::query()->when($search, fn($query) => 
+            $query->where('ID_Software','LIKE',"%{$search}%")->orWhere('Nombre_Software', 'LIKE', "%{$search}%")->orderBy('Nombre_Software','ASC')
+              )->get(),
+            'items' => $cartItems,
+        ]);
+    }
+
+    public function ordenarDesc(Request $request)
     {
-        //
+        $search = $request->query('search');
+        $cartItems = CartSoftware::with('software')->join('software','cart_software.ID_Software','=','software.ID_Software')
+          ->where(['ID_User'=>auth()->user()->id])
+          ->get();
+        return Inertia::render('User/Solicitud',[
+            'softwares' => Software::query()->when($search, fn($query) => 
+            $query->where('ID_Software','LIKE',"%{$search}%")->orWhere('Nombre_Software', 'LIKE', "%{$search}%")->orderBy('Nombre_Software','DESC')
+              )->get(),
+            'items' => $cartItems,
+        ]);
     }
 
 

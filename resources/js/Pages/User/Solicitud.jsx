@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/inertia-react';
+import { Head, Link } from '@inertiajs/inertia-react';
 import Software from '@/Components/Software';
 import PrimaryButton from '@/Components/PrimaryButton';
 import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
 import Card_Software from '@/Components/Usuario/Card_Software';
 import { Inertia } from '@inertiajs/inertia';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown, faArrowDownZA, faArrowUp, faArrowUpAZ } from '@fortawesome/free-solid-svg-icons';
 
 const Solicitud = ({auth,softwares,items}) => {
     const [query,setQuery]= useState('');
@@ -62,8 +64,17 @@ const Solicitud = ({auth,softwares,items}) => {
                                 onKeyUp={search}
                                 placeholder='Digitar Software'
                                 />
+                                <div className='inline-flex gap-4'>
+                                <Link className='hover:bg-green-300 p-2' href={route('ordenarAsc')}>
+                                  <FontAwesomeIcon className="h-5 w-6"  icon={faArrowUpAZ} />
+                                </Link>
+                                
+                                <Link className='hover:bg-green-300 p-2' href={route('ordenarDesc')}>
+                                  <FontAwesomeIcon className="h-5 w-6"  icon={faArrowDownZA} />
+                                </Link>
                             </div>
-                          
+                            </div>
+                            
                           <div className='mt-8 flex flex-wrap justify-center gap-5'>
                           {
                                 softwares.map(software =>
@@ -76,7 +87,7 @@ const Solicitud = ({auth,softwares,items}) => {
                             <div className='text-center p-7 '>
                               
                             </div>
-                            <div className='bg-white rounded ml-4 p-6' style={{height:"400px"}}>
+                            <div className='overflow-x-auto bg-white rounded ml-4 p-6' style={{height:"400px"}}>
                               <div className=''>
                                   <div className='bg-green-300 p-3 text-center'>
                                   <span className='text-lg'>Lista</span>
