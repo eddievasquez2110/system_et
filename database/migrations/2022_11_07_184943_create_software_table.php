@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('software', function (Blueprint $table) {
             $table->id('ID_Software');
+            $table->unsignedBigInteger('ID_Uso_Equipo');
+            $table->foreign('ID_Uso_Equipo')->references('ID_Uso_Equipo')->on('uso__equipos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('Nombre_Software',45);
             $table->string('Imagen');
             $table->string('Version_Software',45);
             $table->string('Descripcion_Software',250);
-            
             $table->timestamps();
         });
     }
