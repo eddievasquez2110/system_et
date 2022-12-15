@@ -50,10 +50,10 @@ export default function Index({solis,auth}) {
                                     ID
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
-                                    Area Usuaria
+                                    Nombre
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
-                                    Oficina
+                                    Area Usuaria
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
                                     Equipo
@@ -80,7 +80,7 @@ export default function Index({solis,auth}) {
                         {
                             solis.data.map(soli => {
                                 return( 
-                                    <List_Solicitud soli={soli} key={soli.ID_Solicitud_Detalle}/>
+                                    <List_Solicitud soli={soli} key={soli.ID_Solicitud}/>
                                 )
                             })
                         }

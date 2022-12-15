@@ -14,15 +14,15 @@ class AdminSolicitudController extends Controller
     public function index(Request $request)
     {
         $search = $request->query('search');
-        $solis = Solicitud_Detalle::query()->when($search, fn($query) => 
+        $solis = Solicitud::query()->when($search, fn($query) => 
         $query->where('name','LIKE',"%{$search}%")->orWhere('Nombre_Oficina', 'LIKE', "%{$search}%")
-        )->with('solicituds','especificacion__equipos','especificacion__software')
-        ->join('solicituds','solicitud__detalles.ID_Solicitud','=','solicituds.ID_Solicitud')
+        )->with('solicitud__detalles','users')
+        ->join('solicitud__detalles','solicituds.ID_Solicitud','=','solicitud__detalles.ID_Solicitud')
         ->join('especificacion__equipos','solicitud__detalles.ID_Especificacion_Equipo','=','especificacion__equipos.ID_Especificacion_Equipo')
         ->join('tipo__equipos','especificacion__equipos.ID_Tipo_Equipo','=','tipo__equipos.ID_Tipo_Equipo')
-        ->join('especificacion__software','solicitud__detalles.ID_Especificacion_Software','=','especificacion__software.ID_Especificacion_Software')
         ->join('users','solicituds.id','=','users.id')
         ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')
+        
         ->paginate(5);
         
         return Inertia::render('Admin/Solicitud/Index',[

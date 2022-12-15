@@ -55,7 +55,7 @@ const List_Solicitud = ({soli}) => {
       <tr className="bg-white border-b">
             <td className="py-4 px-6">
                 <div className='flex flex-col'>
-                    {soli.ID_Solicitud_Detalle}
+                    {soli.ID_Solicitud}
                 </div>
             </td>
             <td className="py-4 px-6">
@@ -75,10 +75,23 @@ const List_Solicitud = ({soli}) => {
             </td>
             
             <td className="py-4 px-2 text-center">
-                {dayjs(soli.created_at).format('DD-MM-YYYY')}
+                <div className='flex flex-col text-center'>
+                    {dayjs(soli.Fecha_Solicitud).format('DD-MM-YYYY')}
+                </div>
             </td>
             <td className="py-4 px-3 text-center">
-                {soli.Estado_Solicitud}
+                <div className='flex flex-col text-center'>
+                    {
+                        soli.Estado_Solicitud=='Aceptado'?
+                            <div className='text-green-500 font-bold'>{soli.Estado_Solicitud}</div>
+                        :soli.Estado_Solicitud=='Rechazado'?
+                            <div className='text-red-600 font-bold'>{soli.Estado_Solicitud}</div>
+                        : soli.Estado_Solicitud=='Pendiente'?
+                            <div className='text-blue-600 font-bold'>{soli.Estado_Solicitud}</div>
+                        :<></>
+                    }
+                    
+                </div>
             </td>
             
             <td className="flex flex-inline py-4 place-content-center">
