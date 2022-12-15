@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/Layouts/Navbar';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Solicitud from '@/Components/Solicitud/List_Solicitud';
-
+import { Inertia } from '@inertiajs/inertia';
 
 export default function Index({solis,auth}) {
+    const [query,setQuery]= useState('');
+    const search = (e) => {
+        Inertia.get(route(route().current()),
+            {search : query},
+            {
+                preserveState: true,
+                replace: true,
+            })     
+    }
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
@@ -22,7 +31,14 @@ export default function Index({solis,auth}) {
                     </div>
                     <div className='flex items-center gap-4'>
                         <label className='text-slate-500'>Buscar: </label>
-                        <input className='rounded-md py-1 text-slate-500' type="text" />
+                        <input 
+                        className='rounded-md py-1 text-slate-500 placeholder:text-gray-300' 
+                        type="text"
+                        id='search'
+                        onChange={(e) => setQuery(e.target.value)}
+                        onKeyUp={search}
+                        placeholder='Digitar Nombre de area usuaria'
+                        />
                     </div>
                 </div>
             </div>

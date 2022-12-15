@@ -3,12 +3,53 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faFileCircleCheck, faFileCircleXmark} from '@fortawesome/free-solid-svg-icons';
 import dayjs from 'dayjs';
 import { Link } from '@inertiajs/inertia-react';
+import Swal from 'sweetalert2';
+import { Inertia } from '@inertiajs/inertia';
 
 
 //import { Popup } from 'unc-react-creator';
 
 const List_Solicitud = ({soli}) => {
-
+    const aceptar = (e) => {
+        Swal.fire({
+            title: 'Estas seguro?',
+            text: "Usted Aceptará la solicitud",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#15803D',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar'
+          }).then((result) => { 
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Cambios realizados correctamente!',
+                '',
+                'success'
+              )
+              Inertia.get(route('d.solicituds.aceptar',soli.ID_Solicitud))
+            }
+          })
+    }
+    const rechazar = (e) => {
+        Swal.fire({
+            title: 'Estas seguro?',
+            text: "Usted Rechazará la solicitud",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#15803D',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar'
+          }).then((result) => { 
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Cambios realizados correctamente!',
+                '',
+                'success'
+              )
+              Inertia.get(route('d.solicituds.rechazar',soli.ID_Solicitud))
+            }
+          })
+    }
   return (
     
       <tr className="bg-white border-b">
@@ -49,7 +90,7 @@ const List_Solicitud = ({soli}) => {
 
                 </Link>
 
-                <Link href={route('d.solicituds.aceptar',soli.ID_Solicitud)} className="font-medium text-green-500">
+                <Link onClick={aceptar} className="font-medium text-green-500">
                     
                     <div className='justify-center bg-green-100 px-2 py-2 rounded-md hover:bg-green-700 hover:text-white  mx-3'>
                     <FontAwesomeIcon className="h-5 w-8"  icon={faFileCircleCheck} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
@@ -57,7 +98,7 @@ const List_Solicitud = ({soli}) => {
 
                 </Link>   
 
-                <Link href={route('d.solicituds.rechazar',soli.ID_Solicitud)} className="font-medium text-red-500">
+                <Link onClick={rechazar}  className="font-medium text-red-500">
                     
                     <div className='justify-center bg-red-100 px-2 py-2 rounded-md hover:bg-red-700 hover:text-white mx-3'>
                     <FontAwesomeIcon className="h-5 w-8 "  icon={faFileCircleXmark} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
