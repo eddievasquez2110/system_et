@@ -34,7 +34,6 @@ class Solicitud_DetalleSeeder extends Seeder
             'ID_Solicitud'=>2,
             'ID_Especificacion_Equipo'=>3,
             'Cantidad_Equipo'=>7,
-            'ID_Especificacion_Software'=>2,
             'Descripcion_SolicitudDetalle'=>'Tercera solicitud',
         ]);
     }
