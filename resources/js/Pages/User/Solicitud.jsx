@@ -4,8 +4,10 @@ import { Head } from '@inertiajs/inertia-react';
 import Software from '@/Components/Software';
 import PrimaryButton from '@/Components/PrimaryButton';
 import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
+import Card_Software from '@/Components/Usuario/Card_Software';
 
-const Solicitud = ({auth,softwares}) => {
+const Solicitud = ({auth,softwares,items}) => {
+  console.log(items);
     return (
       <>
         {auth.user.ID_Rol == 1 ?
@@ -63,6 +65,12 @@ const Solicitud = ({auth,softwares}) => {
                             <div className='bg-white rounded ml-4 p-6' style={{height:"400px"}}>
                               <div className=''>
                                   <span>Lista :</span>
+                                  
+                                  {
+                                    items.map(item=>
+                                    <Card_Software key={item.id} item={item}/>
+                                    )
+                                  }
                               </div>
                             </div>
                         </div>

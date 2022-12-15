@@ -17,6 +17,7 @@ class SoftwareSeeder extends Seeder
     {
 
         $especificacions = Software::create([
+            'ID_Uso_Equipo' => '1',
             'Nombre_Software' => 'SIGA',
             'Imagen' => '1.png',
             'Version_Software' => '2022',
@@ -25,6 +26,7 @@ class SoftwareSeeder extends Seeder
         ]);
 
         $especificacions = Software::create([
+            'ID_Uso_Equipo' => '2',
             'Nombre_Software' => 'SIAF',
             'Imagen' => '2.png',
             'Version_Software' => '2022',
@@ -33,6 +35,7 @@ class SoftwareSeeder extends Seeder
         ]);
 
         $especificacions = Software::create([
+            'ID_Uso_Equipo' => '1',
             'Nombre_Software' => 'Microsoft Office',
             'Imagen' => '3.png',
             'Version_Software' => '2016',
@@ -41,6 +44,7 @@ class SoftwareSeeder extends Seeder
         ]);
 
         $especificacions = Software::create([
+            'ID_Uso_Equipo' => '3',
             'Nombre_Software' => 'Any Desk',
             'Imagen' => '4.png',
             'Version_Software' => '2022',
@@ -49,6 +53,7 @@ class SoftwareSeeder extends Seeder
         ]);
 
         $especificacions = Software::create([
+            'ID_Uso_Equipo' => '1',
             'Nombre_Software' => 'Adobe Acrobat',
             'Imagen' => '5.png',
             'Version_Software' => '2016',
@@ -57,6 +62,7 @@ class SoftwareSeeder extends Seeder
         ]);
 
         $especificacions = Software::create([
+            'ID_Uso_Equipo' => '2',
             'Nombre_Software' => 'AutoCad',
             'Imagen' => '6.png',
             'Version_Software' => '2016',
@@ -65,6 +71,7 @@ class SoftwareSeeder extends Seeder
         ]);
 
         $especificacions = Software::create([
+            'ID_Uso_Equipo' => '3',
             'Nombre_Software' => 'Zoom',
             'Imagen' => '7.png',
             'Version_Software' => '2022',
@@ -73,6 +80,7 @@ class SoftwareSeeder extends Seeder
         ]);
 
         $especificacions = Software::create([
+            'ID_Uso_Equipo' => '1',
             'Nombre_Software' => 'FoxPro',
             'Imagen' => '8.png',
             'Version_Software' => '2022',

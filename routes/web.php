@@ -288,6 +288,12 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
     Route::get('/solicitud', [SoftwareController::class,'index'])
         ->name('solicitud');
 
+    Route::post('/solicitud/{id}',[SoftwareController::class,'addToCart'])
+        ->name('addToCart');
+
+    Route::delete('solicitud/{id}',[SoftwareController::class,'removeItem'])
+            ->name(('removeItem'));
+
     Route::get('/infosoft', [InfoSoftwareController::class,'index'])
         ->name('infosoft');
     
