@@ -21,7 +21,6 @@ return new class extends Migration
             $table->foreign('ID_Especificacion_Equipo')->references('ID_Especificacion_Equipo')->on('especificacion__equipos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('Cantidad_Equipo');
             $table->String('Descripcion_SolicitudDetalle', 45);
-            //$table->Long('Proyecto',200);
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@ class AdminSoftwareController extends Controller
     {
         $search = $request->query('search');
         $soft = Software::query()->when($search, fn($query) => 
-        $query->where('Nombre_Software','LIKE',"%{$search}%")->orWhere('ID_Software', 'LIKE', "%{$search}%")
+        $query->where('Nombre_Software','LIKE',"%{$search}%")->orWhere('ID_Software', 'LIKE', "%{$search}%")->orderBy('ID_Software')
          )->paginate(5);
         return Inertia::render('Admin/Softwares/Software/Index',[
             'soft' => $soft

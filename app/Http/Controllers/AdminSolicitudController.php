@@ -7,6 +7,7 @@ use App\Models\Solicitud;
 use App\Models\Solicitud_Detalle;
 use App\Models\Tipo_Equipo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class AdminSolicitudController extends Controller
@@ -15,7 +16,7 @@ class AdminSolicitudController extends Controller
     {
         $search = $request->query('search');
         $solis = Solicitud::query()->when($search, fn($query) => 
-        $query->where('name','LIKE',"%{$search}%")->orWhere('Nombre_Oficina', 'LIKE', "%{$search}%")
+        $query->where('name','LIKE',"%{$search}%")->orWhere('Nombre_Oficina', 'LIKE', "%{$search}%")->orderBy('ID_Solicitud')
         )->with('solicitud__detalles','users')
         ->join('solicitud__detalles','solicituds.ID_Solicitud','=','solicitud__detalles.ID_Solicitud')
         ->join('especificacion__equipos','solicitud__detalles.ID_Especificacion_Equipo','=','especificacion__equipos.ID_Especificacion_Equipo')
@@ -30,6 +31,28 @@ class AdminSolicitudController extends Controller
         ]);
     }
 
+    public function store(Request $request)
+    {
+        $request ->validate([
+            'id' => 'required',
+            'Fecha_Solicitud' => 'required',
+            'Estado_Solicitud' => 'required',
+            'Documento' => 'required|image|mimes:jpeg,png,svg,pdf|max:1024'
+        ]);
+
+        $tipo_equip = $request->all();
+
+        if($imagen = $request->file('Documento')) {
+            $rutaGuardarImg = 'images/documentos';
+            $imagenProducto = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imagenProducto);
+            $tipo_equip['Documento'] = "$imagenProducto";         
+        }
+      
+        Tipo_Equipo::create($tipo_equip);
+        return redirect()->route('d.solicituds');
+    }
+
     public function show($id)
     {
         return Inertia::render('Admin/Solicitud/Especificacion',[
@@ -38,6 +61,13 @@ class AdminSolicitudController extends Controller
         ]);
     }
 
+    public function viewDocument($id)
+    {
+        
+        return Inertia::render('Admin/Solicitud/ViewDocument',[
+            'soli' =>Solicitud::where('ID_Solicitud',$id)->get(),
+        ]);
+    }
 
     public function aceptar($id)
     {

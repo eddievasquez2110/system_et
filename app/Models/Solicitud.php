@@ -13,6 +13,7 @@ class Solicitud extends Model
         'id',
         'Fecha_Solicitud',
         'Estado_Solicitud',
+        'Documento',
     ];
 
     public function users()
