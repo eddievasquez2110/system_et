@@ -98,8 +98,9 @@ const Navbar = ({auth,children}) => {
                             <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
                                 <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center' >Gestión de Usuarios</span>
                             </div>
+                            {open && <svg  className="w-6 h-6" style={show2?{transform: 'rotate(180deg)',}:{transform: 'rotate(0deg)'}} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>}
                         </button>
-                        { open ?(show2 && <ul  className="absolute w-full bg-white rounded-lg mt-1 ">
+                        { open ?(show2 && <ul  className="absolute w-48 bg-white rounded-lg mt-1 ">
                         <li>
                                 <Link href={route('d.roles.index')} active={route().current('d.roles.index')} className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Roles
@@ -116,7 +117,7 @@ const Navbar = ({auth,children}) => {
                                 </Link>
                             </li>
                             
-                        </ul>) : (show2 && <ul  className="absolute z-20 mt-1 bg-white rounded-lg">
+                        </ul>) : (show2 && <ul  className="absolute z-20 w-36 mt-1 bg-white rounded-lg">
                         <li>
                                 <Link href={route('d.softwares.index')}  className="flex items-center p-2 px-5 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Roles
@@ -144,8 +145,9 @@ const Navbar = ({auth,children}) => {
                             <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
                                 <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center'>Gestión de Equipos</span>
                             </div>
+                            {open && <svg  className="w-6 h-6" style={show?{transform: 'rotate(180deg)',}:{transform: 'rotate(0deg)'}} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>}
                         </button>
-                            {open ? (show  && <ul  className="bg-white absolute rounded-lg mt-1">
+                            {open ? (show  && <ul  className="bg-white absolute w-48 rounded-lg mt-1">
                                 <li>
                                     <Link href={route('d.tipoequipos.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                         Tipo de Equipo
@@ -161,7 +163,7 @@ const Navbar = ({auth,children}) => {
                                         Especificacion Equipo
                                     </Link>
                                 </li>
-                            </ul>): (show  && <ul  className="bg-white z-30 absolute rounded-lg mt-1">
+                            </ul>): (show  && <ul  className="bg-white z-30 w-36 absolute rounded-lg mt-1">
                                 <li>
                                     <Link href={route('d.tipoequipos.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                         Tipo de Equipo
