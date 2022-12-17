@@ -48,7 +48,7 @@ const List_Tipo_Equipo = ({tipo}) => {
             <td className="px-4 py-2">
                 {tipo.Editor_Equipo}
             </td>
-            <td className="flex gap-3 justify-center py-3 text-right ">
+            <td className="flex gap-3 justify-center py-3 text-right p-4">
                 <div className='flex align-center justify-center gap-4'>
                     
                     <div className='font-medium text-blue-500 pt-2'>

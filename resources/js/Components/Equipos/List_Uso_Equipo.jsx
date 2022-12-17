@@ -37,7 +37,7 @@ const List_Uso_Equipo = ({uso}) => {
             <td className="py-4 px-6">
                 {uso.Nombre_Uso_Equipo}
             </td>
-            <td className="flex gap-3 justify-center py-3 text-right ">
+            <td className="flex gap-3 justify-center py-3 text-right p-4">
                 <div className='flex align-center justify-center gap-4'>
                     
                     <div className='font-medium text-blue-500 pt-2'>

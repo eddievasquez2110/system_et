@@ -119,12 +119,12 @@ const Navbar = ({auth,children}) => {
                             
                         </ul>) : (show2 && <ul  className="absolute z-20 w-36 mt-1 bg-white rounded-lg">
                         <li>
-                                <Link href={route('d.softwares.index')}  className="flex items-center p-2 px-5 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.roles.index')}  className="flex items-center p-2 px-5 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Roles
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.softwares.index')}  className="flex items-center p-2 px-5 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.oficinas.index')}  className="flex items-center p-2 px-5 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Oficinas
                                 </Link>
                             </li>
