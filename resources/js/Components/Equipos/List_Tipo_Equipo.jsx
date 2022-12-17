@@ -42,7 +42,7 @@ const List_Tipo_Equipo = ({tipo}) => {
             </td>
             <td className="px-3 py-2 justify-center ">
                 <div className='flex items-center justify-center'>
-                    <img src={`/images/Equipos/${tipo.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
+                    <img src={`/images/equipos/${tipo.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
                 </div>        
             </td>
             <td className="px-4 py-2">

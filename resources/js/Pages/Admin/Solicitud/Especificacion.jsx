@@ -21,7 +21,7 @@ const Lista = ({auth,laptops,especificacion}) => {
             
         </Navbar>
       :
-      auth.user.ID_Rol == 3 ?
+      auth.user.ID_Rol == 1 ?
         <NavbarSAdmin auth={auth}>
         <Head title="Especificaciones" />
         <div className='flex flex-col h-screen items-center justify-center m-4'>    

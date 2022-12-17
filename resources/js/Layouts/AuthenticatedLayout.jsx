@@ -53,28 +53,16 @@ export default function Authenticated({ auth, children }) {
                                 <h1 className='text-yellow-400 ml-4 font-mono'>UNCP EETT</h1>
                             </div>
 
-                            { auth.user.ID_Rol == '1' ?
-                                <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
-                                  
-                                
-                                </div>
-                                : auth.user.ID_Rol == '2' ?
-                                    <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
-
-                                    </div>
-                                : auth.user.ID_Rol == '3' ?
-                                    <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
-                                        <NavLink href={route('user')} active={route().current('user')}>
-                                            Inicio
-                                        </NavLink>
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
+                                <NavLink href={route('user')} active={route().current('user')}>
+                                    Inicio
+                                </NavLink>
                                         
-                                        <NavLink href={route('infosoft')} active={route().current('infosoft')}>
-                                            Software
-                                        </NavLink>
+                                <NavLink href={route('infosoft')} active={route().current('infosoft')}>
+                                    Software
+                                </NavLink>
                                     
-                                    </div>
-                                : <></>
-                            } 
+                            </div>     
                             
                         </div>
                         <div className='flex'>

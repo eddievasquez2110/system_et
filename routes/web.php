@@ -270,9 +270,13 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
    
         Route::get('/dashboard/solicitudes/rechazar/{id}', [AdminSolicitudController::class,'rechazar'])
             ->name('d.solicituds.rechazar');
+
+        Route::get('/dashboard/solicitudes/ver/{id}', [AdminSolicitudController::class,'viewDocument'])
+            ->name('d.solicituds.ver');
    
         Route::get('/dashboard/especificacion/{id}', [EspecificacionEquipoController::class,'show'])
             ->name('d.especificacion.show');
+        
     });
     
     
