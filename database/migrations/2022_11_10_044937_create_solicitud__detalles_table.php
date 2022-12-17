@@ -17,10 +17,9 @@ return new class extends Migration
             $table->id('ID_Solicitud_Detalle');
             $table->unsignedBigInteger('ID_Solicitud');
             $table->foreign('ID_Solicitud')->references('ID_Solicitud')->on('solicituds')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->unsignedBigInteger('ID_Especificacion_Equipo');
-            $table->foreign('ID_Especificacion_Equipo')->references('ID_Especificacion_Equipo')->on('especificacion__equipos')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->unsignedBigInteger('ID_Tipo_Equipo');
+            $table->foreign('ID_Tipo_Equipo')->references('ID_Tipo_Equipo')->on('tipo__equipos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('Cantidad_Equipo');
-            $table->String('Descripcion_SolicitudDetalle', 45);
             $table->timestamps();
         });
     }

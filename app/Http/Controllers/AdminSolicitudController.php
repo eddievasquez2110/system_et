@@ -19,8 +19,7 @@ class AdminSolicitudController extends Controller
         $query->where('name','LIKE',"%{$search}%")->orWhere('Nombre_Oficina', 'LIKE', "%{$search}%")->orderBy('ID_Solicitud')
         )->with('solicitud__detalles','users')
         ->join('solicitud__detalles','solicituds.ID_Solicitud','=','solicitud__detalles.ID_Solicitud')
-        ->join('especificacion__equipos','solicitud__detalles.ID_Especificacion_Equipo','=','especificacion__equipos.ID_Especificacion_Equipo')
-        ->join('tipo__equipos','especificacion__equipos.ID_Tipo_Equipo','=','tipo__equipos.ID_Tipo_Equipo')
+        ->join('tipo__equipos','solicitud__detalles.ID_Tipo_Equipo','=','tipo__equipos.ID_Tipo_Equipo')
         ->join('users','solicituds.id','=','users.id')
         ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')
         

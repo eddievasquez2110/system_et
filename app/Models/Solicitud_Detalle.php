@@ -11,9 +11,8 @@ class Solicitud_Detalle extends Model
 
     protected $fillable = [
         'ID_Solicitud',
-        'ID_Especificacion_Equipo',
-        'ID_Especificacion_Software',
-        'Descripcion_SolicitudDetalle',
+        'ID_Tipo_Equipo',
+        'ID_Software'
     ];
 
     public function solicituds()
@@ -21,13 +20,13 @@ class Solicitud_Detalle extends Model
         return $this->HasOne(Solicitud::class,'ID_Solicitud','Fecha_Solicitud','Estado_Solicitud');
     }
 
-    public function especificacion__equipos()
+    public function tipo__equipos()
     {
-        return $this->HasMany(Especificacion_Equipo::class,'ID_Especificacion_Equipo','Nombre_Especificacion_Equipo','Especificacion_Equipo');
+        return $this->HasOne(Tipo_Equipo::class,'ID_Tipo_Equipo','Nombre_Tipo_Equipo');
     }
 
-    public function especificacion__software()
+    public function software()
     {
-        return $this->HasMany(Especificacion_Software::class,'ID_Especificacion_Software','Nombre_Especificacion_Software','Especificacion_Software');
+        return $this->HasOne(Software::class,'ID_Software','Nombre_Software');
     }
 }
