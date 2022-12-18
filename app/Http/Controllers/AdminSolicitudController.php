@@ -55,7 +55,7 @@ class AdminSolicitudController extends Controller
     public function show($id)
     {
         return Inertia::render('Admin/Solicitud/Especificacion',[
-            'laptops' =>Tipo_Equipo::where('ID_Tipo_Equipo',$id)->get(),
+            'equipos' =>Tipo_Equipo::where('ID_Tipo_Equipo',$id)->get(),
             'especificacion' =>Especificacion_Equipo::where('ID_Tipo_Equipo',$id)->get()
         ]);
     }
