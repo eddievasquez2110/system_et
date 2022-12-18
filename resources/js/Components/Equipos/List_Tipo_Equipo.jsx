@@ -38,7 +38,7 @@ const List_Tipo_Equipo = ({tipo}) => {
                 {tipo.ID_Tipo_Equipo}
             </td>
             <td className="px-6 py-2">
-                {tipo.Nombre_Tipo_Equipo}
+                {tipo.Nombre_Tipo_Equipo.toUpperCase()}
             </td>
             <td className="px-3 py-2 justify-center ">
                 <div className='flex items-center justify-center'>

@@ -2,7 +2,6 @@ import React from 'react'
 import { Head } from '@inertiajs/inertia-react';
 import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
 import DocumentPDF from '@/Components/Solicitud/DocumentPDF';
-import { Inertia } from '@inertiajs/inertia';
 
 const ViewDocument = ({auth,soli}) => {
 
@@ -10,9 +9,10 @@ const ViewDocument = ({auth,soli}) => {
     return (
     <>
     {auth.user.ID_Rol == 2 ?
+    
       <div>
+      <Head title='Visualizar PDF'/>
       {
-
             <DocumentPDF soli={soli}></DocumentPDF>
       }
       </div>
