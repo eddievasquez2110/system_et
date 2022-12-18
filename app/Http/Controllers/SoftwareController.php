@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\CartSoftware;
+use App\Models\Especificacion_Equipo;
 use App\Models\Software;
+use App\Models\Tipo_Equipo;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 class SoftwareController extends Controller
 {
     
-    public function index(Request $request)
+    public function index(Request $request,$id)
     {
         $search = $request->query('search');
         $cartItems = CartSoftware::with('software')->join('software','cart_software.ID_Software','=','software.ID_Software')
@@ -20,6 +22,8 @@ class SoftwareController extends Controller
             $query->where('ID_Software','LIKE',"%{$search}%")->orWhere('Nombre_Software', 'LIKE', "%{$search}%")
               )->get(),
             'items' => $cartItems,
+            'card' => CartSoftware::where(['ID_User'=>auth()->user()->id])->get(),
+            'id'=> $id
         ]);
     }
 
@@ -34,6 +38,14 @@ class SoftwareController extends Controller
         if($cart){
             $cart->delete();
         }
+    }
+
+    public function viewEspecificacion($tipo,$uso){
+        return Inertia::render('User/Especificacion',[
+            'equipos' => Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)->first(),
+            'especificacion' =>Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)
+                            ->where('ID_Uso_Equipo',$uso)->get(),
+        ]);
     }
 
     public function ordenarAsc(Request $request){

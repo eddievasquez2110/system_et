@@ -9,17 +9,23 @@ import { Inertia } from '@inertiajs/inertia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowDownZA, faArrowUp, faArrowUpAZ } from '@fortawesome/free-solid-svg-icons';
 
-const Solicitud = ({ auth, softwares, items }) => {
+const Solicitud = ({ auth, softwares, items, card, id }) => {
   const [query, setQuery] = useState('');
+  
   const search = (e) => {
-    Inertia.get(route(route().current()),
+    Inertia.get(route('solicitud',id),
       { search: query },
       {
         preserveState: true,
         replace: true,
       })
   }
-  console.log(query);
+  console.log(items);
+  const viewEspecificacion = () => {
+      const maxuso = Math.max(...items.map(item => item.ID_Uso_Equipo));
+      Inertia.get(route('viewEspecificacion',[id,maxuso])); 
+  }
+  
   return (
     <>
       {auth.user.ID_Rol == 1 ?
@@ -58,10 +64,18 @@ const Solicitud = ({ auth, softwares, items }) => {
                         <div className='bg-green-300 p-3 text-center'>
                           <span className='text-lg'>Lista</span>
                         </div>
-                        {
+                        {    
                           items.map(item =>
                             <Card_Software key={item.id} item={item} />
-                          )
+                          ) 
+                        }
+                        {
+                          (card.length !== 0) 
+                          && 
+                          <button
+                          onClick={viewEspecificacion}
+                            className='bg-blue-500 mt-5 rounded text-white p-2 text-sm '
+                          >Ver Especificación</button>
                         }
                       </div>
                     </div>
