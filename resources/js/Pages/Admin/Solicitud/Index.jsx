@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/Layouts/Navbar';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Solicitud from '@/Components/Solicitud/List_Solicitud';
+import { Inertia } from '@inertiajs/inertia';
 
 export default function Index({solis,auth}) {
+    const [query,setQuery]= useState('');
+    const search = (e) => {
+        Inertia.get(route(route().current()),
+            {search : query},
+            {
+                preserveState: true,
+                replace: true,
+            })     
+    }
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
@@ -21,7 +31,14 @@ export default function Index({solis,auth}) {
                     </div>
                     <div className='flex items-center gap-4'>
                         <label className='text-slate-500'>Buscar: </label>
-                        <input className='rounded-md py-1 text-slate-500' type="text" />
+                        <input 
+                        className='rounded-md py-1 text-slate-500 placeholder:text-gray-300' 
+                        type="text"
+                        id='search'
+                        onChange={(e) => setQuery(e.target.value)}
+                        onKeyUp={search}
+                        placeholder='Digitar Nombre de area usuaria'
+                        />
                     </div>
                 </div>
             </div>
@@ -30,10 +47,19 @@ export default function Index({solis,auth}) {
                     <thead className="text-xs text-white uppercase bg-green-700">
                         <tr>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
+                                    ID
+                            </th>
+                            <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
                                     Nombre
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
                                     Area Usuaria
+                            </th>
+                            <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
+                                    Especificacion Equipo
+                            </th>
+                            <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
+                                Especificacion Software
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
                                 <div className="flex items-center">
@@ -57,15 +83,15 @@ export default function Index({solis,auth}) {
                         {
                             solis.data.map(soli => {
                                 return( 
-                                    <List_Solicitud soli={soli} key={soli.ID_Solicitud_Detalle}/>
+                                    <List_Solicitud soli={soli} key={soli.ID_Solicitud}/>
                                 )
                             })
                         }
-                        
-                       
+                          
                     </tbody>
                 </table>
             </div>
+            
             <Pagination className="mt-2" links={solis.links} />
         </Navbar>
     );

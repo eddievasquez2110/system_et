@@ -9,6 +9,7 @@ const Create = ({auth}) => {
         Imagen: null,
         Version_Software:"",
         Descripcion_Software:"",
+        Editor_Software:auth.user.name.toUpperCase()
     });
     console.log(data);
     const onSelectedFile = (e) =>{

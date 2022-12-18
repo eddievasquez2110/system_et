@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->date('Fecha_Solicitud');
             $table->string('Estado_Solicitud',30)->nullable()->default('Pendiente');
+            $table->String('Documento');
             $table->timestamps();
         });
     }

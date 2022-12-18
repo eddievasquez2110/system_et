@@ -15,8 +15,8 @@ class InfoSoftwareController extends Controller
     {
         return Inertia::render('User/InfoSoftware',[
             'infoSoftwares' => Software::all(),
-            'usuarios' => User::with('rol:ID_Rol,Nombre_Rol,created_at','oficina:ID_Oficina,Nombre_Oficina,Cargo_Oficina,created_at')->get(),
-            'oficina' => Oficina::all(),
+            // 'usuarios' => User::with('rol:ID_Rol,Nombre_Rol,created_at','oficina:ID_Oficina,Nombre_Oficina,Cargo_Oficina,created_at')->get(),
+            // 'oficina' => Oficina::all(),
         ]);
     }
 

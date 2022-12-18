@@ -55,7 +55,9 @@ export default function Index({soft,auth}) {
                 <table className="w-full text-sm text-left text-gray-500 ">
                     <thead className="text-xs text-white uppercase bg-green-700">
                         <tr>
-                            
+                            <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
+                                ID
+                            </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
                                 <div className="flex items-center">
                                     Nombre de Software 

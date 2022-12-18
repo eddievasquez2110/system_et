@@ -9,51 +9,59 @@ use Inertia\Inertia;
 class RolController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
-        $roles = Rol::pluck('Nombre_Rol', 'ID_Rol');
-        $roles->all();
-        
-    }
-    
-    public function create()
-    {
-        
-    }
-    
-    public function store(Request $request)
-    {
-        
-    }
-
-    
-    public function show(Rol $rol)
-    {
-        return view('rols.profile', [
-            'rol' => Rol::findOrFail($rol)
+        $search = $request->query('search');
+        $roles = Rol::query()->when($search, fn($query) => 
+        $query->where('Nombre_Rol','LIKE',"%{$search}%")->orWhere('ID_Rol', 'LIKE', "%{$search}%")
+         )->paginate(5);
+        return Inertia::render('Admin/Usuarios/Rol/Index',[
+            'roles' => $roles
         ]);
     }
 
-    
-    public function edit(Rol $rol)
+    public function create() 
     {
-        
+        return Inertia::render('Admin/Usuarios/Rol/Create');
     }
 
-    
-    public function update(Request $request, Rol $rol)
+    public function store(Request $request)
     {
-        
+        $request ->validate([
+            'Nombre_Rol' => 'required'
+        ]);
+
+        $roles = $request->all();
+
+        Rol::create($roles);
+        return redirect()->route('d.roles.index');
     }
 
-    
-    public function destroy(Rol $rol)
+    public function edit($id)
     {
-        
+        $roles = Rol::where('ID_Rol',$id)->first();
+        return Inertia::render('Admin/Usuarios/Rol/Edit',[
+            'roles' => $roles,
+        ]);
     }
 
-    public function getRol(){
-        $rols = Rol::select('ID_Rol','Nombre_Rol')->get();
-        return $rols;
+    public function update(Request $request, $id)
+    {
+         $request ->validate([
+             'Nombre_Uso_Equipo' => 'required'
+          ]);
+         
+        $roles = $request->all();
+        
+        Rol::where('ID_Rol',$id)->update([
+            'Nombre_Rol' => $roles['Nombre_Rol']
+        ]);
+        return redirect()->route('d.roles.index');
+    }
+
+    public function destroy($id)
+    {
+        Rol::where('ID_Rol',$id)->delete();
+        return redirect()->route('d.roles.index');
     }
 }

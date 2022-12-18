@@ -14,17 +14,20 @@ class SolicitudSeeder extends Seeder
     {
         $solicitud = Solicitud::create([
             'id' => 1,
-            'Fecha_Solicitud'=>'2022-11-10 12:30:12',
+            'Fecha_Solicitud'=>'2022-11-09',
             'Estado_Solicitud'=>'Aceptado',
+            'Documento'=>'1.pdf',
         ]);
 
         $solicitud = Solicitud::create([
-            'id' => 1,
-            'Fecha_Solicitud'=>'2022-12-09 17:13:00',
+            'id' => 2,
+            'Fecha_Solicitud'=>'2022-12-10',
+            'Documento'=>'plataforma de cursos.pdf',
         ]);
         $solicitud = Solicitud::create([
-            'id' => 2,
-            'Fecha_Solicitud'=>'2022-12-05 12:57:00',
+            'id' => 3,
+            'Fecha_Solicitud'=>'2022-12-16',
+            'Documento'=>'Presentacion_Avances.pdf',
         ]);
     }
 }

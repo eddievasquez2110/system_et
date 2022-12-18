@@ -13,16 +13,18 @@ class Solicitud extends Model
         'id',
         'Fecha_Solicitud',
         'Estado_Solicitud',
+        'Documento',
     ];
 
-    public function User()
+    public function users()
     {
-        return $this->HasOne(User::class);
+        return $this->HasOne(User::class,'id');
     }
 
-    public function solicitud_detalles()
+    public function solicitud__detalles()
     {
-        return $this->belongsTo(Solicitud_Detalle::class);
+        return $this->belongsTo(Solicitud_Detalle::class,'ID_Solicitud_detalle');
     }
+
 
 }

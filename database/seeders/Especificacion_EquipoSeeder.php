@@ -127,7 +127,230 @@ class Especificacion_EquipoSeeder extends Seeder
             'Nombre_Especificacion_Equipo' => 'Suite de Ofimática',
             'Especificacion_Equipo' => 'No',
         ]);
+        /* USO DIRECCION */
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Procesador',
+            'Especificacion_Equipo' => 'Intel Core i7 – 10va generación o superior',
+        ]);
 
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Memoria RAM',
+            'Especificacion_Equipo' => '08 GB DDR4',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Disco Duro (Almacenamiento)',
+            'Especificacion_Equipo' => '512 GB SSD',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Tarjeta de video',
+            'Especificacion_Equipo' => 'integrada',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Sistema operativo',
+            'Especificacion_Equipo' => 'Windows 10 Pro',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Velocidad del procesador',
+            'Especificacion_Equipo' => '2.5 Ghz como mínimo',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Tamaño de pantalla',
+            'Especificacion_Equipo' => 'Elegir entre 14” o 15.6” FHD',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Cámara Web / micrófono',
+            'Especificacion_Equipo' => 'Sí - HD a 720p',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Lector de tarjeta de memoria',
+            'Especificacion_Equipo' => 'Si',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Puerto RJ45',
+            'Especificacion_Equipo' => 'Si',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Puertos HDMI',
+            'Especificacion_Equipo' => 'Si',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Puertos USB',
+            'Especificacion_Equipo' => 'Si (2 mínimo)',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Wi-Fi',
+            'Especificacion_Equipo' => 'Si',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Conectividad Bluetooth',
+            'Especificacion_Equipo' => 'Si',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Puerto Tipo C',
+            'Especificacion_Equipo' => 'Si',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Especificacion_Equipo' => 'Suite de Ofimática',
+            'Especificacion_Equipo' => 'No',
+        ]);
+        /* USO procesamiento grafico */
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Procesador',
+            'Especificacion_Equipo' => 'Intel Core i7 – 10va generación o superior',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Memoria RAM',
+            'Especificacion_Equipo' => '16GB DDR4 o superior',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Disco Duro (Almacenamiento)',
+            'Especificacion_Equipo' => '512 GB SSD',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Tarjeta de video',
+            'Especificacion_Equipo' => 'Dedicado 2gb',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Sistema operativo',
+            'Especificacion_Equipo' => 'Windows 10 Pro',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Velocidad del procesador',
+            'Especificacion_Equipo' => '2.5 Ghz como mínimo',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Tamaño de pantalla',
+            'Especificacion_Equipo' => 'Elegir entre 14” o 15.6” FHD',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Cámara Web / micrófono',
+            'Especificacion_Equipo' => 'Sí - HD a 720p',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Lector de tarjeta de memoria',
+            'Especificacion_Equipo' => 'Si',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Puerto RJ45',
+            'Especificacion_Equipo' => 'Si',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Puertos HDMI',
+            'Especificacion_Equipo' => 'Si',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Puertos USB',
+            'Especificacion_Equipo' => 'Si (2 mínimo)',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Wi-Fi',
+            'Especificacion_Equipo' => 'Si',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Conectividad Bluetooth',
+            'Especificacion_Equipo' => 'Si',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Puerto Tipo C',
+            'Especificacion_Equipo' => 'Si',
+        ]);
+
+        $especificacions = Especificacion_Equipo::create([
+            'ID_Tipo_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
+            'Nombre_Especificacion_Equipo' => 'Suite de Ofimática',
+            'Especificacion_Equipo' => 'No',
+        ]);
         /* lapto CPU*/
 
         $especificacions = Especificacion_Equipo::create([

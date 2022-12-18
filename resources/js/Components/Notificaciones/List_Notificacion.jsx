@@ -33,6 +33,7 @@ const List_Notificacion = ({noti,countNoti}) => {
   
     return (
       <tr className="bg-white border-b">
+            
             <td className="py-4 px-6">
                 {noti.Nombre_User}
             </td>

@@ -55,7 +55,11 @@ export default function Index({tipos,auth}) {
                 <table className="w-full text-sm text-left text-gray-500 ">
                     <thead className="text-xs text-white uppercase bg-green-700">
                         <tr>
-                            
+                            <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
+                                <div className="flex items-center">
+                                    ID 
+                                </div>
+                            </th>
                             <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
                                 <div className="flex items-center">
                                     Nombre Tipo de Equipo 
@@ -67,14 +71,15 @@ export default function Index({tipos,auth}) {
                                     Imagen
                                 </div>
                             </th>
+                            <th scope="col" className="py-2 px-4" style={{borderRight: '1px solid white'}}>
+                                Editor
+                            </th>
                             <th scope="col" className="py-3 px-4">
                                 <div className="flex justify-center items-center">
                                 Accion
                                 </div>
                             </th>
-                            <th scope="col" className="py-2 px-4" style={{borderRight: '1px solid white'}}>
-                                Editor
-                            </th>
+                            
                             
                         </tr>
                     </thead>
