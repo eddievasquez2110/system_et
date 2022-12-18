@@ -17,7 +17,7 @@ class Especificacion_Equipo extends Model
     ];
 
     public function tipo__equipos(){
-        return $this->hasMany(Tipo_Equipo::class,'ID_Tipo_Equipo','Nombre_Tipo_Equipo');
+        return $this->belongsTo(Tipo_Equipo::class,'ID_Tipo_Equipo','ID_Tipo_Equipo');
     }
 
     public function uso__equipos()

@@ -33,7 +33,7 @@ class TipoEquipoController extends Controller
     public function show($id)
     {
         return Inertia::render('User/Lista',[
-            'laptops' =>Tipo_Equipo::where('ID_Tipo_Equipo',$id)->get(),
+            'equipos' =>Tipo_Equipo::where('ID_Tipo_Equipo',$id)->first(),
             'especificacion' =>Especificacion_Equipo::where('ID_Tipo_Equipo',$id)->get()
         ]);
     }
