@@ -104,26 +104,21 @@ const List_Solicitud = ({soli}) => {
             
             <td className="flex flex-inline py-4 place-content-center">
                 <Link href={route('d.solicituds.ver',soli.ID_Solicitud)} className="font-medium text-blue-500">
-                    
                     <div className='justify-center bg-blue-100 px-2 py-2 rounded-md hover:bg-blue-700 hover:text-white mx-3'>
                     <FontAwesomeIcon className="h-5 w-8"  icon={faEye} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
                     </div>
                 </Link>
                 
-                <Link onClick={aceptar} className="font-medium text-green-500">
-                    
+                <Link onClick={aceptar} className="font-medium text-green-500">           
                     <div className='justify-center bg-green-100 px-2 py-2 rounded-md hover:bg-green-700 hover:text-white  mx-3'>
                     <FontAwesomeIcon className="h-5 w-8"  icon={faFileCircleCheck} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
                     </div>
-
                 </Link>   
 
-                <Link onClick={rechazar}  className="font-medium text-red-500">
-                    
+                <Link onClick={rechazar}  className="font-medium text-red-500">             
                     <div className='justify-center bg-red-100 px-2 py-2 rounded-md hover:bg-red-700 hover:text-white mx-3'>
                     <FontAwesomeIcon className="h-5 w-8 "  icon={faFileCircleXmark} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
                     </div>
-
                 </Link>
             
             </td>

@@ -64,7 +64,7 @@ class AdminSolicitudController extends Controller
     {
         
         return Inertia::render('Admin/Solicitud/ViewDocument',[
-            'soli' =>Solicitud::where('ID_Solicitud',$id)->get(),
+            'solis' =>Solicitud::where('ID_Solicitud',$id)->get(),
         ]);
     }
 
