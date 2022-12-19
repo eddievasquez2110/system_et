@@ -2,9 +2,10 @@ import React, {  useState } from 'react'
 import Navbar from '@/Layouts/Navbar';
 import { Head, useForm, Link } from '@inertiajs/inertia-react';
 
-const Create = ({auth}) => {
+const Create = ({auth, usoEquipo}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, post, progress} = useForm({
+        ID_Uso_Equipo:"",
         Nombre_Software:"",
         Imagen: null,
         Version_Software:"",
@@ -100,6 +101,35 @@ function handleSubmit(e){
                                         />
                                         <span className="text-red-600">
                                             {errors.Version_Software}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="">Uso del Software</label>
+                                        <select 
+                                            id ='ID_Uso_Equipo' 
+                                            label="ID_Uso_Equipo"
+                                            name='ID_Uso_Equipo'  
+                                            forInput="ID_Uso_Equipo"
+                                            className='block w-full bg-white border h-10 py'
+                                            
+                                            onChange={(e) =>
+                                                setData('ID_Uso_Equipo', e.target.value)
+                                            }
+                                            required
+                                            >
+                                            
+                                            <option value="" disabled selected='true'>seleccione el tipo de uso</option>
+                                            {
+                                            usoEquipo.map(uso => {
+                                                return(
+                                                    <option key={uso.ID_Uso_Equipo} ofi={uso.Nombre_Uso_Equipo} value={uso.ID_Uso_Equipo}>{uso.Nombre_Uso_Equipo}</option>
+                                                )
+                                            })
+                                            }
+                                            
+                                        </select>
+                                        <span className="text-red-600">
+                                            {errors.Cargo_Oficina}
                                         </span>
                                     </div>
                                     <div className="mb-4">

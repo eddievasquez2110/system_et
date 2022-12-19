@@ -292,8 +292,8 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
     Route::get('/inicio/{id}',[TipoEquipoController::class,'show'])
         ->name('inicio.show');
 
-    Route::get('/infosoft', [InfoSoftwareController::class,'index'])
-        ->name('infosoft');
+    // Route::get('/infosoft', [InfoSoftwareController::class,'index'])
+    //     ->name('infosoft');
     
     Route::controller(UserTipoEquipoController::class)->group(function () {
         Route::get('/user/equipos','index')->name('d.userequipos.index');

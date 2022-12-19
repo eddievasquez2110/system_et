@@ -5,6 +5,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 const Create = ({auth}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, post, progress} = useForm({
+        ID_Uso_Equipo: 4,
         Nombre_Software:"",
         Version_Software:"",
         Descripcion_Software:"",
