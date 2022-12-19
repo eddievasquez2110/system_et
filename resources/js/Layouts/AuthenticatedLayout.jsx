@@ -68,7 +68,7 @@ export default function Authenticated({ auth, children }) {
                         <div className='flex'>
                         <div className="sm:flex sm:items-center m-2">
                             <div className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white font-bold hover:text-green-300 focus:outline-none transition ease-in-out duration-150 ">
-                                                <FontAwesomeIcon className="h-6 w-10"  icon={faBriefcase} />
+                                                
                                                 
                         </div>
                         </div>

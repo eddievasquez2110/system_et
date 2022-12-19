@@ -40,6 +40,10 @@ class SoftwareController extends Controller
         }
     }
 
+    public function removeAll(){
+        CartSoftware::removeAll();
+    }
+
     public function viewEspecificacion($tipo,$uso){
         return Inertia::render('User/Especificacion',[
             'equipos' => Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)->first(),

@@ -54,4 +54,12 @@ class TipoEquipoController extends Controller
     {
         //
     }
+
+    public function viewEspecificacion($tipo,$uso){
+        return Inertia::render('User/Especificacion',[
+            'equipos' => Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)->first(),
+            'especificacion' =>Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)
+                            ->where('ID_Uso_Equipo',$uso)->get(),
+        ]);
+    }
 }
