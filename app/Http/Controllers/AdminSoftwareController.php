@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Software;
+use App\Models\Uso_Equipo;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -21,7 +22,9 @@ class AdminSoftwareController extends Controller
 
     public function create() 
     {
-        return Inertia::render('Admin/Softwares/Software/Create');
+        return Inertia::render('Admin/Softwares/Software/Create',[
+            'usoEquipo' => Uso_Equipo::all(),
+        ]);
     }
 
     public function store(Request $request)
