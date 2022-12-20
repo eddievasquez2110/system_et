@@ -16,7 +16,7 @@ class User extends Authenticatable
         'ID_Rol',
         'ID_Oficina',
         'name',
-        'email',
+        'email' => 'required|unique:table,column', 
         'password',
     ];
 

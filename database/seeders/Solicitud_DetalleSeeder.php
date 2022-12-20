@@ -28,7 +28,7 @@ class Solicitud_DetalleSeeder extends Seeder
             'Cantidad_Equipo'=>7,
         ]);
         $solicitud_detalle = Solicitud_Detalle::create([
-            'ID_Solicitud'=>2,
+            'ID_Solicitud'=>4,
             'ID_Tipo_Equipo'=>3,
             'Cantidad_Equipo'=>7,
         ]);
