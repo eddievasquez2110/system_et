@@ -22,7 +22,7 @@ class AdminSolicitudController extends Controller
         ->join('tipo__equipos','solicitud__detalles.ID_Tipo_Equipo','=','tipo__equipos.ID_Tipo_Equipo')
         ->join('users','solicituds.id','=','users.id')
         ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')
-        
+
         ->paginate(5);
         
         return Inertia::render('Admin/Solicitud/Index',[

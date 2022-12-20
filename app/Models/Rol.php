@@ -10,7 +10,7 @@ class Rol extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Nombre_Rol',
+        'Nombre_Rol' => 'required|unique:table,column',
     ];
 
     public function User()

@@ -41,7 +41,8 @@ class SoftwareController extends Controller
     }
 
     public function removeAll(){
-        CartSoftware::removeAll();
+        $cart = CartSoftware::all();
+        $cart->delete();
     }
 
     public function viewEspecificacion($tipo,$uso){

@@ -311,6 +311,7 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::get('solicitud/{tipo}/especificacion/{uso}','viewEspecificacion')->name('viewEspecificacion');
         Route::post('/solicitud/{id}','addToCart')->name('addToCart');
         Route::delete('solicitud/{id}','removeItem')->name('removeItem');
+        Route::post('removeAll')->name('removeAll');
         Route::get('/solicitud/A/','ordenarAsc')->name('ordenarAsc');
         Route::get('/solicitud/Z/','ordenarDesc')->name('ordenarDesc');
     });
