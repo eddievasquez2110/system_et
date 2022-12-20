@@ -10,6 +10,7 @@ const Edit = ({auth,soft}) => {
         Imagen: soft.Imagen,
         Version_Software: soft.Version_Software,
         Descripcion_Software: soft.Descripcion_Software,
+        Link_Software: soft.Link_Software,
     });
 
     const onSelectedFile = (e) =>{
@@ -25,6 +26,7 @@ const Edit = ({auth,soft}) => {
             Imagen: data.Imagen,
             Version_Software: data.Version_Software,
             Descripcion_Software: data.Descripcion_Software,
+            Link_Software: data.Link_Software,
           })
         
     }
@@ -123,6 +125,23 @@ const Edit = ({auth,soft}) => {
                                         />
                                         <span className="text-red-600">
                                             {errors.Descripcion_Software}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="">Enlace de descarga software</label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-4 py-2 text-gray-500"
+                                            label="Link_Software"
+                                            name="Link_Software"
+                                            value={data.Link_Software}
+                                            onChange={(e) =>
+                                                setData("Link_Software", e.target.value)
+                                            }
+                                           
+                                        />
+                                        <span className="text-red-600">
+                                            {errors.Link_Software}
                                         </span>
                                     </div>
                                 </div>
