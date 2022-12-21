@@ -16,6 +16,7 @@ use App\Http\Controllers\AdminSolicitudController;
 use App\Http\Controllers\EspecificacionEquipoController;
 use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\OficinaController;
+use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserSoftwareController;
@@ -292,6 +293,9 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
     Route::get('/inicio/{id}',[TipoEquipoController::class,'show'])
         ->name('inicio.show');
 
+    Route::get('reportesdos/{tipo}', [TipoEquipoController::class,'reportesdos'])
+        ->name('reportesdos');
+
     Route::get('/infosoft', [InfoSoftwareController::class,'index'])
         ->name('infosoft');
     
@@ -311,8 +315,7 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::get('solicitud/{tipo}/especificacion/{uso}','viewEspecificacion')->name('viewEspecificacion');
         Route::post('/solicitud/{id}','addToCart')->name('addToCart');
         Route::delete('solicitud/{id}','removeItem')->name('removeItem');
-        Route::get('/solicitud/A/','ordenarAsc')->name('ordenarAsc');
-        Route::get('/solicitud/Z/','ordenarDesc')->name('ordenarDesc');
+        Route::get('reportes/{tipo}/{uso}','viewPdf')->name('viewPdf'); 
     });
 });
 

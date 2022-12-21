@@ -4,6 +4,8 @@ import { Head } from '@inertiajs/inertia-react';
 import Table from '@/Components/Table';
 import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
 const Lista = ({auth, equipos,especificacion}) => {
+
+  const tipo = especificacion[0].ID_Tipo_Equipo;
   return (
     <>
     {auth.user.ID_Rol == 1 ?
@@ -18,8 +20,9 @@ const Lista = ({auth, equipos,especificacion}) => {
       :auth.user.ID_Rol == 3 ?
         <AuthenticatedLayout auth={auth}>
         <Head title="Especificaciones" />
-        <div className='flex flex-col h-screen items-center justify-center m-4'>    
+        <div className='flex flex-col h-screen items-center justify-center m-4'>
             <div className="overflow-x-auto w-5/6 relative shadow-md sm:rounded-lg  ">
+            <a href={`/reportesdos/${tipo}`} className="text-white bg-green-500 rounded p-2 mb-4" target="_blank">Imprimir</a>   
             <Table  equipos={equipos} especificacion={especificacion}/>
             </div>   
         </div>
