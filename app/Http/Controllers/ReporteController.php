@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
-
 class ReporteController extends Controller
 {
     
@@ -16,7 +15,7 @@ class ReporteController extends Controller
         return Inertia::render('Admin/Reportes',['reportes'=>$reportes]);
     }
 
-    
+   
     public function create()
     {
         //

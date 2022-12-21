@@ -17,6 +17,7 @@ class Software extends Model
         'Version_Software',
         'Descripcion_Software',
         'Editor_Software',
+        'Link_Software',
     ];
 
     public function Uso(){
