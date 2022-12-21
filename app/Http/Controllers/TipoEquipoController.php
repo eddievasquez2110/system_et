@@ -6,7 +6,7 @@ use App\Models\Especificacion_Equipo;
 use App\Models\Tipo_Equipo;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 class TipoEquipoController extends Controller
 {
     
@@ -38,6 +38,13 @@ class TipoEquipoController extends Controller
         ]);
     }
 
+    public function reportesdos($tipo)
+    {
+        $equipos = Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)->first();
+        $especificacion = Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)->get();
+        $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion']));
+        return $pdf->download('pdf_file.pdf');
+    }
     public function edit(Tipo_Equipo $tipo_Equipo)
     {
         //

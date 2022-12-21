@@ -20,7 +20,6 @@ const Solicitud = ({ auth, softwares, items, card, id }) => {
         replace: true,
       })
   }
-  console.log(items);
   const viewEspecificacion = () => {
       const maxuso = Math.max(...items.map(item => item.ID_Uso_Equipo));
       Inertia.get(route('viewEspecificacion',[id,maxuso])); 
@@ -95,13 +94,13 @@ const Solicitud = ({ auth, softwares, items, card, id }) => {
                         placeholder='Digitar Software'
                       />
                       <div className='inline-flex gap-4'>
-                        <Link className='hover:bg-green-300 p-2' href={route('ordenarAsc')}>
+                        {/* <Link className='hover:bg-green-300 p-2' href={route('ordenarAsc')}>
                           <FontAwesomeIcon className="h-5 w-6" icon={faArrowUpAZ} />
                         </Link>
 
                         <Link className='hover:bg-green-300 p-2' href={route('ordenarDesc')}>
                           <FontAwesomeIcon className="h-5 w-6" icon={faArrowDownZA} />
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
 
