@@ -9,11 +9,13 @@ const Especificacion = ({especificacion,auth,equipos}) => {
   return (
     <AuthenticatedLayout auth={auth}>
         <Head title="Especificaciones" />
-        <div className='flex flex-col h-screen items-center justify-center m-4'>
-            <div className="overflow-x-auto w-5/6 relative shadow-md sm:rounded-lg">     
-                <a href={`/reportes/${tipo}/${uso}`} className="text-white bg-green-500 rounded p-2 mb-4" target="_blank">Imprimir</a>     
-            <Table  especificacion={especificacion} equipos={equipos}/>
-            </div>
+        <div className='flex flex-col h-screen items-center m-4'>
+          <div className='flex items-end'>
+          <a href={`/reportes/${tipo}/${uso}`} className="text-white bg-green-500 rounded p-2 mb-4" target="_blank">Descargar</a>     
+          </div>
+          <div className="overflow-x-auto w-5/6 relative shadow-md sm:rounded-lg">
+          <Table  especificacion={especificacion} equipos={equipos}/>
+          </div>
         </div>
     </AuthenticatedLayout>
   )

@@ -46,6 +46,7 @@ class TipoEquipoController extends Controller
         $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion']));
         return $pdf->download('pdf_file.pdf');
     }
+    
     public function edit(Tipo_Equipo $tipo_Equipo)
     {
         //
