@@ -84,4 +84,6 @@ class AdminSolicitudController extends Controller
         return redirect()->route('d.solicituds');
     }
 
+    
+
 }

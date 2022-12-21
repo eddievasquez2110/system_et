@@ -9,7 +9,7 @@ export default function Admin({auth}) {
         <Navbar auth={auth}>
             <Head title='Admin'/>
             <div className='flex flex-col'>
-                <div className='wrapper flex flex-wrap justify-center mt-8 gap-4 pb-5'>
+                <div className='wrapper flex flex-wrap justify-center mt-8 gap-4 pb-5' id='ChartCircle'>
                     <DashCircle></DashCircle>
                     <DashCircle></DashCircle>
                     <DashCircle></DashCircle>

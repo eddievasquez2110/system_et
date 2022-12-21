@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 import NumeroNotificacion from '@/Components/Notificaciones/NumeroNotificacion';
 import List_Notificacion from '@/Components/Notificaciones/List_Notificacion';
 
-const Navbar = ({auth,children}) => {
+const Navbar = ({auth,children, total}) => {
     const [show,setShow] = useState(false);
     const [show1,setShow1] = useState(false);
     const [show2,setShow2] = useState(false);
@@ -193,7 +193,7 @@ const Navbar = ({auth,children}) => {
                     </li>
 
                     <li className='px-3'>
-                        <SideLink href={route('d.reportes')} active={route().current('d.reportes')}>
+                        <SideLink href={route('d.reportes','total')} active={route().current('d.reportes')}>
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faFileClipboard} />
                             <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
                                 <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center'>Reportes</span>

@@ -255,7 +255,7 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
 //     Route::get('/dashboard/especificacionsoftware', [AdminEspecificacionSoftwareController::class,'index'])
 //          ->name('d.especificacionsoftware');
 
-    Route::get('/dashboard/reportes', [AdminReporteController::class,'index'])
+    Route::get('/dashboard/reportes/{año}', [AdminReporteController::class,'index'])
          ->name('d.reportes');
 
     Route::controller(AdminSolicitudController::class)->group(function (){
@@ -276,11 +276,11 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
    
         Route::get('/dashboard/especificacion/{id}', [EspecificacionEquipoController::class,'show'])
             ->name('d.especificacion.show');
-        
+
+        Route::get('/dashboard/inicio{id}', [AdminSolicitudController::class,'viewDocument'])
+            ->name('d.solicituds.ver');
     });
     
-    
-
 });
 
 //RUTAS SOLO USER
@@ -288,7 +288,7 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
 
     Route::get('/inicio', [TipoEquipoController::class,'index'])
         ->name('user'); 
- 
+    
     Route::get('/inicio/{id}',[TipoEquipoController::class,'show'])
         ->name('inicio.show');
 
