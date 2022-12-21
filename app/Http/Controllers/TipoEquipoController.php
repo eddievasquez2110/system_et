@@ -7,6 +7,7 @@ use App\Models\Tipo_Equipo;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Barryvdh\DomPDF\Facade\Pdf;
+
 class TipoEquipoController extends Controller
 {
     

@@ -6,8 +6,7 @@ import Dropdown from '@/Components/Dropdown';
 import { Inertia } from '@inertiajs/inertia';
 import SideLink from '@/Components/SideLink';
 import Swal from 'sweetalert2';
-import NumeroNotificacion from '@/Components/Notificaciones/NumeroNotificacion';
-import List_Notificacion from '@/Components/Notificaciones/List_Notificacion';
+
 
 const Navbar = ({auth,children, total}) => {
     const [show,setShow] = useState(false);
