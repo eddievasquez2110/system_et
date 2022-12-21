@@ -2,13 +2,15 @@ import React, {  useState } from 'react'
 import Navbar from '@/Layouts/Navbar';
 import { Head, useForm, Link } from '@inertiajs/inertia-react';
 
-const Create = ({auth}) => {
+const Create = ({auth, usoEquipo}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, post, progress} = useForm({
+        ID_Uso_Equipo:"",
         Nombre_Software:"",
         Imagen: null,
         Version_Software:"",
         Descripcion_Software:"",
+        Link_Software:"",
         Editor_Software:auth.user.name.toUpperCase()
     });
     console.log(data);
@@ -103,6 +105,35 @@ function handleSubmit(e){
                                         </span>
                                     </div>
                                     <div className="mb-4">
+                                        <label className="">Uso del Software</label>
+                                        <select 
+                                            id ='ID_Uso_Equipo' 
+                                            label="ID_Uso_Equipo"
+                                            name='ID_Uso_Equipo'  
+                                            forInput="ID_Uso_Equipo"
+                                            className='block w-full bg-white border h-10 py'
+                                            
+                                            onChange={(e) =>
+                                                setData('ID_Uso_Equipo', e.target.value)
+                                            }
+                                            required
+                                            >
+                                            
+                                            <option value="" disabled selected='true'>seleccione el tipo de uso</option>
+                                            {
+                                            usoEquipo.map(uso => {
+                                                return(
+                                                    <option key={uso.ID_Uso_Equipo} ofi={uso.Nombre_Uso_Equipo} value={uso.ID_Uso_Equipo}>{uso.Nombre_Uso_Equipo}</option>
+                                                )
+                                            })
+                                            }
+                                            
+                                        </select>
+                                        <span className="text-red-600">
+                                            {errors.Cargo_Oficina}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
                                         <label className="">Descripcion Software</label>
                                         <input
                                             type="text"
@@ -116,6 +147,22 @@ function handleSubmit(e){
                                         />
                                         <span className="text-red-600">
                                             {errors.Descripcion_Software}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="">Enlace de descarga de software </label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-4 py-2 text-gray-500"
+                                            label="Link_Software"
+                                            name="Link_Software"
+                                            value={data.Link_Software}
+                                            onChange={(e) =>
+                                                setData("Link_Software", e.target.value)
+                                            }
+                                        />
+                                        <span className="text-red-600">
+                                            {errors.Link_Software}
                                         </span>
                                     </div>
                                 </div>

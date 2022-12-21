@@ -10,7 +10,7 @@ class Oficina extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Nombre_Oficina',
+        'Nombre_Oficina' => 'required|unique:table,column',
         'Cargo_Oficina',
     ];
 

@@ -5,10 +5,12 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 const Create = ({auth}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, post, progress} = useForm({
+        ID_Uso_Equipo: 4,
         Nombre_Software:"",
         Version_Software:"",
         Descripcion_Software:"",
         Imagen: null,
+        Link_Software:"",
         Editor_Software:auth.user.name.toUpperCase()
     });
     console.log(data);
@@ -87,6 +89,22 @@ function handleSubmit(e){
                                         />
                                         <span className="text-red-600">
                                             {errors.Descripcion_Software}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="">Link Software</label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-4 py-2 text-gray-500"
+                                            label="desc"
+                                            name="desc"
+                                            value={data.Link_Software}
+                                            onChange={(e) =>
+                                                setData("Link_Software", e.target.value)
+                                            }
+                                        />
+                                        <span className="text-red-600">
+                                            {errors.Link_Software}
                                         </span>
                                     </div>
                                     <div className="mb-4">
