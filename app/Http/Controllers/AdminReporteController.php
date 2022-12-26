@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Especificacion_Equipo;
+use App\Models\Solicitud;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class AdminReporteController extends Controller
 {
-    public function index()
+    public function index($mes)
     {
-        //$reportList = Especificacion_Equipo::orderBy('ID_Especificacion_Equipo')->paginate(6);
+        $total = Solicitud::where('Fecha_Solicitud',$mes)->count();
         return Inertia::render('Admin/Reportes/Reportes',[
-            //'report' => $reportList
+            'total' => $total,
         ]);
     }
 }

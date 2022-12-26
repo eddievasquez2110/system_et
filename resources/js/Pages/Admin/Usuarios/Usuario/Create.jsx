@@ -19,6 +19,7 @@ const Create = ({auth,users,ofis,rols}) => {
 function handleSubmit(e){
     e.preventDefault();
     post(route('d.usuarios.store'))
+    console.log(data)
 }
 const onHandleChange = (event) => {
     setData(event.target.name, event.target.value);
@@ -139,6 +140,7 @@ const onHandleChange = (event) => {
                                             className="w-full px-4 py-2 text-gray-500"
                                             label="email"
                                             name="email"
+                                            required
                                             value={data.email}
                                             onChange={(e) =>
                                                 setData("email", e.target.value)
@@ -186,7 +188,7 @@ const onHandleChange = (event) => {
                                     >
                                         Guardar
                                     </button>
-                                    {console.log(data)}
+                                    {/* {console.log(data)} */}
                                 </div>
                             </form>
                             

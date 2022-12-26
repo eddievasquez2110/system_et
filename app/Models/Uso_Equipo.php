@@ -10,7 +10,7 @@ class Uso_Equipo extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Nombre_Uso_Equipo',
+        'Nombre_Uso_Equipo' => 'required|unique:table,column',
     ];
 
     public function Especificacion_Equipo()

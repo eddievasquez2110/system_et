@@ -11,7 +11,7 @@ const ViewDocument = ({auth,solis}) => {
     console.log(solis)
     const aceptar = (e) => {
       Swal.fire({
-          title: 'Estas seguro?',
+          title: '¿Estas seguro?',
           text: "Usted Aceptará la solicitud",
           icon: 'warning',
           showCancelButton: true,

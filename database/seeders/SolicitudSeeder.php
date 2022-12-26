@@ -29,5 +29,10 @@ class SolicitudSeeder extends Seeder
             'Fecha_Solicitud'=>'2022-12-16',
             'Documento'=>'Presentacion_Avances.pdf',
         ]);
+        $solicitud = Solicitud::create([
+            'id' => 3,
+            'Fecha_Solicitud'=>'2022-12-18',
+            'Documento'=>'INFORME_CARRITO_ARDUINO.pdf',
+        ]);
     }
 }

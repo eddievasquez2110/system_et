@@ -11,7 +11,7 @@ class Notificacion extends Model
 
     protected $fillable = [
         'Nombre_User',
-        'Email_User',
+        'Email_User' => 'required|unique:table,column',
         'Asunto_User',
         'Mensaje_User',
     ];

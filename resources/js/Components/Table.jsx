@@ -8,7 +8,7 @@ const Table = ({equipos,especificacion}) => {
       <table className="w-full text-sm text-left text-gray-500">
         <thead className="text-xs text-white uppercase bg-teal-600 ">
             <tr>
-                <th colspan="2" className="py-3 px-6 text-center">
+                <th colSpan="2" className="py-3 px-6 text-center">
                   {equipos.Nombre_Tipo_Equipo}
                 </th>
             </tr>

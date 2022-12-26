@@ -10,6 +10,7 @@ const Create = ({auth, usoEquipo}) => {
         Imagen: null,
         Version_Software:"",
         Descripcion_Software:"",
+        Link_Software:"",
         Editor_Software:auth.user.name.toUpperCase()
     });
     console.log(data);
@@ -146,6 +147,22 @@ function handleSubmit(e){
                                         />
                                         <span className="text-red-600">
                                             {errors.Descripcion_Software}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="">Enlace de descarga de software </label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-4 py-2 text-gray-500"
+                                            label="Link_Software"
+                                            name="Link_Software"
+                                            value={data.Link_Software}
+                                            onChange={(e) =>
+                                                setData("Link_Software", e.target.value)
+                                            }
+                                        />
+                                        <span className="text-red-600">
+                                            {errors.Link_Software}
                                         </span>
                                     </div>
                                 </div>

@@ -80,6 +80,7 @@ class AdminSoftwareController extends Controller
             'Imagen' => $soft['Imagen'],
             'Version_Software' => $soft['Version_Software'],
             'Descripcion_Software' => $soft['Descripcion_Software'],
+            'Link_Software'=>$soft['Link_Software'],
         ]);
         return redirect()->route('d.softwares.index');
     }

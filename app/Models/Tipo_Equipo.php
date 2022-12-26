@@ -11,7 +11,7 @@ class Tipo_Equipo extends Model
 
     protected $fillable = [
         'ID_Tipo_Equipo',
-        'Nombre_Tipo_Equipo',
+        'Nombre_Tipo_Equipo' => 'required|unique:table,column',
         'Imagen',
         'Editor_Equipo'
     ];
