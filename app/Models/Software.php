@@ -28,9 +28,14 @@ class Software extends Model
         return $this->HasOne(Version::class);
     }
 
-    public function Especificacion_Software()
+    // public function Especificacion_Software()
+    // {
+    //     return $this->HasOne(Especificacion_Software::class);
+    // }
+
+    public function uso__equipos()
     {
-        return $this->HasOne(Especificacion_Software::class);
+        return $this->HasOne(Uso_Equipo::class,'ID_Uso_Equipo','Nombre_Uso_Equipo');
     }
     
     public function Solicitud_Detalle()

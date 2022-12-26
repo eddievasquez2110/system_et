@@ -12,7 +12,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
@@ -86,7 +86,10 @@ class UserController extends Controller
     {
         $usua = User::with('Rol','Oficina')
         ->join('rols','users.ID_Rol','=','rols.ID_Rol')
-        ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')->where('id',$id)->first();
+        ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')->where('id',$id)->first()
+        ->makeVisible('password');
+        
+        $usua = Crypt::encryptString($usua);
         
         return Inertia::render('Admin/Usuarios/Usuario/Edit',[
             'usua' => $usua,

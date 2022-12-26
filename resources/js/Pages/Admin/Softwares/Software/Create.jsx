@@ -129,7 +129,7 @@ function handleSubmit(e){
                                             
                                         </select>
                                         <span className="text-red-600">
-                                            {errors.Cargo_Oficina}
+                                            {errors.ID_Uso_Equipo}
                                         </span>
                                     </div>
                                     <div className="mb-4">

@@ -5,6 +5,7 @@ import { Head, useForm, Link } from '@inertiajs/inertia-react';
 
 
 const Create = ({auth,users,ofis,rols}) => {
+    // console.log(rols)
     const [preview, setPreview] = useState('');
     const {data, setData, errors, post, progress} = useForm({
         ID_Rol:"",
@@ -90,7 +91,7 @@ const onHandleChange = (event) => {
                                             {
                                             ofis.map(ofi => {
                                                 return(
-                                                    <option value={setData.ID_Oficina=ofi.ID_Oficina}>{ofi.Nombre_Oficina}</option>
+                                                    <option key={ofi.ID_Oficina} value={ofi.ID_Oficina}>{ofi.Nombre_Oficina}</option>
                                                 )
                                             })
                                             }
@@ -101,35 +102,7 @@ const onHandleChange = (event) => {
                                             {errors.Nombre_Oficina}
                                         </span>
                                     </div>
-                                    <div className="mb-4">
-                                        <label className="">Cargo</label>
-                                        <select 
-                                            id ='Cargo_Oficina' 
-                                            label="Cargo_Oficina"
-                                            name='Cargo_Oficina'  
-                                            forInput="Cargo_Oficina"
-                                            className='block w-full bg-white border h-10 py'
-                                            
-                                            onChange={(e) =>
-                                                setData('Cargo_Oficina', e.target.value)
-                                            }
-                                            required
-                                            >
-                                            
-                                            <option value="" disabled selected='true'>seleccione el cargo</option>
-                                            {
-                                            ofis.map(ofi => {
-                                                return(
-                                                    <option key={ofi.ID_Oficina} ofi={ofi.Nombre_Oficina}>{ofi.Cargo_Oficina}</option>
-                                                )
-                                            })
-                                            }
-                                            
-                                        </select>
-                                        <span className="text-red-600">
-                                            {errors.Cargo_Oficina}
-                                        </span>
-                                    </div>
+                                    
                                     <div className="mb-4">
                                         <label className="rol">Rol</label><br />
 
@@ -148,11 +121,8 @@ const onHandleChange = (event) => {
                                             {
                                                 rols.map( rol => {
                                                     return (
-                                                        <option value={setData.ID_Rol=rol.ID_Rol}>{rol.Nombre_Rol}</option>
-                                                        
+                                                        <option key={rol.ID_Rol} value={rol.ID_Rol}>{rol.Nombre_Rol}</option>
                                                     )
-                                                    
-                                                    
                                                 })
                                                 
                                             }
@@ -188,7 +158,7 @@ const onHandleChange = (event) => {
                                             // autoComplete="new-password"
                                             handleChange={onHandleChange}
                                             required
-                                            type="password"
+                                            type="text"
                                             className="w-full px-4 py-2 text-gray-500"
                                             label="password"
                                             name="password"

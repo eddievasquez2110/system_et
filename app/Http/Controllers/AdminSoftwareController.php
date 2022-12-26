@@ -13,10 +13,13 @@ class AdminSoftwareController extends Controller
     {
         $search = $request->query('search');
         $soft = Software::query()->when($search, fn($query) => 
+        // $query->where('Nombre_Software','LIKE',"%{$search}%")->orWhere('ID_Software', 'LIKE', "%{$search}%")->orderBy('ID_Software')
+        //  )->paginate(5);
         $query->where('Nombre_Software','LIKE',"%{$search}%")->orWhere('ID_Software', 'LIKE', "%{$search}%")->orderBy('ID_Software')
-         )->paginate(5);
+        )->with('uso__equipos')
+       ->join('uso__equipos','software.ID_Uso_Equipo','=','uso__equipos.ID_Uso_Equipo')->paginate(5);
         return Inertia::render('Admin/Softwares/Software/Index',[
-            'soft' => $soft
+            'soft' => $soft,
         ]);
     }
 
@@ -52,6 +55,7 @@ class AdminSoftwareController extends Controller
         $soft = Software::where('ID_Software',$id)->first();
         return Inertia::render('Admin/Softwares/Software/Edit',[
             'soft' => $soft,
+            'usoEquipo' => Uso_Equipo::all(),
         ]);
     }
 
@@ -71,6 +75,7 @@ class AdminSoftwareController extends Controller
          }
         
         Software::where('ID_Software',$id)->update([
+            'ID_Uso_Equipo' => $soft['ID_Uso_Equipo'],
             'Nombre_Software' => $soft['Nombre_Software'],
             'Imagen' => $soft['Imagen'],
             'Version_Software' => $soft['Version_Software'],

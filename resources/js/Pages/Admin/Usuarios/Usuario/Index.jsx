@@ -16,7 +16,7 @@ export default function Index({usua,auth}) {
             })     
     }
     
-    console.log(query);
+    // console.log(query);
 
     return (
         <Navbar auth={auth}>
@@ -87,7 +87,7 @@ export default function Index({usua,auth}) {
                         </tr>
                     </thead>
                     <tbody>
-                        {console.log(usua)}
+                        {/* {console.log(usua)} */}
                         {
                             usua.data.map(usuaa => {
                                 return(

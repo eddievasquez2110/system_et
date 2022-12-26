@@ -13,6 +13,8 @@ const Edit = ({auth,usua}) => {
         email:usua.email,
         password:usua.password,
     });
+    console.log(usua)
+    // console.log(auth)
     //console.log(usos[0].ID_Uso_Equipo);
     function handleSubmit(e) {
         e.preventDefault();

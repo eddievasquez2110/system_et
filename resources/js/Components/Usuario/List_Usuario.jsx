@@ -51,7 +51,7 @@ const List_Usuario = ({usua}) => {
             </td>
       
             <td className="flex gap-3 justify-center py-3 text-right p-4">
-                <div className='flex align-center justify-center gap-4'>
+                <div className='flex flex-col align-center justify-center gap-4'>
                     
                     <div className='font-medium text-blue-500 pt-2'>
                       <Link
