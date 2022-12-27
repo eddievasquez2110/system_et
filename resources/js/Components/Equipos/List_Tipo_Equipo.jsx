@@ -49,7 +49,7 @@ const List_Tipo_Equipo = ({tipo}) => {
                 {tipo.Editor_Equipo}
             </td>
             <td className="flex gap-3 justify-center py-3 text-right p-4">
-                <div className='flex align-center justify-center gap-4'>
+                <div className='flex md:flex-row min-[200px]:flex-col align-center justify-center gap-4'>
                     
                     <div className='font-medium text-blue-500 pt-2'>
                       <Link

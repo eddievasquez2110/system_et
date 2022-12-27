@@ -318,6 +318,9 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::delete('solicitud/{id}','removeItem')->name('removeItem');
         Route::get('reportes/{tipo}/{uso}','viewPdf')->name('viewPdf'); 
     });
+    Route::controller(SolicitudController::class)->group(function(){
+        Route::get('/carrito','carritoindex')->name('carritoindex');
+    });
 });
 
 Route::controller(NotificacionController::class)->group(function (){

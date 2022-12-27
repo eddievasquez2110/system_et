@@ -14,9 +14,10 @@ class UserSoftwareController extends Controller
         // $search = $request->query('search');
         // $softs = Software::query()->when($search, fn($query) => 
         // $query->where('Nombre_Software','LIKE',"%{$search}%")->orWhere('ID_Software', 'LIKE', "%{$search}%")
-        //  )->where('Editor_Software','=','ADMIN')->paginate(6);
+        //  )->where('Editor_Software','=','ADMIN');
+        
         return Inertia::render('User/InfoSoftware',[
-            'infoSoftwares' => Software::all(),
+            'infoSoftwares' => Software::all()->where('Editor_Software','=','ADMIN')
         ]);
     }
 

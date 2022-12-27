@@ -44,7 +44,6 @@ export default function Authenticated({ auth, children }) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between p-2">
                         <div className="flex">
-
                             {/* Logo UNCP */}
                             <div className="shrink-0 flex items-center">
                                 <Link href="/">
@@ -61,15 +60,15 @@ export default function Authenticated({ auth, children }) {
                                 <NavLink href={route('d.usersoftwares.index')} active={route().current('d.usersoftwares.index')}>
                                     Software
                                 </NavLink>
-                                    
+                                <NavLink href={route('carritoindex')} active={route().current('carritoindex')}>
+                                    Carrito
+                                </NavLink>
                             </div>     
                             
                         </div>
                         <div className='flex'>
                         <div className="sm:flex sm:items-center m-2">
-                            <div className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white font-bold hover:text-green-300 focus:outline-none transition ease-in-out duration-150 ">
-                                                
-                                                
+                            <div className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white font-bold hover:text-green-300 focus:outline-none transition ease-in-out duration-150 ">   
                         </div>
                         </div>
                         <div className="hidden sm:flex sm:items-center sm:ml-6 h-12 w-38 justify-center flex m-2 border border-gray-500 rounded-lg bg-white">
