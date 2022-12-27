@@ -65,18 +65,20 @@ const List_Solicitud = ({soli}) => {
                     {soli.name}
                 </div>
             </td>
-            <td className="py-4 px-2">
+            <td className="py-4 px-6">
                 <div className='flex flex-col'>
-                    {soli.Nombre_Oficina}
+                {soli.Nombre_Especificacion_Equipo}:
+                _________________________
                 </div>
+                {soli.Especificacion_Equipo}
             </td>
-            {/* <td className="py-4 px-6">
+            <td className="py-4 px-6">
                 <div className='flex flex-col text-center'>
                     <Link href={route('d.solicituds.show',soli.ID_Tipo_Equipo)} className='font-medium text-green-500 hover:text-green-600'>
                         {soli.Nombre_Tipo_Equipo}
                     </Link>   
                 </div>
-            </td> */}
+            </td>
             <td className="px-3 py-2 justify-center ">
                 <div className='flex items-center justify-center '>
                     <embed src={`/images/documentos/${soli.Documento}`} alt="" style={{width:'80px',height:'50px'}} className='overflow-y-hidden' />
