@@ -36,7 +36,7 @@ const Solicitud = ({ auth, softwares, items, card, id }) => {
       {auth.user.ID_Rol == 1 ?
         <NavbarSAdmin auth={auth}>
           <Head title="Solicitud" />
-          <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'>SELECCIÓN DE PROGRAMAS</div>
+          <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'><strong>SELECCIÓN DE PROGRAMAS</strong></div>
           <div className='flex'>
             <div style={{ width: "70%" }}>
               {
@@ -93,7 +93,7 @@ const Solicitud = ({ auth, softwares, items, card, id }) => {
                   </div>
                   <div className='flex flex-col h-screen md:w-2/3 min-[200px]:w-full '>
                     <div className='text-center p-4'>
-                      <h2 className='text-green-700 font-bold'>SELECCIÓN DE PROGRAMAS</h2>
+                      <h2 className='text-green-700 font-bold'><strong>SELECCIÓN DE PROGRAMAS</strong></h2>
                     </div>
                     <div className='mt-3 flex items-center gap-4'>
                       <label className='text-slate-500'>Buscar: </label>
