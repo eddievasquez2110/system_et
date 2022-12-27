@@ -33,40 +33,18 @@ class SolicitudController extends Controller
             'Documento' => 'required|image|mimes:jpeg,png,svg,pdf|max:1024'
         ]);
 
-        $tipo_equip = $request->all();
+        $soli = $request->all();
 
         if($imagen = $request->file('Documento')) {
             $rutaGuardarImg = 'images/documentos';
             $imagenProducto = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
             $imagen->move($rutaGuardarImg, $imagenProducto);
-            $tipo_equip['Documento'] = "$imagenProducto";         
+            $soli['Documento'] = "$imagenProducto";         
         }
-      
-        Tipo_Equipo::create($tipo_equip);
+
+        Tipo_Equipo::create($soli);
         return redirect()->route('d.solicituds');
     }
 
-    
-    public function show(Solicitud $solicitud)
-    {
-        //
-    }
-
-    
-    public function edit(Solicitud $solicitud)
-    {
-        //
-    }
-
-    
-    public function update(Request $request, Solicitud $solicitud)
-    {
-        //
-    }
-
-    
-    public function destroy(Solicitud $solicitud)
-    {
-        //
-    }
+   
 }

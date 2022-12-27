@@ -29,8 +29,18 @@ class Solicitud_DetalleSeeder extends Seeder
         ]);
         $solicitud_detalle = Solicitud_Detalle::create([
             'ID_Solicitud'=>4,
-            'ID_Tipo_Equipo'=>3,
+            'ID_Tipo_Equipo'=>6,
             'Cantidad_Equipo'=>7,
+        ]);
+        $solicitud_detalle = Solicitud_Detalle::create([
+            'ID_Solicitud'=>5,
+            'ID_Tipo_Equipo'=>6,
+            'Cantidad_Equipo'=>7,
+        ]);
+        $solicitud_detalle = Solicitud_Detalle::create([
+            'ID_Solicitud'=>6,
+            'ID_Tipo_Equipo'=>3,
+            'Cantidad_Equipo'=>4,
         ]);
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Solicitud_Detalle;
-use App\Models\Especificacion_Equipo;
 use App\Models\Tipo_Equipo;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +14,6 @@ class SolicitudDetalleController extends Controller
     
     public function index()
     {
-       
         return Inertia::render('Admin/Reportes',[
             'solicitud_D' => Solicitud_Detalle::all(),
         ]);
@@ -23,13 +21,20 @@ class SolicitudDetalleController extends Controller
     
     public function create()
     {
-        //
+        
     }
 
-    
     public function store(Request $request)
     {
-        //
+        $request ->validate([
+            'ID_Solicitud' => 'required',
+            'ID_Tipo_Equipo' => 'required',
+            'ID_Software' => 'required',
+            'Cantidad_Equipo' => 'required'
+        ]);
+        $soli_D = $request->all();
+        Tipo_Equipo::create($soli_D);
+        return redirect()->route('d.solicituds');
     }
 
     
@@ -41,21 +46,4 @@ class SolicitudDetalleController extends Controller
         ]);
     }
 
-    
-    public function edit(Solicitud_Detalle $solicitud_Detalle)
-    {
-        //
-    }
-
-    
-    public function update(Request $request, Solicitud_Detalle $solicitud_Detalle)
-    {
-        //
-    }
-
-    
-    public function destroy(Solicitud_Detalle $solicitud_Detalle)
-    {
-        //
-    }
 }

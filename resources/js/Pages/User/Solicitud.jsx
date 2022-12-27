@@ -20,10 +20,16 @@ const Solicitud = ({ auth, softwares, items, card, id }) => {
         replace: true,
       })
   }
+  
   const viewEspecificacion = () => {
       const maxuso = Math.max(...items.map(item => item.ID_Uso_Equipo));
       Inertia.get(route('viewEspecificacion',[id,maxuso])); 
   }
+
+  const AgregaRegistros = () => {
+    Inertia.post(route('solicitud.add',id)); 
+  }
+  
   
   return (
     <>
@@ -71,10 +77,16 @@ const Solicitud = ({ auth, softwares, items, card, id }) => {
                         {
                           (card.length !== 0) 
                           && 
+                          <div className='flex justify-between gap-4'>
                           <button
                           onClick={viewEspecificacion}
-                            className='bg-blue-500 mt-5 rounded text-white p-2 text-sm '
+                            className='bg-blue-500 mt-5 rounded text-white p-2 text-sm px-10 '
                           >Ver Especificación</button>
+                          <button
+                          onClick={AgregaRegistros}
+                            className='bg-green-600 mt-5 rounded text-white p-2 text-sm px-10'
+                          >Registrar Solicitud</button>
+                          </div>
                         }
                       </div>
                     </div>

@@ -18,6 +18,7 @@ use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\OficinaController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserSoftwareController;
 use App\Models\Especificacion_Equipo;
@@ -327,6 +328,11 @@ Route::controller(NotificacionController::class)->group(function (){
      Route::delete('/notificaciones/{id}','destroy')->name('notificaciones.destroy');
 });
 
+Route::post('/solicitud/create', [SolicitudController::class,'post'])
+        ->name('solicitud.add');
+
+Route::post('/solicitudd/create', [SolicitudController::class,'post'])
+        ->name('solicitudDet.add');
 // Route::group([
 //     'prefix' => 'Usuario'
 // ], function($router){
