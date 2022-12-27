@@ -332,6 +332,11 @@ Route::controller(NotificacionController::class)->group(function (){
      Route::delete('/notificaciones/{id}','destroy')->name('notificaciones.destroy');
 });
 
+Route::post('/solicitud/create', [SolicitudController::class,'post'])
+        ->name('solicitud.add');
+
+Route::post('/solicitudd/create', [SolicitudController::class,'post'])
+        ->name('solicitudDet.add');
 // Route::group([
 //     'prefix' => 'Usuario'
 // ], function($router){

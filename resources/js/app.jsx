@@ -8,6 +8,7 @@ import { InertiaProgress } from '@inertiajs/progress';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
 const appName =  'UNCP EETT';
+const imagen = <img src='/images/Logo/Logo.png'></img>;
 
 createInertiaApp({
     title: (title) => `${title} | ${appName}`,

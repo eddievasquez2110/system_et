@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Table from '@/Components/Table';
-import { Inertia } from '@inertiajs/inertia';
+
 const Especificacion = ({especificacion,auth,equipos}) => {
+  
   const tipo = especificacion[0].ID_Tipo_Equipo;
   const uso = especificacion[0].ID_Uso_Equipo;
   const [quantity,setQuantity] =useState(1);
@@ -24,7 +25,7 @@ const Especificacion = ({especificacion,auth,equipos}) => {
                   <a href={`/reportes/${tipo}/${uso}`} 
                   className="text-white bg-green-500 rounded p-2 mb-4  hover:bg-cyan-600" 
                   target="_blank">
-                    Descargar
+                    Imprimir
                   </a>
                 </div>
                <div className='flex items-center gap-4 p-1'>

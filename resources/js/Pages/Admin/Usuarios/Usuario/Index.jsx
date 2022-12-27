@@ -16,7 +16,7 @@ export default function Index({usua,auth}) {
             })     
     }
     
-    console.log(query);
+    // console.log(query);
 
     return (
         <Navbar auth={auth}>
@@ -66,12 +66,12 @@ export default function Index({usua,auth}) {
                             <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
                                 OFicina
                             </th>
-                            <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
+                            {/* <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
                                 <div className="flex items-center">
                                     Cargo
                                     
                                 </div>
-                            </th>
+                            </th> */}
                             <th scope="col" className="py-3 px-6" style={{borderRight: '1px solid white'}}>
                                 <div className="flex items-center">
                                     Email
@@ -87,7 +87,7 @@ export default function Index({usua,auth}) {
                         </tr>
                     </thead>
                     <tbody>
-                        {console.log(usua)}
+                        {/* {console.log(usua)} */}
                         {
                             usua.data.map(usuaa => {
                                 return(

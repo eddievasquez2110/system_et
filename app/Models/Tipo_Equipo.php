@@ -20,4 +20,9 @@ class Tipo_Equipo extends Model
     {
         return $this->belongsTo(Especificacion_Equipo::class);
     }
+
+    public function Solicitud_Detalle()
+    {
+        return $this->hasOne(Solicitud_Detalle::class);
+    }
 }

@@ -6,9 +6,12 @@ use App\Models\CartSoftware;
 use App\Models\Especificacion_Equipo;
 use App\Models\Software;
 use App\Models\Tipo_Equipo;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+ 
+use Dompdf\Dompdf;
 
 class SoftwareController extends Controller
 {
@@ -56,6 +59,18 @@ class SoftwareController extends Controller
     }
 
     public function viewPDF($tipo,$uso){
+        ob_clean();
+        $equipos = Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)
+        ->first();
+        $especificacion = Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)
+        ->where('ID_Uso_Equipo',$uso)->get();
+        $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion']));
+        return $pdf->stream('pdf_file.pdf', ['Attachment' => false]);
+        exit(0);
+    }
+
+    public function downloadPDF($tipo,$uso){
+
         $equipos = Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)->first();
         $especificacion = Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)
         ->where('ID_Uso_Equipo',$uso)->get();

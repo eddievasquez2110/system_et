@@ -55,11 +55,11 @@ export default function Index({solis,auth}) {
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
                                     Area Usuaria
                             </th>
-                            {/* <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
-                                    Equipo
-                            </th> */}
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
-                                    Solicitud
+                                    Equipo
+                            </th>
+                            <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
+                                    Documento
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
                                 <div className="flex items-center">

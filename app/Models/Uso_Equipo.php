@@ -17,8 +17,15 @@ class Uso_Equipo extends Model
     {
         return $this->belongsTo(Especificacion_Equipo::class);
     }
-    public function Especificacion_Software()
+    // public function Especificacion_Software()
+    // {
+    //     return $this->belongsTo(Especificacion_Software::class);
+    // }
+
+    public function Software()
     {
-        return $this->belongsTo(Especificacion_Software::class);
+        return $this->belongsTo(Software::class);
     }
+
+
 }
