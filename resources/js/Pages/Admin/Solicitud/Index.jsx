@@ -56,10 +56,10 @@ export default function Index({solis,auth}) {
                                     Area Usuaria
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
-                                    Especificacion Equipo
+                                    Equipo
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
-                                Especificacion Software
+                                    Documento
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
                                 <div className="flex items-center">

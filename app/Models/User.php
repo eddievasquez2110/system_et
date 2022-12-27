@@ -16,17 +16,17 @@ class User extends Authenticatable
         'ID_Rol',
         'ID_Oficina',
         'name',
-        'email',
+        'email', 
         'password',
     ];
 
-    protected $attributes  = [
-        'ID_Rol' => '',
-        'ID_Oficina' => '',
-        'name' => '',
-        'email' => '',
-        'password' => '',
-    ];
+    // protected $attributes  = [
+    //     'ID_Rol' => '',
+    //     'ID_Oficina' => '',
+    //     'name' => '',
+    //     'email' => '',
+    //     'password' => '',
+    // ];
 
 
     protected $hidden = [

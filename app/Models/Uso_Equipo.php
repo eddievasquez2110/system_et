@@ -10,15 +10,22 @@ class Uso_Equipo extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Nombre_Uso_Equipo',
+        'Nombre_Uso_Equipo' => 'required|unique:table,column',
     ];
 
     public function Especificacion_Equipo()
     {
         return $this->belongsTo(Especificacion_Equipo::class);
     }
-    public function Especificacion_Software()
+    // public function Especificacion_Software()
+    // {
+    //     return $this->belongsTo(Especificacion_Software::class);
+    // }
+
+    public function Software()
     {
-        return $this->belongsTo(Especificacion_Software::class);
+        return $this->belongsTo(Software::class);
     }
+
+
 }

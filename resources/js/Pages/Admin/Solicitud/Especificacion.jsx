@@ -6,7 +6,7 @@ import Navbar from '@/Layouts/Navbar';
 import WinModal from '@/Components/WinModal';
 
 
-const Lista = ({auth,laptops,especificacion}) => {
+const Lista = ({auth,especificacion,equipos}) => {
   return (
     <>
     {auth.user.ID_Rol == 2 ?
@@ -14,7 +14,7 @@ const Lista = ({auth,laptops,especificacion}) => {
             <WinModal>
             {
               <div>
-                <Table laptops={laptops} especificacion={especificacion}/>
+                <Table especificacion={especificacion} equipos={equipos}/>
               </div>
             }
             </WinModal>

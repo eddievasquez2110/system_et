@@ -3,13 +3,16 @@ import Navbar from '@/Layouts/Navbar'
 import { Head, useForm, usePage, Link } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 
-const Edit = ({auth,soft}) => {
+const Edit = ({auth,soft,usoEquipo}) => {
+    
     const [preview, setPreview] = useState('');
     const {data, setData, errors, put, progress} = useForm({
+        ID_Uso_Equipo: soft.ID_Uso_Equipo,
         Nombre_Software: soft.Nombre_Software,
         Imagen: soft.Imagen,
         Version_Software: soft.Version_Software,
         Descripcion_Software: soft.Descripcion_Software,
+        Link_Software: soft.Link_Software,
     });
 
     const onSelectedFile = (e) =>{
@@ -21,10 +24,12 @@ const Edit = ({auth,soft}) => {
         e.preventDefault();
         Inertia.post(route('d.softwares.update',`${soft.ID_Software}`),{
             _method: 'put',
+            ID_Uso_Equipo: data.ID_Uso_Equipo,
             Nombre_Software: data.Nombre_Software,
             Imagen: data.Imagen,
             Version_Software: data.Version_Software,
             Descripcion_Software: data.Descripcion_Software,
+            Link_Software: data.Link_Software,
           })
         
     }
@@ -110,6 +115,39 @@ const Edit = ({auth,soft}) => {
                                         </span>
                                     </div>
                                     <div className="mb-4">
+                                        <label className="">Uso del Software</label>
+                                        <select 
+                                            id ='ID_Uso_Equipo' 
+                                            label="ID_Uso_Equipo"
+                                            name='ID_Uso_Equipo'  
+                                            forInput="ID_Uso_Equipo"
+                                            className='block w-full bg-white border h-10 py'
+                                            
+                                            onChange={(e) =>
+                                                setData('ID_Uso_Equipo', e.target.value)
+                                            }
+                                            required
+                                            >
+                                            
+                                            <option value="" disabled selected='true'>seleccione el tipo de uso</option>
+                                            {
+                                            usoEquipo.map(uso => {
+                                                
+                                                return(
+                                                    uso.ID_Uso_Equipo == soft.ID_Uso_Equipo ?
+                                                    <option key={uso.ID_Uso_Equipo} ofi={uso.Nombre_Uso_Equipo} value={uso.ID_Uso_Equipo} selected >{uso.Nombre_Uso_Equipo}</option>
+                                                    :
+                                                    <option key={uso.ID_Uso_Equipo} ofi={uso.Nombre_Uso_Equipo} value={uso.ID_Uso_Equipo} >{uso.Nombre_Uso_Equipo}</option>
+                                                )
+                                            })
+                                            }
+                                            
+                                        </select>
+                                        <span className="text-red-600">
+                                            {errors.ID_Uso_Equipo}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
                                         <label className="">Descripcion Software</label>
                                         <input
                                             type="text"
@@ -123,6 +161,23 @@ const Edit = ({auth,soft}) => {
                                         />
                                         <span className="text-red-600">
                                             {errors.Descripcion_Software}
+                                        </span>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="">Enlace de descarga software</label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-4 py-2 text-gray-500"
+                                            label="Link_Software"
+                                            name="Link_Software"
+                                            value={data.Link_Software}
+                                            onChange={(e) =>
+                                                setData("Link_Software", e.target.value)
+                                            }
+                                           
+                                        />
+                                        <span className="text-red-600">
+                                            {errors.Link_Software}
                                         </span>
                                     </div>
                                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Software;
+use App\Models\Uso_Equipo;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -12,16 +13,21 @@ class AdminSoftwareController extends Controller
     {
         $search = $request->query('search');
         $soft = Software::query()->when($search, fn($query) => 
+        // $query->where('Nombre_Software','LIKE',"%{$search}%")->orWhere('ID_Software', 'LIKE', "%{$search}%")->orderBy('ID_Software')
+        //  )->paginate(5);
         $query->where('Nombre_Software','LIKE',"%{$search}%")->orWhere('ID_Software', 'LIKE', "%{$search}%")->orderBy('ID_Software')
-         )->paginate(5);
+        )->with('uso__equipos')
+       ->join('uso__equipos','software.ID_Uso_Equipo','=','uso__equipos.ID_Uso_Equipo')->paginate(5);
         return Inertia::render('Admin/Softwares/Software/Index',[
-            'soft' => $soft
+            'soft' => $soft,
         ]);
     }
 
     public function create() 
     {
-        return Inertia::render('Admin/Softwares/Software/Create');
+        return Inertia::render('Admin/Softwares/Software/Create',[
+            'usoEquipo' => Uso_Equipo::all(),
+        ]);
     }
 
     public function store(Request $request)
@@ -49,6 +55,7 @@ class AdminSoftwareController extends Controller
         $soft = Software::where('ID_Software',$id)->first();
         return Inertia::render('Admin/Softwares/Software/Edit',[
             'soft' => $soft,
+            'usoEquipo' => Uso_Equipo::all(),
         ]);
     }
 
@@ -68,10 +75,12 @@ class AdminSoftwareController extends Controller
          }
         
         Software::where('ID_Software',$id)->update([
+            'ID_Uso_Equipo' => $soft['ID_Uso_Equipo'],
             'Nombre_Software' => $soft['Nombre_Software'],
             'Imagen' => $soft['Imagen'],
             'Version_Software' => $soft['Version_Software'],
             'Descripcion_Software' => $soft['Descripcion_Software'],
+            'Link_Software'=>$soft['Link_Software'],
         ]);
         return redirect()->route('d.softwares.index');
     }

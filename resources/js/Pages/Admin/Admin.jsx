@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from '@/Layouts/Navbar';
 import { Head } from '@inertiajs/inertia-react';
 import DashCircle from '@/Components/DashCircle';
-import DashBar from '@/Components/DashBar';
 
 export default function Admin({auth}) {
     return (

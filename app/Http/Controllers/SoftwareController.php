@@ -6,8 +6,13 @@ use App\Models\CartSoftware;
 use App\Models\Especificacion_Equipo;
 use App\Models\Software;
 use App\Models\Tipo_Equipo;
+use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+ 
+use Dompdf\Dompdf;
+
 class SoftwareController extends Controller
 {
     
@@ -40,6 +45,11 @@ class SoftwareController extends Controller
         }
     }
 
+    public function removeAll(){
+        $cart = CartSoftware::all();
+        $cart->delete();
+    }
+
     public function viewEspecificacion($tipo,$uso){
         return Inertia::render('User/Especificacion',[
             'equipos' => Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)->first(),
@@ -48,34 +58,26 @@ class SoftwareController extends Controller
         ]);
     }
 
-    public function ordenarAsc(Request $request){
-        $search = $request->query('search');
-        $cartItems = CartSoftware::with('software')->join('software','cart_software.ID_Software','=','software.ID_Software')
-          ->where(['ID_User'=>auth()->user()->id])
-          ->get();
-        return Inertia::render('User/Solicitud',[
-            'softwares' => Software::query()->when($search, fn($query) => 
-            $query->where('ID_Software','LIKE',"%{$search}%")->orWhere('Nombre_Software', 'LIKE', "%{$search}%")->orderBy('Nombre_Software','ASC')
-              )->get(),
-            'items' => $cartItems,
-        ]);
+    public function viewPDF($tipo,$uso){
+        ob_clean();
+        $equipos = Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)
+        ->first();
+        $especificacion = Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)
+        ->where('ID_Uso_Equipo',$uso)->get();
+        $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion']));
+        return $pdf->stream('pdf_file.pdf', ['Attachment' => false]);
+        exit(0);
     }
 
-    public function ordenarDesc(Request $request)
-    {
-        $search = $request->query('search');
-        $cartItems = CartSoftware::with('software')->join('software','cart_software.ID_Software','=','software.ID_Software')
-          ->where(['ID_User'=>auth()->user()->id])
-          ->get();
-        return Inertia::render('User/Solicitud',[
-            'softwares' => Software::query()->when($search, fn($query) => 
-            $query->where('ID_Software','LIKE',"%{$search}%")->orWhere('Nombre_Software', 'LIKE', "%{$search}%")->orderBy('Nombre_Software','DESC')
-              )->get(),
-            'items' => $cartItems,
-        ]);
+    public function downloadPDF($tipo,$uso){
+
+        $equipos = Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)->first();
+        $especificacion = Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)
+        ->where('ID_Uso_Equipo',$uso)->get();
+        $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion']));
+        return $pdf->download('pdf_file.pdf');
     }
-
-
+    
     public function store(Request $request)
     {
         //

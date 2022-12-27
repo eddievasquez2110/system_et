@@ -11,7 +11,7 @@ class Tipo_Equipo extends Model
 
     protected $fillable = [
         'ID_Tipo_Equipo',
-        'Nombre_Tipo_Equipo',
+        'Nombre_Tipo_Equipo' => 'required|unique:table,column',
         'Imagen',
         'Editor_Equipo'
     ];
@@ -19,5 +19,10 @@ class Tipo_Equipo extends Model
     public function Especificacion_Equipos()
     {
         return $this->belongsTo(Especificacion_Equipo::class);
+    }
+
+    public function Solicitud_Detalle()
+    {
+        return $this->hasOne(Solicitud_Detalle::class);
     }
 }

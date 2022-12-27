@@ -16,7 +16,9 @@ use App\Http\Controllers\AdminSolicitudController;
 use App\Http\Controllers\EspecificacionEquipoController;
 use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\OficinaController;
+use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserSoftwareController;
 use App\Models\Especificacion_Equipo;
@@ -255,7 +257,7 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
 //     Route::get('/dashboard/especificacionsoftware', [AdminEspecificacionSoftwareController::class,'index'])
 //          ->name('d.especificacionsoftware');
 
-    Route::get('/dashboard/reportes', [AdminReporteController::class,'index'])
+    Route::get('/dashboard/reportes/{año}', [AdminReporteController::class,'index'])
          ->name('d.reportes');
 
     Route::controller(AdminSolicitudController::class)->group(function (){
@@ -276,11 +278,11 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
    
         Route::get('/dashboard/especificacion/{id}', [EspecificacionEquipoController::class,'show'])
             ->name('d.especificacion.show');
-        
+
+        Route::get('/dashboard/inicio{id}', [AdminSolicitudController::class,'viewDocument'])
+            ->name('d.solicituds.ver');
     });
     
-    
-
 });
 
 //RUTAS SOLO USER
@@ -288,9 +290,12 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
 
     Route::get('/inicio', [TipoEquipoController::class,'index'])
         ->name('user'); 
- 
+    
     Route::get('/inicio/{id}',[TipoEquipoController::class,'show'])
         ->name('inicio.show');
+
+    Route::get('reportesdos/{tipo}', [TipoEquipoController::class,'reportesdos'])
+        ->name('reportesdos');
 
     Route::get('/infosoft', [InfoSoftwareController::class,'index'])
         ->name('infosoft');
@@ -311,8 +316,10 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::get('solicitud/{tipo}/especificacion/{uso}','viewEspecificacion')->name('viewEspecificacion');
         Route::post('/solicitud/{id}','addToCart')->name('addToCart');
         Route::delete('solicitud/{id}','removeItem')->name('removeItem');
-        Route::get('/solicitud/A/','ordenarAsc')->name('ordenarAsc');
-        Route::get('/solicitud/Z/','ordenarDesc')->name('ordenarDesc');
+        Route::get('reportes/{tipo}/{uso}','viewPdf')->name('viewPdf'); 
+    });
+    Route::controller(SolicitudController::class)->group(function(){
+        Route::get('/carrito','carritoindex')->name('carritoindex');
     });
 });
 
@@ -324,6 +331,11 @@ Route::controller(NotificacionController::class)->group(function (){
      Route::delete('/notificaciones/{id}','destroy')->name('notificaciones.destroy');
 });
 
+Route::post('/solicitud/create', [SolicitudController::class,'post'])
+        ->name('solicitud.add');
+
+Route::post('/solicitudd/create', [SolicitudController::class,'post'])
+        ->name('solicitudDet.add');
 // Route::group([
 //     'prefix' => 'Usuario'
 // ], function($router){

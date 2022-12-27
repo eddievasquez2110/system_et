@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Especificacion_Equipo;
 use App\Models\Solicitud;
-use App\Models\Solicitud_Detalle;
 use App\Models\Tipo_Equipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +21,6 @@ class AdminSolicitudController extends Controller
         ->join('tipo__equipos','solicitud__detalles.ID_Tipo_Equipo','=','tipo__equipos.ID_Tipo_Equipo')
         ->join('users','solicituds.id','=','users.id')
         ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')
-        
         ->paginate(5);
         
         return Inertia::render('Admin/Solicitud/Index',[
@@ -55,16 +53,15 @@ class AdminSolicitudController extends Controller
     public function show($id)
     {
         return Inertia::render('Admin/Solicitud/Especificacion',[
-            'laptops' =>Tipo_Equipo::where('ID_Tipo_Equipo',$id)->get(),
+            'equipos' =>Tipo_Equipo::where('ID_Tipo_Equipo',$id)->get(),
             'especificacion' =>Especificacion_Equipo::where('ID_Tipo_Equipo',$id)->get()
         ]);
     }
 
     public function viewDocument($id)
     {
-        
         return Inertia::render('Admin/Solicitud/ViewDocument',[
-            'soli' =>Solicitud::where('ID_Solicitud',$id)->get(),
+            'solis' =>Solicitud::where('ID_Solicitud',$id)->get(),
         ]);
     }
 
@@ -83,5 +80,4 @@ class AdminSolicitudController extends Controller
         ]);
         return redirect()->route('d.solicituds');
     }
-
 }

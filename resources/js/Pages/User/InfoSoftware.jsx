@@ -15,7 +15,7 @@ const InfoSoftware = ({auth, infoSoftwares}) => {
             <Head title="Softwares" />
 
                 <div className='flex mt-5 h-20 bg-white/30  place-items-center'>
-                <h1 className='flex justify-center grow ml-60'>Softwares</h1>
+                <h1 className='flex justify-center grow ml-60'><strong>LISTA DE SOFTWARES</strong></h1>
                 <div className='mr-10'>
                             <Link
                                 className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
@@ -37,7 +37,7 @@ const InfoSoftware = ({auth, infoSoftwares}) => {
                 <AuthenticatedLayout auth={auth}>
                 <Head title="Softwares" />
                     <div className='flex mt-5 h-20 bg-white/30  place-items-center'>
-                    <h1 className='flex justify-center grow ml-60'>Softwares</h1>
+                    <h1 className='flex justify-center grow ml-60'><strong>LISTA DE SOFTWARES</strong></h1>
                     <div className='mr-10'>
                             <Link
                                 className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"

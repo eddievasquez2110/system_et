@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashCan} from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashCan, faLink} from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import { Inertia } from '@inertiajs/inertia';
 import { Link } from '@inertiajs/inertia-react';
@@ -41,17 +41,20 @@ const List_Software = ({soft}) => {
                 {soft.Nombre_Software}
             </td>
             <td className="py-4 px-6">
-                <div className='flex items-center justify-center'>
+            <a href = {`${soft.Link_Software}`} >
                     <img src={`../images/softwares/${soft.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
-                </div>
+                </a>
             </td>
-            <td className="py-4 px-6 w-1/2">
+            <td className="py-4 px-6 ">
                 {soft.Descripcion_Software}
             </td>
+            <td className="py-4 px-6 ">
+                {soft.Nombre_Uso_Equipo}
+            </td>
             <td className="flex gap-3 justify-center py-3 text-right p-4">
-                <div className='flex align-center justify-center gap-4'>
+                <div className='flex flex-col align-center justify-center gap-4'>
                     
-                    <div className='font-medium text-blue-500 pt-2'>
+                    <div className='font-medium text-blue-500 pt-2 '>
                       <Link
                           tabIndex="1"
                           className="bg-blue-100 px-5 py-2 rounded-md hover:bg-blue-700 hover:text-white"

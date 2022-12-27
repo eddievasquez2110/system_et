@@ -73,14 +73,21 @@ const List_Solicitud = ({soli}) => {
                 {soli.Especificacion_Equipo}
             </td>
             <td className="py-4 px-6">
-            <div className='flex flex-col'>
-                {soli.Nombre_Especificacion_Software}:
-                ________________________
+                <div className='flex flex-col text-center'>
+                    <Link href={route('d.solicituds.show',soli.ID_Tipo_Equipo)} className='font-medium text-green-500 hover:text-green-600'>
+                        {soli.Nombre_Tipo_Equipo}
+                    </Link>   
                 </div>
-                {soli.Especificacion_Software}
             </td>
-            <td className="py-4">
-                {dayjs(soli.created_at).format('DD-MM-YYYY')}
+            <td className="px-3 py-2 justify-center ">
+                <div className='flex items-center justify-center '>
+                    <embed src={`/images/documentos/${soli.Documento}`} alt="" style={{width:'80px',height:'50px'}} className='overflow-y-hidden' />
+                </div>        
+            </td>
+            <td className="py-4 px-2 text-center">
+                <div className='flex flex-col text-center'>
+                    {dayjs(soli.Fecha_Solicitud).format('DD-MM-YYYY')}
+                </div>
             </td>
             <td className="py-4 px-3 text-center">
                 <div className='flex flex-col text-center'>
@@ -98,26 +105,20 @@ const List_Solicitud = ({soli}) => {
             </td>
             
             <td className="flex flex-inline py-4 place-content-center">
-                <Link href={route('d.solicituds.ver',soli.ID_Solicitud)} className="font-medium text-blue-500">
-                    <div className='justify-center bg-blue-100 px-2 py-2 rounded-md hover:bg-blue-700 hover:text-white mx-3'>
-                    <FontAwesomeIcon className="h-5 w-8"  icon={faEye} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
-                    </div>
-                </Link>
+                <a href={route('d.solicituds.ver',soli.ID_Solicitud)} className="font-medium text-blue-500 justify-center bg-blue-100 px-2 py-2 rounded-md hover:bg-blue-700 hover:text-white mx-3" target="_blank">
+                 <FontAwesomeIcon className="h-5 w-8"  icon={faEye} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
+                </a>
                 
-                <Link onClick={aceptar} className="font-medium text-green-500">
-                    
+                <Link onClick={aceptar} className="font-medium text-green-500">           
                     <div className='justify-center bg-green-100 px-2 py-2 rounded-md hover:bg-green-700 hover:text-white  mx-3'>
                     <FontAwesomeIcon className="h-5 w-8"  icon={faFileCircleCheck} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
                     </div>
-
                 </Link>   
 
-                <Link onClick={rechazar}  className="font-medium text-red-500">
-                    
+                <Link onClick={rechazar}  className="font-medium text-red-500">             
                     <div className='justify-center bg-red-100 px-2 py-2 rounded-md hover:bg-red-700 hover:text-white mx-3'>
                     <FontAwesomeIcon className="h-5 w-8 "  icon={faFileCircleXmark} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
                     </div>
-
                 </Link>
             
             </td>

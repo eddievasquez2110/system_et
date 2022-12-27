@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Solicitud;
+use App\Models\Tipo_Equipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
@@ -10,10 +11,9 @@ use Inertia\Inertia;
 class SolicitudController extends Controller
 {
     
-    public function index()
+    public function carritoindex()
     {
-        $reportes = Solicitud::all();
-        return Inertia::render('User/Select_Software',['reportes'=>$reportes]);
+       return Inertia::render('User/Carrito');
     }
 
     
@@ -21,12 +21,9 @@ class SolicitudController extends Controller
     {
         //
     }
-
     
-    public function store(Request $request)
-    {
-        //
-    }
+    
+    
 
     
     public function show(Solicitud $solicitud)

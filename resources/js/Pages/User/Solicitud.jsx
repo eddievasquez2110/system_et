@@ -20,18 +20,23 @@ const Solicitud = ({ auth, softwares, items, card, id }) => {
         replace: true,
       })
   }
-  console.log(items);
+  
   const viewEspecificacion = () => {
       const maxuso = Math.max(...items.map(item => item.ID_Uso_Equipo));
       Inertia.get(route('viewEspecificacion',[id,maxuso])); 
   }
+
+  const AgregaRegistros = () => {
+    Inertia.post(route('solicitud.add',id)); 
+  }
+  
   
   return (
     <>
       {auth.user.ID_Rol == 1 ?
         <NavbarSAdmin auth={auth}>
           <Head title="Solicitud" />
-          <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'>SELECCIÓN DE PROGRAMAS</div>
+          <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'><strong>SELECCIÓN DE PROGRAMAS</strong></div>
           <div className='flex'>
             <div style={{ width: "70%" }}>
               {
@@ -72,17 +77,23 @@ const Solicitud = ({ auth, softwares, items, card, id }) => {
                         {
                           (card.length !== 0) 
                           && 
+                          <div className='flex justify-between gap-4'>
                           <button
                           onClick={viewEspecificacion}
-                            className='bg-blue-500 mt-5 rounded text-white p-2 text-sm '
+                            className='bg-blue-500 mt-5 rounded text-white p-2 text-sm px-10 '
                           >Ver Especificación</button>
+                          <button
+                          onClick={AgregaRegistros}
+                            className='bg-green-600 mt-5 rounded text-white p-2 text-sm px-10'
+                          >Registrar Solicitud</button>
+                          </div>
                         }
                       </div>
                     </div>
                   </div>
                   <div className='flex flex-col h-screen md:w-2/3 min-[200px]:w-full '>
                     <div className='text-center p-4'>
-                      <h2 className='text-green-700 font-bold'>SELECCIÓN DE PROGRAMAS</h2>
+                      <h2 className='text-green-700 font-bold'><strong>SELECCIÓN DE PROGRAMAS</strong></h2>
                     </div>
                     <div className='mt-3 flex items-center gap-4'>
                       <label className='text-slate-500'>Buscar: </label>
@@ -95,13 +106,13 @@ const Solicitud = ({ auth, softwares, items, card, id }) => {
                         placeholder='Digitar Software'
                       />
                       <div className='inline-flex gap-4'>
-                        <Link className='hover:bg-green-300 p-2' href={route('ordenarAsc')}>
+                        {/* <Link className='hover:bg-green-300 p-2' href={route('ordenarAsc')}>
                           <FontAwesomeIcon className="h-5 w-6" icon={faArrowUpAZ} />
                         </Link>
 
                         <Link className='hover:bg-green-300 p-2' href={route('ordenarDesc')}>
                           <FontAwesomeIcon className="h-5 w-6" icon={faArrowDownZA} />
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
 
