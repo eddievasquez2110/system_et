@@ -320,6 +320,7 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
     });
     Route::controller(SolicitudController::class)->group(function(){
         Route::get('/carrito','carritoindex')->name('carritoindex');
+        Route::post('/carrito/{tipo}','carritoAdd')->name('carritoAdd');
     });
 });
 

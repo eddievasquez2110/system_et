@@ -3,6 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Table from '@/Components/Table';
 import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
+import { Inertia } from '@inertiajs/inertia';
 const Lista = ({auth, equipos,especificacion}) => {
 
   const tipo = especificacion[0].ID_Tipo_Equipo;
@@ -13,6 +14,10 @@ const Lista = ({auth, equipos,especificacion}) => {
     }else{
       setQuantity(event.target.value);
     }
+  }
+  const handleAdd = (e) =>{
+      e.preventDefault();
+      Inertia.post(route('carritoAdd',tipo),{quantity:quantity});
   }
   return (
     <>
@@ -65,6 +70,7 @@ const Lista = ({auth, equipos,especificacion}) => {
                   </div>
                   <div className='transition duration-150 ease-in-out hover:scale-110 text-white bg-green-500 rounded p-2'>
                     <button
+                    onClick={handleAdd}
                     >Añadir</button>
                   </div>     
                </div>

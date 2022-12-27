@@ -16,7 +16,14 @@ class SolicitudController extends Controller
        return Inertia::render('User/Carrito');
     }
 
-    
+    public function carritoAdd(Request $request,$tipo)
+    {
+        $tipoEquipo = $tipo;
+        $cantidad = $request -> quantity;
+        $data = auth()->user()->id;
+        dd($tipoEquipo);
+    }
+
     public function create()
     {
         //
