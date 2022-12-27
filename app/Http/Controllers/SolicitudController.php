@@ -11,10 +11,9 @@ use Inertia\Inertia;
 class SolicitudController extends Controller
 {
     
-    public function index()
+    public function carritoindex()
     {
-        $reportes = Solicitud::all();
-        return Inertia::render('User/Select_Software',['reportes'=>$reportes]);
+       return Inertia::render('User/Carrito');
     }
 
     
@@ -22,29 +21,9 @@ class SolicitudController extends Controller
     {
         //
     }
-
     
-    public function store(Request $request)
-    {
-        $request ->validate([
-            'id' => 'required',
-            'Fecha_Solicitud' => 'required',
-            'Estado_Solicitud' => 'required',
-            'Documento' => 'required|image|mimes:jpeg,png,svg,pdf|max:1024'
-        ]);
-
-        $tipo_equip = $request->all();
-
-        if($imagen = $request->file('Documento')) {
-            $rutaGuardarImg = 'images/documentos';
-            $imagenProducto = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
-            $imagen->move($rutaGuardarImg, $imagenProducto);
-            $tipo_equip['Documento'] = "$imagenProducto";         
-        }
-      
-        Tipo_Equipo::create($tipo_equip);
-        return redirect()->route('d.solicituds');
-    }
+    
+    
 
     
     public function show(Solicitud $solicitud)

@@ -18,6 +18,7 @@ use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\OficinaController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserSoftwareController;
 use App\Models\Especificacion_Equipo;
@@ -316,6 +317,9 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::post('/solicitud/{id}','addToCart')->name('addToCart');
         Route::delete('solicitud/{id}','removeItem')->name('removeItem');
         Route::get('reportes/{tipo}/{uso}','viewPdf')->name('viewPdf'); 
+    });
+    Route::controller(SolicitudController::class)->group(function(){
+        Route::get('/carrito','carritoindex')->name('carritoindex');
     });
 });
 
