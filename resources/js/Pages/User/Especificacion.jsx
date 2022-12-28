@@ -45,6 +45,7 @@ const Especificacion = ({especificacion,auth,equipos}) => {
                   </div>
                   <div className='transition duration-150 ease-in-out hover:scale-110 text-white bg-green-500 rounded p-2'>
                     <button
+                    
                     >Añadir</button>
                   </div>     
                </div>

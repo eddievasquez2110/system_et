@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Especificacion_Equipo;
 use App\Models\Solicitud;
 use App\Models\Tipo_Equipo;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -58,12 +59,11 @@ class TipoEquipoController extends Controller
 
     public function reportesdos($tipo)
     {
-
-        $contenido = `<div><h1>ESPECIFICACIONES TECNICAS</h1></div>`;
-        $equipos = Tipo_Equipo::join('Especificacion_equipos')->where('ID_Tipo_Equipo',$tipo)->first();
+        $user = User::with('Oficina')->where(['id'=>auth()->user()->id])->first();
+        $equipos = Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)->first();
         $especificacion = Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)->get();
-        $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion']));
-        return $pdf->download('pdf_file.pdf');
+        $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion','user']));
+        return $pdf->stream('pdf_file.pdf');
     }
 
     public function edit(Tipo_Equipo $tipo_Equipo)

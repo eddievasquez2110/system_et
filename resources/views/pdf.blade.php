@@ -7,9 +7,10 @@
 <body>
     <div style="display:flex; justify-items:center;">
         <div style="margin-bottom:25px; text-align:center; color:green; font-size: 1.5rem;"><strong>ESPECIFICACIÓN TÉCNICA</strong></div>
-        <div style="margin-bottom:25px; color:black;"><strong>AREA USUARIA:  </strong>  {{$equipos->Nombre_Oficina}}RECURSOS HUMANOS</div>
-        <div style="margin-bottom:25px; color:black;"><strong>FINALIDAD:  </strong>  Solicito la compra de {{$equipos->Cantidad_Equipo}}02 {{$equipos->Nombre_Tipo_Equipo}} por motivos de renovación de equipos por antiguedad</div>
-        <div style="margin-bottom:25px; color:black;"><strong>FECHA:  </strong>  21 de diciembre del 2022</div>
+        <div style="margin-bottom:25px; color:black;"><strong>Usuario:  </strong>   {{$user->name}}</div>
+        <div style="margin-bottom:25px; color:black;"><strong>Correo:  </strong>   {{$user->email}}</div>
+        <div style="margin-bottom:25px; color:black;"><strong>Oficina:  </strong>   {{$user->oficina->Nombre_Oficina}}</div>
+        <div style="margin-bottom:25px; color:black;"><strong>FECHA:  </strong>{{ date('Y-m-d H:i:s') }}</div>
         <table style="margin: 0 auto; border-collapse:collapse; text-align:center justify-items:center;">
             <thead>
                 <tr style="padding:8px; background:green;">

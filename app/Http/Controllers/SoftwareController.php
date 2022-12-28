@@ -18,6 +18,7 @@ class SoftwareController extends Controller
     
     public function index(Request $request,$id)
     {
+        
         $search = $request->query('search');
         $cartItems = CartSoftware::with('software')->join('software','cart_software.ID_Software','=','software.ID_Software')
           ->where(['ID_User'=>auth()->user()->id])
@@ -46,11 +47,14 @@ class SoftwareController extends Controller
     }
 
     public function removeAll(){
-        $cart = CartSoftware::all();
-        $cart->delete();
+        $cart = CartSoftware::where(['ID_User'=>auth()->user()->id]);
+        if($cart){
+            $cart->delete();
+        }
     }
 
     public function viewEspecificacion($tipo,$uso){
+        /* $this->removeAll(); */
         return Inertia::render('User/Especificacion',[
             'equipos' => Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)->first(),
             'especificacion' =>Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)
@@ -59,14 +63,13 @@ class SoftwareController extends Controller
     }
 
     public function viewPDF($tipo,$uso){
-        ob_clean();
+        $user = User::with('Oficina')->where(['id'=>auth()->user()->id])->first();
         $equipos = Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)
         ->first();
         $especificacion = Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)
         ->where('ID_Uso_Equipo',$uso)->get();
-        $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion']));
-        return $pdf->stream('pdf_file.pdf', ['Attachment' => false]);
-        exit(0);
+        $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion','user']));
+        return $pdf->stream('pdf_file.pdf');
     }
 
     public function downloadPDF($tipo,$uso){

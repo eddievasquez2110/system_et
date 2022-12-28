@@ -10,7 +10,7 @@ const Lista = ({auth, equipos,especificacion}) => {
   const [quantity,setQuantity] =useState(1);
   const handleChange= (event)=>{
     if(event.target.value < 1){
-      return setQuantity(1)
+      return setQuantity(1);
     }else{
       setQuantity(event.target.value);
     }

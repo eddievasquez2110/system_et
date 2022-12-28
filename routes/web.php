@@ -316,7 +316,8 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::get('solicitud/{tipo}/especificacion/{uso}','viewEspecificacion')->name('viewEspecificacion');
         Route::post('/solicitud/{id}','addToCart')->name('addToCart');
         Route::delete('solicitud/{id}','removeItem')->name('removeItem');
-        Route::get('reportes/{tipo}/{uso}','viewPdf')->name('viewPdf'); 
+        Route::delete('/solicitud','removeAll')->name('removeAll');
+        Route::get('reportes/{tipo}/{uso}','viewPdf')->name('viewPdf');
     });
     Route::controller(SolicitudController::class)->group(function(){
         Route::get('/carrito','carritoindex')->name('carritoindex');
@@ -332,11 +333,7 @@ Route::controller(NotificacionController::class)->group(function (){
      Route::delete('/notificaciones/{id}','destroy')->name('notificaciones.destroy');
 });
 
-Route::post('/solicitud/create', [SolicitudController::class,'post'])
-        ->name('solicitud.add');
 
-Route::post('/solicitudd/create', [SolicitudController::class,'post'])
-        ->name('solicitudDet.add');
 // Route::group([
 //     'prefix' => 'Usuario'
 // ], function($router){
