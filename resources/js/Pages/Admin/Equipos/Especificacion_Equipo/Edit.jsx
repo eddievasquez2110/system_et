@@ -3,11 +3,11 @@ import Navbar from '@/Layouts/Navbar'
 import { Head, useForm, usePage, Link } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 
-const Edit = ({auth,espEquipos}) => {
+const Edit = ({auth,espEquipos, tipoEquipos, usoEquipos}) => {
     const [preview, setPreview] = useState('');
     const {data, setData, errors, put, progress} = useForm({
-        Nombre_Tipo_Equipo: espEquipos.Nombre_Tipo_Equipo,
-        Nombre_Uso_Equipo: espEquipos.Nombre_Uso_Equipo,
+        ID_Tipo_Equipo: espEquipos.ID_Tipo_Equipo,
+        ID_Uso_Equipo: espEquipos.ID_Uso_Equipo,
         Nombre_Especificacion_Equipo: espEquipos.Nombre_Especificacion_Equipo,
         Especificacion_Equipo: espEquipos.Especificacion_Equipo,
     });
@@ -16,8 +16,8 @@ const Edit = ({auth,espEquipos}) => {
         e.preventDefault();
         Inertia.post(route('d.especificacionequipo.update',`${espEquipos.ID_Especificacion_Equipo}`),{
             _method: 'put',
-            Nombre_Tipo_Equipo: data.Nombre_Tipo_Equipo,
-            Nombre_Uso_Equipo: data.Nombre_Uso_Equipo,
+            ID_Tipo_Equipo: data.ID_Tipo_Equipo,
+            ID_Uso_Equipo: data.ID_Uso_Equipo,
             Nombre_Especificacion_Equipo: data.Nombre_Especificacion_Equipo,
             Especificacion_Equipo: data.Especificacion_Equipo,
           })
@@ -44,34 +44,60 @@ const Edit = ({auth,espEquipos}) => {
                                 <div className="flex flex-col">
                                     <div className="mb-4">
                                         <label className="">Tipo Equipo</label>
-                                        <input
-                                            type="text"
-                                            className="w-full px-4 py-2 text-gray-500"
-                                            label="Nombre_Tipo_Equipo"
-                                            name="Nombre_Tipo_Equipo"
-                                            value={data.Nombre_Tipo_Equipo}
+                                        <select
+                                            id ='ID_Tipo_Equipo' 
+                                            name='ID_Tipo_Equipo'  
+                                            className='block w-full bg-white border   h-10  py'
+                                            label="ID_Tipo_Equipo"
+                                            forInput="ID_Tipo_Equipo"
                                             onChange={(e) =>
-                                                setData("Nombre_Tipo_Equipo", e.target.value)
+                                                setData('ID_Tipo_Equipo', e.target.value)
                                             }
-                                        />
+                                            required
+                                        >
+                                            <option value="" disabled selected='true'>seleccione un equipo</option>
+                                            {
+                                                tipoEquipos.map( tipoEquipo => {
+                                                    return (
+                                                        tipoEquipo.ID_Tipo_Equipo == espEquipos.ID_Tipo_Equipo ?
+                                                            <option key={tipoEquipo.ID_Tipo_Equipo} ofi={tipoEquipo.Nombre_Tipo_Equipo} value={tipoEquipo.ID_Tipo_Equipo} selected >{tipoEquipo.Nombre_Tipo_Equipo}</option>
+                                                            :
+                                                            <option key={tipoEquipo.ID_Tipo_Equipo} ofi={tipoEquipo.Nombre_Tipo_Equipo} value={tipoEquipo.ID_Tipo_Equipo} >{tipoEquipo.Nombre_Tipo_Equipo}</option>
+                                                    )                                                
+                                                })
+                                            }
+                                        </select>
                                         <span className="text-red-600">
-                                            {errors.Nombre_Tipo_Equipo}
+                                            {errors.ID_Tipo_Equipo}
                                         </span>
                                     </div>
                                     <div className="mb-4">
                                         <label className="">Uso Equipo</label>
-                                        <input
-                                            type="text"
-                                            className="w-full px-4 py-2 text-gray-500"
-                                            label="Nombre_Uso_Equipo"
-                                            name="Nombre_Uso_Equipo"
-                                            value={data.Nombre_Uso_Equipo}
+                                        <select
+                                            id ='ID_Uso_Equipo' 
+                                            name='ID_Uso_Equipo'  
+                                            className='block w-full bg-white border   h-10  py'
+                                            label="ID_Uso_Equipo"
+                                            forInput="ID_Uso_Equipo"
                                             onChange={(e) =>
-                                                setData("Nombre_Uso_Equipo", e.target.value)
+                                                setData('ID_Uso_Equipo', e.target.value)
                                             }
-                                        />
+                                            required
+                                        >
+                                            <option value="" disabled selected='true'>seleccione un uso del equipo</option>
+                                            {
+                                                usoEquipos.map( usoEquipo => {
+                                                    return (
+                                                        usoEquipo.ID_Uso_Equipo == espEquipos.ID_Uso_Equipo ?
+                                                            <option key={usoEquipo.ID_Uso_Equipo} ofi={usoEquipo.Nombre_Uso_Equipo} value={usoEquipo.ID_Uso_Equipo} selected >{usoEquipo.Nombre_Uso_Equipo}</option>
+                                                            :
+                                                            <option key={usoEquipo.ID_Uso_Equipo} ofi={usoEquipo.Nombre_Uso_Equipo} value={usoEquipo.ID_Uso_Equipo} >{usoEquipo.Nombre_Uso_Equipo}</option>
+                                                    )
+                                                }) 
+                                            }
+                                        </select>
                                         <span className="text-red-600">
-                                            {errors.Nombre_Uso_Equipo}
+                                            {errors.ID_Uso_Equipo}
                                         </span>
                                     </div>
                                     <div className="mb-4">
