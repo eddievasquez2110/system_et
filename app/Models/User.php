@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function Oficina()
     {
-        return $this->HasOne(Oficina::class, 'ID_Oficina', 'Nombre_Oficina');
+        return $this->belongsTo(Oficina::class, 'ID_Oficina', 'ID_Oficina');
     }
 
     public function Solicitud()

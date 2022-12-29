@@ -12,7 +12,7 @@ class Solicitud_Detalle extends Model
     protected $fillable = [
         'ID_Solicitud',
         'ID_Tipo_Equipo',
-        'ID_Software'
+        'Cantidad_Equipo'
     ];
 
     public function solicituds()

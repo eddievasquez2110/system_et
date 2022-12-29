@@ -15,32 +15,26 @@ class Solicitud_DetalleSeeder extends Seeder
         $solicitud_detalle = Solicitud_Detalle::create([
             'ID_Solicitud'=>1,
             'ID_Tipo_Equipo'=>1,
-            'Cantidad_Equipo'=>1,
+            'ID_Uso_Equipo'=>2,
+            'Cantidad_Equipo'=>1
         ]);
         $solicitud_detalle = Solicitud_Detalle::create([
             'ID_Solicitud'=>2,
             'ID_Tipo_Equipo'=>1,
-            'Cantidad_Equipo'=>4,
+            'ID_Uso_Equipo'=>2,
+            'Cantidad_Equipo'=>4
         ]);
         $solicitud_detalle = Solicitud_Detalle::create([
             'ID_Solicitud'=>3,
             'ID_Tipo_Equipo'=>3,
-            'Cantidad_Equipo'=>7,
+            'ID_Uso_Equipo'=>2,
+            'Cantidad_Equipo'=>7
         ]);
         $solicitud_detalle = Solicitud_Detalle::create([
             'ID_Solicitud'=>4,
             'ID_Tipo_Equipo'=>6,
-            'Cantidad_Equipo'=>7,
-        ]);
-        $solicitud_detalle = Solicitud_Detalle::create([
-            'ID_Solicitud'=>5,
-            'ID_Tipo_Equipo'=>6,
-            'Cantidad_Equipo'=>7,
-        ]);
-        $solicitud_detalle = Solicitud_Detalle::create([
-            'ID_Solicitud'=>6,
-            'ID_Tipo_Equipo'=>3,
-            'Cantidad_Equipo'=>4,
+            'ID_Uso_Equipo'=>2,
+            'Cantidad_Equipo'=>7
         ]);
     }
 }

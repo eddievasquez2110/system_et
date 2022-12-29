@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Solicitud;
+use App\Models\Solicitud_Detalle;
 use App\Models\Tipo_Equipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -13,10 +14,15 @@ class SolicitudController extends Controller
     
     public function carritoindex()
     {
-       return Inertia::render('User/Carrito');
+       
+       
     }
 
-    
+    public function obtenerProductos()
+    {
+       
+    }
+   
     public function create()
     {
         //

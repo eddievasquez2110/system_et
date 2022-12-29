@@ -7,9 +7,9 @@ import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
 import Card_Software from '@/Components/Usuario/Card_Software';
 import { Inertia } from '@inertiajs/inertia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowDown, faArrowDownZA, faArrowUp, faArrowUpAZ } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass,faEye,faTrash} from '@fortawesome/free-solid-svg-icons';
 
-const Solicitud = ({ auth, softwares, items, card, id }) => {
+const Solicitud = ({ auth, softwares, items, card, id}) => {
   const [query, setQuery] = useState('');
   
   const search = (e) => {
@@ -26,11 +26,11 @@ const Solicitud = ({ auth, softwares, items, card, id }) => {
       Inertia.get(route('viewEspecificacion',[id,maxuso])); 
   }
 
-  const AgregaRegistros = () => {
-    Inertia.post(route('solicitud.add',id)); 
+  const handleRemoveAll = () => {
+    Inertia.delete(route('removeAll')); 
   }
-  
-  
+ 
+
   return (
     <>
       {auth.user.ID_Rol == 1 ?
@@ -74,20 +74,38 @@ const Solicitud = ({ auth, softwares, items, card, id }) => {
                             <Card_Software key={item.id} item={item} />
                           ) 
                         }
+                        <div className='flex justify-between gap-4'>
                         {
                           (card.length !== 0) 
                           && 
-                          <div className='flex justify-between gap-4'>
-                          <button
-                          onClick={viewEspecificacion}
-                            className='bg-blue-500 mt-5 rounded text-white p-2 text-sm px-10 '
-                          >Ver Especificación</button>
-                          <button
-                          onClick={AgregaRegistros}
-                            className='bg-green-600 mt-5 rounded text-white p-2 text-sm px-10'
-                          >Registrar Solicitud</button>
-                          </div>
+                          <>
+                            <button
+                            onClick={viewEspecificacion}
+                            className='bg-blue-500 mt-5 flex gap-2 items-center justify-center rounded text-white p-2 text-sm px-4 '
+                            >
+                              <FontAwesomeIcon 
+                              icon={faEye}
+                              />
+                              Ver Especificación
+                            </button>
+                            </>
                         }
+                        {
+                          (card.length >=2)
+                          &&
+                          <>
+                            <button
+                            onClick={handleRemoveAll}
+                            className='bg-red-500 mt-5 rounded flex gap-2 items-center justify-center text-white p-2 text-sm px-4'
+                            >
+                              <FontAwesomeIcon 
+                              icon={faTrash}
+                              />
+                              Quitar Todo
+                           </button>
+                          </>
+                        }
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -95,25 +113,17 @@ const Solicitud = ({ auth, softwares, items, card, id }) => {
                     <div className='text-center p-4'>
                       <h2 className='text-green-700 font-bold'><strong>SELECCIÓN DE PROGRAMAS</strong></h2>
                     </div>
-                    <div className='mt-3 flex items-center gap-4'>
-                      <label className='text-slate-500'>Buscar: </label>
+                    <div className='mt-3 ml-9 mr-9 flex items-center bg-green-500  p-1'>
+                      
                       <input
-                        className='rounded-md py-1 w-full text-slate-500 placeholder:text-gray-300'
+                        className='rounded-md p-2 px-3 w-full text-sm  placeholder:text-slate-400 border-none '
                         type="text"
                         id='search'
                         onChange={(e) => setQuery(e.target.value)}
                         onKeyUp={search}
                         placeholder='Digitar Software'
                       />
-                      <div className='inline-flex gap-4'>
-                        {/* <Link className='hover:bg-green-300 p-2' href={route('ordenarAsc')}>
-                          <FontAwesomeIcon className="h-5 w-6" icon={faArrowUpAZ} />
-                        </Link>
-
-                        <Link className='hover:bg-green-300 p-2' href={route('ordenarDesc')}>
-                          <FontAwesomeIcon className="h-5 w-6" icon={faArrowDownZA} />
-                        </Link> */}
-                      </div>
+                      <label className='text-white flex items-center pl-1 pr-1 justify-center p-0'><FontAwesomeIcon icon={faMagnifyingGlass} /></label>
                     </div>
 
                     <div className='mt-8 overflow-auto flex flex-wrap justify-center gap-5'>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Table from '@/Components/Table';
+import { Inertia } from '@inertiajs/inertia';
 
 const Especificacion = ({especificacion,auth,equipos}) => {
   
@@ -15,7 +16,13 @@ const Especificacion = ({especificacion,auth,equipos}) => {
       setQuantity(event.target.value);
     }
   }
-  console.log(quantity);
+  const handleAdd = (e) =>{
+    e.preventDefault();
+    Inertia.post(route('addToCartEquipo',tipo),
+    {quantity:quantity,uso:uso}
+    );
+}
+  
   return (
     <AuthenticatedLayout auth={auth}>
         <Head title="Especificaciones" />
@@ -45,6 +52,7 @@ const Especificacion = ({especificacion,auth,equipos}) => {
                   </div>
                   <div className='transition duration-150 ease-in-out hover:scale-110 text-white bg-green-500 rounded p-2'>
                     <button
+                    onClick={handleAdd}
                     >Añadir</button>
                   </div>     
                </div>

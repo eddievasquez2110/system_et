@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('solicitud__detalles', function (Blueprint $table) {
-            $table->id('ID_Solicitud_Detalle');
-            $table->unsignedBigInteger('ID_Solicitud');
-            $table->foreign('ID_Solicitud')->references('ID_Solicitud')->on('solicituds')->cascadeOnDelete()->cascadeOnUpdate();
+        Schema::create('cart_equipos', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('ID_User');
+            $table->foreign('ID_User')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('ID_Tipo_Equipo');
-            $table->foreign('ID_Tipo_Equipo')->references('ID_Tipo_Equipo')->on('tipo__equipos')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('ID_Tipo_Equipo')->references('ID_Tipo_Equipo')->on('Tipo__Equipos')->cascadeOnDelete();
             $table->unsignedBigInteger('ID_Uso_Equipo');
             $table->foreign('ID_Uso_Equipo')->references('ID_Uso_Equipo')->on('uso__equipos')->cascadeOnDelete();
-            $table->integer('Cantidad_Equipo');
+            $table->integer('Cantidad');
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('solicitud__detalles');
+        Schema::dropIfExists('cart_equipos');
     }
 };
