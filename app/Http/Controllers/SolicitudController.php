@@ -6,8 +6,11 @@ use App\Models\CartEquipo;
 use App\Models\Solicitud;
 use App\Models\Solicitud_Detalle;
 use App\Models\Tipo_Equipo;
+use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class SolicitudController extends Controller
@@ -29,6 +32,15 @@ class SolicitudController extends Controller
             'Cantidad_Equipo'=> $carItem->Cantidad
            ]);
        }
+
+       $detalle = Solicitud_Detalle::where('ID_Solicitud',$pedido->id)->get();
+       
+       $user = User::with('Oficina')->where(['id'=>auth()->user()->id])->first();
+       $nombreArchivo = date('YmdHis').$pedido->id. "."."pdf";
+       $pdf = Pdf::loadView('reportepdf',compact(['detalle','user']))->save(public_path('images/documentos/'.$nombreArchivo));
+       Solicitud::where('ID_Solicitud',$pedido->id)->update([
+        'Documento' => $nombreArchivo
+       ]);
     }
 
  
