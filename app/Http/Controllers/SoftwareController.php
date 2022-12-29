@@ -40,7 +40,7 @@ class SoftwareController extends Controller
     }
 
     public function removeItem($id){
-        $cart = CartSoftware::where('ID_Software',$id)->first();
+        $cart = CartSoftware::find($id);
         if($cart){
             $cart->delete();
         }
@@ -54,7 +54,7 @@ class SoftwareController extends Controller
     }
 
     public function viewEspecificacion($tipo,$uso){
-        /* $this->removeAll(); */
+        $this->removeAll();
         return Inertia::render('User/Especificacion',[
             'equipos' => Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)->first(),
             'especificacion' =>Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)

@@ -17,7 +17,9 @@ const Lista = ({auth, equipos,especificacion}) => {
   }
   const handleAdd = (e) =>{
       e.preventDefault();
-      Inertia.post(route('carritoAdd',tipo),{quantity:quantity});
+      Inertia.post(route('addToCartEquipo',tipo),
+      {quantity:quantity,uso:4}
+      );
   }
   return (
     <>

@@ -13,6 +13,7 @@ use App\Http\Controllers\InfoSoftwareController;
 use App\Http\Controllers\SolicitudDetalleController;
 use App\Http\Controllers\AdminReporteController;
 use App\Http\Controllers\AdminSolicitudController;
+use App\Http\Controllers\CartEquipoController;
 use App\Http\Controllers\EspecificacionEquipoController;
 use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\OficinaController;
@@ -319,9 +320,14 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::delete('/solicitud','removeAll')->name('removeAll');
         Route::get('reportes/{tipo}/{uso}','viewPdf')->name('viewPdf');
     });
-    Route::controller(SolicitudController::class)->group(function(){
+    Route::controller(CartEquipoController::class)->group(function(){
         Route::get('/carrito','carritoindex')->name('carritoindex');
-        Route::post('/carrito/{tipo}','carritoAdd')->name('carritoAdd');
+        Route::post('/carrito/{id}','addToCartEquipo')->name('addToCartEquipo');
+        Route::delete('carrito/{id}','removeItemEquipo')->name('removeItemEquipo');
+        Route::delete('/carrito','removeAllEquipo')->name('removeAllEquipo');
+    });
+    Route::controller(SolicitudController::class)->group(function(){
+       
     });
 });
 

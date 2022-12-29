@@ -11,7 +11,7 @@ const Card_Software = ({item}) => {
         <div className='mt-5 flex gap-4 align-center justify-between bg-gray-100 rounded-md p-2'>
             <span className=''>{item.software.Nombre_Software}</span>
             <button
-                id={item.ID_Software}
+                id={item.id}
                 className='bg-red-500 rounded text-white p-2 text-sm '
                 onClick={removeItem}
             >Quitar</button>

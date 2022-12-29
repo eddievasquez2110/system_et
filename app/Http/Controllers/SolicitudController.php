@@ -15,24 +15,14 @@ class SolicitudController extends Controller
     public function carritoindex()
     {
        
-       return Inertia::render('User/Carrito');
+       
     }
 
     public function obtenerProductos()
     {
        
     }
-    public function carritoAdd(Request $request,$tipo)
-    {
-        $cantidad = $request -> quantity;
-        $data = [
-            'ID_Solicitud' => '1',
-            'ID_Tipo_Equipo' => $tipo,
-            'Cantidad_Equipo' => $cantidad
-        ];
-        Solicitud_Detalle::updateOrCreate($data);
-    }
-
+   
     public function create()
     {
         //
