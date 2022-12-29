@@ -316,7 +316,9 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::get('solicitud/{tipo}/especificacion/{uso}','viewEspecificacion')->name('viewEspecificacion');
         Route::post('/solicitud/{id}','addToCart')->name('addToCart');
         Route::delete('solicitud/{id}','removeItem')->name('removeItem');
-        Route::get('reportes/{tipo}/{uso}','viewPdf')->name('viewPdf'); 
+        Route::get('reportes/{tipo}/{uso}','viewPdf')->name('viewPdf');
+        Route::get('reportes/download/{tipo}/{uso}','downloadPDF')->name('downloadPDF');
+         
     });
     Route::controller(SolicitudController::class)->group(function(){
         Route::get('/carrito','carritoindex')->name('carritoindex');

@@ -3,7 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Table from '@/Components/Table';
 
-const Especificacion = ({especificacion,auth,equipos}) => {
+const ViewEspecificacion = ({especificacion,auth,equipos}) => {
   
   const tipo = especificacion[0].ID_Tipo_Equipo;
   const uso = especificacion[0].ID_Uso_Equipo;
@@ -15,7 +15,9 @@ const Especificacion = ({especificacion,auth,equipos}) => {
       setQuantity(event.target.value);
     }
   }
+
   console.log(quantity);
+  
   return (
     <AuthenticatedLayout auth={auth}>
         <Head title="Especificaciones" />
@@ -67,4 +69,4 @@ const Especificacion = ({especificacion,auth,equipos}) => {
   )
 }
 
-export default Especificacion
+export default ViewEspecificacion

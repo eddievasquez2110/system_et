@@ -28,7 +28,8 @@ class OficinaController extends Controller
     public function store(Request $request)
     {
         $request ->validate([
-            'Nombre_Oficina' => 'required'
+            'Nombre_Oficina' => 'required',
+            'Cargo_Oficina' => 'required',
         ]);
 
         $ofis = $request->all();
@@ -48,13 +49,15 @@ class OficinaController extends Controller
     public function update(Request $request, $id)
     {
          $request ->validate([
-             'Nombre_Oficina' => 'required'
+             'Nombre_Oficina' => 'required',
+             'Cargo_Oficina' => 'required',
           ]);
          
-        $roles = $request->all();
+        $ofis = $request->all();
         
         Oficina::where('ID_Oficina',$id)->update([
-            'Nombre_Oficina' => $roles['Nombre_Oficina']
+            'Nombre_Oficina' => $ofis['Nombre_Oficina'],
+            'Cargo_Oficina' => $ofis['Cargo_Oficina'],
         ]);
         return redirect()->route('d.oficinas.index');
     }

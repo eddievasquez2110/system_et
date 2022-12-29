@@ -25,7 +25,7 @@ export default function DashCircle(props) {
     return (
         <div id="DashCircle" className='w-80'>
             <div className='w-full bg-green-700 text-center text-white rounded-t-lg p-2'>
-            <h2>Solicitudes</h2>
+              <h2>Solicitudes</h2>
             </div>
             <Doughnut 
             data={data}

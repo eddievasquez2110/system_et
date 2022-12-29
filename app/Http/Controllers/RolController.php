@@ -48,7 +48,7 @@ class RolController extends Controller
     public function update(Request $request, $id)
     {
          $request ->validate([
-             'Nombre_Uso_Equipo' => 'required'
+             'Nombre_Rol' => 'required'
           ]);
          
         $roles = $request->all();

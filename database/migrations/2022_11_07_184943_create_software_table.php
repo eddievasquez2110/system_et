@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('ID_Software');
             $table->unsignedBigInteger('ID_Uso_Equipo');
             $table->foreign('ID_Uso_Equipo')->references('ID_Uso_Equipo')->on('uso__equipos')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('Nombre_Software',45);
+            $table->string('Nombre_Software',45)->unique();;
             $table->string('Imagen');
             $table->string('Version_Software',45);
             $table->string('Descripcion_Software',250);

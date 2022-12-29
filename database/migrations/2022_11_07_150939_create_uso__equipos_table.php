@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Unique;
 
 return new class extends Migration
 {
@@ -15,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('uso__equipos', function (Blueprint $table) {
             $table->id('ID_Uso_Equipo');
-            $table->String('Nombre_Uso_Equipo');
+            $table->String('Nombre_Uso_Equipo')->unique();
             $table->timestamps();
         });
     }
