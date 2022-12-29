@@ -19,7 +19,7 @@ const Create = ({auth,users,ofis,rols}) => {
 function handleSubmit(e){
     e.preventDefault();
     post(route('d.usuarios.store'))
-    console.log(data)
+    // console.log(data)
 }
 const onHandleChange = (event) => {
     setData(event.target.name, event.target.value);

@@ -27,14 +27,17 @@ class AdminEspecificacionEquipoController extends Controller
 
     public function create() 
     {
-        return Inertia::render('Admin/Equipos/Especificacion_Equipo/Create');
+        return Inertia::render('Admin/Equipos/Especificacion_Equipo/Create',[
+            'tipoEquipos'=>Tipo_Equipo::all(),
+            'usoEquipos'=>Uso_Equipo::all()
+        ]);
     }
 
     public function store(Request $request)
     {
         $request ->validate([
-            'Nombre_Tipo_Equipo' => 'required',
-            'Nombre_Uso_Equipo' => 'required',
+            'ID_Tipo_Equipo' => 'required',
+            'ID_Uso_Equipo' => 'required',
             'Nombre_Especificacion_Equipo' => 'required',
             'Especificacion_Equipo' => 'required',
         ]);
@@ -52,29 +55,25 @@ class AdminEspecificacionEquipoController extends Controller
         ->join('uso__equipos','especificacion__equipos.ID_Uso_Equipo','=','uso__equipos.ID_Uso_Equipo')->where('ID_Especificacion_Equipo',$id)->first();
         return Inertia::render('Admin/Equipos/Especificacion_Equipo/Edit',[
             'espEquipos' => $espEquipos,
+            'tipoEquipos'=>Tipo_Equipo::all(),
+            'usoEquipos'=>Uso_Equipo::all()
         ]);
     }
 
     public function update(Request $request, $id)
     {
          $request ->validate([
-             'Nombre_Tipo_Equipo' => 'required',
-             'Nombre_Uso_Equipo' => 'required',
+             'ID_Tipo_Equipo' => 'required',
+             'ID_Uso_Equipo' => 'required',
              'Nombre_Especificacion_Equipo' => 'required',
              'Especificacion_Equipo' => 'required',
           ]);
          
         $espEquipos = $request->all();
 
-        Tipo_Equipo::where('ID_Tipo_Equipo',$id)->update([
-            'Nombre_Tipo_Equipo' => $espEquipos['Nombre_Tipo_Equipo'],
-        ]);
-
-        Uso_Equipo::where('ID_Uso_Equipo',$id)->update([
-            'Nombre_Uso_Equipo' => $espEquipos['Nombre_Uso_Equipo'],
-        ]);
-
         Especificacion_Equipo::where('ID_Especificacion_Equipo',$id)->update([
+            'ID_Tipo_Equipo' => $espEquipos['ID_Tipo_Equipo'],
+            'ID_Uso_Equipo' => $espEquipos['ID_Uso_Equipo'],
             'Nombre_Especificacion_Equipo' => $espEquipos['Nombre_Especificacion_Equipo'],
             'Especificacion_Equipo' => $espEquipos['Especificacion_Equipo'],
         ]);
