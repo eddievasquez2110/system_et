@@ -15,14 +15,10 @@ class AdminSolicitudController extends Controller
     {
         $search = $request->query('search');
         $solis = Solicitud::query()->when($search, fn($query) => 
-        $query->where('name','LIKE',"%{$search}%")->orWhere('Nombre_Oficina', 'LIKE', "%{$search}%")->orderBy('ID_Solicitud')
-        )->with('solicitud__detalles','users')
-        ->join('solicitud__detalles','solicituds.ID_Solicitud','=','solicitud__detalles.ID_Solicitud')
-        ->join('tipo__equipos','solicitud__detalles.ID_Tipo_Equipo','=','tipo__equipos.ID_Tipo_Equipo')
-        ->join('users','solicituds.id','=','users.id')
-        ->join('oficinas','users.ID_Oficina','=','oficinas.ID_Oficina')
+        $query->where('ID_Solicitud','LIKE',"%{$search}%")->orWhere('Nombre_Oficina', 'LIKE', "%{$search}%")->orderBy('created_at','desc')
+        )->with('users')
         ->paginate(5);
-        
+
         return Inertia::render('Admin/Solicitud/Index',[
             'solis' => $solis,
         ]);
