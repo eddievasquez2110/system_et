@@ -17,7 +17,7 @@ class Solicitud extends Model
 
     public function users()
     {
-        return $this->HasOne(User::class,'id');
+        return $this->belongsTo(User::class,'id','id');
     }
 
     public function solicitud__detalles()

@@ -12,6 +12,10 @@ const Carrito = ({auth,cardEquipo,cardItem}) => {
   }
   const cantidadTotal = cardItem.reduce((sum,value) => (sum + value.Cantidad),0);
 
+  const handleAddPedido = () => {
+    Inertia.post(route('addPedido'));
+  }
+
   return (
     <AuthenticatedLayout auth={auth}>
           <Head title="Carrito" />
@@ -52,7 +56,7 @@ const Carrito = ({auth,cardEquipo,cardItem}) => {
                           <span>Total de Equipos: {cantidadTotal}</span>
                           <button  
                           className='bg-blue-500 mt-2 flex gap-2 items-center justify-center rounded text-white p-2 text-sm px-4'
-                          
+                          onClick={handleAddPedido}
                           >Enviar Solicitud
                           </button>
                       </div>

@@ -327,7 +327,7 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::delete('/carrito','removeAllEquipo')->name('removeAllEquipo');
     });
     Route::controller(SolicitudController::class)->group(function(){
-       
+       Route::post('/pedido','addPedido')->name('addPedido');
     });
 });
 
