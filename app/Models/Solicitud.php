@@ -11,14 +11,13 @@ class Solicitud extends Model
 
     protected $fillable = [
         'id',
-        'Fecha_Solicitud',
         'Estado_Solicitud',
         'Documento',
     ];
 
     public function users()
     {
-        return $this->HasOne(User::class,'id');
+        return $this->belongsTo(User::class,'id','id');
     }
 
     public function solicitud__detalles()

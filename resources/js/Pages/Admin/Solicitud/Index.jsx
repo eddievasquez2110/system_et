@@ -15,6 +15,7 @@ export default function Index({solis,auth}) {
                 replace: true,
             })     
     }
+    console.log(solis);
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
@@ -53,10 +54,7 @@ export default function Index({solis,auth}) {
                                     Nombre
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
-                                    Area Usuaria
-                            </th>
-                            <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
-                                    Equipo
+                                    Correo
                             </th>
                             <th scope="col" className="py-3 px-4" style={{borderRight: '1px solid white'}}>
                                     Documento

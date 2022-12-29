@@ -13,6 +13,7 @@ use App\Http\Controllers\InfoSoftwareController;
 use App\Http\Controllers\SolicitudDetalleController;
 use App\Http\Controllers\AdminReporteController;
 use App\Http\Controllers\AdminSolicitudController;
+use App\Http\Controllers\CartEquipoController;
 use App\Http\Controllers\EspecificacionEquipoController;
 use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\OficinaController;
@@ -212,14 +213,14 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
           Route::delete('/dashboard/usoequipos/{id}','destroy')->name('d.usoequipos.destroy');
      });
 
-     Route::controller(AdminEspecificacionEquipoController::class)->group(function (){
-          Route::get('/dashboard/especificacionequipo','index')->name('d.especificacionequipo.index');
-          Route::get('/dashboard/especificacionequipo/create','create')->name('d.especificacionequipo.create');
-          Route::post('/dashboard/especificacionequipo/store','store')->name('d.especificacionequipo.store');
-          Route::get('/dashboard/especificacionequipo/edit/{id}','edit')->name('d.especificacionequipo.edit');
-          Route::put('/dashboard/especificacionequipo/update/{id}','update')->name('d.especificacionequipo.update');
-          Route::delete('/dashboard/especificacionequipo/{id}','destroy')->name('d.especificacionequipo.destroy');
-     });
+    //  Route::controller(AdminEspecificacionEquipoController::class)->group(function (){
+    //       Route::get('/dashboard/especificacionequipo','index')->name('d.especificacionequipo.index');
+    //       Route::get('/dashboard/especificacionequipo/create','create')->name('d.especificacionequipo.create');
+    //       Route::post('/dashboard/especificacionequipo/store','store')->name('d.especificacionequipo.store');
+    //       Route::get('/dashboard/especificacionequipo/edit/{id}','edit')->name('d.especificacionequipo.edit');
+    //       Route::put('/dashboard/especificacionequipo/update/{id}','update')->name('d.especificacionequipo.update');
+    //       Route::delete('/dashboard/especificacionequipo/{id}','destroy')->name('d.especificacionequipo.destroy');
+    //  });
      
     Route::controller(RolController::class)->group(function (){
         Route::get('/dashboard/roles','index')->name('d.roles.index');
@@ -316,12 +317,17 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::get('solicitud/{tipo}/especificacion/{uso}','viewEspecificacion')->name('viewEspecificacion');
         Route::post('/solicitud/{id}','addToCart')->name('addToCart');
         Route::delete('solicitud/{id}','removeItem')->name('removeItem');
+        Route::delete('/solicitud','removeAll')->name('removeAll');
         Route::get('reportes/{tipo}/{uso}','viewPdf')->name('viewPdf');
-        Route::get('reportes/download/{tipo}/{uso}','downloadPDF')->name('downloadPDF');
-         
+    });
+    Route::controller(CartEquipoController::class)->group(function(){
+        Route::get('/carrito','carritoindex')->name('carritoindex');
+        Route::post('/carrito/{id}','addToCartEquipo')->name('addToCartEquipo');
+        Route::delete('carrito/{id}','removeItemEquipo')->name('removeItemEquipo');
+        Route::delete('/carrito','removeAllEquipo')->name('removeAllEquipo');
     });
     Route::controller(SolicitudController::class)->group(function(){
-        Route::get('/carrito','carritoindex')->name('carritoindex');
+       Route::post('/pedido','addPedido')->name('addPedido');
     });
 });
 
@@ -333,11 +339,7 @@ Route::controller(NotificacionController::class)->group(function (){
      Route::delete('/notificaciones/{id}','destroy')->name('notificaciones.destroy');
 });
 
-Route::post('/solicitud/create', [SolicitudController::class,'post'])
-        ->name('solicitud.add');
 
-Route::post('/solicitudd/create', [SolicitudController::class,'post'])
-        ->name('solicitudDet.add');
 // Route::group([
 //     'prefix' => 'Usuario'
 // ], function($router){
