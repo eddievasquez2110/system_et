@@ -16,8 +16,6 @@ export default function Index({usos,auth}) {
                 replace: true,
             })     
     }
-    
-    console.log(query);
 
     return (
         <Navbar auth={auth}>

@@ -15,7 +15,7 @@ export default function Index({solis,auth}) {
                 replace: true,
             })     
     }
-    console.log(solis);
+
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
@@ -38,7 +38,7 @@ export default function Index({solis,auth}) {
                         id='search'
                         onChange={(e) => setQuery(e.target.value)}
                         onKeyUp={search}
-                        placeholder='Digitar Nombre de area usuaria'
+                        placeholder='Digitar Correo de usuario'
                         />
                     </div>
                 </div>

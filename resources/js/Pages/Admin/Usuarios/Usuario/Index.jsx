@@ -4,6 +4,8 @@ import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Usuario from '@/Components/Usuario/List_Usuario';
 import { Inertia } from '@inertiajs/inertia';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileExcel} from '@fortawesome/free-solid-svg-icons';
 
 export default function Index({usua,auth}) {
     const [query,setQuery]= useState('');
@@ -15,8 +17,6 @@ export default function Index({usua,auth}) {
                 replace: true,
             })     
     }
-    
-    // console.log(query);
 
     return (
         <Navbar auth={auth}>
@@ -38,6 +38,9 @@ export default function Index({usua,auth}) {
                         Registros
                     </div>
                     <div className='flex items-center gap-4'>
+                        <button className=''>
+                            <FontAwesomeIcon icon={faFileExcel} className='h-6 w-9 text-green-600 hover:scale-110'></FontAwesomeIcon>
+                        </button>
                         <label className='text-slate-500'>Buscar: </label>
                         <input 
                         className='rounded-md py-1 text-slate-500 placeholder:text-gray-300' 

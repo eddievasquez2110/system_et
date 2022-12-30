@@ -17,7 +17,6 @@ export default function Index({notis,auth,countNoti}) {
             })     
     }
     
-
     return (
         <Navbar auth={auth}>
             <Head title='Solicitudes de acceso'/>

@@ -13,7 +13,7 @@ const Create = ({auth, usoEquipo}) => {
         Link_Software:"",
         Editor_Software:auth.user.name.toUpperCase()
     });
-    console.log(data);
+
     const onSelectedFile = (e) =>{
         const file = e.target.files[0];
         const url = URL.createObjectURL(file);

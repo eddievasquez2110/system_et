@@ -16,8 +16,6 @@ const ViewEspecificacion = ({especificacion,auth,equipos}) => {
     }
   }
 
-  console.log(quantity);
-  
   return (
     <AuthenticatedLayout auth={auth}>
         <Head title="Especificaciones" />

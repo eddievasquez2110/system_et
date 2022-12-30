@@ -15,7 +15,7 @@ class AdminSolicitudController extends Controller
     {
         $search = $request->query('search');
         $solis = Solicitud::query()->when($search, fn($query) => 
-        $query->where('ID_Solicitud','LIKE',"%{$search}%")->orWhere('Nombre_Oficina', 'LIKE', "%{$search}%")->orderBy('created_at','desc')
+        $query->where('ID_Solicitud','LIKE',"%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->orderBy('created_at','desc')
         )->with('users')
         ->paginate(5);
 

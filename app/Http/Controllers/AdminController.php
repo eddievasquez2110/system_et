@@ -22,7 +22,7 @@ class AdminController extends Controller
     {
         $mes = Solicitud::whereMonth('created_at',date(12))->get();
         $solicitud = Solicitud::all();
-        $user = User::where('ID_Rol',3)->get();
+        $user = User::where('ID_Rol',2)->get();
         return Inertia::render('Admin/Admin',[
             'solicitud' => $solicitud,
             'user' => $user,

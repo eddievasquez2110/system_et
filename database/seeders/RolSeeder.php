@@ -11,9 +11,6 @@ class RolSeeder extends Seeder
 {
     public function run()
     {
-        $rol = Rol::create([
-            'Nombre_Rol' => 'Super Administrador',
-        ]);
 
         $rol = Rol::create([
             'Nombre_Rol' => 'Administrador',

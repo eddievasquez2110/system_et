@@ -4,7 +4,7 @@ import { Head } from '@inertiajs/inertia-react';
 import DashCircle from '@/Components/DashCircle';
 import DashBar from '@/Components/DashBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faFilePen, faFilePrescription, faTrashCan, faUser, faUserGroup} from '@fortawesome/free-solid-svg-icons';
+import { faFilePrescription, faUserGroup} from '@fortawesome/free-solid-svg-icons';
 
 export default function Admin({auth,solicitud,user,mes}) {
     const mesTotal = mes.length; 

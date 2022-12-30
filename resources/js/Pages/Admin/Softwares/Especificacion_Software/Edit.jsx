@@ -11,7 +11,7 @@ const Edit = ({auth,espSoftwares}) => {
         Nombre_Especificacion_Software: espSoftwares.Nombre_Especificacion_Software,
         Especificacion_Software: espSoftwares.Especificacion_Software,
     });
-    //console.log(usos[0].ID_Uso_Equipo);
+
     function handleSubmit(e) {
         e.preventDefault();
         Inertia.post(route('d.especificacionsoftware.update',`${espSoftwares.ID_Especificacion_Software}`),{
@@ -21,8 +21,8 @@ const Edit = ({auth,espSoftwares}) => {
             Nombre_Especificacion_Software: data.Nombre_Especificacion_Software,
             Especificacion_Software: data.Especificacion_Software,
           })
-        /* put(route("d.tipoequipos.update", `${equipo.ID_Tipo_Equipo}`)); */
     }
+    
   return (
     <Navbar auth={auth}>
         <Head title="Especificacion Software" />

@@ -10,6 +10,7 @@ const Especificacion = ({especificacion,auth,equipos}) => {
   const tipo = especificacion[0].ID_Tipo_Equipo;
   const uso = especificacion[0].ID_Uso_Equipo;
   const [quantity,setQuantity] =useState(1);
+
   const handleChange= (event)=>{
     if(event.target.value < 1){
       return setQuantity(1)
@@ -17,8 +18,8 @@ const Especificacion = ({especificacion,auth,equipos}) => {
       setQuantity(event.target.value);
     }
   }
+
   const handleAdd = (e) =>{
-    
     e.preventDefault();
     Inertia.post(route('addToCartEquipo',tipo),
     {quantity:quantity,uso:uso}
@@ -42,7 +43,6 @@ const Especificacion = ({especificacion,auth,equipos}) => {
       }
     })
 }
-
   
   return (
     <AuthenticatedLayout auth={auth}>

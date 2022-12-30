@@ -9,7 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from 'sweetalert2';
 import { Inertia } from '@inertiajs/inertia';
 
-import { faUser,faUsers,faClipboardList,faComputer, faBook, faWindowRestore, faBriefcase} from '@fortawesome/free-solid-svg-icons';
+import { faUser,faUsers,faClipboardList,faComputer, faBook, faWindowRestore} from '@fortawesome/free-solid-svg-icons';
+import Navbar from './Navbar';
 
 export default function Authenticated({ auth, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
@@ -51,7 +52,7 @@ export default function Authenticated({ auth, children }) {
                                 </Link>
                                 <h1 className='text-yellow-400 ml-4 font-mono'>UNCP EETT</h1>
                             </div>
-
+                            {auth.user.ID_Rol==1?
                             <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
                                 <NavLink href={route('user')} active={route().current('user')}>
                                     Inicio
@@ -63,8 +64,10 @@ export default function Authenticated({ auth, children }) {
                                 <NavLink href={route('carritoindex')} active={route().current('carritoindex')}>
                                     Carrito
                                 </NavLink>
-                            </div>     
+                            </div>  
                             
+                            :<></>   
+                            }
                         </div>
                         <div className='flex'>
                         <div className="sm:flex sm:items-center m-2">
@@ -137,18 +140,9 @@ export default function Authenticated({ auth, children }) {
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     { auth.user.ID_Rol == '1' ?
                         <div className="pt-2 pb-3 space-y-1">
-                            <ResponsiveNavLink href={route('user')} active={route().current('user')}>
-                                Inicio
-                            </ResponsiveNavLink>
-                            <ResponsiveNavLink href={route('infosoft')} active={route().current('infosoft')} >
-                                Software
-                            </ResponsiveNavLink>
-                        </div>
-                        : auth.user.ID_Rol == '2' ?
-                        <div className="pt-2 pb-3 space-y-1">
                             
                         </div>
-                        : auth.user.ID_Rol == '3' ?
+                        : auth.user.ID_Rol == '2' ?
                         <div className="pt-2 pb-3 space-y-1">
                             <ResponsiveNavLink href={route('user')} active={route().current('user')}>
                                 Inicio
@@ -184,40 +178,6 @@ export default function Authenticated({ auth, children }) {
             
             {
                 auth.user.ID_Rol == '1'?
-                <div className='flex h-full '>
-                    <div className='flex flex-col w-3/5  basis-1/4 bg-green-400 pt-10'>
-                        <Link href={route('reportes.a')} className='grid'>
-                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faUsers} />
-                                <span className='hidden sm:flex '>Gestión de Usuarios</span>
-                            </ButtonDashboard>
-                        </Link>
-                        <Link href={route('reportes.a')} className='grid'>
-                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faClipboardList} />
-                                <span className='hidden sm:flex '>Gestión de Solicitudes</span>
-                            </ButtonDashboard>
-                        </Link>
-                        <Link href={route('reportes.a')} className='grid'>
-                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faWindowRestore} />
-                                <span className='hidden sm:flex '>Gestión de Software</span>
-                            </ButtonDashboard>
-                        </Link>
-                        <Link href={route('reportes.a')} className='grid'>
-                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faComputer} />
-                                <span className='hidden sm:flex flex-inline'>Gestión de Equipos</span>
-                            </ButtonDashboard>
-                        </Link>
-                        <Link href={route('reportes.a')} className='grid'>
-                            <ButtonDashboard className='flex'><FontAwesomeIcon className="h-5 w-10"  icon={faBook} />
-                                <span className='hidden sm:flex '>Gestión de Reportes</span>
-                            </ButtonDashboard>
-                        </Link>
-                    </div>
-                    <div className='w-full h-full place-content-around '>
-                        <div className='bg-gradient-to-r from-green-100 to-green-300'>
-                            {children} 
-                        </div>
-                    </div>
-                </div> : auth.user.ID_Rol == '2'?
                 <div className='flex h-full'>
                     <div className='flex flex-col w-3/5  basis-1/4 bg-green-400 pt-10'>
                         <Link href={route('reportes')} className='grid'>
@@ -251,7 +211,7 @@ export default function Authenticated({ auth, children }) {
                             {children} 
                         </div>
                     </div>
-                </div> : auth.user.ID_Rol == '3' ?
+                </div> : auth.user.ID_Rol == '2' ?
                     <div className='flex w-full h-full place-content-around '>
                     
                         <div className='bg-slate-100 w-full h-full from-green-100 to-green-300'>

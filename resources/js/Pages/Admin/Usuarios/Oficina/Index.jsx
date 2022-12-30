@@ -3,7 +3,6 @@ import Navbar from '@/Layouts/Navbar';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import { Inertia } from '@inertiajs/inertia';
-import List_Rol from '@/Components/Usuario/List_Rol';
 import List_Oficina from '@/Components/Usuario/List_Oficina';
 
 export default function Index({ofis,auth}) {

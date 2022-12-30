@@ -21,8 +21,8 @@ const Edit = ({auth,espEquipos, tipoEquipos, usoEquipos}) => {
             Nombre_Especificacion_Equipo: data.Nombre_Especificacion_Equipo,
             Especificacion_Equipo: data.Especificacion_Equipo,
           })
-        /* put(route("d.tipoequipos.update", `${equipo.ID_Tipo_Equipo}`)); */
     }
+    
   return (
     <Navbar auth={auth}>
         <Head title="Uso Equipo" />

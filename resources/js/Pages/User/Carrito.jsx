@@ -12,9 +12,11 @@ const Carrito = ({auth,cardEquipo,cardItem}) => {
   const handleRemoveAll = () => {
     Inertia.delete(route('removeAllEquipo')); 
   }
+  
   const handleSeleccionarEquipo = () => {
     Inertia.get(route('user')); 
   }
+
   const cantidadTotal = cardItem.reduce((sum,value) => (sum + value.Cantidad),0);
 
   const handleAddPedido = () => {
@@ -41,7 +43,7 @@ const Carrito = ({auth,cardEquipo,cardItem}) => {
   return (
     <AuthenticatedLayout auth={auth}>
           <Head title="Carrito" />
-          <div className='h-full pb-5'>
+          <div className='h-screen pb-8'>
             <div className='flex flex-col items-center justify-center mt-8 w-full'>
                  {
                     (cardEquipo.length == 0) ?
@@ -63,7 +65,7 @@ const Carrito = ({auth,cardEquipo,cardItem}) => {
                           <>
                             <button
                               onClick={handleRemoveAll}
-                              className='bg-red-500 mt-5 rounded flex gap-2 items-center justify-center text-white p-2 text-sm px-4'
+                              className='flex bg-red-500 mt-5 rounded flex gap-2 items-center justify-center text-white p-2 text-sm px-4'
                               >
                                 <FontAwesomeIcon 
                                 icon={faTrash}

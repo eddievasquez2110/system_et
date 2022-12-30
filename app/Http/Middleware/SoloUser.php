@@ -18,13 +18,10 @@ class SoloUser
     public function handle(Request $request, Closure $next)
     {
         switch(auth::user()->ID_Rol){
-            case ('1'):
-                return redirect('superadmin');//si es administrador continua al HOME
-            break;
-			case('2'):
+			case('1'):
                 return redirect('dashboard');// si es un usuario normal redirige a la ruta USER
 			break;	
-            case ('3'):
+            case ('2'):
                 return $next($request);//si es administrador redirige al moderador
             break;
         }

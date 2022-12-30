@@ -6,7 +6,6 @@ import List_Especificacion_Equipo from '@/Components/Equipos/List_Especificacion
 import { Inertia } from '@inertiajs/inertia';
 
 export default function Index({espEquipos,auth}) {
-    console.log(espEquipos)
     
     const [query,setQuery]= useState('');
     const search = (e) => {
@@ -17,8 +16,6 @@ export default function Index({espEquipos,auth}) {
                 replace: true,
             })     
     }
-    
-    console.log(query);
 
     return (
         <Navbar auth={auth}>

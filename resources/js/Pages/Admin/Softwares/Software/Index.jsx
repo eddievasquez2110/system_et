@@ -6,8 +6,6 @@ import List_Software from '@/Components/Software/List_Software';
 import { Inertia } from '@inertiajs/inertia';
 
 export default function Index({soft,auth}) {
-    console.log(soft)
-
     const [query,setQuery]= useState('');
     const search = (e) => {
         Inertia.get(route(route().current()),
@@ -17,8 +15,6 @@ export default function Index({soft,auth}) {
                 replace: true,
             })     
     }
-    
-    console.log(query);
 
     return (
         <Navbar auth={auth}>
