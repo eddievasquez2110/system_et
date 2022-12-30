@@ -36,7 +36,9 @@ const Solicitud = ({ auth, softwares, items, card, id}) => {
       {auth.user.ID_Rol == 1 ?
         <NavbarSAdmin auth={auth}>
           <Head title="Solicitud" />
-          <div className='mt-5 w-full h-20 backdrop-blur-sm bg-white/30 grid place-items-center'><strong>SELECCIÓN DE PROGRAMAS</strong></div>
+          <div className='flex mt-5 h-20 bg-gradient-to-r from-slate-100 to-slate-200  place-items-center'>
+              <strong>SELECCIÓN DE PROGRAMAS</strong>
+          </div>
           <div className='flex'>
             <div style={{ width: "70%" }}>
               {
@@ -63,12 +65,12 @@ const Solicitud = ({ auth, softwares, items, card, id}) => {
                   {/* style={{width:"90%"}} */}
                   <div className='flex md:w-1/3 min-[200px]:w-full md:h-screen min-[200px]:h-80' >
                     
-                    <div className='w-full overflow-auto bg-white rounded md:mt-20 min-[200px]:mt:4 p-6 ' >
+                    <div className='w-full overflow-auto bg-white rounded md:mt-20 min-[200px]:mt:4 p-0 ' >
                     {/* style={{ height: "400px" }} */}
-                      <div className=''>
-                        <div className='bg-green-300 p-3 text-center'>
-                          <span className='text-lg'>Lista</span>
+                        <div className='bg-green-700 text-center text-white rounded-t-lg p-2'>
+                          <span className='text-lg'><strong>Lista de Software seleccionados</strong></span>
                         </div>
+                        <div className='p-4'>
                         {    
                           items.map(item =>
                             <Card_Software key={item.id} item={item} />
@@ -86,7 +88,7 @@ const Solicitud = ({ auth, softwares, items, card, id}) => {
                               <FontAwesomeIcon 
                               icon={faEye}
                               />
-                              Ver Especificación
+                              Generar Especificación
                             </button>
                             </>
                         }
@@ -110,10 +112,11 @@ const Solicitud = ({ auth, softwares, items, card, id}) => {
                     </div>
                   </div>
                   <div className='flex flex-col h-screen md:w-2/3 min-[200px]:w-full '>
-                    <div className='text-center p-4'>
+                    <div className='text-center p-4 bg-gradient-to-r from-slate-100 to-slate-200'>
+                    
                       <h2 className='text-green-700 font-bold'><strong>SELECCIÓN DE PROGRAMAS</strong></h2>
                     </div>
-                    <div className='mt-3 ml-9 mr-9 flex items-center bg-green-500  p-1'>
+                    <div className='mt-3 ml-9 mr-9 flex items-center bg-green-500 rounded-md p-1'>
                       
                       <input
                         className='rounded-md p-2 px-3 w-full text-sm  placeholder:text-slate-400 border-none '

@@ -11,7 +11,7 @@
         <div style="margin-bottom:25px; color:black;"><strong>Correo:  </strong>   {{$user->email}}</div>
         <div style="margin-bottom:25px; color:black;"><strong>Oficina:  </strong>   {{$user->oficina->Nombre_Oficina}}</div>
         <div style="margin-bottom:25px; color:black;"><strong>FECHA:  </strong>{{ date('Y-m-d H:i:s') }}</div>
-        <div style="margin-top:50px; color:black;">Resumen de detalle:</div>
+        <div style="margin-top:10px; color:black;">Resumen de detalle:</div>
         <table style="margin: 60px auto; border-collapse:collapse;">
             <thead>
                 <tr style="padding:8px; background:green;">
@@ -48,12 +48,12 @@
                 @endforeach
             </tbody>
         </table>
-        <div style="margin-top:50px; color:black;">Especificaciones de Equipo:</div>
+        <div style="margin-top:10px; color:black;">Especificaciones de Equipo:</div>
         @foreach($detalle as $det)
         <table style="margin: 60px auto; border-collapse:collapse;">
             <thead>
                 <tr style="padding:8px; background:green;">
-                    <th colSpan="2" style="text-transform: uppercase; padding:7px; color:white;"><strong>{{$loop->iteration}}. {{$det->tipoequipos->Nombre_Tipo_Equipo}}</strong></th>
+                    <th colSpan="2" style="text-transform: uppercase; padding:3px; color:white;"><strong>{{$loop->iteration}}. {{$det->tipoequipos->Nombre_Tipo_Equipo}}</strong></th>
                 </tr>
             </thead>
             <tbody>

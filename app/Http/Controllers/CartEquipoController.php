@@ -23,6 +23,7 @@ class CartEquipoController extends Controller
         'ID_Uso_Equipo'=>$uso,
         'Cantidad'=>$cantidad];
         CartEquipo::updateOrCreate($data);
+        return redirect()->route('carritoindex');
     }
 
     public function removeItemEquipo($id){

@@ -254,13 +254,13 @@ export default function Authenticated({ auth, children }) {
                 </div> : auth.user.ID_Rol == '3' ?
                     <div className='flex w-full h-full place-content-around '>
                     
-                        <div className='bg-gradient-to-r w-full h-full from-green-100 to-green-300'>
+                        <div className='bg-slate-100 w-full h-full from-green-100 to-green-300'>
                             {children} 
                         </div>
                     </div>
                  : <></>
             }
-                <div className='h-14 flex items-center justify-center text-slate-400 border-t-2 border-neutral-100 bg-green-100'>
+                <div className='h-14 flex items-center justify-center text-slate-400 border-t-2 border-neutral-100 bg-white'>
                    <div>
                     Copyrigth © OGSIC 2022 
                     

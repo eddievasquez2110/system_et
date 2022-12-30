@@ -254,7 +254,7 @@ const Navbar = ({auth,children, total}) => {
                         </div>
                     </div>
                 </div>
-                <div className='flex  justify-center bg-slate-100 overflow-y-auto ' style={{height:'calc(100% - 112px)'}}>
+                <div className='flex justify-center bg-slate-100 overflow-y-auto ' style={{height:'calc(100% - 112px)'}}>
                     <div className='w-5/6'>
                     {children}
                     </div>  

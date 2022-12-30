@@ -15,33 +15,33 @@ class SolicitudSeeder extends Seeder
         $solicitud = Solicitud::create([
             'id' => 1,
             'Estado_Solicitud'=>'Aceptado',
-            'Documento'=>'1.pdf',
+            'Documento'=>'202212292210538.pdf',
         ]);
 
         $solicitud = Solicitud::create([
             'id' => 3,
-            'Documento'=>'test1.pdf',
+            'Documento'=>'202212292328418.pdf',
         ]);
 
         $solicitud = Solicitud::create([
             'id' => 2,
-            'Documento'=>'plataforma de cursos.pdf',
+            'Documento'=>'202212292227579.pdf',
         ]);
         $solicitud = Solicitud::create([
             'id' => 3,
-            'Documento'=>'Presentacion_Avances.pdf',
+            'Documento'=>'2022122923253310.pdf',
         ]);
         $solicitud = Solicitud::create([
             'id' => 3,
-            'Documento'=>'INFORME_CARRITO_ARDUINO.pdf',
+            'Documento'=>'2022122923260211.pdf',
         ]);
         $solicitud = Solicitud::create([
             'id' => 3,
-            'Documento'=>'pdf_file.pdf',
+            'Documento'=>'2022122923262012.pdf',
         ]);
         $solicitud = Solicitud::create([
             'id' => 3,
-            'Documento'=>'pdf_file.pdf',
+            'Documento'=>'2022122923263813.pdf',
         ]);
         
     }
