@@ -20,7 +20,7 @@ export default function Index({roles,auth}) {
 
     return (
         <Navbar auth={auth}>
-            <Head title='Admin'/>
+            <Head title='Roles'/>
             <div className='flex flex-col my-3'>
                 <div className='flex items-center gap-8 '>
                     <span className='text-slate-500 text-3xl'>ROLES</span>

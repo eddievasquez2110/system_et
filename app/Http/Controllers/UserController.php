@@ -73,7 +73,7 @@ class UserController extends Controller
             'ID_Rol' => $usua['ID_Rol'],
             'ID_Oficina' => $usua['ID_Oficina'],
             'name' => $usua['name'],
-            'email' => 'jas@gmail.com',
+            'email' => $usua['email'],
             'password' => Hash::make($usua['password']),
         ]);
         // event(new Registered($user));
