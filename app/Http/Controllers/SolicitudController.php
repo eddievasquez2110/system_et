@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CartEquipo;
+use App\Models\Especificacion_Equipo;
 use App\Models\Solicitud;
 use App\Models\Solicitud_Detalle;
 use App\Models\Tipo_Equipo;
@@ -15,7 +16,13 @@ use Inertia\Inertia;
 
 class SolicitudController extends Controller
 {
-    
+    public function removeAll()
+    {
+        $cart = CartEquipo::where(['ID_User'=>auth()->user()->id]);
+        if($cart){
+            $cart->delete();
+        }
+    }
     public function addPedido()
     {
        $carts = CartEquipo::where('ID_User',auth()->user()->id)->get();
@@ -33,14 +40,23 @@ class SolicitudController extends Controller
            ]);
        }
 
-       $detalle = Solicitud_Detalle::where('ID_Solicitud',$pedido->id)->get();
+       $detalle = Solicitud_Detalle::with(['tipoequipos','usoequipo'])->where('ID_Solicitud',$pedido->id)->get();
        
+       $array = [];
+       foreach($detalle as $detalleItem){
+        $especifi = Especificacion_Equipo::where('ID_Tipo_Equipo',$detalleItem->ID_Tipo_Equipo)
+        ->where('ID_Uso_Equipo',$detalleItem->ID_Uso_Equipo)->get();
+        array_push($array,$especifi);
+       }
+      
        $user = User::with('Oficina')->where(['id'=>auth()->user()->id])->first();
        $nombreArchivo = date('YmdHis').$pedido->id. "."."pdf";
-       $pdf = Pdf::loadView('reportepdf',compact(['detalle','user']))->save(public_path('/images/documentos/'.$nombreArchivo));
+       $pdf = Pdf::loadView('reportepdf',compact(['array','user','detalle']))->save(public_path('images/documentos/'.$nombreArchivo));
        Solicitud::where('ID_Solicitud',$pedido->id)->update([
         'Documento' => $nombreArchivo
        ]);
+       $this->removeAll();
+       return redirect()->route('user');
     }
 
  
