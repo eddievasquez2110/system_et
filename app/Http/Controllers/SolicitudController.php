@@ -37,7 +37,7 @@ class SolicitudController extends Controller
        
        $user = User::with('Oficina')->where(['id'=>auth()->user()->id])->first();
        $nombreArchivo = date('YmdHis').$pedido->id. "."."pdf";
-       $pdf = Pdf::loadView('reportepdf',compact(['detalle','user']))->save(public_path('images/documentos/'.$nombreArchivo));
+       $pdf = Pdf::loadView('reportepdf',compact(['detalle','user']))->save(public_path('/images/documentos/'.$nombreArchivo));
        Solicitud::where('ID_Solicitud',$pedido->id)->update([
         'Documento' => $nombreArchivo
        ]);

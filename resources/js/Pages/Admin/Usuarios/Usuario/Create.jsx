@@ -160,7 +160,7 @@ const onHandleChange = (event) => {
                                             // autoComplete="new-password"
                                             handleChange={onHandleChange}
                                             required
-                                            type="text"
+                                            type="password"
                                             className="w-full px-4 py-2 text-gray-500"
                                             label="password"
                                             name="password"

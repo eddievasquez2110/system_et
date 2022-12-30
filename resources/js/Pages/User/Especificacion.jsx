@@ -3,6 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Table from '@/Components/Table';
 import { Inertia } from '@inertiajs/inertia';
+import Swal from 'sweetalert2';
 
 const Especificacion = ({especificacion,auth,equipos}) => {
   
@@ -17,11 +18,31 @@ const Especificacion = ({especificacion,auth,equipos}) => {
     }
   }
   const handleAdd = (e) =>{
+    
     e.preventDefault();
     Inertia.post(route('addToCartEquipo',tipo),
     {quantity:quantity,uso:uso}
     );
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: "Usted Aceptará la solicitud",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#15803D',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => { 
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Añadido al carrito correctamente!',
+          '',
+          'success'
+        )
+        Inertia.get(route('#'))
+      }
+    })
 }
+
   
   return (
     <AuthenticatedLayout auth={auth}>

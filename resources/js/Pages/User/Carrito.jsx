@@ -13,7 +13,24 @@ const Carrito = ({auth,cardEquipo,cardItem}) => {
   const cantidadTotal = cardItem.reduce((sum,value) => (sum + value.Cantidad),0);
 
   const handleAddPedido = () => {
-    Inertia.post(route('addPedido'));
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: "Usted Aceptará la solicitud",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#15803D',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => { 
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Añadido al carrito correctamente!',
+          '',
+          'success'
+        )
+        Inertia.post(route('addPedido'));
+      }
+    })
   }
 
   return (
