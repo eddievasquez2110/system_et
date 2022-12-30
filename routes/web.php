@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminSoftwareController;
 use App\Http\Controllers\AdminEspecificacionEquipoController;
 use App\Http\Controllers\AdminEspecificacionSoftwareController;
@@ -17,7 +18,6 @@ use App\Http\Controllers\CartEquipoController;
 use App\Http\Controllers\EspecificacionEquipoController;
 use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\OficinaController;
-use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\UserController;
@@ -151,9 +151,8 @@ Route::middleware(['auth', 'verified','solosuperadmin'])->group(function () {
 
 //RUTAS SOLO ADMIN
 Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
-     Route::get('/dashboard', function () {
-         return Inertia::render('Admin/Admin');
-     })->name('admin');
+     Route::get('/dashboard',[AdminController::class,'index']
+     )->name('admin');
 
      //EQUIPOS
     Route::controller(AdminTipoEquipoController::class)->group(function () {
@@ -258,8 +257,7 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
 //     Route::get('/dashboard/especificacionsoftware', [AdminEspecificacionSoftwareController::class,'index'])
 //          ->name('d.especificacionsoftware');
 
-    Route::get('/dashboard/reportes/{año}', [AdminReporteController::class,'index'])
-         ->name('d.reportes');
+    
 
     Route::controller(AdminSolicitudController::class)->group(function (){
         Route::get('/dashboard/solicitudes', [AdminSolicitudController::class,'index'])
