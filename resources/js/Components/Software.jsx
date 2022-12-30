@@ -13,8 +13,9 @@ const Software = ({software}) => {
       
             <div className="relative md:max-w-xs min-[200px]:w-40 flex flex-col items-center justify-center bg-white rounded-lg border-2 border-neutral-100 shadow-md shadow-lime-800/50 hover:border-2 hover:border-green-400
                 " >
-                  {/* style={{height:"184px",width:"160px"}}  style={{height:"148px",width:"180px"}}*/}
+                <div className='p-2'>
                 <img src={`../images/softwares/${software.ID_Software}.png`} className='mt-3 h-36 w-44' alt="" />
+                </div>
                 <button
                 className='items-center justify-center py-3 w-full bg-green-700 border border-transparent rounded-md font-bold text-xs text-white tracking-widest active:bg-green-900 hover:bg-green-600'
                 type='button'

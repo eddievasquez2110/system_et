@@ -37,7 +37,6 @@ const Lista = ({auth, equipos,especificacion}) => {
         Inertia.post(route('addToCartEquipo',tipo),
         {quantity:quantity,uso:4},
         );
-        Inertia.get(route('carritoindex'));
       }
       
     })

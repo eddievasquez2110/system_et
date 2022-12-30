@@ -7,16 +7,16 @@ const Equipo = ({equipo,auth}) => {
     }
   return (
     
-      <div className="max-w-xs bg-white rounded-lg border-2 border-green-100 shadow-md shadow-lime-800/50 ">
+      <div className="max-w-xs bg-white rounded-lg shadow-md shadow-green-400/50 hover:shadow-lg hover:shadow-green-400">
         
-                <a href="#">
-                    <img src={`../images/equipos/${equipo.Imagen}`} className='rounded-t-lg w-96 h-64 mt-4' alt="" />
+                <a  href={route('solicitud',equipo.ID_Tipo_Equipo)}>
+                    <img src={`../images/equipos/${equipo.Imagen}`} className='rounded-t-lg w-96 h-64 mt-4 hover:scale-110 p-4' alt="" />
                 </a>
                 <div className="p-3 pt-0 ">
                 { equipo.ID_Tipo_Equipo == '1' || equipo.ID_Tipo_Equipo == '2' ?
                     <>
                     <a href="#">
-                        <h5 className="flex justify-center items-center h-20 text-2xl font-bold tracking-tight text-lime-800 text-center">{equipo.Nombre_Tipo_Equipo.toUpperCase()}</h5>
+                        <h5 className="flex justify-center items-center h-20 text-2xl font-bold tracking-tight text-green-600 text-center">{equipo.Nombre_Tipo_Equipo.toUpperCase()}</h5>
                     </a>
                     
                     <button onClick={viewListSoft} id={equipo.ID_Tipo_Equipo}  className="inline-flex items-center justify-center py-5 w-full bg-green-700 border border-transparent rounded-md font-bold text-xs text-white tracking-widest active:bg-green-900 hover:bg-green-600 transition ease-in-out duration-150">
@@ -26,7 +26,7 @@ const Equipo = ({equipo,auth}) => {
                     </>
                     : <>
                     <a href="#">
-                        <h5 className="flex justify-center items-center h-20 text-2xl font-bold tracking-tight text-lime-800 text-center">{equipo.Nombre_Tipo_Equipo.toUpperCase()}</h5>
+                        <h5 className="flex justify-center items-center h-20 text-2xl font-bold tracking-tight text-green-600 text-center">{equipo.Nombre_Tipo_Equipo.toUpperCase()}</h5>
                     </a>
                     
                     <a href={route('inicio.show',{id: `${equipo.ID_Tipo_Equipo}`})}  className="inline-flex items-center justify-center py-5 w-full bg-green-700 border border-transparent rounded-md font-bold text-xs text-white tracking-widest active:bg-green-900 hover:bg-green-600 transition ease-in-out duration-150">
