@@ -5,6 +5,8 @@ import Card_Equipo from '@/Components/Usuario/Card_Equipo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash} from '@fortawesome/free-solid-svg-icons';
 import { Inertia } from '@inertiajs/inertia';
+import Swal from 'sweetalert2';
+
 const Carrito = ({auth,cardEquipo,cardItem}) => {
 
   const handleRemoveAll = () => {

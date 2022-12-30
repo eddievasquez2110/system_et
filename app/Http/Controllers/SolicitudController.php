@@ -59,37 +59,4 @@ class SolicitudController extends Controller
        return redirect()->route('user');
     }
 
- 
-   
-    public function create()
-    {
-        //
-    }
-    
-    
-    
-
-    
-    public function show(Solicitud $solicitud)
-    {
-        //
-    }
-
-    
-    public function edit(Solicitud $solicitud)
-    {
-        //
-    }
-
-    
-    public function update(Request $request, Solicitud $solicitud)
-    {
-        //
-    }
-
-    
-    public function destroy(Solicitud $solicitud)
-    {
-        //
-    }
 }
