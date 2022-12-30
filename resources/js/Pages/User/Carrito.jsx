@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComputer, faTrash} from '@fortawesome/free-solid-svg-icons';
 import { Inertia } from '@inertiajs/inertia';
 import Swal from 'sweetalert2';
-
+import cart from '@/Components/cart.json';
+import Lottie from "lottie-react";
 const Carrito = ({auth,cardEquipo,cardItem}) => {
 
   const handleRemoveAll = () => {
@@ -47,8 +48,11 @@ const Carrito = ({auth,cardEquipo,cardItem}) => {
             <div className='flex flex-col items-center justify-center mt-8 w-full'>
                  {
                     (cardEquipo.length == 0) ?
-                    (<div className='flex mt-5 w-full h-20 bg-white/30 place-items-center'>
+                    (<div>
+                      <div className='flex mt-5 w-full h-32 bg-white/30 place-items-center'>
                       <p className='text-center w-full'>No hay ningun elemento agregado al carrito</p>
+                      <Lottie animationData={cart} className="mt-40"/>
+                     </div>
                     </div>) :
                     (<div className='flex gap-8 w-4/5'>
                     <div className='w-2/3 bg-white p-4 overflow-auto p-0'>

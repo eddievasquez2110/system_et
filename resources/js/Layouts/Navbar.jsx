@@ -24,7 +24,6 @@ const Navbar = ({auth,children, total}) => {
     },[open])
     
     const styleOpen = {
-        // display:"block"
         display:"flex"
     }
     const styleClose = {
