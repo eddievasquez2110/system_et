@@ -10,7 +10,6 @@ import { Inertia } from '@inertiajs/inertia';
 //import { Popup } from 'unc-react-creator';
 
 const List_Solicitud = ({soli}) => {
-    const [selectedFile, setSelectedFile] = useState(null);
     const aceptar = (e) => {
         Swal.fire({
             title: 'Estas seguro?',
@@ -27,7 +26,7 @@ const List_Solicitud = ({soli}) => {
                 '',
                 'success'
               )
-              Inertia.get(route('d.solicituds.aceptar',soli.ID_Solicitud))
+              Inertia.post(route('d.solicituds.aceptar',soli.ID_Solicitud))
             }
           })
     }
@@ -72,7 +71,7 @@ const List_Solicitud = ({soli}) => {
             </td>
             <td className="px-3 py-2 justify-center ">
                 <div className='flex items-center justify-center '>
-                    <embed src={`/images/documentos/${soli.Documento}`} alt="" style={{width:'80px',height:'50px'}} className='overflow-y-hidden' />
+                    {soli.Documento}
                 </div>        
             </td>
             <td className="py-4 px-2 text-center">
@@ -97,18 +96,18 @@ const List_Solicitud = ({soli}) => {
             
             <td className="flex flex-inline py-4 place-content-center">
                 <a href={route('d.solicituds.ver',soli.ID_Solicitud)} className="font-medium text-blue-500 justify-center bg-blue-100 px-2 py-2 rounded-md hover:bg-blue-700 hover:text-white mx-3" target="_blank">
-                 <FontAwesomeIcon className="h-5 w-8"  icon={faEye} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
+                 <FontAwesomeIcon className="h-5 w-8"  icon={faEye}/> 
                 </a>
                 
                 <Link onClick={aceptar} className="font-medium text-green-500">           
                     <div className='justify-center bg-green-100 px-2 py-2 rounded-md hover:bg-green-700 hover:text-white  mx-3'>
-                    <FontAwesomeIcon className="h-5 w-8"  icon={faFileCircleCheck} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
+                    <FontAwesomeIcon className="h-5 w-8"  icon={faFileCircleCheck}  /> 
                     </div>
                 </Link>   
 
                 <Link onClick={rechazar}  className="font-medium text-red-500">             
                     <div className='justify-center bg-red-100 px-2 py-2 rounded-md hover:bg-red-700 hover:text-white mx-3'>
-                    <FontAwesomeIcon className="h-5 w-8 "  icon={faFileCircleXmark} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
+                    <FontAwesomeIcon className="h-5 w-8 "  icon={faFileCircleXmark}/> 
                     </div>
                 </Link>
             

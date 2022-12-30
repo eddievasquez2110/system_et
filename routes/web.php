@@ -268,7 +268,7 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
         Route::get('/dashboard/especificacionEquipo/{id}', [AdminSolicitudController::class,'show'])
             ->name('d.solicituds.show');
    
-        Route::get('/dashboard/solicitudes/aceptar/{id}', [AdminSolicitudController::class,'aceptar'])
+        Route::post('/dashboard/solicitudes/aceptar/{id}', [AdminSolicitudController::class,'aceptar'])
             ->name('d.solicituds.aceptar');
    
         Route::get('/dashboard/solicitudes/rechazar/{id}', [AdminSolicitudController::class,'rechazar'])
@@ -280,7 +280,7 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
         Route::get('/dashboard/especificacion/{id}', [EspecificacionEquipoController::class,'show'])
             ->name('d.especificacion.show');
 
-        Route::get('/dashboard/inicio{id}', [AdminSolicitudController::class,'viewDocument'])
+        Route::get('/dashboard/inicio/{id}', [AdminSolicitudController::class,'viewDocument'])
             ->name('d.solicituds.ver');
     });
     
