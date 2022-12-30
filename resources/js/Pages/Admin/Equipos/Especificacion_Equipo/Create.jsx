@@ -2,14 +2,15 @@ import React, {  useState } from 'react'
 import Navbar from '@/Layouts/Navbar';
 import { Head, useForm, Link } from '@inertiajs/inertia-react';
 
-const Create = ({auth}) => {
+const Create = ({auth, tipoEquipos, usoEquipos}) => {
+    console.log(tipoEquipos)
+    console.log(usoEquipos)
     const [preview, setPreview] = useState('');
     const {data, setData, errors, post, progress} = useForm({
-        Nombre_Tipo_Equipo:"",
-        Nombre_Uso_Equipo:"",
+        ID_Tipo_Equipo:"",
+        ID_Uso_Equipo:"",
         Nombre_Especificacion_Equipo:"",
         Especificacion_Equipo:"",
-
     });
 
 function handleSubmit(e){
@@ -37,34 +38,54 @@ function handleSubmit(e){
                                 <div className="flex flex-col">
                                 <div className="mb-4">
                                         <label className="">Tipo Equipo</label>
-                                        <input
-                                            type="text"
-                                            className="w-full px-4 py-2 text-gray-500"
-                                            label="Nombre_Tipo_Equipo"
-                                            name="Nombre_Tipo_Equipo"
-                                            value={data.Nombre_Tipo_Equipo}
+                                        <select
+                                            id ='ID_Tipo_Equipo' 
+                                            name='ID_Tipo_Equipo'  
+                                            className='block w-full bg-white border   h-10  py'
+                                            label="ID_Tipo_Equipo"
+                                            forInput="ID_Tipo_Equipo"
                                             onChange={(e) =>
-                                                setData("Nombre_Tipo_Equipo", e.target.value)
+                                                setData('ID_Tipo_Equipo', e.target.value)
                                             }
-                                        />
+                                            required
+                                        >
+                                            <option value="" disabled selected='true'>seleccione un equipo</option>
+                                            {
+                                                tipoEquipos.map( tipoEquipo => {
+                                                    return (
+                                                        <option key={tipoEquipo.ID_Tipo_Equipo} value={tipoEquipo.ID_Tipo_Equipo}>{tipoEquipo.Nombre_Tipo_Equipo}</option>
+                                                    )
+                                                })
+                                            }
+                                        </select>
                                         <span className="text-red-600">
-                                            {errors.Nombre_Tipo_Equipo}
+                                            {errors.ID_Tipo_Equipo}
                                         </span>
                                     </div>
                                     <div className="mb-4">
                                         <label className="">Uso Equipo</label>
-                                        <input
-                                            type="text"
-                                            className="w-full px-4 py-2 text-gray-500"
-                                            label="Nombre_Uso_Equipo"
-                                            name="Nombre_Uso_Equipo"
-                                            value={data.Nombre_Uso_Equipo}
+                                        <select
+                                            id ='ID_Uso_Equipo' 
+                                            name='ID_Uso_Equipo'  
+                                            className='block w-full bg-white border   h-10  py'
+                                            label="ID_Uso_Equipo"
+                                            forInput="ID_Uso_Equipo"
                                             onChange={(e) =>
-                                                setData("Nombre_Uso_Equipo", e.target.value)
+                                                setData('ID_Uso_Equipo', e.target.value)
                                             }
-                                        />
+                                            required
+                                        >
+                                            <option value="" disabled selected='true'>seleccione un uso del equipo</option>
+                                            {
+                                                usoEquipos.map( usoEquipo => {
+                                                    return (
+                                                        <option key={usoEquipo.ID_Uso_Equipo} value={usoEquipo.ID_Uso_Equipo}>{usoEquipo.Nombre_Uso_Equipo}</option>
+                                                    )
+                                                }) 
+                                            }
+                                        </select>
                                         <span className="text-red-600">
-                                            {errors.Nombre_Uso_Equipo}
+                                            {errors.ID_Uso_Equipo}
                                         </span>
                                     </div>
                                     <div className="mb-4">

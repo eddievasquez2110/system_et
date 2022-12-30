@@ -12,7 +12,7 @@ class Software extends Model
     protected $fillable = [
         'ID_Version',
         'ID_Uso_Equipo',
-        'Nombre_Software' => 'required|unique:table,column',
+        'Nombre_Software',
         'Imagen',
         'Version_Software',
         'Descripcion_Software',

@@ -2,10 +2,8 @@ import React, { useState } from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Table from '@/Components/Table';
-import { Inertia } from '@inertiajs/inertia';
-import Swal from 'sweetalert2';
 
-const Especificacion = ({especificacion,auth,equipos}) => {
+const ViewEspecificacion = ({especificacion,auth,equipos}) => {
   
   const tipo = especificacion[0].ID_Tipo_Equipo;
   const uso = especificacion[0].ID_Uso_Equipo;
@@ -17,32 +15,8 @@ const Especificacion = ({especificacion,auth,equipos}) => {
       setQuantity(event.target.value);
     }
   }
-  const handleAdd = (e) =>{
-    
-    e.preventDefault();
-    Inertia.post(route('addToCartEquipo',tipo),
-    {quantity:quantity,uso:uso}
-    );
-    Swal.fire({
-      title: 'Estas seguro?',
-      text: "Usted Aceptará la solicitud",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#15803D',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Aceptar'
-    }).then((result) => { 
-      if (result.isConfirmed) {
-        Swal.fire(
-          'Añadido al carrito correctamente!',
-          '',
-          'success'
-        )
-        Inertia.get(route('#'))
-      }
-    })
-}
 
+  console.log(quantity);
   
   return (
     <AuthenticatedLayout auth={auth}>
@@ -83,7 +57,6 @@ const Especificacion = ({especificacion,auth,equipos}) => {
                   </div>
                   <div className='transition duration-150 ease-in-out hover:scale-110 text-white bg-green-500 rounded p-2 hover:bg-green-700'>
                     <button
-                    onClick={handleAdd}
                     >Añadir</button>
                   </div>     
                </div>
@@ -96,4 +69,4 @@ const Especificacion = ({especificacion,auth,equipos}) => {
   )
 }
 
-export default Especificacion
+export default ViewEspecificacion

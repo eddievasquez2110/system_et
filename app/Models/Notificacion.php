@@ -11,14 +11,10 @@ class Notificacion extends Model
 
     protected $fillable = [
         'Nombre_User',
-        'Email_User' => 'required|unique:table,column',
+        'Email_User',
         'Asunto_User',
         'Mensaje_User',
     ];
-
-    // protected $hidden = [
-    //     'Nombre_Oficina',
-    // ];
     
     public $timestamps = true;
 }
