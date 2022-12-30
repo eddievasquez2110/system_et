@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Solicitud;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -19,8 +20,14 @@ class AdminController extends Controller
 
     public function index()
     {
-        
-
+        $mes = Solicitud::whereMonth('created_at',date(12))->get();
+        $solicitud = Solicitud::all();
+        $user = User::where('ID_Rol',3)->get();
+        return Inertia::render('Admin/Admin',[
+            'solicitud' => $solicitud,
+            'user' => $user,
+            'mes' => $mes
+        ]);
     }
 
     

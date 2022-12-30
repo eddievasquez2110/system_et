@@ -192,25 +192,6 @@ const Navbar = ({auth,children, total}) => {
                             
                         </SideLink>
                     </li>
-
-                    <li className='px-3'>
-                        <SideLink href={route('d.reportes','total')} active={route().current('d.reportes')}>
-                            <FontAwesomeIcon className="h-5 w-6 "  icon={faFileClipboard} />
-                            <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
-                                <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center'>Reportes</span>
-                            </div>
-                        </SideLink>
-                    </li>
-                    
-                    {/* <li className='bottom-0  px-3    w-full' >
-                        <Link onClick={alertLogout} as="button"  className="flex justify-center items-center w-full text-left  p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
-                            <FontAwesomeIcon className="h-5 w-6 "  icon={faArrowRightFromBracket} />
-                            <div style={open ? styleOpen : styleClose}  className="flex-1 lg:ml-3 min-[200px]:ml-0">
-                                <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center'>Salir</span>
-                            </div>
-                            
-                        </Link>
-                    </li> */}
                     </ul>
             </div>
         </div>

@@ -11,7 +11,7 @@ class AdminReporteController extends Controller
 {
     public function index($mes)
     {
-        $total = Solicitud::where('Fecha_Solicitud',$mes)->count();
+        $total = Solicitud::all();
         return Inertia::render('Admin/Reportes/Reportes',[
             'total' => $total,
         ]);
