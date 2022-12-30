@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Table from '@/Components/Table';
-import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
 import { Inertia } from '@inertiajs/inertia';
 import Swal from 'sweetalert2';
 

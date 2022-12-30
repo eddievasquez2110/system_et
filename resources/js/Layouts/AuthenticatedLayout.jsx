@@ -10,7 +10,6 @@ import Swal from 'sweetalert2';
 import { Inertia } from '@inertiajs/inertia';
 
 import { faUser,faUsers,faClipboardList,faComputer, faBook, faWindowRestore} from '@fortawesome/free-solid-svg-icons';
-import Navbar from './Navbar';
 
 export default function Authenticated({ auth, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
@@ -52,7 +51,7 @@ export default function Authenticated({ auth, children }) {
                                 </Link>
                                 <h1 className='text-yellow-400 ml-4 font-mono'>UNCP EETT</h1>
                             </div>
-                            {auth.user.ID_Rol==1?
+                            {auth.user.ID_Rol==2?
                             <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
                                 <NavLink href={route('user')} active={route().current('user')}>
                                     Inicio

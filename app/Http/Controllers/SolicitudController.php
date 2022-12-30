@@ -29,7 +29,7 @@ class SolicitudController extends Controller
        $pedido = Solicitud::create([
         'id' => auth()->user()->id,
         'Estado_Solicitud' => 'Pendiente',
-        'Documento'=> 'xd'
+        'Documento'=> '-'
        ]);
        foreach($carts as $carItem){
         $pedidoItems = Solicitud_Detalle::create([

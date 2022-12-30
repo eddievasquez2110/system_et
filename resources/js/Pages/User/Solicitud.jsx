@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Software from '@/Components/Software';
-import PrimaryButton from '@/Components/PrimaryButton';
-import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
 import Card_Software from '@/Components/Usuario/Card_Software';
 import { Inertia } from '@inertiajs/inertia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
