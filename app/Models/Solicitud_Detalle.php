@@ -21,13 +21,13 @@ class Solicitud_Detalle extends Model
         return $this->HasOne(Solicitud::class,'ID_Solicitud','Fecha_Solicitud','Estado_Solicitud');
     }
 
-    public function tipo__equipos()
+    public function tipoequipos()
     {
-        return $this->HasOne(Tipo_Equipo::class,'ID_Tipo_Equipo','Nombre_Tipo_Equipo');
+        return $this->belongsTo(Tipo_Equipo::class,'ID_Tipo_Equipo','ID_Tipo_Equipo');
     }
 
-    public function software()
+    public function usoequipo()
     {
-        return $this->HasOne(Software::class,'ID_Software','Nombre_Software');
+        return $this->belongsTo(Uso_Equipo::class,'ID_Uso_Equipo','ID_Uso_Equipo');
     }
 }

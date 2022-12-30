@@ -4,8 +4,6 @@ import { faFileCircleCheck, faFileCircleXmark} from '@fortawesome/free-solid-svg
 import { Head, Link } from '@inertiajs/inertia-react';
 import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
 import DocumentPDF from '@/Components/Solicitud/DocumentPDF';
-import Swal from 'sweetalert2';
-import { Inertia } from '@inertiajs/inertia';
 
 const ViewDocument = ({auth,solis}) => {
     console.log(solis)
@@ -16,6 +14,7 @@ const ViewDocument = ({auth,solis}) => {
     
       <div>
       <Head title='Visualizar PDF'/>
+
       <div className='bg-zinc-800 p-5 place-content-between inline-flex w-full'>
     
         <div className='inline-flex'>
@@ -27,6 +26,7 @@ const ViewDocument = ({auth,solis}) => {
           </Link>
         </div>
       </div>
+
       {
             <DocumentPDF key={solis.ID_Solicitud} solis={solis}></DocumentPDF>
       }
