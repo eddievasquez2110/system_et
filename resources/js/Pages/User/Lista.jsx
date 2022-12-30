@@ -4,6 +4,8 @@ import { Head, Link } from '@inertiajs/inertia-react';
 import Table from '@/Components/Table';
 import NavbarSAdmin from '@/Layouts/NavBarSAdmi';
 import { Inertia } from '@inertiajs/inertia';
+import Swal from 'sweetalert2';
+
 const Lista = ({auth, equipos,especificacion}) => {
 
   const tipo = especificacion[0].ID_Tipo_Equipo;
@@ -16,10 +18,30 @@ const Lista = ({auth, equipos,especificacion}) => {
     }
   }
   const handleAdd = (e) =>{
-      e.preventDefault();
-      Inertia.post(route('addToCartEquipo',tipo),
-      {quantity:quantity,uso:4}
-      );
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: "Usted Aceptará la solicitud",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#15803D',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => { 
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Enviado al carrito correctamente!',
+          '',
+          'success'
+        )
+        e.preventDefault();
+        Inertia.post(route('addToCartEquipo',tipo),
+        {quantity:quantity,uso:4},
+        );
+        Inertia.get(route('carritoindex'));
+      }
+      
+    })
+      
   }
   return (
     <>
