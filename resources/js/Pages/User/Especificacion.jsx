@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Table from '@/Components/Table';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus,faMinus} from '@fortawesome/free-solid-svg-icons';
 import { Inertia } from '@inertiajs/inertia';
 import Swal from 'sweetalert2';
 
@@ -11,22 +13,19 @@ const Especificacion = ({especificacion,auth,equipos}) => {
   const uso = especificacion[0].ID_Uso_Equipo;
   const [quantity,setQuantity] =useState(1);
 
-  const handleChange= (event)=>{
-    if(event.target.value < 1){
-      return setQuantity(1)
-    }else{
-      setQuantity(event.target.value);
-    }
+  const handleIncrement = () => {
+    setQuantity(quantity + 1)
   }
-
+  const handleDecrement = () => {
+    setQuantity(quantity - 1)
+  }
+  if(quantity<1){
+    setQuantity(1);
+  }
   const handleAdd = (e) =>{
-    e.preventDefault();
-    Inertia.post(route('addToCartEquipo',tipo),
-    {quantity:quantity,uso:uso}
-    );
     Swal.fire({
       title: 'Estas seguro?',
-      text: "Usted Aceptará la solicitud",
+      text: "Usted enviara al Carrito este equipo",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#15803D',
@@ -39,7 +38,10 @@ const Especificacion = ({especificacion,auth,equipos}) => {
           '',
           'success'
         )
-        Inertia.get(route('#'))
+        e.preventDefault();
+        Inertia.post(route('addToCartEquipo',tipo),
+        {quantity:quantity,uso:uso}
+        );
       }
     })
 }
@@ -67,20 +69,17 @@ const Especificacion = ({especificacion,auth,equipos}) => {
           </div>
                 
                <div className='flex items-center gap-4 p-1'>
-                <div>
-                  <label 
-                      htmlFor="quantity"
-                      className='mr-1'
-                    >Cantidad:</label>
-                    <input 
-                    type="number"
-                    id='quantity'
-                    value={quantity}
-                    name="quantity"
-                    className='p-1 w-12 rounded border border-color-slate-500 text-gray-900'
-                    onChange={handleChange}
-                    />
-                  </div>
+                <div className='flex gap-4 '>
+                  <button
+                  className='rounded-full text-lg font-semibold text-green-500 w-8 h-8 bg-white'
+                  onClick={handleIncrement}
+                  ><FontAwesomeIcon icon={faPlus} /></button>
+                  <span>{quantity}</span>
+                  <button
+                  className='rounded-full text-lg font-semibold text-green-500 w-8 h-8 bg-white'
+                  onClick={handleDecrement}
+                  ><FontAwesomeIcon icon={faMinus} /></button>
+                </div>
                   <div className='transition duration-150 ease-in-out hover:scale-110 text-white bg-green-500 rounded p-2 hover:bg-green-700'>
                     <button
                     onClick={handleAdd}

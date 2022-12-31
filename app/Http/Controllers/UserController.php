@@ -17,12 +17,6 @@ use Illuminate\Support\Facades\Crypt;
 class UserController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('solouser', ['only' => ['index']]);
-    }
-
     public function index(Request $request)
     {
         $search = $request->query('search');

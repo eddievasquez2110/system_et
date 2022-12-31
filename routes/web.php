@@ -197,14 +197,14 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
 
 //     Route::get('/dashboard/usoequipos', [AdminUsoEquipoController::class,'index'])
 //          ->name('d.usoequipos');
-     Route::controller(AdminUsoEquipoController::class)->group(function () {
+     /* Route::controller(AdminUsoEquipoController::class)->group(function () {
           Route::get('/dashboard/usoequipos','index')->name('d.usoequipos.index');
           Route::get('/dashboard/usoequipos/create','create')->name('d.usoequipos.create');
           Route::post('/dashboard/usoequipos/store','store')->name('d.usoequipos.store');
           Route::get('/dashboard/usoequipos/edit','edit')->name('d.usoequipos.edit');
           Route::put('/dashboard/usoequipos/edit','update')->name('d.usoequipos.update');
           Route::delete('/dashboard/usoequipos/{id}','destroy')->name('d.usoequipos.destroy');
-     });
+     }); */
      
     Route::controller(RolController::class)->group(function (){
         Route::get('/dashboard/roles','index')->name('d.roles.index');

@@ -1,4 +1,3 @@
-import { Link } from '@inertiajs/inertia-react'
 import React from 'react'
 
 const Table = ({equipos,especificacion}) => {

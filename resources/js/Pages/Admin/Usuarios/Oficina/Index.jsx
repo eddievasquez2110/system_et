@@ -72,7 +72,6 @@ export default function Index({ofis,auth}) {
                         </tr>
                     </thead>
                     <tbody>
-                        {console.log(ofis)}
                         {
                             ofis.data.map(ofiss => {
                                 return(

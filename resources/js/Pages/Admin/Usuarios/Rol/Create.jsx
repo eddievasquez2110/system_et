@@ -3,7 +3,6 @@ import Navbar from '@/Layouts/Navbar';
 import { Head, useForm, Link } from '@inertiajs/inertia-react';
 
 const Create = ({auth}) => {
-    const [preview, setPreview] = useState('');
     const {data, setData, errors, post, progress} = useForm({
         Nombre_Rol:"",
     });

@@ -13,10 +13,7 @@ import { faUser,faUsers,faClipboardList,faComputer, faBook, faWindowRestore} fro
 
 export default function Authenticated({ auth, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
-    
     const alertLogout = (e) => {
-        
-       console.log(e);
         Swal.fire({
             title: '¿Estas seguro?',
             text: "Usted saldra del sistema",
@@ -44,7 +41,6 @@ export default function Authenticated({ auth, children }) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between p-2">
                         <div className="flex">
-                            {/* Logo UNCP */}
                             <div className="shrink-0 flex items-center">
                                 <Link href="/">
                                     <ApplicationLogo className="block h-5 w-auto text-gray-500" />

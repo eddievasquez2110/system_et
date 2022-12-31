@@ -68,7 +68,6 @@ export default function Index({roles,auth}) {
                         </tr>
                     </thead>
                     <tbody>
-                        {console.log(roles)}
                         {
                             roles.data.map(rol => {
                                 return(

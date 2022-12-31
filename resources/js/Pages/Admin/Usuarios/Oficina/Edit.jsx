@@ -4,7 +4,7 @@ import { Head, useForm, usePage, Link } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 
 const Edit = ({ofis,auth}) => {
-    const [preview, setPreview] = useState('');
+   
     const {data, setData, errors, put, progress} = useForm({
         Nombre_Oficia: ofis.Nombre_Oficia,
         Cargo_Oficina: ofis.Cargo_Oficina,

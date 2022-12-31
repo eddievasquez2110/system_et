@@ -1,16 +1,15 @@
 import React, { useEffect,useState  } from 'react'
 import { Link } from '@inertiajs/inertia-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faCircleLeft, faUser, faFilePen, faFileWord,faLaptop, faFileClipboard, faChartPie, faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons';
+import { faBell, faCircleLeft, faUser, faFilePen, faFileWord,faLaptop, faChartPie} from '@fortawesome/free-solid-svg-icons';
 import Dropdown from '@/Components/Dropdown';
 import { Inertia } from '@inertiajs/inertia';
 import SideLink from '@/Components/SideLink';
 import Swal from 'sweetalert2';
 
 
-const Navbar = ({auth,children, total}) => {
+const Navbar = ({auth,children}) => {
     const [show,setShow] = useState(false);
-    const [show1,setShow1] = useState(false);
     const [show2,setShow2] = useState(false);
     const [open,setOpen] =useState(true);
     
@@ -45,6 +44,7 @@ const Navbar = ({auth,children, total}) => {
                 'Saliste del sistema.',
                 'success'
               )
+              e.preventDefault();
               Inertia.post(route('logout'));
             }
           })
@@ -67,14 +67,14 @@ const Navbar = ({auth,children, total}) => {
                 <br></br>
             </div>
             </div>
-            <div onClick={() => setOpen(!open)} className='absolute w-10 h-10 text-lg text-white cursor-pointer top-2/4 -right-3 flex items-center justify-center rounded-full bg-green-800'>
+            <div  onClick={() => setOpen(!open)} className='absolute w-10 h-10 text-lg text-white cursor-pointer top-2/4 -right-3 flex items-center justify-center rounded-full bg-green-800'>
                 <FontAwesomeIcon className="h-5 w-10 "  icon={faCircleLeft} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
             </div>
 
             <div className="overflow-y-auto mt-3">
                 <ul className="space-y-2 ">
                     <li className='px-3'>
-                        <SideLink className='' href={route('admin')} active={route().current('admin')}>
+                        <SideLink  href={route('admin')} active={route().current('admin')}>
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faChartPie} />
                             <div style={open ? styleOpen : styleClose} className="flex-1 lg:ml-3 min-[200px]:ml-0 ">
                                 <span className='md:inline min-[200px]:hidden break-words' >Dashboard</span>
@@ -91,7 +91,7 @@ const Navbar = ({auth,children, total}) => {
                         </SideLink>
                     </li>
                     <li className='px-3 '>
-                        <button href="#" onClick={()=>setShow2(!show2)} active={route().current('d.usuarios.index')} className="flex lg:flex-row min-[200px]:flex-col items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
+                        <button href="#" onClick={()=>setShow2(!show2)}  className="flex lg:flex-row min-[200px]:flex-col items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faUser} />
                             <div style={open ? styleOpen : styleClose}  className="flex-1 justify-between lg:ml-3 min-[200px]:ml-0">
                                 <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center' >Gestión de Usuarios</span>
@@ -101,17 +101,17 @@ const Navbar = ({auth,children, total}) => {
                         </button>
                         { open ?(show2 && <ul  className="absolute w-48 bg-white rounded-lg mt-1 ">
                         <li>
-                                <Link href={route('d.roles.index')} active={route().current('d.roles.index')} className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.roles.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Roles
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.oficinas.index')} active={route().current('d.oficinas.index')} className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.oficinas.index')} className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Oficinas
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.usuarios.index')} active={route().current('d.usuarios.index')} className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.usuarios.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Usuarios
                                 </Link>
                             </li>
