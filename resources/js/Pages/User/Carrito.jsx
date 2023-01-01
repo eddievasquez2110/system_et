@@ -44,8 +44,8 @@ const Carrito = ({auth,cardEquipo,cardItem}) => {
   return (
     <AuthenticatedLayout auth={auth}>
           <Head title="Carrito" />
-          <div className='h-screen pb-8'>
-            <div className='flex flex-col items-center justify-center mt-8 w-full'>
+          <div className='h-full pb-8 '>
+            <div className='flex items-center justify-center mt-8 w-full '>
                  {
                     (cardEquipo.length == 0) ?
                     (<div>
@@ -54,8 +54,8 @@ const Carrito = ({auth,cardEquipo,cardItem}) => {
                       <Lottie animationData={cart} className="mt-40"/>
                      </div>
                     </div>) :
-                    (<div className='flex gap-8 w-4/5'>
-                    <div className='w-2/3 bg-white p-4 overflow-auto p-0'>
+                    (<div className='gap-8 w-4/5 md:flex overflow-y-auto'>
+                    <div className='w-full md:w-2/3 bg-white p-4 p-0'>
                         <div className='bg-green-700 text-center text-white rounded-t-lg p-3'>
                           <strong>LISTA DE EQUIPOS A SOLICITAR</strong>
                         </div>
@@ -89,7 +89,7 @@ const Carrito = ({auth,cardEquipo,cardItem}) => {
                             </button>
                       </div>
                     </div>
-                    <div className='flex flex-col gap-4 w-1/3'>
+                    <div className='flex flex-col gap-4 w-full md:w-1/3 mt-4 md:mt-0'>
                       <div className='flex flex-col bg-white gap-4 p-0'>
                         <div className='text-center bg-green-700 rounded-t-lg p-3'>
                           <span className='text-center text-white '><strong>RESUMEN</strong></span>

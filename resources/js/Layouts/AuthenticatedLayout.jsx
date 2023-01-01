@@ -146,11 +146,11 @@ export default function Authenticated({ auth, children }) {
                             <ResponsiveNavLink href={route('user')} active={route().current('user')}>
                                 Inicio
                             </ResponsiveNavLink>
-                            <ResponsiveNavLink href={route('user')} >
-                                Equipos
-                            </ResponsiveNavLink>
-                            <ResponsiveNavLink href={route('user')} >
+                            <ResponsiveNavLink href={route('d.usersoftwares.index')} active={route().current('d.usersoftwares.index')}>
                                 Software
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('carritoindex')} active={route().current('carritoindex')}>
+                                Carrito
                             </ResponsiveNavLink>
                         </div>
                         : <></>
@@ -219,12 +219,12 @@ export default function Authenticated({ auth, children }) {
                     </div>
                  : <></>
             }
-                <div className='h-14 flex items-center justify-center text-slate-400 border-t-2 border-neutral-100 bg-white'>
-                   <div>
+                <footer>
+                   <div className='h-14 flex items-center justify-center text-slate-400 border-t-2 border-neutral-100 bg-white'>
                     Copyrigth © OGSIC 2022 
                     
                    </div>
-                </div>
+                </footer>
             <main>
             
             </main>
