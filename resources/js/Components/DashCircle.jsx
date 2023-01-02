@@ -29,7 +29,7 @@ export default function DashCircle({p,a,r}) {
             <Doughnut 
             data={data}
             type="Doughnut"
-            className='wrapper flex flex-wrap justify-center bg-white w-100 p-5 rounded-lg drop-shadow '
+            className='wrapper flex flex-wrap justify-center bg-white w-100 p-5 rounded-lg drop-shadow'
             />
         </div>
     );

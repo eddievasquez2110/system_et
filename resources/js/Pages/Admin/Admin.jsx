@@ -19,12 +19,14 @@ export default function Admin({auth,solicitud,user,mes}) {
             <Head title='Admin'/>
             <div className='flex flex-col'>
                 <div className='wrapper flex flex-wrap justify-center mt-8 gap-4 pb-5'>
+                    <div>
+                        <DashCircle
+                        p={pendiente}
+                        a={aceptado}
+                        r={rechazado}
+                        ></DashCircle>
+                    </div>
                     
-                    <DashCircle
-                    p={pendiente}
-                    a={aceptado}
-                    r={rechazado}
-                    ></DashCircle>
                     <div className='space-y-10 justify-center'>
                     <div className='w-80'>
                         <div className='w-full bg-green-700 text-center text-white rounded-t-lg p-2'>
@@ -43,7 +45,7 @@ export default function Admin({auth,solicitud,user,mes}) {
                         </div> 
                     </div>
                     </div>
-                    <div className='flex place-content-around'>
+                    <div className='w-full md:flex md:w-80 '>
                         <DashBar
                         m={mesTotal}
                         ></DashBar>

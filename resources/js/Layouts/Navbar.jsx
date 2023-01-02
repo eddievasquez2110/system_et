@@ -1,7 +1,7 @@
 import React, { useEffect,useState  } from 'react'
 import { Link } from '@inertiajs/inertia-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faCircleLeft, faUser, faFilePen, faFileWord,faLaptop, faFileClipboard, faChartPie, faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons';
+import { faBell, faCircleLeft, faUser, faFilePen, faFileWord,faLaptop, faChartPie} from '@fortawesome/free-solid-svg-icons';
 import Dropdown from '@/Components/Dropdown';
 import { Inertia } from '@inertiajs/inertia';
 import SideLink from '@/Components/SideLink';
@@ -51,7 +51,7 @@ const Navbar = ({auth,children, total}) => {
     }
   return (
     <div className='flex justify-between relative '>
-        <div className="shadow-md bg-green-800 sticky top-0 h-screen " style={open ?{width:'18%'}:{width:'75px'}}>
+        <div className="shadow-md bg-green-800 sticky top-0 md:h-screen" style={open ?{width:'18%'}:{width:'75px'}}>
           <div className='relative '>
             <div className="pt-4 px-6">
                 <a href="#">
@@ -67,8 +67,8 @@ const Navbar = ({auth,children, total}) => {
                 <br></br>
             </div>
             </div>
-            <div onClick={() => setOpen(!open)} className='absolute w-10 h-10 text-lg text-white cursor-pointer top-2/4 -right-3 flex items-center justify-center rounded-full bg-green-800'>
-                <FontAwesomeIcon className="h-5 w-10 "  icon={faCircleLeft} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
+            <div onClick={() => setOpen(!open)} className='absolute hidden md:block w-10 h-10 text-lg text-white cursor-pointer top-2/4 -right-3 flex items-center justify-center rounded-full bg-green-800 pt-2'>
+                <FontAwesomeIcon className=" h-5 w-10"  icon={faCircleLeft} style={open?{transform: 'rotate(0deg)',}:{transform: 'rotate(180deg)'}} /> 
             </div>
 
             <div className="overflow-y-auto mt-3">
@@ -197,7 +197,7 @@ const Navbar = ({auth,children, total}) => {
             <div className='bg-white' style={open ?{width:'82%'}:{width:'95%'}}>
                 <div className='flex p-5 justify-between items-center h-14 border-b border-neutral-100 shadow-md'>
                     <div className='text-slate-400'>
-                        Hola bienvenido al modo {auth.user.name}
+                        <label className='hidden md:block'>Hola bienvenido al modo {auth.user.name}</label>
                     </div>
                     <div className='flex flex-row gap-6'>
                         <div className='rounded-md px-2 font-bold text-slate-200 text-md '>
