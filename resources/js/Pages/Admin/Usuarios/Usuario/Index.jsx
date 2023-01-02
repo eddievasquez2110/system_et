@@ -33,7 +33,7 @@ export default function Index({usua,auth}) {
                     </Link>
                     <Link
                         className="justify-center ">
-                    <FontAwesomeIcon icon={faFileExcel} className='flex h-5 w-5 text-green-500 hover:scale-110 md:hidden'></FontAwesomeIcon>
+                        <FontAwesomeIcon icon={faFileExcel} className='flex h-5 w-5 text-green-500 hover:scale-110 md:hidden'></FontAwesomeIcon>
                     </Link>
                     </div>
                 </div>

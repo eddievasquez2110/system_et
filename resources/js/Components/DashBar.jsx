@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Bar } from 'react-chartjs-2';
 
-export default function DashBar({m}) {
+export default function DashBar({e,f,m,a,ma,j,ju,ag,s,o,n,d}) {
   const labels = ['En','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
   const  data = {
       labels: labels,
     datasets: [{
-      label: 'My First Dataset',
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, m],
+      label: 'Total de Solicitudes por mes',
+      data: [e, f, m, a, ma, j, ju, ag, s, o, n, d],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(255, 159, 64, 0.2)',
