@@ -28,7 +28,7 @@ export default function Admin({auth,solicitud,user,enero,febrero,marzo,abril,may
     return (
         <Navbar auth={auth}>
             <Head title='Admin'/>
-            <div className='flex flex-col'>
+            <div className='md:flex'>
                 <div className='flex flex-wrap justify-center mt-8 gap-4 pb-5'>
                     <div>
                         <DashCircle
@@ -56,7 +56,11 @@ export default function Admin({auth,solicitud,user,enero,febrero,marzo,abril,may
                         </div> 
                     </div>
                     </div>
-                    <div className='w-full md:flex md:w-80 '>
+                    <div className='w-5/5'>
+                    <div className='w-full bg-green-700 text-center text-white rounded-t-lg p-2'>
+                        Total de Solicitudes por Mes
+                    </div>
+                    <div className='md:flex md:w-5/5 '>
                         <DashBar
                         e={eneroTotal}
                         f={febreroTotal}
@@ -72,7 +76,7 @@ export default function Admin({auth,solicitud,user,enero,febrero,marzo,abril,may
                         d={diciembreTotal}
                         ></DashBar>
                     </div>
-                    
+                    </div>
                 </div>
             </div>
         </Navbar>
