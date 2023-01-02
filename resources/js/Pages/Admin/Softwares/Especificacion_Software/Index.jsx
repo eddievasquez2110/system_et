@@ -5,6 +5,7 @@ import Pagination from '@/Components/Pagination';
 import List_Especificacion_Software from '@/Components/Software/List_Especificacion_Software';
 import { Inertia } from '@inertiajs/inertia';
 
+
 export default function EspecificacionSoftware({espSoftwares,auth}) {
     
     const [query,setQuery]= useState('');

@@ -20,7 +20,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('solouser', ['only' => ['index']]);
+        $this->middleware('soloadmin', ['only' => ['index']]);
     }
 
     public function index(Request $request)

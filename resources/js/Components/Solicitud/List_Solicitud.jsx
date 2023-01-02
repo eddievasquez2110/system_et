@@ -54,32 +54,32 @@ const List_Solicitud = ({soli}) => {
   return (
     
       <tr className="bg-white border-b">
-            <td className="py-4 px-6">
+            <td className="py-4 px-4 md:px-6">
                 <div className='flex flex-col'>
                     {soli.ID_Solicitud}
                 </div>
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-4 md:px-6 ">
                 <div className='flex flex-col'>
                     {soli.users.name}
                 </div>
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-1 md:px-6 ">
                 <div className='flex flex-col text-center'>     
                     {soli.users.email}
                 </div>
             </td>
-            <td className="px-3 py-2 justify-center ">
+            <td className="py-2 px-4 md:px-6 justify-center ">
                 <div className='flex items-center justify-center '>
                     {soli.Documento}
                 </div>        
             </td>
-            <td className="py-4 px-2 text-center">
+            <td className="py-4 px-2 md:px-4 text-center">
                 <div className='flex flex-col text-center'>
                     {dayjs(soli.created_at).format('DD-MM-YYYY')}
                 </div>
             </td>
-            <td className="py-4 px-3 text-center">
+            <td className="py-4 px-3 md:px-4 text-center">
                 <div className='flex flex-col text-center'>
                     {
                         soli.Estado_Solicitud=='Aceptado'?

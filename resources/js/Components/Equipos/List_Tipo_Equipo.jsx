@@ -33,22 +33,22 @@ const List_Tipo_Equipo = ({tipo}) => {
 
     return (
     
-      <tr className="bg-white border-b">
-            <td className="px-6 py-2">
+      <tr className="bg-white border-b text-xs md:text-sm">
+            <td className="px-2 md:px-6 py-2">
                 {tipo.ID_Tipo_Equipo}
             </td>
-            <td className="px-6 py-2">
+            <td className="px-2 md:px-6 py-2">
                 {tipo.Nombre_Tipo_Equipo.toUpperCase()}
             </td>
-            <td className="px-3 py-2 justify-center ">
+            <td className="px-1 md:px-3 py-2 justify-center ">
                 <div className='flex items-center justify-center'>
                     <img src={`/images/equipos/${tipo.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
                 </div>        
             </td>
-            <td className="px-4 py-2">
+            <td className="px-2 md:px-6 py-2">
                 {tipo.Editor_Equipo}
             </td>
-            <td className="flex gap-3 justify-center py-3 text-right p-4">
+            <td className="flex gap-3 justify-center py-3 text-right md:p-4">
                 <div className='flex md:flex-row min-[200px]:flex-col align-center justify-center gap-4'>
                     
                     <div className='font-medium text-blue-500 pt-2'>

@@ -31,10 +31,10 @@ const List_Rol = ({roles}) => {
     return (
     
       <tr className="bg-white border-b">
-            <td className="py-4 px-6">
+            <td className="py-4 px-4 md:px-6">
                 {roles.ID_Rol}
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-4 md:px-6">
                 {roles.Nombre_Rol}
             </td>
       

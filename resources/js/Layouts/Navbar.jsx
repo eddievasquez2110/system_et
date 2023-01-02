@@ -1,4 +1,4 @@
-import React, { useEffect,useState  } from 'react'
+import React, { useEffect,useState } from 'react';
 import { Link } from '@inertiajs/inertia-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faCircleLeft, faUser, faFilePen, faFileWord,faLaptop, faChartPie} from '@fortawesome/free-solid-svg-icons';
@@ -51,7 +51,7 @@ const Navbar = ({auth,children, total}) => {
     }
   return (
     <div className='flex justify-between relative '>
-        <div className="shadow-md bg-green-800 sticky top-0 md:h-screen" style={open ?{width:'18%'}:{width:'75px'}}>
+        <div className="shadow-md bg-green-800 sticky top-0 h-screen md:h-screen" style={open ?{width:'18%'}:{width:'75px'}}>
           <div className='relative '>
             <div className="pt-4 px-6">
                 <a href="#">
@@ -91,7 +91,7 @@ const Navbar = ({auth,children, total}) => {
                         </SideLink>
                     </li>
                     <li className='px-3 '>
-                        <button href="#" onClick={()=>setShow2(!show2)} active={route().current('d.usuarios.index')} className="flex lg:flex-row min-[200px]:flex-col items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
+                        <button href="#" onClick={()=>setShow2(!show2)} className="flex lg:flex-row min-[200px]:flex-col items-center justify-center w-full p-2 text-base font-normal text-white rounded-lg  hover:text-green-700 hover:bg-green-50 focus:bg-green-50 focus:text-green-600 transition duration-300 ease-in-out">
                             <FontAwesomeIcon className="h-5 w-6 "  icon={faUser} />
                             <div style={open ? styleOpen : styleClose}  className="flex-1 justify-between lg:ml-3 min-[200px]:ml-0">
                                 <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center' >Gestión de Usuarios</span>
@@ -100,18 +100,18 @@ const Navbar = ({auth,children, total}) => {
                             
                         </button>
                         { open ?(show2 && <ul  className="absolute w-48 bg-white rounded-lg mt-1 ">
-                        <li>
-                                <Link href={route('d.roles.index')} active={route().current('d.roles.index')} className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                            <li>
+                                <Link href={route('d.roles.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Roles
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.oficinas.index')} active={route().current('d.oficinas.index')} className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.oficinas.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Oficinas
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.usuarios.index')} active={route().current('d.usuarios.index')} className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.usuarios.index')}  className="flex items-center p-2 pl-8 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Usuarios
                                 </Link>
                             </li>
@@ -128,7 +128,7 @@ const Navbar = ({auth,children, total}) => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href={route('d.usuarios.index')}  className="flex items-center p-2 px-5 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                <Link href={route('d.usuarios.index')} className="flex items-center p-2 px-5 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
                                     Usuarios
                                 </Link>
                             </li>
@@ -199,8 +199,8 @@ const Navbar = ({auth,children, total}) => {
                     <div className='text-slate-400'>
                         <label className='hidden md:block'>Hola bienvenido al modo {auth.user.name}</label>
                     </div>
-                    <div className='flex flex-row gap-6'>
-                        <div className='rounded-md px-2 font-bold text-slate-200 text-md '>
+                    <div className='flex flex-row gap-2 md:gap-6'>
+                        <div className='rounded-md font-bold text-slate-200 text-md '>
                             <span className="inline-flex rounded-md">
                                 <Link href={route('notificaciones.index')}>
                                 <button
@@ -224,7 +224,7 @@ const Navbar = ({auth,children, total}) => {
                                                 
                                     <button
                                         type="button"
-                                        className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                        className="text-xs inline-flex md:px-2 py-2 border border-transparent md:text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                     >
                                         <FontAwesomeIcon className="h-5 w-10"  icon={faUser} />{auth.user.name.toUpperCase()}
 

@@ -34,27 +34,27 @@ const List_Software = ({soft}) => {
   return (
     
       <tr className="bg-white border-b">
-            <td className="py-4 px-6">
+            <td className="py-4 px-2 md:px-5">
                 {soft.ID_Software}
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-3 md:px-5">
                 {soft.Nombre_Software}
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-2 md:px-5">
             <a href = {`${soft.Link_Software}`} >
                     <img src={`../images/softwares/${soft.Imagen}`} alt="" style={{width:'80px',height:'50px'}} />
                 </a>
             </td>
-            <td className="py-4 px-6 ">
+            <td className="py-4 px-2 md:px-5">
                 {soft.Descripcion_Software}
             </td>
-            <td className="py-4 px-6 ">
+            <td className="py-4 px-2 md:px-5">
                 {soft.Nombre_Uso_Equipo}
             </td>
-            <td className="flex gap-3 justify-center py-3 text-right p-4">
-                <div className='flex flex-col align-center justify-center gap-4'>
+            <td className="gap-3 justify-center px-1 py-3 p-4">
+                <div className='flex sm:flex-row min-[200px]:flex-col align-center justify-center gap-4'>
                     
-                    <div className='font-medium text-blue-500 pt-2 '>
+                    <div className='font-medium text-blue-500 pt-2'>
                       <Link
                           tabIndex="1"
                           className="bg-blue-100 px-5 py-2 rounded-md hover:bg-blue-700 hover:text-white"

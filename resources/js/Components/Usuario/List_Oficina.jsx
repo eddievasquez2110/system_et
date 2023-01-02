@@ -30,18 +30,18 @@ const List_Oficina = ({ofis}) => {
     }
     return (
     
-      <tr className="bg-white border-b">
-            <td className="py-4 px-6">
+      <tr className="bg-white border-b text-xs md:text-sm">
+            <td className="py-4 px-3 md:px-6">
                 {ofis.ID_Oficina}
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-1 md:px-6">
                 {ofis.Nombre_Oficina}
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-3 md:px-6">
                 {ofis.Cargo_Oficina}
             </td>
 
-            <td className="flex gap-3 justify-center py-3 text-right p-4">
+            <td className="flex gap-3 justify-center px-1 py-3 text-right p-4">
                 <div className='flex sm:flex-row min-[200px]:flex-col align-center justify-center gap-4'>
                     
                     <div className='font-medium text-blue-500 pt-2'>

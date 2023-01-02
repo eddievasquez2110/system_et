@@ -32,22 +32,22 @@ const List_Especificacion_Equipo = ({espEquipo}) => {
     return (
     
       <tr className="bg-white border-b">
-            <td className="py-4 px-6">
+            <td className="py-4 px-2 md:px-6">
                 {espEquipo.ID_Especificacion_Equipo}
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-2 md:px-6">
                 {espEquipo.Nombre_Tipo_Equipo}
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-2 md:px-6">
                 {espEquipo.Nombre_Uso_Equipo}
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-2 md:px-6">
                 {espEquipo.Nombre_Especificacion_Equipo}
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-2 md:px-6">
                 {espEquipo.Especificacion_Equipo}
             </td>
-            <td className="flex gap-3 justify-center py-3 text-right p-4">
+            <td className="flex gap-3 justify-center py-3 text-right p-1 md:p-4">
                 <div className='flex lg:flex-row min-[200px]:flex-col align-center align-center justify-center gap-4'>
                     
                     <div className='font-medium text-blue-500 pt-2'>

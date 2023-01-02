@@ -31,10 +31,10 @@ const List_Uso_Equipo = ({uso}) => {
   
     return (
       <tr className="bg-white border-b ">
-            <td className="py-4 px-6">
+            <td className="py-4 px-3 md:px-6">
                 {uso.ID_Uso_Equipo}
             </td>
-            <td className="py-4 px-6">
+            <td className="py-4 px-3 md:px-6">
                 {uso.Nombre_Uso_Equipo}
             </td>
             <td className="flex gap-3 justify-center py-3 text-right p-4">
