@@ -49,16 +49,16 @@ export default function Authenticated({ auth, children }) {
                                 <Link href="/">
                                     <ApplicationLogo className="block h-5 w-auto text-gray-500" />
                                 </Link>
-                                <h1 className='text-yellow-400 ml-4 font-mono'>UNCP EETT</h1>
+                                <h1 className='text-yellow-400 ml-4 font-mono'><strong>UNCP EETT</strong></h1>
                             </div>
                             {auth.user.ID_Rol==2?
-                            <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex ">
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex font-mono font-bold">
                                 <NavLink href={route('user')} active={route().current('user')}>
-                                    <strong>Inicio</strong>
+                                    Inicio
                                 </NavLink>
                                         
                                 <NavLink href={route('d.usersoftwares.index')} active={route().current('d.usersoftwares.index')}>
-                                    <strong>Software</strong>
+                                    Software
                                 </NavLink>
                                 
                             </div>  
