@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head, Link } from '@inertiajs/inertia-react';
+import { Head } from '@inertiajs/inertia-react';
 import Table from '@/Components/Table';
 import { Inertia } from '@inertiajs/inertia';
 import Swal from 'sweetalert2';
-import { faPrint, faFileArrowDown} from '@fortawesome/free-solid-svg-icons';
+import { faPrint, faFileArrowDown, faPlus,faMinus} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Lista = ({auth, equipos,especificacion}) => {
@@ -14,19 +14,21 @@ const Lista = ({auth, equipos,especificacion}) => {
   const uso = especificacion[0].ID_Uso_Equipo;
   const [quantity,setQuantity] =useState(1);
 
-  const handleChange= (event)=>{
-    if(event.target.value < 1){
-      return setQuantity(1)
-    }else{
-      setQuantity(event.target.value);
-    }
+  const handleIncrement = () => {
+    setQuantity(quantity + 1)
+  }
+  const handleDecrement = () => {
+    setQuantity(quantity - 1)
+  }
+  if(quantity<1){
+    setQuantity(1);
   }
 
 
   const handleAdd = (e) =>{
     Swal.fire({
       title: 'Estas seguro?',
-      text: "Usted Aceptará la solicitud",
+      text: "Usted enviará al Carrito este equipo",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#15803D',
@@ -72,28 +74,25 @@ const Lista = ({auth, equipos,especificacion}) => {
             </div>
           </div>
                 
-               <div className='flex items-center gap-4 p-1 justify-between mb-3'>
-                <div className='flex inline-flex place-items-center'>
-                  <label 
-                      htmlFor="quantity"
-                      className='mr-3 hidden md:block'
-                    ><strong>Seleccionar cantidad:</strong></label>
-                    <input 
-                    type="number"
-                    id='quantity'
-                    value={quantity}
-                    name="quantity"
-                    className='flex p-2 w-16 rounded border-2 border-green-500 text-green-800 focus:border-4 focus:border-green-600'
-                    onChange={handleChange}
-                    />
-                  </div>
-                  <div className='transition duration-150 ease-in-out hover:scale-110 text-white bg-green-500 rounded p-3 hover:bg-green-700'>
-                    <button
-                    onClick={handleAdd}
-                    >Añadir</button>
-                  </div>     
-               </div>
+          <div className='flex items-center gap-4 p-1 items-center justify-center'>
+            <div className='flex gap-4 '>
+                <button
+                className='rounded-full text-lg font-semibold text-green-500 w-8 h-8 bg-white'
+                onClick={handleIncrement}
+                ><FontAwesomeIcon icon={faPlus} /></button>
+                <span>{quantity}</span>
+                <button
+                className='rounded-full text-lg font-semibold text-green-500 w-8 h-8 bg-white'
+                onClick={handleDecrement}
+                ><FontAwesomeIcon icon={faMinus} /></button>
             </div>
+              <div className='transition duration-150 ease-in-out hover:scale-110 text-white bg-green-500 rounded p-3 hover:bg-green-700'>
+                <button
+                  onClick={handleAdd}
+                >Añadir</button>
+              </div>     
+            </div>
+          </div>
           <div className="overflow-x-auto w-5/6 relative shadow-md sm:rounded-lg">
           <Table  especificacion={especificacion} equipos={equipos}/>
           </div>
