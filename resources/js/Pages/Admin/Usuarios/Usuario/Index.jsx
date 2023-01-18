@@ -28,11 +28,12 @@ export default function Index({usua,auth}) {
                     <Link
                         className="flex px-6 py-2 text-green-500 bg-transparent md:bg-green-500 md:text-white rounded-md focus:outline-none gap-4 "
                         href={route("d.usuarios.create")}
-                        ><FontAwesomeIcon class={'h-5 w-5'} icon={faPlusCircle}></FontAwesomeIcon> 
+                        ><FontAwesomeIcon className={'h-5 w-5'} icon={faPlusCircle}></FontAwesomeIcon> 
                             <label className='hidden md:block'>Nuevo</label>
                     </Link>
                     <Link
-                        className="justify-center ">
+                        className="justify-center "
+                        href={route("excel")}>
                         <FontAwesomeIcon icon={faFileExcel} className='flex h-5 w-5 text-green-500 hover:scale-110 md:hidden'></FontAwesomeIcon>
                     </Link>
                     </div>

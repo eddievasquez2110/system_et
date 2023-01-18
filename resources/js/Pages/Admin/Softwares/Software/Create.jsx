@@ -20,10 +20,11 @@ const Create = ({auth, usoEquipo}) => {
         setPreview(url);
     }
 
-function handleSubmit(e){
-    e.preventDefault();
-    post(route('d.softwares.store'))
-}
+    function handleSubmit(e){
+        e.preventDefault();
+        post(route('d.softwares.store'))
+    }
+
   return (
     <Navbar auth={auth}>
         <Head title='Tipo Equipo'/>

@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('Nombre_Software',45)->unique();;
             $table->string('Imagen');
             $table->string('Version_Software',45);
-            $table->string('Descripcion_Software',250);
+            $table->string('Descripcion_Software',250)->nullable();
             $table->string('Editor_Software');
-            $table->string('Link_Software');
+            $table->string('Link_Software')->nullable();
             $table->timestamps();
         });
     }

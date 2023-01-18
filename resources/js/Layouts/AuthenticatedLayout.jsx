@@ -9,14 +9,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from 'sweetalert2';
 import { Inertia } from '@inertiajs/inertia';
 
-import { faUser,faUsers,faClipboardList,faComputer, faBook, faWindowRestore, faBackspace, faBackward, faBoxesPacking, faBriefcase} from '@fortawesome/free-solid-svg-icons';
+import { faUser,faUsers,faClipboardList,faComputer, faBook, faWindowRestore, faBriefcase} from '@fortawesome/free-solid-svg-icons';
 
 export default function Authenticated({ auth, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
     
     const alertLogout = (e) => {
         
-       console.log(e);
         Swal.fire({
             title: '¿Estas seguro?',
             text: "Usted saldra del sistema",
@@ -56,13 +55,10 @@ export default function Authenticated({ auth, children }) {
                                 <NavLink href={route('user')} active={route().current('user')}>
                                     Inicio
                                 </NavLink>
-                                        
                                 <NavLink href={route('d.usersoftwares.index')} active={route().current('d.usersoftwares.index')}>
                                     Software
                                 </NavLink>
-                                
                             </div>  
-                            
                             :<></>   
                             }
                         </div>
@@ -78,9 +74,7 @@ export default function Authenticated({ auth, children }) {
                         </div>
                         
                         <div className="hidden sm:flex sm:items-center sm:ml-6 h-12 w-38 justify-center flex m-2 border border-gray-500 rounded-lg bg-white">
-                            
                             <div className="ml-3 relative ">
-                            
                                 <Dropdown>
                                     <Dropdown.Trigger>
                                         <span className="inline-flex rounded-md">
@@ -89,7 +83,6 @@ export default function Authenticated({ auth, children }) {
                                                 className="inline-flex px-2 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-600 font-bold hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 <FontAwesomeIcon className="h-5 w-10"  icon={faUser} />{auth.user.name.toUpperCase()}
-
                                                 <svg
                                                     className="ml-2 -mr-0.5 h-4 w-4"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -112,10 +105,8 @@ export default function Authenticated({ auth, children }) {
                                     </Dropdown.Content>
                                 </Dropdown>
                             </div>
-
                         </div>                        
                         </div>
-
                         <div className="-mr-2 flex items-center sm:hidden">
                             <button
                                 onClick={() => setShowingNavigationDropdown((previousState) => !previousState)}
@@ -145,7 +136,6 @@ export default function Authenticated({ auth, children }) {
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     { auth.user.ID_Rol == '1' ?
                         <div className="pt-2 pb-3 space-y-1">
-                            
                         </div>
                         : auth.user.ID_Rol == '2' ?
                         <div className="pt-2 pb-3 space-y-1">
@@ -161,23 +151,18 @@ export default function Authenticated({ auth, children }) {
                         </div>
                         : <></>
                     }
-                    
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">
                             <div className="font-medium text-base text-green-200">{auth.user.name}</div>
                             <div className="font-medium text-sm text-green-300">{auth.user.email}</div>
                         </div>
-
                         <div className="mt-3 space-y-1">
                             <Link onClick={alertLogout} as="button" className=' text-white block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-red-200 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'>
-                                
                                 Cerrar Sesión
-                                
                             </Link>
                         </div>
                     </div>
-                    
                 </div>
             </nav>
             

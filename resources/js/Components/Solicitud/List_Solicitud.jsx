@@ -70,9 +70,13 @@ const List_Solicitud = ({soli}) => {
                 </div>
             </td>
             <td className="py-2 px-4 md:px-6 justify-center ">
-                <div className='flex items-center justify-center '>
-                    {soli.Documento}
-                </div>        
+                <Link 
+                className='text-green-600 hover:text-green-500'
+                href=''>
+                    <div className='flex items-center justify-center '>
+                        {soli.Documento}
+                    </div> 
+                </Link>       
             </td>
             <td className="py-4 px-2 md:px-4 text-center">
                 <div className='flex flex-col text-center'>

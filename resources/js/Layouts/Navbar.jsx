@@ -87,7 +87,6 @@ const Navbar = ({auth,children, total}) => {
                             <div style={open ? styleOpen : styleClose} className="flex-1 lg:ml-3 min-[200px]:ml-0">
                                 <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center' >Gestión de Solicitudes</span>
                             </div>
-                            
                         </SideLink>
                     </li>
                     <li className='px-3 '>
@@ -97,7 +96,6 @@ const Navbar = ({auth,children, total}) => {
                                 <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center' >Gestión de Usuarios</span>
                                 {open && <svg  className="w-6 h-6" style={show2?{transform: 'rotate(180deg)',}:{transform: 'rotate(0deg)'}} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>}
                             </div>
-                            
                         </button>
                         { open ?(show2 && <ul  className="absolute w-48 bg-white rounded-lg mt-1 ">
                             <li>
@@ -145,11 +143,10 @@ const Navbar = ({auth,children, total}) => {
                                 <span className='md:inline min-[200px]:hidden lg:text-left min-[200px]:text-center'>Gestión de Equipos</span>
                                 {open && <svg  className="w-6 h-6" style={show?{transform: 'rotate(180deg)',}:{transform: 'rotate(0deg)'}} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>}
                             </div>
-                            
                         </button>
                             {open ? (show  && <ul  className="bg-white absolute w-48 rounded-lg mt-1">
                                 <li>
-                                    <Link href={route('d.tipoequipos.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out">
+                                    <Link href={route('d.tipoequipos.index')}  className="flex items-center p-2 pl-11 w-full text-sm font-normal  rounded-lg hover:text-green-800 hover:bg-green-100 transition duration-300 ease-in-out ">
                                         Tipo de Equipo
                                     </Link>
                                 </li>

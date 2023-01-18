@@ -21,8 +21,8 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserSoftwareController;
-
 use Illuminate\Support\Facades\Route;
+
 
 
 //RUTA INICIO
@@ -230,6 +230,7 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
         Route::get('/dashboard/usuarios/edit/{id}','edit')->name('d.usuarios.edit');
         Route::put('/dashboard/usuarios/update/{id}','update')->name('d.usuarios.update');
         Route::delete('/dashboard/usuarios/{id}','destroy')->name('d.usuarios.destroy');
+        Route::get('/dashboard/usuarios/excel','exportExcel')->name('excel');
     });
 
     Route::controller(AdminSolicitudController::class)->group(function (){
@@ -278,6 +279,7 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::delete('solicitud/{id}','removeItem')->name('removeItem');
         Route::delete('/solicitud','removeAll')->name('removeAll');
         Route::get('reportes/{tipo}/{uso}','viewPdf')->name('viewPdf');
+        Route::get('reportes/download/{tipo}/{uso}','downloadPDF')->name('downloadPDF');
     });
     Route::controller(CartEquipoController::class)->group(function(){
         Route::get('/carrito','carritoindex')->name('carritoindex');
@@ -287,6 +289,7 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
     });
     Route::controller(SolicitudController::class)->group(function(){
        Route::post('/pedido','addPedido')->name('addPedido');
+       Route::post('/subirPDF','subirPDF')->name('subirPDF');
     });
 });
 

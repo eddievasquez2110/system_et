@@ -2,7 +2,7 @@ import React from 'react'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head,Link } from '@inertiajs/inertia-react';
 import Equipo from '@/Components/Equipo';
-import { faMagnifyingGlass,faEye,faTrash, faPlusCircle} from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const User = ({auth,equipos}) => {

@@ -6,13 +6,10 @@ use App\Models\Oficina;
 use App\Models\Rol;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Crypt;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -61,14 +58,7 @@ class UserController extends Controller
         ]);
 
         $usua = $request->all();
-        /* dd($usua); */
-        // User::create([
-        //     'ID_Rol' => $request->ID_Rol,
-        //     'ID_Oficina' => $request->ID_Oficina,
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'password' => Hash::make($request->password),
-        // ]);
+
         User::create([
             'ID_Rol' => $usua['ID_Rol'],
             'ID_Oficina' => $usua['ID_Oficina'],
@@ -99,15 +89,12 @@ class UserController extends Controller
         $ofis = Oficina::all();
         $rols = Rol::all();
 
-        // $usua = Crypt::encryptString($usua);
-
         return Inertia::render('Admin/Usuarios/Usuario/Edit', [
             'usua' => $usua,
             'ofis' => $ofis,
             'rols' => $rols
         ]);
     }
-
 
     public function update(Request $request, $id)
     {
@@ -128,11 +115,8 @@ class UserController extends Controller
             'email' => $usua['email'],
             'password' => Hash::make($usua['password']),
         ]);
-
-        return redirect()->route('d.usuarios.index');
-        
+        return redirect()->route('d.usuarios.index');    
     }
-
 
     public function destroy($id)
     {
@@ -145,4 +129,12 @@ class UserController extends Controller
         $usua = Rol::select('ID_Rol', 'Nombre_Rol')->get();
         return $usua;
     }
+
+    public function exportExcel()
+    {
+        $user = User::all();
+        return Excel::download($user, 'users.xlsx');
+    }
+    
 }
+

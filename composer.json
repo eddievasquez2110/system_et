@@ -13,6 +13,7 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^2.8",
         "laravel/tinker": "^2.7",
+        "maatwebsite/excel": "*",
         "nesbot/carbon": "^2.62",
         "tightenco/ziggy": "^1.0"
     },

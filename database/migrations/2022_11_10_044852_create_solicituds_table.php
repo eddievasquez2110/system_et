@@ -18,7 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id');
             $table->foreign('id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('Estado_Solicitud',30)->nullable()->default('Pendiente');
-            $table->String('Documento');
+            $table->String('Documento')->nullable();
+            $table->String('Proyecto')->nullable();
             $table->timestamps();
         });
     }

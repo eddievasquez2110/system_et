@@ -73,11 +73,11 @@ class SoftwareController extends Controller
     }
 
     public function downloadPDF($tipo,$uso){
-
+        $user = User::with('Oficina')->where(['id'=>auth()->user()->id])->first();
         $equipos = Tipo_Equipo::where('ID_Tipo_Equipo',$tipo)->first();
         $especificacion = Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)
         ->where('ID_Uso_Equipo',$uso)->get();
-        $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion']));
+        $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion','user']));
         return $pdf->download('pdf_file.pdf');
     }
     
