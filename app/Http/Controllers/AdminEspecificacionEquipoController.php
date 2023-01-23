@@ -12,7 +12,6 @@ class AdminEspecificacionEquipoController extends Controller
 {
     public function index(Request $request)
     {
-        
          $search = $request->query('search');
          $espEquipos = Especificacion_Equipo::query()->when($search, fn($query) => 
          $query->where('Nombre_Tipo_Equipo','LIKE',"%{$search}%")->orWhere('Nombre_Uso_Equipo', 'LIKE', "%{$search}%")->orderBy('ID_Especificacion_Equipo')

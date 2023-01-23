@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faFileCircleCheck, faFileCircleXmark} from '@fortawesome/free-solid-svg-icons';
 import dayjs from 'dayjs';
 import { Link } from '@inertiajs/inertia-react';
 import Swal from 'sweetalert2';
 import { Inertia } from '@inertiajs/inertia';
-
-
-//import { Popup } from 'unc-react-creator';
 
 const List_Solicitud = ({soli}) => {
     const aceptar = (e) => {
@@ -72,9 +69,9 @@ const List_Solicitud = ({soli}) => {
             <td className="py-2 px-4 md:px-6 justify-center ">
                 <Link 
                 className='text-green-600 hover:text-green-500'
-                href=''>
+                href={route('d.proyecto.ver',soli.ID_Solicitud)}>
                     <div className='flex items-center justify-center '>
-                        {soli.Documento}
+                        {soli.Proyecto}
                     </div> 
                 </Link>       
             </td>

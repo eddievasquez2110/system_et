@@ -5,8 +5,9 @@ import Pagination from '@/Components/Pagination';
 import List_Solicitud from '@/Components/Solicitud/List_Solicitud';
 import { Inertia } from '@inertiajs/inertia';
 
-export default function Index({solis,auth}) {
+export default function Index({solis,auth,solis1}) {
     const [query,setQuery]= useState('');
+
     const search = (e) => {
         Inertia.get(route(route().current()),
             {search : query},
@@ -23,13 +24,12 @@ export default function Index({solis,auth}) {
                 <div className='flex items-center gap-8 '>
                 <span className='text-slate-500 text-3xl'>Solicitudes</span>
                 <div className='inline my-2'>
-                    
                 </div>
                 </div>
                 <div className='flex mt-2  items-center justify-between'>
                     <div className='hidden md:block flex items-center text-slate-500'>
                         Registros
-                    </div>
+                    </div>    
                     <div className='flex items-center gap-4'>
                         <label className='hidden md:block text-slate-500'>Buscar: </label>
                         <input 
@@ -57,7 +57,7 @@ export default function Index({solis,auth}) {
                                     Correo
                             </th>
                             <th scope="col" className="py-3 px-3 md:px-4 " style={{borderRight: '1px solid white'}}>
-                                    Documento
+                                    Proyecto
                             </th>
                             <th scope="col" className="py-3 px-1 md:px-4" style={{borderRight: '1px solid white'}}>
                                 <div className="flex items-center">

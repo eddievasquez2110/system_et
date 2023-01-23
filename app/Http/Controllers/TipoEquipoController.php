@@ -22,12 +22,6 @@ class TipoEquipoController extends Controller
     }
 
     
-    public function create()
-    {
-        //
-    }
-
-    
     public function store(Request $request)
     {
         $request ->validate([
@@ -64,23 +58,6 @@ class TipoEquipoController extends Controller
         $especificacion = Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)->get();
         $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion','user']));
         return $pdf->stream('pdf_file.pdf');
-    }
-
-    public function edit(Tipo_Equipo $tipo_Equipo)
-    {
-        //
-    }
-
-    
-    public function update(Request $request, Tipo_Equipo $tipo_Equipo)
-    {
-        //
-    }
-
-    
-    public function destroy(Tipo_Equipo $tipo_Equipo)
-    {
-        //
     }
 
     public function viewEspecificacion($tipo,$uso){

@@ -11,7 +11,6 @@ use Inertia\Inertia;
 class AdminController extends Controller
 {
     
-    
     public function __construct()
     {
         $this->middleware('auth');
@@ -50,38 +49,5 @@ class AdminController extends Controller
             'noviembre' => $noviembre,
             'diciembre' => $diciembre
         ]);
-    }
-
-    
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-  
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-  
-    public function destroy($id)
-    {
-        //
     }
 }

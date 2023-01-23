@@ -20,15 +20,6 @@ class User extends Authenticatable
         'password',
     ];
 
-    // protected $attributes  = [
-    //     'ID_Rol' => '',
-    //     'ID_Oficina' => '',
-    //     'name' => '',
-    //     'email' => '',
-    //     'password' => '',
-    // ];
-
-
     protected $hidden = [
         'password',
         'remember_token',

@@ -6,7 +6,6 @@ use App\Models\Especificacion_Equipo;
 use App\Models\Solicitud;
 use App\Models\Tipo_Equipo;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class AdminSolicitudController extends Controller
@@ -15,8 +14,9 @@ class AdminSolicitudController extends Controller
     {
         $search = $request->query('search');
         $solis = Solicitud::query()->when($search, fn($query) => 
-        $query->where('ID_Solicitud','LIKE',"%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->orderBy('created_at','desc')
+        $query->where('name','LIKE',"%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->orderBy('ID_Solicitud')
         )->with('users')
+        ->join('users','solicituds.id','=','users.id')
         ->paginate(5);
 
         return Inertia::render('Admin/Solicitud/Index',[
@@ -61,6 +61,13 @@ class AdminSolicitudController extends Controller
         ]);
     }
 
+    public function viewProyecto($id)
+    {
+        return Inertia::render('Admin/Solicitud/ViewProyecto',[
+            'solis' =>Solicitud::where('ID_Solicitud',$id)->get(),
+        ]);
+    }
+
     public function aceptar($id)
     {
         Solicitud::where('ID_Solicitud',$id)->update([
@@ -76,4 +83,5 @@ class AdminSolicitudController extends Controller
         ]);
         return redirect()->route('d.solicituds');
     }
+
 }

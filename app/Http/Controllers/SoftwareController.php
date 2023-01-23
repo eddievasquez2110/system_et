@@ -69,7 +69,7 @@ class SoftwareController extends Controller
         $especificacion = Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)
         ->where('ID_Uso_Equipo',$uso)->get();
         $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion','user']));
-        return $pdf->stream('pdf_file.pdf');
+        return $pdf->stream('EETT_'.date('YmdHis').'.pdf');
     }
 
     public function downloadPDF($tipo,$uso){
@@ -78,33 +78,7 @@ class SoftwareController extends Controller
         $especificacion = Especificacion_Equipo::where('ID_Tipo_Equipo',$tipo)
         ->where('ID_Uso_Equipo',$uso)->get();
         $pdf = Pdf::loadView('pdf',compact(['equipos','especificacion','user']));
-        return $pdf->download('pdf_file.pdf');
+        return $pdf->download('EETT_'.date('YmdHis').'.pdf');
     }
     
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show(Software $software)
-    {
-        
-    }
-
-    public function edit(Software $software)
-    {
-        //
-    }
-
-    
-    public function update(Request $request, Software $software)
-    {
-        //
-    }
-
-    
-    public function destroy(Software $software)
-    {
-        //
-    }
 }

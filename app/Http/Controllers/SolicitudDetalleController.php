@@ -18,11 +18,6 @@ class SolicitudDetalleController extends Controller
             'solicitud_D' => Solicitud_Detalle::all(),
         ]);
     }
-    
-    public function create()
-    {
-        
-    }
 
     public function store(Request $request)
     {

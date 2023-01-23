@@ -239,7 +239,7 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
         Route::post('/dashboard/solicitudes/aceptar/{id}', 'aceptar')->name('d.solicituds.aceptar');
         Route::get('/dashboard/solicitudes/rechazar/{id}', 'rechazar')->name('d.solicituds.rechazar');
         Route::get('/dashboard/solicitudes/ver/{id}', 'viewDocument')->name('d.solicituds.ver');
-        Route::get('/dashboard/inicio/{id}', 'viewDocument')->name('d.solicituds.ver');
+        Route::get('/dashboard/solicitudes/proyecto/{id}', 'viewProyecto')->name('d.proyecto.ver');
     });
     
     Route::get('/dashboard/especificacion/{id}', [EspecificacionEquipoController::class,'show'])
@@ -288,9 +288,16 @@ Route::middleware(['auth', 'verified','solouser'])->group(function () {
         Route::delete('/carrito','removeAllEquipo')->name('removeAllEquipo');
     });
     Route::controller(SolicitudController::class)->group(function(){
-       Route::post('/pedido','addPedido')->name('addPedido');
-       Route::post('/subirPDF','subirPDF')->name('subirPDF');
+        Route::get('/solicitudes','index')->name('solicitud.index');
+        
+        Route::post('/subirPDF','subirPDF')->name('subirPDF');
+        Route::post('/pedido','addPedido')->name('addPedido');
     });
+    Route::controller(AdminSolicitudController::class)->group(function(){
+        Route::get('/solicitudes/ver/{id}', 'viewDocument')->name('solicituds.ver');
+        Route::get('/solicitudes/proyecto/{id}', 'viewProyecto')->name('proyecto.ver');
+    });
+    
 });
 
 Route::controller(NotificacionController::class)->group(function (){

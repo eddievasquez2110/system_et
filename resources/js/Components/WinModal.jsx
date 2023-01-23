@@ -4,7 +4,7 @@ import { faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 import { Inertia } from '@inertiajs/inertia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function WinModal({children}) {
+export default function WinModal({auth,children,label}) {
   let [isOpen, setIsOpen] = useState(true)
 
   function closeModal() {
@@ -15,11 +15,13 @@ export default function WinModal({children}) {
     setIsOpen(true)
   }
   function cerrar(){
-    Inertia.get(route('d.solicituds'));
+    
+        Inertia.get(route('d.solicituds'))
+        Inertia.get(route('solicitud.index'))
   }
 
   return (
-    <>
+    <div>
       
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={cerrar}>
@@ -35,7 +37,7 @@ export default function WinModal({children}) {
             <div className="fixed inset-0 bg-black bg-opacity-40" />
           </Transition.Child>
 
-          <div className="fixed inset-0 overflow-y-auto">
+          <div className="fixed inset-0 overflow-y-auto ">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -46,13 +48,13 @@ export default function WinModal({children}) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-4/5 max-w-xlg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <div className='flex inline-flex place-content-between w-full py-2'>
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-green-900"
                   >
-                    Especificacion Equipo 
+                    {label}
 
                   </Dialog.Title>
                   <button
@@ -82,6 +84,6 @@ export default function WinModal({children}) {
           </div>
         </Dialog>
       </Transition>
-    </>
+    </div>
   )
 }

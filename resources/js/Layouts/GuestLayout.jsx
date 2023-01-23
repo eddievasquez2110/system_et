@@ -1,6 +1,5 @@
 import React from 'react';
 import ApplicationLogoLogin from '@/Components/ApplicationLogoLogin';
-import { Link } from '@inertiajs/inertia-react';
 import InputLabel from '@/Components/InputLabel';
 
 export default function Guest({ children,label}) {

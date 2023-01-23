@@ -6,7 +6,6 @@ use App\Models\Notificacion;
 use App\Models\Solicitud;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use SebastianBergmann\CodeCoverage\Driver\Selector;
 
 class NotificacionController extends Controller
 {
@@ -14,9 +13,6 @@ class NotificacionController extends Controller
     public function index(Request $request)
     {
         $search = $request->query('search');
-        //$countNoti = Notificacion::get()->count();
-        // $countNoti = Notificacion::query('notificacions')->where('notificacions.Estado','pendiente')
-        // ->select(Notificacion::raw('count(*) as filas'))->first();
 
         $countNoti = Notificacion::query('count(*) as filas ')->where('notificacions.Estado','pendiente')->get();
         

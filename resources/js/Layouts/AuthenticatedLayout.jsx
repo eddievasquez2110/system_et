@@ -58,6 +58,9 @@ export default function Authenticated({ auth, children }) {
                                 <NavLink href={route('d.usersoftwares.index')} active={route().current('d.usersoftwares.index')}>
                                     Software
                                 </NavLink>
+                                <NavLink href={route('solicitud.index')} active={route().current('d.usersoftwares.index')}>
+                                    Solicitud
+                                </NavLink>
                             </div>  
                             :<></>   
                             }
@@ -145,9 +148,6 @@ export default function Authenticated({ auth, children }) {
                             <ResponsiveNavLink href={route('d.usersoftwares.index')} active={route().current('d.usersoftwares.index')}>
                                 Software
                             </ResponsiveNavLink>
-                            <ResponsiveNavLink href={route('carritoindex')} active={route().current('carritoindex')}>
-                                Carrito
-                            </ResponsiveNavLink>
                         </div>
                         : <></>
                     }
@@ -212,7 +212,7 @@ export default function Authenticated({ auth, children }) {
             }
                 <footer>
                    <div className='h-14 flex items-center justify-center text-slate-400 border-t-2 border-neutral-100 bg-white'>
-                    Copyrigth © OGSIC 2022 
+                    Copyrigth © OGSIC 2023 
                     
                    </div>
                 </footer>

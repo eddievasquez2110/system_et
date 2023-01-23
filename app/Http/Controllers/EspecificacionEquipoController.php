@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Especificacion_Equipo;
 use App\Models\Tipo_Equipo;
-use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 

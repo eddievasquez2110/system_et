@@ -258,7 +258,7 @@ const Navbar = ({auth,children, total}) => {
                 </div>
                 <div className=' h-14 flex items-center justify-center text-slate-400 border-t-2 border-neutral-100'>
                    <div>
-                    Copyrigth © OGSIC 2022 
+                    Copyrigth © OGSIC 2023 
                    </div>
                 </div>
             </div>
