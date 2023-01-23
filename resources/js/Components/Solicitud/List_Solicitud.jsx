@@ -58,12 +58,12 @@ const List_Solicitud = ({soli}) => {
             </td>
             <td className="py-4 px-4 md:px-6 ">
                 <div className='flex flex-col'>
-                    {soli.users.name}
+                    {soli.name}
                 </div>
             </td>
             <td className="py-4 px-1 md:px-6 ">
                 <div className='flex flex-col text-center'>     
-                    {soli.users.email}
+                    {soli.email}
                 </div>
             </td>
             <td className="py-2 px-4 md:px-6 justify-center ">

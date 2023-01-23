@@ -13,12 +13,12 @@ const Solicitudes = ({soli}) => {
       <tr className="bg-white border-b">
             <td className="py-4 px-4 md:px-6">
                 <div className='flex flex-col'>
-                    {soli.ID_Solicitud}
+                    {soli.Cantidad_Equipo}
                 </div>
             </td>
             <td className="py-4 px-4 md:px-6 ">
                 <div className='flex flex-col'>
-                    {soli.users.name}
+                    {soli.Nombre_Tipo_Equipo}
                 </div>
             </td>
             <td className="py-4 px-1 md:px-6 ">

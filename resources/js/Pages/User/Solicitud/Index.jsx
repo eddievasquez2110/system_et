@@ -12,7 +12,7 @@ const Index = ({auth,solis}) => {
         <AuthenticatedLayout auth={auth}>
               <Head title="Solicitudes" />
                 <div className='flex mt-5 h-20 bg-gradient-to-r from-slate-100 to-slate-200 justify-center place-items-center gap-10'>
-                    <h1 className='text-green-600 text-lg'><strong>SOLICITUDES</strong></h1>
+                    <h1 className='text-green-600 text-lg'><strong>LISTA DE SOLICITUDES REGISTRADAS</strong></h1>
                 </div>
                 
                 <div className="wrapper flex flex-wrap justify-center items-center gap-5 mt-8 pb-10">
@@ -22,10 +22,10 @@ const Index = ({auth,solis}) => {
                             <thead className="text-xs text-white uppercase bg-green-700">
                                 <tr>
                                     <th scope="col" className="py-3 px-3 md:px-4" style={{borderRight: '1px solid white'}}>
-                                            ID
+                                            Cantidad
                                     </th>
                                     <th scope="col" className="py-3 px-3 md:px-4 " style={{borderRight: '1px solid white'}}>
-                                            Nombre
+                                            Equipo
                                     </th>
                                     <th scope="col" className="py-3 px-3 md:px-4 " style={{borderRight: '1px solid white'}}>
                                             Correo

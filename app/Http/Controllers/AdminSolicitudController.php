@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Especificacion_Equipo;
 use App\Models\Solicitud;
+use App\Models\Solicitud_Detalle;
 use App\Models\Tipo_Equipo;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -13,9 +14,10 @@ class AdminSolicitudController extends Controller
     public function index(Request $request)
     {
         $search = $request->query('search');
-        $solis = Solicitud::query()->when($search, fn($query) => 
+        $solis = Solicitud_Detalle::query()->when($search, fn($query) => 
         $query->where('name','LIKE',"%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->orderBy('ID_Solicitud')
-        )->with('users')
+        )
+        ->join('solicituds','solicitud__detalles.ID_Solicitud','=','solicituds.ID_Solicitud')
         ->join('users','solicituds.id','=','users.id')
         ->paginate(5);
 

@@ -58,7 +58,7 @@ export default function Authenticated({ auth, children }) {
                                 <NavLink href={route('d.usersoftwares.index')} active={route().current('d.usersoftwares.index')}>
                                     Software
                                 </NavLink>
-                                <NavLink href={route('solicitud.index')} active={route().current('d.usersoftwares.index')}>
+                                <NavLink href={route('solicitud.index')} active={route().current('solicitud.index')}>
                                     Solicitud
                                 </NavLink>
                             </div>  
@@ -148,6 +148,10 @@ export default function Authenticated({ auth, children }) {
                             <ResponsiveNavLink href={route('d.usersoftwares.index')} active={route().current('d.usersoftwares.index')}>
                                 Software
                             </ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('solicitud.index')} active={route().current('solicitud.index')}>
+                                Solicitudes
+                            </ResponsiveNavLink>
+                            
                         </div>
                         : <></>
                     }

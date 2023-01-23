@@ -13,10 +13,12 @@ use Inertia\Inertia;
 
 class SolicitudController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->query('search');
-        $solis = Solicitud::with('users')->where(['id'=>auth()->user()->id])
+        $solis = Solicitud::with('users','solicitud__detalles')->where(['id'=>auth()->user()->id])
+        
+        ->join('solicitud__detalles','solicituds.ID_Solicitud','=','solicitud__detalles.ID_Solicitud')
+        ->join('tipo__equipos','solicitud__detalles.ID_Tipo_Equipo','=','tipo__equipos.ID_Tipo_Equipo')
         ->paginate(5);
 
         return Inertia::render('User/Solicitud/Index',[
