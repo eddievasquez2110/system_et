@@ -1,0 +1,1 @@
+import{j as t,a as r,H as a}from"./app.422c050f.js";const s=({solis:i})=>t("div",{children:i.map(e=>t("embed",{src:`/images/documentos/${e.Documento}`,style:{width:"100%",height:"800px"}}))}),o=({auth:i,solis:e})=>r("div",{children:[t(a,{title:"Visualizar PDF"}),t(s,{solis:e},e.ID_Solicitud)]});export{o as default};
