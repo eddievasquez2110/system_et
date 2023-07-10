@@ -17,7 +17,7 @@ class SoftwareSeeder extends Seeder
     {
 
         $especificacions = Software::create([
-            'ID_Uso_Equipo' => '1',
+            'ID_Uso_Equipo' => '2',
             'Nombre_Software' => 'SIGA',
             'Imagen' => '1.png',
             'Version_Software' => '2022',
@@ -47,7 +47,7 @@ class SoftwareSeeder extends Seeder
         ]);
 
         $especificacions = Software::create([
-            'ID_Uso_Equipo' => '3',
+            'ID_Uso_Equipo' => '2',
             'Nombre_Software' => 'Any Desk',
             'Imagen' => '4.png',
             'Version_Software' => '2022',
@@ -67,7 +67,7 @@ class SoftwareSeeder extends Seeder
         ]);
 
         $especificacions = Software::create([
-            'ID_Uso_Equipo' => '2',
+            'ID_Uso_Equipo' => '4',
             'Nombre_Software' => 'AutoCad',
             'Imagen' => '6.png',
             'Version_Software' => '2016',
@@ -77,7 +77,7 @@ class SoftwareSeeder extends Seeder
         ]);
 
         $especificacions = Software::create([
-            'ID_Uso_Equipo' => '3',
+            'ID_Uso_Equipo' => '1',
             'Nombre_Software' => 'Zoom',
             'Imagen' => '7.png',
             'Version_Software' => '2022',
@@ -87,13 +87,23 @@ class SoftwareSeeder extends Seeder
         ]);
 
         $especificacions = Software::create([
-            'ID_Uso_Equipo' => '1',
+            'ID_Uso_Equipo' => '3',
             'Nombre_Software' => 'FoxPro',
             'Imagen' => '8.png',
             'Version_Software' => '2022',
             'Descripcion_Software' => 'Sistema de Gestor de Base de datos y lenguaje de programación orientado a procedimientos',
             'Editor_Software' => 'ADMIN',
             'Link_Software' => 'https://sites.google.com/a/niebla.com/siga/home/03-niebla?pli=1',
+        ]);
+
+        $especificacions = Software::create([
+            'ID_Uso_Equipo' => '2',
+            'Nombre_Software' => 'S10',
+            'Imagen' => '9.jpeg',
+            'Version_Software' => '2005',
+            'Descripcion_Software' => 'Software para costos de presupuestos',
+            'Editor_Software' => 'ADMIN',
+            'Link_Software' => 'https://soportelan.com/2022/12/07/descargar-s10/',
         ]);
         
     }

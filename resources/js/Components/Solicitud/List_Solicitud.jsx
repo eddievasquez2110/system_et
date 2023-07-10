@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { Inertia } from '@inertiajs/inertia';
 
 const List_Solicitud = ({soli}) => {
+    
     const aceptar = (e) => {
         Swal.fire({
             title: 'Estas seguro?',
@@ -27,6 +28,7 @@ const List_Solicitud = ({soli}) => {
             }
           })
     }
+
     const rechazar = (e) => {
         Swal.fire({
             title: 'Estas seguro?',

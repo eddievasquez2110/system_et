@@ -31,11 +31,7 @@ export default function Index({usua,auth}) {
                         ><FontAwesomeIcon className={'h-5 w-5'} icon={faPlusCircle}></FontAwesomeIcon> 
                             <label className='hidden md:block'>Nuevo</label>
                     </Link>
-                    <Link
-                        className="justify-center "
-                        href={route("excel")}>
-                        <FontAwesomeIcon icon={faFileExcel} className='flex h-5 w-5 text-green-500 hover:scale-110 md:hidden'></FontAwesomeIcon>
-                    </Link>
+                    
                     </div>
                 </div>
                 <div className='flex mt-2  items-center justify-between'>
@@ -43,9 +39,9 @@ export default function Index({usua,auth}) {
                         Registros
                     </div>
                     <div className='flex items-center gap-4'>
-                        <button className=''>
+                        {/* <button className=''>
                             <FontAwesomeIcon icon={faFileExcel} className='h-6 w-9 text-green-500 hover:scale-110 hidden md:block'></FontAwesomeIcon>
-                        </button>
+                        </button> */}
                         <label className='text-slate-500 hidden md:block'>Buscar: </label>
                         <input 
                         className='rounded-md py-1 text-slate-500 placeholder:text-gray-300' 

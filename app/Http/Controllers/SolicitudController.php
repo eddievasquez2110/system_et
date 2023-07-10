@@ -16,7 +16,6 @@ class SolicitudController extends Controller
     public function index()
     {
         $solis = Solicitud::with('users','solicitud__detalles')->where(['id'=>auth()->user()->id])
-        
         ->join('solicitud__detalles','solicituds.ID_Solicitud','=','solicitud__detalles.ID_Solicitud')
         ->join('tipo__equipos','solicitud__detalles.ID_Tipo_Equipo','=','tipo__equipos.ID_Tipo_Equipo')
         ->paginate(5);

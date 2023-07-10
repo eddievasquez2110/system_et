@@ -45,7 +45,7 @@ export default function Index({soft,auth}) {
                         id='search'
                         onChange={(e) => setQuery(e.target.value)}
                         onKeyUp={search}
-                        placeholder='Digitar Equipo'
+                        placeholder='Digitar Software'
                         />
                     </div>
                 </div>

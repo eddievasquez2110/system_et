@@ -56,6 +56,51 @@ class AdminSolicitudController extends Controller
         ]);
     }
 
+    public function FiltroPendiente(Request $request)
+    {
+        $search = $request->query('search');
+        $solis = Solicitud_Detalle::query()->when($search, fn($query) => 
+        $query->where('name','LIKE',"%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->orderBy('ID_Solicitud')
+        )->where('Estado_Solicitud','=','pendiente')
+        ->join('solicituds','solicitud__detalles.ID_Solicitud','=','solicituds.ID_Solicitud')
+        ->join('users','solicituds.id','=','users.id')
+        ->paginate(5);
+
+        return Inertia::render('Admin/Solicitud/Index',[
+            'solis' => $solis,
+        ]);
+    }
+
+    public function FiltroAceptado(Request $request)
+    {
+        $search = $request->query('search');
+        $solis = Solicitud_Detalle::query()->when($search, fn($query) => 
+        $query->where('name','LIKE',"%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->orderBy('ID_Solicitud')
+        )->where('Estado_Solicitud','=','aceptado')
+        ->join('solicituds','solicitud__detalles.ID_Solicitud','=','solicituds.ID_Solicitud')
+        ->join('users','solicituds.id','=','users.id')
+        ->paginate(5);
+
+        return Inertia::render('Admin/Solicitud/Index',[
+            'solis' => $solis,
+        ]);
+    }
+
+    public function FiltroRechazado(Request $request)
+    {
+        $search = $request->query('search');
+        $solis = Solicitud_Detalle::query()->when($search, fn($query) => 
+        $query->where('name','LIKE',"%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->orderBy('ID_Solicitud')
+        )->where('Estado_Solicitud','=','rechazado')
+        ->join('solicituds','solicitud__detalles.ID_Solicitud','=','solicituds.ID_Solicitud')
+        ->join('users','solicituds.id','=','users.id')
+        ->paginate(5);
+
+        return Inertia::render('Admin/Solicitud/Index',[
+            'solis' => $solis,
+        ]);
+    }
+
     public function viewDocument($id)
     {
         return Inertia::render('Admin/Solicitud/ViewDocument',[

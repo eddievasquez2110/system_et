@@ -235,11 +235,15 @@ Route::middleware(['auth', 'verified','soloadmin'])->group(function () {
 
     Route::controller(AdminSolicitudController::class)->group(function (){
         Route::get('/dashboard/solicitudes', 'index')->name('d.solicituds');
+        Route::get('/dashboard/solicitudes/pendientes', 'FiltroPendiente')->name('d.solicituds.pendiente');
+        Route::get('/dashboard/solicitudes/aceptados', 'FiltroAceptado')->name('d.solicituds.aceptado');
+        Route::get('/dashboard/solicitudes/rechazados', 'FiltroRechazado')->name('d.solicituds.rechazado');
         Route::get('/dashboard/especificacionEquipo/{id}', 'show')->name('d.solicituds.show');
         Route::post('/dashboard/solicitudes/aceptar/{id}', 'aceptar')->name('d.solicituds.aceptar');
         Route::get('/dashboard/solicitudes/rechazar/{id}', 'rechazar')->name('d.solicituds.rechazar');
         Route::get('/dashboard/solicitudes/ver/{id}', 'viewDocument')->name('d.solicituds.ver');
         Route::get('/dashboard/solicitudes/proyecto/{id}', 'viewProyecto')->name('d.proyecto.ver');
+        
     });
     
     Route::get('/dashboard/especificacion/{id}', [EspecificacionEquipoController::class,'show'])

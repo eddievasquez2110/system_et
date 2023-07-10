@@ -4,6 +4,7 @@ import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
 import List_Solicitud from '@/Components/Solicitud/List_Solicitud';
 import { Inertia } from '@inertiajs/inertia';
+import Dropdown from '@/Components/Dropdown';
 
 export default function Index({solis,auth,solis1}) {
     const [query,setQuery]= useState('');
@@ -30,16 +31,47 @@ export default function Index({solis,auth,solis1}) {
                     <div className='hidden md:block flex items-center text-slate-500'>
                         Registros
                     </div>    
-                    <div className='flex items-center gap-4'>
-                        <label className='hidden md:block text-slate-500'>Buscar: </label>
-                        <input 
-                        className='flex mt-2 rounded-md py-1 text-slate-500 placeholder:text-gray-300 ' 
-                        type="text"
-                        id='search'
-                        onChange={(e) => setQuery(e.target.value)}
-                        onKeyUp={search}
-                        placeholder='Digitar Correo de usuario'
-                        />
+                    
+                    <div className='items-center gap-4 md:w-auto md:flex'>
+                        <div className='flex gap-4'>
+                            <Dropdown>
+                            <Dropdown.Trigger>
+                                <span className="inline-flex rounded-md">
+                                    <button
+                                        type="button"
+                                        className="font-bold inline-flex px-2 py-2 border border-green-400 text-sm leading-4 font-medium rounded-md text-green-600 hover:bg-green-300 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                    >Seleccionar filtro
+                                    
+                                    </button>
+                                </span>
+                            </Dropdown.Trigger>
+                            <Dropdown.Content>
+                                <Link href={route('d.solicituds.pendiente')} as="button" className='block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-red-200 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'>
+                                    Ordenar pendientes
+                                </Link>
+                                <Link href={route('d.solicituds.aceptado')} as="button" className='block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-red-200 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'>
+                                    Ordenar aceptados
+                                </Link>
+                                <Link href={route('d.solicituds.rechazado')} as="button" className='block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-red-200 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'>
+                                    Ordenar rechazados
+                                </Link>
+                
+                            </Dropdown.Content>
+                        </Dropdown>
+                        <Link className='font-bold inline-flex px-2 py-2 border border-red-300 text-sm leading-4 font-medium rounded-md text-red-400 hover:bg-red-300 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150' 
+                        href={route('d.solicituds')}>Borrar Filtro</Link>
+                        </div>
+                        <div className='md:flex gap-3 items-center'>
+                            <label className='hidden md:block text-slate-500'>Buscar: </label>
+                            <input 
+                            className='flex mt-2 rounded-md py-1 text-slate-500 placeholder:text-gray-300 ' 
+                            type="text"
+                            id='search'
+                            onChange={(e) => setQuery(e.target.value)}
+                            onKeyUp={search}
+                            placeholder='Digitar Correo de usuario'
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -13,8 +13,6 @@ class AdminSoftwareController extends Controller
     {
         $search = $request->query('search');
         $soft = Software::query()->when($search, fn($query) => 
-        // $query->where('Nombre_Software','LIKE',"%{$search}%")->orWhere('ID_Software', 'LIKE', "%{$search}%")->orderBy('ID_Software')
-        //  )->paginate(5);
         $query->where('Nombre_Software','LIKE',"%{$search}%")->orWhere('ID_Software', 'LIKE', "%{$search}%")->orderBy('ID_Software')
         )->with('uso__equipos')
        ->join('uso__equipos','software.ID_Uso_Equipo','=','uso__equipos.ID_Uso_Equipo')->paginate(5);
